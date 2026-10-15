@@ -1,43 +1,50 @@
 # AGENTS.md — agent operating guide
 
 This repository is a **blueprint**: the architecture of a governed data
-platform, stated as **capabilities** with testable **contracts**. It names no
-vendor in a contract. An **implementation** binds each capability to real
-components and shows evidence for each contract; implementations live in
-their own repositories. Start at `README.md`.
+platform, stated as **capabilities** with testable **contracts**. An
+**implementation** binds each capability to components and shows evidence
+for each clause; implementations live in their own repositories. Start at
+`README.md`; to build an implementation, follow `docs/building.md`.
 
 ## Rules of the blueprint
 
-- **A contract is vendor-neutral.** Product names appear only in
-  implementation bindings (`docs/implementations/`) and "as implemented"
-  notes.
-- **A contract is testable.** Each `MUST` says how conformance is shown.
-  A property that cannot be tested is a principle or a pattern, not a contract.
-- **IDs are stable.** Capabilities (`CAP-…`) and contract clauses
-  (`CAP-….n`) are never renumbered; a retired clause stays, marked retired.
-  `blueprint/catalogue.yaml` is the single source of IDs and clause text.
+- **The catalogue is the source.** `blueprint/catalogue.yaml` holds every
+  capability ID and clause text. Edit it, then run `just render`: contract
+  tables, the index, the build order and the implementation matrix are
+  generated from it and from `docs/implementations/*.yaml`. Text between
+  `BEGIN GENERATED` and `END GENERATED` markers is never edited by hand.
+- **A contract is vendor-neutral and testable.** Product names appear only
+  in bindings and in "Notes". Each clause says how conformance is shown; an
+  idea that cannot be tested is a principle, not a clause.
+- **IDs are stable.** Clauses run 1..n and are never renumbered, removed
+  or reused; a retired clause stays, with `retired:` saying why.
 - **The architecture changes only through an ADR** (`docs/adr/`). An
-  implementation that cannot meet a clause records a **deviation** in its
-  binding, with the consequence; it does not edit the blueprint.
+  implementation that cannot meet a clause records a `deviation` in its
+  binding; it does not edit the contract.
 - **Diagrams are C4 levels 1–3 in Mermaid**, drawn as `flowchart` with step
-  edges and subgraph lanes, each with a "Why it is drawn this way" note.
+  edges and subgraph lanes, each followed by "Why it is drawn this way".
   Render with `nix develop .#diagrams --command just diagrams` and look at
-  the output before committing.
+  every PNG in `build/` before committing.
 
 ## Writing
 
-- Public repository: roles, never people; no organisation, tenant, host or
-  account identifiers from any real deployment.
+- The repository is meant to be public: roles, never people; no
+  organisation, tenant, host or account identifiers from any deployment.
 - Google style guides (Markdown, Shell, Python) and engineering practices:
   small focused changes, names that say what a thing is, text that says why.
-- Cite primary sources for any claim about research or a product's
-  behaviour, with a URL and the date it was checked.
+- Cite primary sources for claims about research or a product's behaviour,
+  with the date checked; mark what could not be confirmed as unverified.
 
 ## Environment and version control
 
-- Everything runs in the nix dev shell: `nix develop --command just <recipe>`.
-  `just --list` is the index; `just check` is what a change must pass.
+- Everything runs in the Nix dev shell: `nix develop --command just
+  <recipe>`. `just check` is what a change must pass.
+- Formatting and linting are the tools' job: `just fmt` fixes, and each
+  tool's rules live in its config file at the root. Change a rule in config,
+  never by hand-editing around it.
 - Jujutsu, colocated with git: `jj describe` then `jj new`. Commits are
   Angular-style: `type(scope): subject`, imperative, lowercase, under 72
-  characters, a body saying why, `BREAKING CHANGE:` in the footer when an ID
-  or contract changes meaning.
+  characters, a body saying why, and `BREAKING CHANGE:` in the footer when a
+  clause's meaning changes.
+- CI runs only on Azure Pipelines (`azure-pipelines.yml`); other remotes
+  carry no CI definition.
