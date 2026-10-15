@@ -1,0 +1,10 @@
+formatter:
+  type: basic
+  indent: 2
+  # Keep single blank lines between entries for readability.
+  retain_line_breaks_single: true
+  # Without this, retaining line breaks after a folded scalar (>-) injects a
+  # marker comment into the scalar's text. Verified with yamlfmt 0.21.0.
+  scan_folded_as_literal: true
+exclude:
+  - build/**

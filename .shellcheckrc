@@ -1,0 +1,2 @@
+# Google shell style, plus every optional check shellcheck offers.
+enable=all

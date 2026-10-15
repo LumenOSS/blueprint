@@ -1,0 +1,6 @@
+# Links are checked offline: the repository must be internally consistent.
+offline = true
+include_fragments = "anchor-only"
+no_progress = true
+# Rendered diagrams are build output.
+exclude_path = ["build"]

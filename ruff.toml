@@ -1,0 +1,28 @@
+# Python style: Google's Python style guide, as far as ruff enforces it.
+# https://google.github.io/styleguide/pyguide.html
+line-length = 80
+indent-width = 4
+target-version = "py312"
+
+[format]
+quote-style = "double"
+
+[lint]
+select = [
+  "E", "W",  # pycodestyle
+  "F",       # pyflakes
+  "I",       # import order
+  "N",       # pep8-naming
+  "D",       # docstrings
+  "UP",      # pyupgrade
+  "B",       # bugbear
+  "SIM",     # simplify
+  "PL",      # pylint
+  "RUF",     # ruff-specific
+]
+ignore = [
+  "PLR2004",  # magic values: comparisons against literals read fine here
+]
+
+[lint.pydocstyle]
+convention = "google"

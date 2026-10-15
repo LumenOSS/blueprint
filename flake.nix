@@ -20,20 +20,51 @@
     in
     {
       devShells = forAllSystems (pkgs: {
-        # Checks: what every change must pass. Small, so CI caches it cheaply.
+        # Every file type has a formatter, a linter and a language server,
+        # and every rule lives in that tool's config file at the repository
+        # root. Formatting is the tool's job, never a hand edit: `just fmt`
+        # fixes, `just check` verifies. Editors pick the servers up from
+        # this shell (e.g. via direnv).
         default = pkgs.mkShell {
           packages = with pkgs; [
             just
-            jq
+            # Python: ruff formats and lints (ruff.toml), pyright type-checks
+            # and serves the editor (pyrightconfig.json).
             (python3.withPackages (ps: [
               ps.pyyaml
               ps.jsonschema
+              ps.types-pyyaml
+              ps.types-jsonschema
             ]))
+            ruff
+            pyright
+            # Markdown: markdownlint-cli2 lints and fixes
+            # (.markdownlint-cli2.yaml); marksman serves the editor; lychee
+            # checks links offline.
             markdownlint-cli2
-            yamllint
+            marksman
             lychee
+            # YAML: yamlfmt formats (.yamlfmt.yaml), yamllint lints
+            # (.yamllint.yaml), yaml-language-server validates against the
+            # schemas named in each file's modeline.
+            yamlfmt
+            yamllint
+            yaml-language-server
+            # JSON: biome formats and lints (biome.json); check-jsonschema
+            # validates the schemas against their metaschema.
+            biome
+            check-jsonschema
+            # Shell: shfmt formats (.editorconfig), shellcheck lints
+            # (.shellcheckrc), bash-language-server serves the editor.
+            shfmt
             shellcheck
-            nixfmt-rfc-style
+            bash-language-server
+            # Nix: nixfmt formats, statix and deadnix lint, nil serves the
+            # editor.
+            nixfmt
+            statix
+            deadnix
+            nil
           ];
         };
 
@@ -47,6 +78,6 @@
         };
       });
 
-      formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
+      formatter = forAllSystems (pkgs: pkgs.nixfmt);
     };
 }
