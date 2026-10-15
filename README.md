@@ -1,7 +1,10 @@
 # data-platform-blueprint
 
-A reference architecture for a governed data platform, written so that the
-architecture stays fixed while the implementation varies. It covers
+A reference architecture for the governed data platform behind an
+education management information system (EMIS), written so that the
+architecture stays fixed while the implementation varies. It covers the
+resources an EMIS holds (learners, schools, teachers and staff, enrolment,
+attendance, assessment and the indicators reported from them) through
 operational databases, a lakehouse, governance and access, reporting,
 backfill and migration, and an example product that exercises all of them.
 
