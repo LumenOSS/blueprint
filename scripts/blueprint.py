@@ -25,10 +25,15 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 CATALOGUE = ROOT / "blueprint" / "catalogue.yaml"
 CAPABILITY_DOCS = ROOT / "docs" / "capabilities"
 IMPLEMENTATION_DOCS = ROOT / "docs" / "implementations"
+BUILDING_GUIDE = ROOT / "docs" / "building.md"
 SCHEMAS = ROOT / "schema"
 
 BEGIN = "<!-- BEGIN GENERATED: {name} (just render) -->"
 END = "<!-- END GENERATED: {name} -->"
+# Layer numbers are trust levels, not build order: modules (L2) are built
+# straight after bootstrap because every stack, bootstrap's included,
+# consumes them.
+BUILD_RANK = {"L0": 0, "L2": 1, "L1": 2, "L3": 3}
 ID_IN_TEXT = re.compile(r"\bCAP-[A-Z]+(?:\.[0-9]+)?\b")
 
 
@@ -411,6 +416,50 @@ def page_implementations(cap: Capability, files: list[BindingFile]) -> str:
     return "\n".join(rows)
 
 
+def build_order(cat: Catalogue) -> list[Capability]:
+    """Orders capabilities so each comes after everything it depends on.
+
+    Among capabilities that are ready, BUILD_RANK decides (bootstrap, then
+    modules, then platform, then products), then catalogue order, so the
+    result is deterministic. The catalogue check has already refused cycles.
+
+    Args:
+      cat: The catalogue.
+
+    Returns:
+      Every capability, dependencies first.
+    """
+    position = {c["id"]: i for i, c in enumerate(cat["capabilities"])}
+    done: set[str] = set()
+    ordered: list[Capability] = []
+    pending = list(cat["capabilities"])
+    while pending:
+        ready = min(
+            (
+                c
+                for c in pending
+                if all(d in done for d in c.get("depends_on", []))
+            ),
+            key=lambda c: (BUILD_RANK[c["layer"]], position[c["id"]]),
+        )
+        ordered.append(ready)
+        done.add(ready["id"])
+        pending.remove(ready)
+    return ordered
+
+
+def build_order_table(cat: Catalogue) -> str:
+    """Renders the build order as a numbered table."""
+    rows = ["| Step | Capability | Layer | Depends on |", separator(4)]
+    for step, cap in enumerate(build_order(cat), 1):
+        link = f"[{cap['id']}](capabilities/{cap['id'].lower()}.md)"
+        deps = ", ".join(cap.get("depends_on", [])) or "—"
+        rows.append(
+            f"| {step} | {link} {cell(cap['name'])} | {cap['layer']} | {deps} |"
+        )
+    return "\n".join(rows)
+
+
 def reference_bindings() -> list[BindingFile]:
     """Loads the reference binding files that pass their schema."""
     files: list[BindingFile] = []
@@ -440,6 +489,7 @@ def render(cat: Catalogue, *, write: bool) -> list[pathlib.Path]:
             update(page, "contract", contract_table(cap))
             update(page, "implementations", page_implementations(cap, files))
     update(CAPABILITY_DOCS / "README.md", "index", capability_index(cat))
+    update(BUILDING_GUIDE, "order", build_order_table(cat))
     if files:
         update(
             IMPLEMENTATION_DOCS / "README.md",
