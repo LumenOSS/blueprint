@@ -28,5 +28,8 @@ A pass rate computed in two places will eventually differ ([P11](../principles.m
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Unity Catalog metric views<br/>MetricFlow definitions as source |
+| [oss](../implementations/oss.yaml) | MetricFlow |
 <!-- END GENERATED: implementations -->

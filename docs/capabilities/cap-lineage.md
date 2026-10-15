@@ -32,5 +32,8 @@ Lineage exists only where an integration emits it. List the jobs without it.
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Unity Catalog lineage |
+| [oss](../implementations/oss.yaml) | OpenLineage |
 <!-- END GENERATED: implementations -->

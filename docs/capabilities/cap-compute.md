@@ -35,5 +35,8 @@ A query's timeout is its service objective. Probing with a long timeout hides th
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Serverless jobs compute<br/>Serverless SQL warehouse |
+| [oss](../implementations/oss.yaml) | Apache Spark 4 via Kubeflow spark-operator<br/>Trino<br/>DuckDB |
 <!-- END GENERATED: implementations -->

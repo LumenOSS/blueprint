@@ -31,5 +31,8 @@ A low-confidence guess is worse than no answer ([P10](../principles.md#p10-low-c
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | The example product's review service on Lakebase |
+| [oss](../implementations/oss.yaml) | The example product's review service on Postgres |
 <!-- END GENERATED: implementations -->

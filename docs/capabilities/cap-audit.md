@@ -29,5 +29,8 @@ Platform audit retention is usually shorter than legal retention, so audit is co
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | system.access.audit<br/>Diagnostic settings to Log Analytics |
+| [oss](../implementations/oss.yaml) | Audit sources<br/>Iceberg audit tables on object-locked storage |
 <!-- END GENERATED: implementations -->

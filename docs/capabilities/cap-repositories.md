@@ -38,5 +38,8 @@ Two remotes are normal: a repository can be mirrored on a second host and carry 
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Git with two remotes<br/>Azure Pipelines<br/>Nix flake + just |
+| [oss](../implementations/oss.yaml) | Git with two remotes<br/>Forgejo Actions<br/>Nix flake + just |
 <!-- END GENERATED: implementations -->

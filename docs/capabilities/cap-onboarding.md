@@ -36,5 +36,8 @@ The boundary between platform and product: the platform owns anything that cross
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Tenant YAML + OpenTofu (azurerm, databricks providers) |
+| [oss](../implementations/oss.yaml) | Tenant YAML + OpenTofu |
 <!-- END GENERATED: implementations -->

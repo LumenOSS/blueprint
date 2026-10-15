@@ -1,0 +1,694 @@
+# yaml-language-server: $schema=../../schema/binding.schema.json
+#
+# Reference binding: open source on Kubernetes. Every clause is `planned` until the
+# implementation repository shows evidence and moves it to `met`.
+
+blueprint:
+  version: 0.1.0
+implementation:
+  name: oss
+  summary: Open-source components only, on any Kubernetes cluster.
+  runtime: Kubernetes via OpenTofu and Helm; kind or k3d on a laptop
+  repository: https://github.com/LumenOSS/data-platform-oss
+bindings:
+  - capability: CAP-REPOSITORIES
+    components:
+      - name: Git with two remotes
+        role: source of truth; mirrored to a second host
+      - name: Forgejo Actions
+        role: CI host
+        licence: GPL-3.0-or-later
+        deploy: self-hosted forge
+        source: https://forgejo.org/
+        alternatives:
+          - Woodpecker CI
+          - GitHub Actions
+          - Azure Pipelines
+      - name: Nix flake + just
+        role: pinned toolchain and task runner
+        licence: MIT
+    notes: Forgejo's licence and its OIDC tokens for Actions were not verified (2026-10-15).
+    clauses:
+      - clause: CAP-REPOSITORIES.1
+        status: planned
+      - clause: CAP-REPOSITORIES.2
+        status: planned
+      - clause: CAP-REPOSITORIES.3
+        status: planned
+      - clause: CAP-REPOSITORIES.4
+        status: planned
+      - clause: CAP-REPOSITORIES.5
+        status: planned
+  - capability: CAP-STATE
+    components:
+      - name: OpenTofu
+        role: infrastructure as code with client-side state encryption
+        licence: MPL-2.0
+        source: https://opentofu.org/
+      - name: S3 backend on Ceph RGW
+        role: state bucket with versioning and object lock
+        licence: LGPL-2.1-or-later
+        deploy: Rook
+      - name: OpenBao transit
+        role: state encryption key
+        licence: MPL-2.0
+    notes: 'Garage cannot hold state: it has no S3 versioning.'
+    clauses:
+      - clause: CAP-STATE.1
+        status: planned
+      - clause: CAP-STATE.2
+        status: planned
+      - clause: CAP-STATE.3
+        status: planned
+      - clause: CAP-STATE.4
+        status: planned
+      - clause: CAP-STATE.5
+        status: planned
+      - clause: CAP-STATE.6
+        status: planned
+      - clause: CAP-STATE.7
+        status: planned
+      - clause: CAP-STATE.8
+        status: planned
+  - capability: CAP-CIIDENTITY
+    components:
+      - name: CI OIDC token
+        role: per-run identity from the CI host
+      - name: OpenBao JWT auth
+        role: exchanges the CI token for short-lived credentials
+        licence: MPL-2.0
+        deploy: Helm
+        source: https://openbao.org/
+      - name: Kubernetes projected service-account tokens
+        role: in-cluster workload identity
+        licence: Apache-2.0
+        alternatives:
+          - SPIFFE/SPIRE across clusters
+    clauses:
+      - clause: CAP-CIIDENTITY.1
+        status: planned
+      - clause: CAP-CIIDENTITY.2
+        status: planned
+      - clause: CAP-CIIDENTITY.3
+        status: planned
+      - clause: CAP-CIIDENTITY.4
+        status: planned
+      - clause: CAP-CIIDENTITY.5
+        status: planned
+      - clause: CAP-CIIDENTITY.6
+        status: planned
+  - capability: CAP-DELIVERY
+    components:
+      - name: Forgejo Actions
+        role: plan and apply pipeline
+        licence: GPL-3.0-or-later
+      - name: Argo CD
+        role: GitOps delivery of cluster workloads
+        licence: Apache-2.0
+        deploy: Helm
+        source: https://argo-cd.readthedocs.io/
+        alternatives:
+          - Flux
+    clauses:
+      - clause: CAP-DELIVERY.1
+        status: planned
+      - clause: CAP-DELIVERY.2
+        status: planned
+      - clause: CAP-DELIVERY.3
+        status: planned
+      - clause: CAP-DELIVERY.4
+        status: planned
+      - clause: CAP-DELIVERY.5
+        status: planned
+      - clause: CAP-DELIVERY.6
+        status: planned
+      - clause: CAP-DELIVERY.7
+        status: planned
+  - capability: CAP-MODULES
+    components:
+      - name: OpenTofu modules in a tagged repository
+        role: naming and building blocks
+        licence: MPL-2.0
+    clauses:
+      - clause: CAP-MODULES.1
+        status: planned
+      - clause: CAP-MODULES.2
+        status: planned
+      - clause: CAP-MODULES.3
+        status: planned
+  - capability: CAP-ONBOARDING
+    components:
+      - name: Tenant YAML + OpenTofu
+        role: generates identities, grants and schemas
+        licence: MPL-2.0
+    clauses:
+      - clause: CAP-ONBOARDING.1
+        status: planned
+      - clause: CAP-ONBOARDING.2
+        status: planned
+      - clause: CAP-ONBOARDING.3
+        status: planned
+      - clause: CAP-ONBOARDING.4
+        status: planned
+  - capability: CAP-SECRETS
+    components:
+      - name: OpenBao
+        role: secrets and transit keys
+        licence: MPL-2.0
+        deploy: Helm
+        source: https://openbao.org/
+        alternatives:
+          - SOPS for files in Git
+      - name: External Secrets Operator
+        role: syncs secrets into workloads by reference
+        licence: Apache-2.0
+        deploy: Helm
+    clauses:
+      - clause: CAP-SECRETS.1
+        status: planned
+      - clause: CAP-SECRETS.2
+        status: planned
+      - clause: CAP-SECRETS.3
+        status: planned
+  - capability: CAP-NETWORK
+    components:
+      - name: Cilium
+        role: default-deny policies, egress gateway, flow logs
+        licence: Apache-2.0
+        deploy: Helm
+        source: https://cilium.io/
+      - name: Gateway API + oauth2-proxy
+        role: the only public entry, behind Keycloak sign-in
+        licence: Apache-2.0
+    notes: There is no provider-attested private endpoint; evidence is the policy code and flow logs.
+    clauses:
+      - clause: CAP-NETWORK.1
+        status: planned
+        how: Data services run as cluster services with no ingress; NetworkPolicy tests in CI prove unreachability.
+      - clause: CAP-NETWORK.2
+        status: planned
+      - clause: CAP-NETWORK.3
+        status: planned
+      - clause: CAP-NETWORK.4
+        status: planned
+  - capability: CAP-GUARDRAILS
+    components:
+      - name: OPA Gatekeeper
+        role: admission policy; same language as the Trino policies
+        licence: Apache-2.0
+        deploy: Helm
+        alternatives:
+          - Kyverno
+      - name: Conftest
+        role: policy on OpenTofu plans
+        licence: Apache-2.0
+      - name: Airflow
+        role: scheduled fitness functions
+        licence: Apache-2.0
+    clauses:
+      - clause: CAP-GUARDRAILS.1
+        status: planned
+      - clause: CAP-GUARDRAILS.2
+        status: planned
+  - capability: CAP-STORAGE
+    components:
+      - name: Ceph RGW via Rook
+        role: S3-compatible object storage
+        licence: LGPL-2.1-or-later
+        deploy: Rook operator
+        source: https://rook.io/
+        alternatives:
+          - SeaweedFS for kind/k3d
+          - Garage for kind/k3d (no versioning)
+    notes: MinIO community edition is archived and not maintained; do not use it.
+    clauses:
+      - clause: CAP-STORAGE.1
+        status: planned
+      - clause: CAP-STORAGE.2
+        status: planned
+      - clause: CAP-STORAGE.3
+        status: planned
+      - clause: CAP-STORAGE.4
+        status: planned
+  - capability: CAP-TABLES
+    components:
+      - name: Apache Iceberg
+        role: open table format
+        licence: Apache-2.0
+        source: https://iceberg.apache.org/
+    notes: Iceberg table maintenance (compaction, snapshot expiry, orphan removal) is a scheduled job here, not a managed service.
+    clauses:
+      - clause: CAP-TABLES.1
+        status: planned
+      - clause: CAP-TABLES.2
+        status: planned
+      - clause: CAP-TABLES.3
+        status: planned
+      - clause: CAP-TABLES.4
+        status: planned
+  - capability: CAP-CATALOG
+    components:
+      - name: Lakekeeper
+        role: Iceberg REST catalog, grants (OpenFGA), credential vending
+        licence: Apache-2.0
+        deploy: Helm
+        source: https://github.com/lakekeeper/lakekeeper
+        alternatives:
+          - Apache Polaris
+      - name: Trino + OPA
+        role: the only engine that serves row-filtered and masked data
+        licence: Apache-2.0
+    notes: No open-source catalog evaluates row filters itself; enforcement is in Trino through OPA.
+    clauses:
+      - clause: CAP-CATALOG.1
+        status: planned
+      - clause: CAP-CATALOG.2
+        status: planned
+      - clause: CAP-CATALOG.3
+        status: planned
+      - clause: CAP-CATALOG.4
+        status: planned
+      - clause: CAP-CATALOG.5
+        status: planned
+        how: Protected tables are readable only through Trino with OPA row-filter and mask policies; Spark and DuckDB identities are denied them.
+      - clause: CAP-CATALOG.6
+        status: planned
+      - clause: CAP-CATALOG.7
+        status: planned
+  - capability: CAP-COMPUTE
+    components:
+      - name: Apache Spark 4 via Kubeflow spark-operator
+        role: batch and streaming jobs
+        licence: Apache-2.0
+        deploy: Helm
+      - name: Trino
+        role: interactive SQL
+        licence: Apache-2.0
+        deploy: Helm
+        source: https://trino.io/
+      - name: DuckDB
+        role: small in-process jobs
+        licence: MIT
+    clauses:
+      - clause: CAP-COMPUTE.1
+        status: deviation
+        consequence: The Trino coordinator runs continuously; workers scale down. Idle cost is one coordinator plus the cluster's base nodes.
+      - clause: CAP-COMPUTE.2
+        status: planned
+      - clause: CAP-COMPUTE.3
+        status: planned
+      - clause: CAP-COMPUTE.4
+        status: planned
+  - capability: CAP-OPERATIONALDB
+    components:
+      - name: CloudNativePG
+        role: Postgres operator
+        licence: Apache-2.0
+        deploy: Helm
+        source: https://cloudnative-pg.io/
+      - name: CSI volume snapshots on Ceph RBD
+        role: copy-on-write clones that bootstrap branch clusters
+        licence: LGPL-2.1-or-later
+      - name: pgroll
+        role: expand/contract migrations
+        licence: Apache-2.0
+        alternatives:
+          - Xata OSS for instant branches
+    notes: 'A branch is a separate Postgres instance started from a copy-on-write volume snapshot: minutes, not seconds, and point-in-time branches need WAL replay.'
+    clauses:
+      - clause: CAP-OPERATIONALDB.1
+        status: planned
+      - clause: CAP-OPERATIONALDB.2
+        status: planned
+        how: CI snapshots the production volume and starts a CloudNativePG cluster from it; a TTL controller deletes it.
+      - clause: CAP-OPERATIONALDB.3
+        status: planned
+      - clause: CAP-OPERATIONALDB.4
+        status: planned
+      - clause: CAP-OPERATIONALDB.5
+        status: planned
+      - clause: CAP-OPERATIONALDB.6
+        status: planned
+      - clause: CAP-OPERATIONALDB.7
+        status: planned
+  - capability: CAP-INGESTION
+    components:
+      - name: Debezium on Kafka via Strimzi
+        role: change data capture
+        licence: Apache-2.0
+        deploy: Strimzi operator
+      - name: Trino connectors
+        role: federation in place
+        licence: Apache-2.0
+      - name: Landing bucket + pipeline
+        role: file landing, archive and quarantine
+    clauses:
+      - clause: CAP-INGESTION.1
+        status: planned
+      - clause: CAP-INGESTION.2
+        status: planned
+      - clause: CAP-INGESTION.3
+        status: planned
+      - clause: CAP-INGESTION.4
+        status: planned
+  - capability: CAP-ORCHESTRATION
+    components:
+      - name: Apache Airflow 3
+        role: jobs, triggers, range backfills
+        licence: Apache-2.0
+        deploy: Helm
+        source: https://airflow.apache.org/
+        alternatives:
+          - Dagster
+    clauses:
+      - clause: CAP-ORCHESTRATION.1
+        status: planned
+      - clause: CAP-ORCHESTRATION.2
+        status: planned
+      - clause: CAP-ORCHESTRATION.3
+        status: planned
+      - clause: CAP-ORCHESTRATION.4
+        status: planned
+      - clause: CAP-ORCHESTRATION.5
+        status: planned
+      - clause: CAP-ORCHESTRATION.6
+        status: planned
+  - capability: CAP-TRANSFORMATION
+    components:
+      - name: dbt (v1, Python)
+        role: versioned models and tests
+        licence: Apache-2.0
+        source: https://github.com/dbt-labs/dbt
+        alternatives:
+          - SQLMesh
+      - name: dbt-trino adapter
+        role: runs models on Trino
+        licence: Apache-2.0
+    clauses:
+      - clause: CAP-TRANSFORMATION.1
+        status: planned
+      - clause: CAP-TRANSFORMATION.2
+        status: planned
+      - clause: CAP-TRANSFORMATION.3
+        status: planned
+      - clause: CAP-TRANSFORMATION.4
+        status: planned
+      - clause: CAP-TRANSFORMATION.5
+        status: planned
+  - capability: CAP-SEMANTICS
+    components:
+      - name: MetricFlow
+        role: measure definitions in the dbt project
+        licence: Apache-2.0
+        alternatives:
+          - Cube Core
+    clauses:
+      - clause: CAP-SEMANTICS.1
+        status: planned
+      - clause: CAP-SEMANTICS.2
+        status: deviation
+        consequence: Superset does not read MetricFlow directly; metrics are materialised as dbt models from the MetricFlow definitions and dashboards read those. Definitions stay single-sourced; query-time semantics do not.
+  - capability: CAP-REPORTING
+    components:
+      - name: Apache Superset
+        role: dashboards as code
+        licence: Apache-2.0
+        deploy: Helm
+        source: https://superset.apache.org/
+    notes: Natural-language query has no settled open-source default yet.
+    clauses:
+      - clause: CAP-REPORTING.1
+        status: planned
+      - clause: CAP-REPORTING.2
+        status: planned
+      - clause: CAP-REPORTING.3
+        status: planned
+  - capability: CAP-APPS
+    components:
+      - name: Kubernetes Deployment + Gateway API
+        role: app hosting behind sign-in
+        licence: Apache-2.0
+        alternatives:
+          - Knative Serving for scale to zero
+    clauses:
+      - clause: CAP-APPS.1
+        status: planned
+      - clause: CAP-APPS.2
+        status: planned
+      - clause: CAP-APPS.3
+        status: planned
+      - clause: CAP-APPS.4
+        status: planned
+  - capability: CAP-QUALITY
+    components:
+      - name: dbt tests and contracts
+        role: checks per tier
+        licence: Apache-2.0
+      - name: Great Expectations (GX Core)
+        role: checks outside dbt
+        licence: Apache-2.0
+    notes: Soda Core moved to ELv2 in January 2026; it is not an open-source option.
+    clauses:
+      - clause: CAP-QUALITY.1
+        status: planned
+      - clause: CAP-QUALITY.2
+        status: planned
+      - clause: CAP-QUALITY.3
+        status: planned
+  - capability: CAP-LINEAGE
+    components:
+      - name: OpenLineage
+        role: lineage events from Airflow, Spark, dbt and Trino
+        licence: Apache-2.0
+        source: https://openlineage.io/
+        alternatives:
+          - Marquez
+          - OpenMetadata
+          - DataHub
+    notes: Lineage exists only where an integration emits it; a job without one is a defect.
+    clauses:
+      - clause: CAP-LINEAGE.1
+        status: planned
+      - clause: CAP-LINEAGE.2
+        status: planned
+  - capability: CAP-OBSERVABILITY
+    components:
+      - name: OpenTelemetry Collector
+        role: metrics, logs and traces pipeline
+        licence: Apache-2.0
+        deploy: Helm
+      - name: Prometheus
+        role: metrics
+        licence: Apache-2.0
+      - name: Grafana + Loki
+        role: dashboards and logs
+        licence: AGPL-3.0-only
+        alternatives:
+          - OpenSearch
+    clauses:
+      - clause: CAP-OBSERVABILITY.1
+        status: planned
+      - clause: CAP-OBSERVABILITY.2
+        status: planned
+      - clause: CAP-OBSERVABILITY.3
+        status: planned
+  - capability: CAP-IDENTITY
+    components:
+      - name: Keycloak
+        role: identity provider or broker to the organisation's directory
+        licence: Apache-2.0
+        deploy: Keycloak Operator
+        source: https://www.keycloak.org/
+    clauses:
+      - clause: CAP-IDENTITY.1
+        status: planned
+        how: Group membership reaches services through OIDC claims at sign-in; short token lifetimes and session revocation stand in for push provisioning.
+      - clause: CAP-IDENTITY.2
+        status: planned
+      - clause: CAP-IDENTITY.3
+        status: planned
+      - clause: CAP-IDENTITY.4
+        status: planned
+  - capability: CAP-ACCESS
+    components:
+      - name: Entitlement table in Iceberg
+        role: row scope, loaded from the authoritative feed
+      - name: OPA policies for Trino
+        role: row filters and masks
+        licence: Apache-2.0
+    notes: Who can see a given row is answered across the catalog, OPA and Superset; keep all three as code in one repository.
+    clauses:
+      - clause: CAP-ACCESS.1
+        status: planned
+      - clause: CAP-ACCESS.2
+        status: planned
+      - clause: CAP-ACCESS.3
+        status: planned
+      - clause: CAP-ACCESS.4
+        status: planned
+      - clause: CAP-ACCESS.5
+        status: planned
+      - clause: CAP-ACCESS.6
+        status: planned
+  - capability: CAP-CLASSIFICATION
+    components:
+      - name: Lakekeeper table properties + OPA
+        role: classification and provenance tags enforced by policy
+        licence: Apache-2.0
+    clauses:
+      - clause: CAP-CLASSIFICATION.1
+        status: planned
+      - clause: CAP-CLASSIFICATION.2
+        status: planned
+      - clause: CAP-CLASSIFICATION.3
+        status: planned
+      - clause: CAP-CLASSIFICATION.4
+        status: planned
+      - clause: CAP-CLASSIFICATION.5
+        status: planned
+  - capability: CAP-AUDIT
+    components:
+      - name: Audit sources
+        role: Kubernetes API audit, OpenBao, Keycloak, Trino event listener, pgaudit
+      - name: Iceberg audit tables on object-locked storage
+        role: the auditors' copy
+    clauses:
+      - clause: CAP-AUDIT.1
+        status: planned
+      - clause: CAP-AUDIT.2
+        status: planned
+      - clause: CAP-AUDIT.3
+        status: planned
+  - capability: CAP-SHARING
+    components:
+      - name: Delta Sharing reference server
+        role: open sharing protocol
+        licence: Apache-2.0
+        source: https://github.com/delta-io/delta-sharing
+        alternatives:
+          - Iceberg REST catalog with vended credentials
+    notes: Neither path applies row filters or masks at share time; publication tables are de-identified copies.
+    clauses:
+      - clause: CAP-SHARING.1
+        status: planned
+      - clause: CAP-SHARING.2
+        status: planned
+      - clause: CAP-SHARING.3
+        status: planned
+      - clause: CAP-SHARING.4
+        status: planned
+      - clause: CAP-SHARING.5
+        status: planned
+      - clause: CAP-SHARING.6
+        status: planned
+  - capability: CAP-ENVIRONMENTS
+    components:
+      - name: OpenTofu values files
+        role: one per environment
+      - name: CloudNativePG branch clusters
+        role: per-change database branches
+      - name: Iceberg branches or dev namespaces
+        role: development tables
+    clauses:
+      - clause: CAP-ENVIRONMENTS.1
+        status: planned
+      - clause: CAP-ENVIRONMENTS.2
+        status: planned
+      - clause: CAP-ENVIRONMENTS.3
+        status: planned
+      - clause: CAP-ENVIRONMENTS.4
+        status: planned
+      - clause: CAP-ENVIRONMENTS.5
+        status: planned
+  - capability: CAP-BACKFILL
+    components:
+      - name: Airflow 3 backfills
+        role: range runs with concurrency limits
+        licence: Apache-2.0
+      - name: Iceberg branches
+        role: write-audit-publish
+        licence: Apache-2.0
+      - name: dbt microbatch
+        role: event-time ranges with lookback
+        licence: Apache-2.0
+    clauses:
+      - clause: CAP-BACKFILL.1
+        status: planned
+      - clause: CAP-BACKFILL.2
+        status: planned
+      - clause: CAP-BACKFILL.3
+        status: planned
+      - clause: CAP-BACKFILL.4
+        status: planned
+      - clause: CAP-BACKFILL.5
+        status: planned
+      - clause: CAP-BACKFILL.6
+        status: planned
+      - clause: CAP-BACKFILL.7
+        status: planned
+      - clause: CAP-BACKFILL.8
+        status: planned
+  - capability: CAP-MIGRATION
+    components:
+      - name: pg_dump / pg_restore
+        role: operational database move
+        licence: PostgreSQL
+      - name: Iceberg register-table
+        role: re-binding tables in a new catalog
+        licence: Apache-2.0
+    clauses:
+      - clause: CAP-MIGRATION.1
+        status: planned
+      - clause: CAP-MIGRATION.2
+        status: planned
+      - clause: CAP-MIGRATION.3
+        status: planned
+      - clause: CAP-MIGRATION.4
+        status: planned
+      - clause: CAP-MIGRATION.5
+        status: planned
+  - capability: CAP-PIPELINE
+    components:
+      - name: The example product's stages on Airflow + Spark/Python
+        role: retryable pipeline
+    clauses:
+      - clause: CAP-PIPELINE.1
+        status: planned
+      - clause: CAP-PIPELINE.2
+        status: planned
+      - clause: CAP-PIPELINE.3
+        status: planned
+      - clause: CAP-PIPELINE.4
+        status: planned
+      - clause: CAP-PIPELINE.5
+        status: planned
+      - clause: CAP-PIPELINE.6
+        status: planned
+      - clause: CAP-PIPELINE.7
+        status: planned
+  - capability: CAP-REVIEW
+    components:
+      - name: The example product's review service on Postgres
+        role: leased review queue
+    clauses:
+      - clause: CAP-REVIEW.1
+        status: planned
+      - clause: CAP-REVIEW.2
+        status: planned
+      - clause: CAP-REVIEW.3
+        status: planned
+      - clause: CAP-REVIEW.4
+        status: planned
+      - clause: CAP-REVIEW.5
+        status: planned
+  - capability: CAP-RELEASE
+    components:
+      - name: The example product's release gate
+        role: reconciliation against the register snapshot
+    clauses:
+      - clause: CAP-RELEASE.1
+        status: planned
+      - clause: CAP-RELEASE.2
+        status: planned
+      - clause: CAP-RELEASE.3
+        status: planned

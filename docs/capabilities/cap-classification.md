@@ -32,5 +32,8 @@ Tags added at gold come too late to protect bronze. Provenance tags make drops p
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Governed tags<br/>Data classification |
+| [oss](../implementations/oss.yaml) | Lakekeeper table properties + OPA |
 <!-- END GENERATED: implementations -->

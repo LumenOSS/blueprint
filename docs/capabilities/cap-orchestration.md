@@ -38,5 +38,8 @@ Size the per-run cap from a measured median item time, not a configured one, and
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Lakeflow Jobs |
+| [oss](../implementations/oss.yaml) | Apache Airflow 3 |
 <!-- END GENERATED: implementations -->

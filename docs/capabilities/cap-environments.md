@@ -36,5 +36,8 @@ A database branch does not branch object storage. A branch that writes files wou
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | OpenTofu values files<br/>Lakebase branches<br/>Development schemas in production catalogs |
+| [oss](../implementations/oss.yaml) | OpenTofu values files<br/>CloudNativePG branch clusters<br/>Iceberg branches or dev namespaces |
 <!-- END GENERATED: implementations -->

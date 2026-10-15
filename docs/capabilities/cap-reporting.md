@@ -30,5 +30,8 @@ Dashboards are code so they move between environments without hand edits; enviro
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | AI/BI dashboards<br/>Genie |
+| [oss](../implementations/oss.yaml) | Apache Superset |
 <!-- END GENERATED: implementations -->

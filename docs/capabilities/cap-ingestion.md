@@ -36,5 +36,8 @@ An archive sweep copies, verifies size, then unlinks, and leaves alone anything 
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Auto Loader<br/>Lakehouse Federation<br/>Lakeflow Connect |
+| [oss](../implementations/oss.yaml) | Debezium on Kafka via Strimzi<br/>Trino connectors<br/>Landing bucket + pipeline |
 <!-- END GENERATED: implementations -->

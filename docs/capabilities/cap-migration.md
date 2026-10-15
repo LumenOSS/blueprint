@@ -37,5 +37,8 @@ Database branches do not survive a dump and restore; recreate them. A deployment
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Unity Catalog storage re-binding<br/>pg_dump / pg_restore |
+| [oss](../implementations/oss.yaml) | pg_dump / pg_restore<br/>Iceberg register-table |
 <!-- END GENERATED: implementations -->

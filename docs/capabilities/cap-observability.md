@@ -34,5 +34,8 @@ Cap on wall time but compare on core time, because wall time moves with topology
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | System tables<br/>Azure Monitor / Log Analytics |
+| [oss](../implementations/oss.yaml) | OpenTelemetry Collector<br/>Prometheus<br/>Grafana + Loki |
 <!-- END GENERATED: implementations -->

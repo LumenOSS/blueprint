@@ -34,5 +34,8 @@ Many resource names cannot change after creation. Treat any change to a name out
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | OpenTofu modules in a tagged repository |
+| [oss](../implementations/oss.yaml) | OpenTofu modules in a tagged repository |
 <!-- END GENERATED: implementations -->

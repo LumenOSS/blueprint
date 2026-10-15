@@ -37,5 +37,8 @@ Anyone exempt from a policy, any holder of a manage right, and the catalog admin
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Unity Catalog ABAC policies<br/>Entitlement table in a reference catalog |
+| [oss](../implementations/oss.yaml) | Entitlement table in Iceberg<br/>OPA policies for Trino |
 <!-- END GENERATED: implementations -->

@@ -31,5 +31,8 @@ Federation removes most secrets ([P3](../principles.md#p3-federation-not-secrets
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Azure Key Vault<br/>Key Vault-backed secret scopes |
+| [oss](../implementations/oss.yaml) | OpenBao<br/>External Secrets Operator |
 <!-- END GENERATED: implementations -->

@@ -36,5 +36,8 @@ Object versioning on a lake store can conflict with table maintenance: deleted d
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | ADLS Gen2 |
+| [oss](../implementations/oss.yaml) | Ceph RGW via Rook |
 <!-- END GENERATED: implementations -->

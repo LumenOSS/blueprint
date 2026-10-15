@@ -30,5 +30,8 @@ A release is the point of no return; reconciliation against an external register
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | The example product's release gate |
+| [oss](../implementations/oss.yaml) | The example product's release gate |
 <!-- END GENERATED: implementations -->

@@ -38,5 +38,8 @@ Count credentials before adding them: identity providers cap federated credentia
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Entra workload identity federation<br/>Databricks OAuth federation policies |
+| [oss](../implementations/oss.yaml) | CI OIDC token<br/>OpenBao JWT auth<br/>Kubernetes projected service-account tokens |
 <!-- END GENERATED: implementations -->

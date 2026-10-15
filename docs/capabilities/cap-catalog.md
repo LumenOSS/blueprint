@@ -39,5 +39,8 @@ Where engines differ in what they enforce, route protected tables only through e
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Unity Catalog |
+| [oss](../implementations/oss.yaml) | Lakekeeper<br/>Trino + OPA |
 <!-- END GENERATED: implementations -->

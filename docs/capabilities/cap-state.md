@@ -40,5 +40,8 @@ Keep state apart from lake storage: object versioning protects state but can bre
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | OpenTofu<br/>azurerm backend<br/>Azure Key Vault |
+| [oss](../implementations/oss.yaml) | OpenTofu<br/>S3 backend on Ceph RGW<br/>OpenBao transit |
 <!-- END GENERATED: implementations -->

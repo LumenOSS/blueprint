@@ -29,5 +29,8 @@ A property that is not checked decays. Fitness functions turn the principles int
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Azure Policy<br/>Conftest on tofu plans<br/>Lakeflow Jobs |
+| [oss](../implementations/oss.yaml) | OPA Gatekeeper<br/>Conftest<br/>Airflow |
 <!-- END GENERATED: implementations -->

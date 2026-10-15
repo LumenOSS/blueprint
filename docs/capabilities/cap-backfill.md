@@ -34,5 +34,8 @@ Backfills run rarely, under pressure, over more data than anything else; they ar
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Lakeflow Jobs backfill runs<br/>Delta replaceWhere / MERGE<br/>Shallow clones |
+| [oss](../implementations/oss.yaml) | Airflow 3 backfills<br/>Iceberg branches<br/>dbt microbatch |
 <!-- END GENERATED: implementations -->

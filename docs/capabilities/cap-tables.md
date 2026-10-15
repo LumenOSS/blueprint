@@ -35,5 +35,8 @@ Each statement against a transactional table is a commit with its own metadata c
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Delta Lake with UniForm |
+| [oss](../implementations/oss.yaml) | Apache Iceberg |
 <!-- END GENERATED: implementations -->

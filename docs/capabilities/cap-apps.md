@@ -31,5 +31,8 @@ A half-switched environment is not partially safe: an application can write to o
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Azure Container Apps |
+| [oss](../implementations/oss.yaml) | Kubernetes Deployment + Gateway API |
 <!-- END GENERATED: implementations -->

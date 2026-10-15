@@ -36,5 +36,8 @@ Record who owns private DNS and any hub network before building, because both ar
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | VNet injection + secure cluster connectivity<br/>Private Link (front end and back end)<br/>Network connectivity configurations<br/>NAT gateway |
+| [oss](../implementations/oss.yaml) | Cilium<br/>Gateway API + oauth2-proxy |
 <!-- END GENERATED: implementations -->

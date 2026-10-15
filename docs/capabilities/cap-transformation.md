@@ -33,5 +33,8 @@ Conformance once means every consumer shares one identifier and one definition (
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | dbt (v1, Python) with dbt-databricks<br/>dbt task in Lakeflow Jobs |
+| [oss](../implementations/oss.yaml) | dbt (v1, Python)<br/>dbt-trino adapter |
 <!-- END GENERATED: implementations -->

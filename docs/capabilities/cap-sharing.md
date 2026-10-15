@@ -37,5 +37,8 @@ An unsalted hash of an identifier can be reversed by trying every plausible iden
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Delta Sharing<br/>Publication catalog |
+| [oss](../implementations/oss.yaml) | Delta Sharing reference server |
 <!-- END GENERATED: implementations -->

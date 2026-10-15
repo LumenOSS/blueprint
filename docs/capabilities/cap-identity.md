@@ -36,5 +36,8 @@ Membership refresh can lag by minutes in browsers and longer in jobs. Indirect a
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | Entra ID<br/>Automatic identity management / SCIM |
+| [oss](../implementations/oss.yaml) | Keycloak |
 <!-- END GENERATED: implementations -->

@@ -2,10 +2,11 @@ extends: default
 rules:
   line-length:
     max: 120
-    # Catalogue clauses are one sentence per folded scalar; wrapping them
-    # would add noise to every diff without changing the text.
+    # Catalogue clauses and binding notes are prose, one sentence per
+    # scalar; wrapping them would add noise to every diff.
     ignore: |
       blueprint/
+      docs/implementations/
   document-start: disable
   truthy:
     check-keys: false

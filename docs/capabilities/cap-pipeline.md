@@ -38,5 +38,8 @@ A stage that keeps an index in memory must run with concurrency one, or concurre
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->
-No implementation binds this capability yet.
+| Implementation | Components |
+| --- | --- |
+| [databricks](../implementations/databricks.yaml) | The example product's stages on Lakeflow Jobs |
+| [oss](../implementations/oss.yaml) | The example product's stages on Airflow + Spark/Python |
 <!-- END GENERATED: implementations -->
