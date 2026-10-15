@@ -1,0 +1,28 @@
+# Azure Pipelines: every change to main must pass `just check`, the same
+# recipe a workstation runs (ADR-0007). This pipeline is read-only and holds
+# no identity. It is the only CI definition here; other remotes run no CI.
+
+trigger:
+  branches:
+    include: [main]
+
+pr:
+  branches:
+    include: [main]
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  NIX_CONFIG: "experimental-features = nix-command flakes"
+
+steps:
+  - checkout: self
+
+  - bash: |
+      sh <(curl --proto '=https' --tlsv1.2 -sSfL https://nixos.org/nix/install) --no-daemon
+      echo "##vso[task.prependpath]$HOME/.nix-profile/bin"
+    displayName: Install Nix
+
+  - bash: nix develop --command just check
+    displayName: just check
