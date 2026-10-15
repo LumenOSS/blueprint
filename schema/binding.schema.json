@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/LumenOSS/data-platform-blueprint/schema/binding.schema.json",
+  "title": "Implementation binding",
+  "description": "How one implementation meets the blueprint: the components bound to each capability, and the status and evidence of every clause.",
+  "type": "object",
+  "required": ["blueprint", "implementation", "bindings"],
+  "additionalProperties": false,
+  "properties": {
+    "blueprint": {
+      "type": "object",
+      "required": ["version"],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "description": "The catalogue version this binding was written against.",
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        }
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "required": ["name", "summary", "runtime"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+        "summary": { "type": "string" },
+        "runtime": { "type": "string" },
+        "repository": { "type": "string" }
+      }
+    },
+    "bindings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/binding" }
+    }
+  },
+  "$defs": {
+    "component": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "licence": {
+          "description": "SPDX identifier, or 'proprietary' for a managed service.",
+          "type": "string"
+        },
+        "deploy": { "type": "string" },
+        "source": { "type": "string", "format": "uri" },
+        "alternatives": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "clause_status": {
+      "type": "object",
+      "required": ["clause", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "clause": { "type": "string", "pattern": "^CAP-[A-Z]+\\.[0-9]+$" },
+        "status": {
+          "description": "planned: intended, no evidence yet. met: evidence exists. deviation: will not be met; consequence required. not-applicable: the clause's precondition does not hold; reason required.",
+          "enum": ["planned", "met", "deviation", "not-applicable"]
+        },
+        "how": { "type": "string" },
+        "evidence": { "type": "string" },
+        "consequence": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "met" } } },
+          "then": { "required": ["evidence"] }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["deviation", "not-applicable"] } } },
+          "then": { "required": ["consequence"] }
+        }
+      ]
+    },
+    "binding": {
+      "type": "object",
+      "required": ["capability", "components", "clauses"],
+      "additionalProperties": false,
+      "properties": {
+        "capability": { "type": "string", "pattern": "^CAP-[A-Z]+$" },
+        "components": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/component" }
+        },
+        "notes": { "type": "string" },
+        "clauses": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/clause_status" }
+        }
+      }
+    }
+  }
+}

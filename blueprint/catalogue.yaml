@@ -1,0 +1,1294 @@
+# yaml-language-server: $schema=../schema/catalogue.schema.json
+#
+# The catalogue: every capability of the architecture and the contract each
+# must meet. This file is the single source of capability IDs and clause
+# text; the capability pages render their contract tables from it
+# (`just render`). IDs are never renumbered or reused.
+
+version: 0.1.0
+
+layers:
+  - id: L0
+    name: Bootstrap
+    summary: >-
+      The trust anchors: the state store and the CI identities. Changed rarely, by dispatch, with two roles approving.
+  - id: L1
+    name: Platform
+    summary: >-
+      Shared infrastructure and governance that every product uses, and the registry through which products are onboarded.
+  - id: L2
+    name: Modules
+    summary: >-
+      Versioned building blocks consumed by tag. They hold no state and no identity of their own.
+  - id: L3
+    name: Products
+    summary: >-
+      Workloads built on the platform, each in its own repository, deploying only inside the boundary its tenant entry grants.
+
+domains:
+  - id: delivery
+    name: Trust and delivery
+    summary: >-
+      Who may change what, with which identity, and how a change reaches an environment.
+  - id: data
+    name: Data platform core
+    summary: >-
+      Where data lives, how it is computed on, and how it reaches the people who use it.
+  - id: governance
+    name: Governance and access
+    summary: >-
+      Who may see which rows and columns, how that is recorded, and how data leaves the platform.
+  - id: movement
+    name: Environments and data movement
+    summary: >-
+      How environments are isolated, and how data is backfilled, migrated and retired without loss.
+  - id: product
+    name: Product patterns
+    summary: >-
+      The contracts a product meets so that its pipeline is retryable, its decisions reviewable and its results releasable.
+
+capabilities:
+  # ---------------------------------------------------------------- delivery
+  - id: CAP-REPOSITORIES
+    name: Repositories by trust
+    domain: delivery
+    layer: L0
+    summary: >-
+      Each layer is its own repository and the unit of trust for its CI identities.
+    clauses:
+      - id: CAP-REPOSITORIES.1
+        level: MUST
+        text: >-
+          Bootstrap, platform, modules and each product are separate repositories.
+        verify: >-
+          List the repositories; each layer and each product has exactly one.
+      - id: CAP-REPOSITORIES.2
+        level: MUST
+        text: >-
+          Each federated credential trusts exactly one repository, so a change in one repository cannot obtain another's identity.
+        verify: >-
+          Export every federated credential subject; each names one repository and one protected environment.
+      - id: CAP-REPOSITORIES.3
+        level: MUST
+        text: >-
+          Every task runs as a recipe in a pinned toolchain, invoked the same way on a workstation and in CI; CI definitions only call recipes.
+        verify: >-
+          Inspect the CI definitions: every step is a toolchain bootstrap or a recipe invocation.
+      - id: CAP-REPOSITORIES.4
+        level: MUST
+        text: >-
+          Published history is never rewritten; a correction is a new change on top.
+        verify: >-
+          The protected branch refuses force-pushes.
+      - id: CAP-REPOSITORIES.5
+        level: SHOULD
+        text: >-
+          A repository can be hosted on more than one CI host without code changes beyond a thin CI wrapper.
+        verify: >-
+          The repository carries the CI definition of each host it targets, and each calls the same recipes.
+
+  - id: CAP-STATE
+    name: Infrastructure state
+    domain: delivery
+    layer: L0
+    summary: >-
+      Remote, locked, versioned and encrypted state for every stack, readable only by the identities that own it.
+    depends_on: [CAP-MODULES]
+    clauses:
+      - id: CAP-STATE.1
+        level: MUST
+        text: >-
+          State is remote, one state per stack per environment, with a lock that blocks a concurrent apply.
+        verify: >-
+          Start two plans against one stack; the second waits or fails on the lock.
+      - id: CAP-STATE.2
+        level: MUST
+        text: >-
+          Every state version is recoverable after an overwrite or deletion.
+        verify: >-
+          Restore drill: overwrite a test stack's state, recover the prior version, and plan shows no changes.
+      - id: CAP-STATE.3
+        level: MUST
+        text: >-
+          State is encrypted at rest with a key under the platform's control and is reached by identity, never by a shared access key.
+        verify: >-
+          Shared-key access to the store is disabled; the encryption key is in the platform's key store.
+      - id: CAP-STATE.4
+        level: MUST
+        text: >-
+          A product's identity cannot read platform or bootstrap state.
+        verify: >-
+          Negative test: a read of platform state with a product identity is denied.
+      - id: CAP-STATE.5
+        level: MUST
+        text: >-
+          The state store can be created from an empty account by the bootstrap layer, and its reachability is proven by write, read, compare and delete before first use.
+        verify: >-
+          The bootstrap recipe runs against an empty account and its probe reports success.
+      - id: CAP-STATE.6
+        level: MUST
+        text: >-
+          Stacks find each other's resources by deterministic name, not by reading each other's state.
+        verify: >-
+          No stack declares a remote-state data source.
+      - id: CAP-STATE.7
+        level: MUST
+        text: >-
+          A stack that moves between repositories keeps its state key, and its first plan in the new place shows no changes.
+        verify: >-
+          The move's review includes a no-change plan.
+      - id: CAP-STATE.8
+        level: SHOULD
+        text: >-
+          State lives apart from lake storage, because the protections each needs (object versioning, lifecycle rules) conflict.
+        verify: >-
+          The state store is a separate account or bucket from every lake store.
+
+  - id: CAP-CIIDENTITY
+    name: CI workload identity
+    domain: delivery
+    layer: L0
+    summary: >-
+      CI authenticates by federation with short-lived tokens; the root of trust is created once by a person.
+    clauses:
+      - id: CAP-CIIDENTITY.1
+        level: MUST
+        text: >-
+          No long-lived credential for a cloud, data platform or registry exists in any repository or CI variable; CI exchanges its host-issued token for a short-lived one.
+        verify: >-
+          Inventory the CI secrets and variables; none is a credential for a platform service.
+      - id: CAP-CIIDENTITY.2
+        level: MUST
+        text: >-
+          A federated credential binds a protected environment, not a branch or tag, so the binding cannot be edited by a change under review.
+        verify: >-
+          Every credential subject names an environment; every environment restricts which branch may deploy.
+      - id: CAP-CIIDENTITY.3
+        level: MUST
+        text: >-
+          Plan and apply run as different identities, and the plan identity cannot change anything.
+        verify: >-
+          Negative test: an apply attempted with the plan identity is denied.
+      - id: CAP-CIIDENTITY.4
+        level: MUST
+        text: >-
+          The identity that creates CI identities is created once by a person, recorded in the bootstrap repository with its rights and its creator's role, and never applies the code declaring its own credentials.
+        verify: >-
+          The bootstrap README records the identity; its apply refuses the stack that declares it.
+      - id: CAP-CIIDENTITY.5
+        level: MUST
+        text: >-
+          A right to assign roles is conditioned to an enumerated list of roles on named scopes, never organisation-wide.
+        verify: >-
+          Read the role assignment's condition; it lists the assignable roles.
+      - id: CAP-CIIDENTITY.6
+        level: SHOULD
+        text: >-
+          Each product has one deploy identity and one run-as identity per environment.
+        verify: >-
+          The tenant registry generates exactly those two per product per environment.
+
+  - id: CAP-DELIVERY
+    name: Change delivery
+    domain: delivery
+    layer: L1
+    summary: >-
+      Every change is reviewed with its plan and applied by CI only, after merge.
+    depends_on: [CAP-CIIDENTITY, CAP-STATE]
+    clauses:
+      - id: CAP-DELIVERY.1
+        level: MUST
+        text: >-
+          Every change to infrastructure or a shared environment, including grants, migrations and deletions, is a reviewed change whose plan is shown in the review.
+        verify: >-
+          Sample merged changes; each carries the plan CI produced for it.
+      - id: CAP-DELIVERY.2
+        level: MUST
+        text: >-
+          Only CI applies. Apply recipes refuse to run anywhere else.
+        verify: >-
+          Run an apply recipe on a workstation; it refuses before contacting any API.
+      - id: CAP-DELIVERY.3
+        level: MUST
+        text: >-
+          CI applies the saved plan that was reviewed, not a fresh one.
+        verify: >-
+          The apply step consumes the plan artefact produced by the plan step.
+      - id: CAP-DELIVERY.4
+        level: MUST
+        text: >-
+          A trust-anchor change is dispatched by hand from the main branch by an allow-listed role, after approval by both the Data Lead and the Technical Lead.
+        verify: >-
+          The bootstrap pipeline checks the actor against its allow-list before any credential is issued; its environment requires two approvals.
+      - id: CAP-DELIVERY.5
+        level: MUST
+        text: >-
+          A deletion is two changes: adopt the object into code, then remove it.
+        verify: >-
+          Every removal of a resource in history is preceded by a change that imported it or created it.
+      - id: CAP-DELIVERY.6
+        level: MUST
+        text: >-
+          A database is migrated before the code that needs it is deployed; a release is a version tag, and an infrastructure change alone never changes what version runs.
+        verify: >-
+          Pipeline order runs migrations first; deployments take the image version from a tag.
+      - id: CAP-DELIVERY.7
+        level: SHOULD
+        text: >-
+          A scheduled fitness check fails if any state was written by an identity other than CI.
+        verify: >-
+          The check reads the last writer of each state version and alerts on a non-CI principal.
+
+  - id: CAP-MODULES
+    name: Versioned modules
+    domain: delivery
+    layer: L2
+    summary: >-
+      Shared building blocks consumed by immutable version, including deterministic naming.
+    clauses:
+      - id: CAP-MODULES.1
+        level: MUST
+        text: >-
+          Modules are consumed by an immutable version reference, never a branch.
+        verify: >-
+          Every module source pins a tag or digest.
+      - id: CAP-MODULES.2
+        level: MUST
+        text: >-
+          A naming module derives every resource name and tag set deterministically from type, project, environment, region and instance.
+        verify: >-
+          The module's tests assert the same inputs give the same names.
+      - id: CAP-MODULES.3
+        level: SHOULD
+        text: >-
+          Module versions follow semantic versioning; a change to any output that alters a resource name is a major version.
+        verify: >-
+          The module's changelog marks name changes as breaking.
+
+  - id: CAP-ONBOARDING
+    name: Tenant onboarding registry
+    domain: delivery
+    layer: L1
+    summary: >-
+      One reviewed declaration per product or source generates its identities, grants, schemas and reviewers.
+    depends_on: [CAP-DELIVERY, CAP-CATALOG, CAP-CIIDENTITY]
+    clauses:
+      - id: CAP-ONBOARDING.1
+        level: MUST
+        text: >-
+          Each product or source has one tenant entry declaring its owner role, domain, ingestion method, highest classification, the catalogs it writes and reads, its operational database, and the repository the platform trusts for it.
+        verify: >-
+          Every product's resources trace back to exactly one tenant entry.
+      - id: CAP-ONBOARDING.2
+        level: MUST
+        text: >-
+          Identities, grants, schemas and required reviewers are generated from the entry and never created by hand.
+        verify: >-
+          A reconciliation diff between generated and live grants is empty.
+      - id: CAP-ONBOARDING.3
+        level: MUST
+        text: >-
+          The platform publishes each product's outputs per environment (endpoints, catalog names, identities, compute IDs) to the product, and a product never reads platform state.
+        verify: >-
+          The product's configuration takes these values from published outputs; it has no access to platform state.
+      - id: CAP-ONBOARDING.4
+        level: MUST
+        text: >-
+          Removing a tenant entry removes the access it generated.
+        verify: >-
+          Off-boarding test: remove an entry; its identities and grants are gone after apply.
+
+  - id: CAP-SECRETS
+    name: Secrets and keys
+    domain: delivery
+    layer: L1
+    summary: >-
+      Secrets and keys live in a managed store and are fetched by identity at runtime.
+    clauses:
+      - id: CAP-SECRETS.1
+        level: MUST
+        text: >-
+          Secrets are held in a managed secret store; none is committed in plaintext, and any encrypted file in a repository has a recipient set of roles or CI, never one person.
+        verify: >-
+          A secret scanner runs on every change; encrypted files list non-personal recipients.
+      - id: CAP-SECRETS.2
+        level: MUST
+        text: >-
+          Settings that can only be chosen at creation, such as customer-managed keys, are decided and recorded before an environment's first apply.
+        verify: >-
+          The environment's values file sets each creation-only option explicitly.
+      - id: CAP-SECRETS.3
+        level: SHOULD
+        text: >-
+          Workloads read secrets at runtime using their own identity, so no secret is copied into deployment configuration.
+        verify: >-
+          Deployment manifests reference secrets by name, not value.
+
+  - id: CAP-NETWORK
+    name: Network isolation
+    domain: delivery
+    layer: L1
+    summary: >-
+      Data services are private; only applications are exposed, behind sign-in.
+    clauses:
+      - id: CAP-NETWORK.1
+        level: MUST
+        text: >-
+          Storage, catalog data paths, databases and secret stores are reachable only on private network paths.
+        verify: >-
+          A policy check on every plan fails a public endpoint on a data service; an external probe of each endpoint fails.
+      - id: CAP-NETWORK.2
+        level: MUST
+        text: >-
+          Only applications are exposed, and only through a gateway that requires identity-provider sign-in.
+        verify: >-
+          An unauthenticated request to each public host is redirected to sign-in or refused.
+      - id: CAP-NETWORK.3
+        level: MUST
+        text: >-
+          Traffic is denied by default between workloads; each allowed path is declared.
+        verify: >-
+          A workload with no declared path cannot reach a data service.
+      - id: CAP-NETWORK.4
+        level: SHOULD
+        text: >-
+          Outbound traffic leaves through one controlled egress point.
+        verify: >-
+          Route tables send internet-bound traffic through the egress point only.
+
+  - id: CAP-GUARDRAILS
+    name: Guardrails and fitness functions
+    domain: delivery
+    layer: L1
+    summary: >-
+      Policy as code on every plan, and scheduled checks that the architecture's properties still hold.
+    depends_on: [CAP-DELIVERY]
+    clauses:
+      - id: CAP-GUARDRAILS.1
+        level: MUST
+        text: >-
+          Policies evaluated on every plan reject public endpoints on data services, missing required tags and names that do not follow the naming module.
+        verify: >-
+          A deliberately non-conforming plan in a test change is rejected.
+      - id: CAP-GUARDRAILS.2
+        level: MUST
+        text: >-
+          Scheduled fitness functions check that every table carries provenance and classification tags (daily), that a restore reproduces content hashes (quarterly), and that cost per task stays within budget (monthly).
+        verify: >-
+          Each check exists, has run on schedule, and alerts when it fails.
+
+  # ---------------------------------------------------------------- data
+  - id: CAP-STORAGE
+    name: Object storage
+    domain: data
+    layer: L1
+    summary: >-
+      Durable object storage for tables and files, isolated per domain catalog.
+    clauses:
+      - id: CAP-STORAGE.1
+        level: MUST
+        text: >-
+          Storage exposes an object API reached by identity, with encryption at rest.
+        verify: >-
+          Anonymous and shared-key access are refused.
+      - id: CAP-STORAGE.2
+        level: MUST
+        text: >-
+          Each domain catalog has its own storage location and credential, so a grant on one domain never reaches another's files.
+        verify: >-
+          A credential for one domain cannot list another domain's location.
+      - id: CAP-STORAGE.3
+        level: MUST
+        text: >-
+          Protection against accidental deletion is configured in a way the table format supports; it never breaks table maintenance.
+        verify: >-
+          Maintenance (expiry, vacuum) runs clean, and a deleted table is restored in a drill.
+      - id: CAP-STORAGE.4
+        level: MUST
+        text: >-
+          Source-of-record files are kept in governed storage, tagged as real, with retention set by the data owner.
+        verify: >-
+          The archive location carries provenance and retention metadata.
+
+  - id: CAP-TABLES
+    name: Open table format
+    domain: data
+    layer: L1
+    summary: >-
+      Transactional tables in an open format, readable by more than one engine.
+    depends_on: [CAP-STORAGE]
+    clauses:
+      - id: CAP-TABLES.1
+        level: MUST
+        text: >-
+          Tables use an open, specified format with atomic commits, schema evolution and time travel.
+        verify: >-
+          The format's specification is public; a commit is atomic under concurrent writers.
+      - id: CAP-TABLES.2
+        level: MUST
+        text: >-
+          Every table is readable by at least two independent engines.
+        verify: >-
+          Exit test: read a sample of gold tables with an engine other than the one that wrote them; counts and hashes match.
+      - id: CAP-TABLES.3
+        level: MUST
+        text: >-
+          History retention is configurable per table and can be held during a fallback window.
+        verify: >-
+          Retention settings are declared in code; a hold suspends expiry.
+      - id: CAP-TABLES.4
+        level: SHOULD
+        text: >-
+          Writers batch into set-based operations, because each statement is a commit.
+        verify: >-
+          Pipeline code issues one write per batch, not per row.
+
+  - id: CAP-CATALOG
+    name: Catalog and governance plane
+    domain: data
+    layer: L1
+    summary: >-
+      One catalog of record for tables, files and functions, enforcing grants, tags and policies.
+    depends_on: [CAP-TABLES, CAP-IDENTITY]
+    clauses:
+      - id: CAP-CATALOG.1
+        level: MUST
+        text: >-
+          One catalog of record lists every table, volume of files and function, whichever engine created it.
+        verify: >-
+          An inventory of storage locations has no table unknown to the catalog.
+      - id: CAP-CATALOG.2
+        level: MUST
+        text: >-
+          Catalogs are named domain by environment (`<domain>_<env>`); a product is a set of schemas inside its domain, and data shared across domains is promoted to its owning domain and read from there, never copied.
+        verify: >-
+          Catalog and schema names match the pattern; no table is a copy of another domain's.
+      - id: CAP-CATALOG.3
+        level: MUST
+        text: >-
+          Grants go only to groups, and production objects are owned by groups.
+        verify: >-
+          A query of grants and owners finds no individual user.
+      - id: CAP-CATALOG.4
+        level: MUST
+        text: >-
+          Governed tags (provenance, classification) can be set only by principals granted the right to assign them.
+        verify: >-
+          Negative test: an analyst cannot set a classification tag.
+      - id: CAP-CATALOG.5
+        level: MUST
+        text: >-
+          Row filters and column masks are enforced on every read path that serves protected data; an engine that cannot enforce them is denied those tables.
+        verify: >-
+          Read a protected table through each engine as a scoped user; each returns only the scoped rows or is refused.
+      - id: CAP-CATALOG.6
+        level: MUST
+        text: >-
+          Engines receive short-lived, scoped storage credentials from the catalog, never long-lived storage keys.
+        verify: >-
+          Engine configuration holds no storage key; credentials observed in use expire.
+      - id: CAP-CATALOG.7
+        level: SHOULD
+        text: >-
+          Every authenticated user may browse metadata, so data can be found without being readable.
+        verify: >-
+          A user with no data grants can list catalog objects but not read them.
+
+  - id: CAP-COMPUTE
+    name: Compute
+    domain: data
+    layer: L1
+    summary: >-
+      Batch, streaming and interactive SQL compute that scales to zero and reads only through the catalog.
+    depends_on: [CAP-CATALOG]
+    clauses:
+      - id: CAP-COMPUTE.1
+        level: MUST
+        text: >-
+          Compute scales to zero when idle.
+        verify: >-
+          Billing or node metrics show no compute between scheduled work.
+      - id: CAP-COMPUTE.2
+        level: MUST
+        text: >-
+          Jobs run as non-human identities.
+        verify: >-
+          Every job's run-as principal is a workload identity.
+      - id: CAP-COMPUTE.3
+        level: MUST
+        text: >-
+          Engines read and write data only through the catalog.
+        verify: >-
+          Direct storage paths are refused to engine identities.
+      - id: CAP-COMPUTE.4
+        level: MUST
+        text: >-
+          Interactive queries behind an application meet a declared latency objective (the reference value is 5 seconds at p95), and the timeout is that objective, not a longer probe.
+        verify: >-
+          Measured p95 for the application's queries over a week.
+
+  - id: CAP-OPERATIONALDB
+    name: Operational database with branching
+    domain: data
+    layer: L1
+    summary: >-
+      Each product's transactional Postgres store, with copy-on-write branches of production.
+    depends_on: [CAP-IDENTITY]
+    clauses:
+      - id: CAP-OPERATIONALDB.1
+        level: MUST
+        text: >-
+          The operational database speaks the Postgres protocol and SQL dialect.
+        verify: >-
+          The product's migrations and tests run unchanged against it.
+      - id: CAP-OPERATIONALDB.2
+        level: MUST
+        text: >-
+          A branch of production, or of a point in time, is created without copying data first, and carries a time to live.
+        verify: >-
+          Create a branch of the production database and time it; it expires on schedule.
+      - id: CAP-OPERATIONALDB.3
+        level: MUST
+        text: >-
+          The production branch is protected from deletion and from writes by development identities.
+        verify: >-
+          Negative tests: delete and write as a development identity both fail.
+      - id: CAP-OPERATIONALDB.4
+        level: MUST
+        text: >-
+          Connections authenticate per identity; an application's access is governed by database roles and row-level security, and each catalog policy names its database counterpart or states there is none.
+        verify: >-
+          No shared password role is in use; the policy register pairs each catalog policy with its database policy.
+      - id: CAP-OPERATIONALDB.5
+        level: MUST
+        text: >-
+          Migrations are idempotent twice over: a ledger records what ran, and every statement can be run again safely. Schemas change by expand then contract, one phase per migration, and the application refuses to write to a database behind its code.
+        verify: >-
+          CI applies every migration twice to a branch; the application's schema gate is tested against an older database.
+      - id: CAP-OPERATIONALDB.6
+        level: MUST
+        text: >-
+          Committed records survive loss of a node (recovery point zero), and the database can be restored to a point in time.
+        verify: >-
+          Restore drill to a point in time, comparing per-table content hashes.
+      - id: CAP-OPERATIONALDB.7
+        level: SHOULD
+        text: >-
+          Analytics read operational data through the catalog or a governed extract, never through a direct connection.
+        verify: >-
+          No analytics identity holds a database login.
+
+  - id: CAP-INGESTION
+    name: Ingestion
+    domain: data
+    layer: L1
+    summary: >-
+      Files, in-place federation and change data capture behind one onboarding step.
+    depends_on: [CAP-ONBOARDING, CAP-CATALOG]
+    clauses:
+      - id: CAP-INGESTION.1
+        level: MUST
+        text: >-
+          Three ingestion methods are offered behind one onboarding step: files to a landing area, federation in place, and change data capture. The method is a value in the tenant entry.
+        verify: >-
+          Each method has a tenant entry in use or a test entry that plans cleanly.
+      - id: CAP-INGESTION.2
+        level: MUST
+        text: >-
+          A landing area is a queue, not a store: accepted inputs move to a content-addressed archive after verification, and refused inputs move to quarantine with a reason. Nothing is deleted without a verified archive copy.
+        verify: >-
+          After a run, landing holds only unprocessed files; every quarantined file has a reason sidecar.
+      - id: CAP-INGESTION.3
+        level: MUST
+        text: >-
+          Ingestion tolerates at-least-once delivery: a re-delivered input converges on the existing record by content hash or natural key.
+        verify: >-
+          Deliver the same input twice; row counts do not change.
+      - id: CAP-INGESTION.4
+        level: SHOULD
+        text: >-
+          A source is federated in place before it is copied; change data capture is used where a copy is worth its cost; a custom extract is the last resort.
+        verify: >-
+          The tenant entry records why the chosen method was chosen.
+
+  - id: CAP-ORCHESTRATION
+    name: Orchestration
+    domain: data
+    layer: L3
+    summary: >-
+      Declared jobs with bounded runs, safe retries and range re-runs.
+    depends_on: [CAP-COMPUTE, CAP-DELIVERY]
+    clauses:
+      - id: CAP-ORCHESTRATION.1
+        level: MUST
+        text: >-
+          Jobs are declared in the product's repository and deployed by CI.
+        verify: >-
+          No job exists in an environment without a declaration in a repository.
+      - id: CAP-ORCHESTRATION.2
+        level: MUST
+        text: >-
+          Jobs can be triggered by schedule, by file arrival and by the completion of upstream work.
+        verify: >-
+          Each trigger type is exercised by a test job.
+      - id: CAP-ORCHESTRATION.3
+        level: MUST
+        text: >-
+          Each run has a budget. Work beyond the budget is re-triggered by a finishing step that re-queues only if work remains and the run made progress, and a run with nothing to do exits within seconds on the cheapest compute.
+        verify: >-
+          Feed more work than one budget allows; the backlog drains without manual triggers, and an empty run costs seconds.
+      - id: CAP-ORCHESTRATION.4
+        level: MUST
+        text: >-
+          Retries are safe because every task is idempotent; the orchestrator also rejects a duplicate run identifier.
+        verify: >-
+          Re-run a completed task; outputs are byte-identical.
+      - id: CAP-ORCHESTRATION.5
+        level: MUST
+        text: >-
+          A job can be re-run for a declared range of partitions, with a limit on concurrent runs.
+        verify: >-
+          Run a range backfill; only the declared partitions change.
+      - id: CAP-ORCHESTRATION.6
+        level: MUST
+        text: >-
+          Alerts fire on data freshness, not only on job failure.
+        verify: >-
+          Stop an upstream source; a freshness alert fires within its window.
+
+  - id: CAP-TRANSFORMATION
+    name: Transformation layer
+    domain: data
+    layer: L3
+    summary: >-
+      Versioned, tested models from bronze to silver to gold; the only place metrics are computed.
+    depends_on: [CAP-COMPUTE, CAP-CATALOG]
+    clauses:
+      - id: CAP-TRANSFORMATION.1
+        level: MUST
+        text: >-
+          Models are versioned SQL (or equivalent) in bronze, silver and gold tiers, with tests that run in CI.
+        verify: >-
+          CI builds and tests the models on every change.
+      - id: CAP-TRANSFORMATION.2
+        level: MUST
+        text: >-
+          Conformance happens once, in silver: each entity has one identifier shared by every consumer.
+        verify: >-
+          Gold models join on silver identifiers only.
+      - id: CAP-TRANSFORMATION.3
+        level: MUST
+        text: >-
+          No metric or report value is computed in an application; applications select and format gold.
+        verify: >-
+          A test forbids the application's reporting code from opening a database connection to operational tables.
+      - id: CAP-TRANSFORMATION.4
+        level: MUST
+        text: >-
+          Development runs write to development schemas inside the production catalog, which no consumer is granted.
+        verify: >-
+          Development schemas carry no consumer grants.
+      - id: CAP-TRANSFORMATION.5
+        level: SHOULD
+        text: >-
+          Gold stores counts and sums, not ratios, so measures re-aggregate correctly.
+        verify: >-
+          Review gold columns; ratios are computed in the semantic layer.
+
+  - id: CAP-SEMANTICS
+    name: Semantic layer
+    domain: data
+    layer: L1
+    summary: >-
+      Every measure defined once, versioned, and read by every consumer.
+    depends_on: [CAP-TRANSFORMATION]
+    clauses:
+      - id: CAP-SEMANTICS.1
+        level: MUST
+        text: >-
+          Each measure and dimension is defined once, in version control, per domain.
+        verify: >-
+          No measure name has two definitions.
+      - id: CAP-SEMANTICS.2
+        level: MUST
+        text: >-
+          Dashboards, natural-language queries and agents read measures through the semantic layer.
+        verify: >-
+          Dashboard and agent queries reference semantic-layer objects, not raw gold columns.
+
+  - id: CAP-REPORTING
+    name: Reporting
+    domain: data
+    layer: L3
+    summary: >-
+      Dashboards and natural-language query over the semantic layer, deployed as code.
+    depends_on: [CAP-SEMANTICS]
+    clauses:
+      - id: CAP-REPORTING.1
+        level: MUST
+        text: >-
+          Dashboards are deployed as code, rendered per environment from the deployment tool's resolved output.
+        verify: >-
+          Each dashboard's source is in a repository; no environment-specific literal is in it.
+      - id: CAP-REPORTING.2
+        level: MUST
+        text: >-
+          A dashboard shows each viewer only the rows and columns that viewer may see, or runs as a declared identity whose access is the dashboard's audience.
+        verify: >-
+          Open a dashboard as two scoped users; each sees their own scope.
+      - id: CAP-REPORTING.3
+        level: SHOULD
+        text: >-
+          Natural-language query is offered over the semantic layer, showing the query it ran.
+        verify: >-
+          Every answer displays its generated query.
+
+  - id: CAP-APPS
+    name: Application hosting
+    domain: data
+    layer: L3
+    summary: >-
+      Product interfaces deployed by CI, behind sign-in, that say which environment they are in.
+    depends_on: [CAP-NETWORK, CAP-DELIVERY]
+    clauses:
+      - id: CAP-APPS.1
+        level: MUST
+        text: >-
+          Applications sit behind identity-provider sign-in and reach data services privately.
+        verify: >-
+          See CAP-NETWORK.1 and CAP-NETWORK.2 for each application host.
+      - id: CAP-APPS.2
+        level: MUST
+        text: >-
+          A health endpoint reports the environment the application believes it is in: target, catalog and schema, database branch and schema version, and build version.
+        verify: >-
+          Query the endpoint in each environment; every field matches the environment.
+      - id: CAP-APPS.3
+        level: MUST
+        text: >-
+          Application interfaces are versioned and change additively; a changed shape is a new route.
+        verify: >-
+          A pinned interface snapshot is compared in CI; removals fail.
+      - id: CAP-APPS.4
+        level: MUST
+        text: >-
+          Applications are deployed by CI from a versioned image or artefact.
+        verify: >-
+          Running versions match a tag; no image is pushed from a workstation.
+
+  - id: CAP-QUALITY
+    name: Data quality
+    domain: data
+    layer: L3
+    summary: >-
+      Checks at every tier; failing data is quarantined, never used.
+    depends_on: [CAP-TRANSFORMATION]
+    clauses:
+      - id: CAP-QUALITY.1
+        level: MUST
+        text: >-
+          Each tier has checks, and data that fails a blocking check does not reach consumers; it is quarantined with a reason.
+        verify: >-
+          Inject a failing row; it appears in quarantine and not in gold.
+      - id: CAP-QUALITY.2
+        level: MUST
+        text: >-
+          Refused input and system failure are counted and reported separately.
+        verify: >-
+          Metrics distinguish the two; each has its own alert.
+      - id: CAP-QUALITY.3
+        level: SHOULD
+        text: >-
+          Each source has a declared contract (schema, keys, freshness) checked on arrival.
+        verify: >-
+          Change a source's schema in a test; arrival checks fail loudly.
+
+  - id: CAP-LINEAGE
+    name: Lineage
+    domain: data
+    layer: L1
+    summary: >-
+      Which inputs produced which outputs, captured as work runs.
+    depends_on: [CAP-CATALOG]
+    clauses:
+      - id: CAP-LINEAGE.1
+        level: MUST
+        text: >-
+          Table-level lineage is captured automatically for every job and transformation run.
+        verify: >-
+          For a gold table, lineage lists its upstream tables without manual entry.
+      - id: CAP-LINEAGE.2
+        level: SHOULD
+        text: >-
+          Column-level lineage is captured where the engine supports it.
+        verify: >-
+          For a masked column, lineage shows the source column.
+
+  - id: CAP-OBSERVABILITY
+    name: Operational telemetry
+    domain: data
+    layer: L1
+    summary: >-
+      Per-item metrics, freshness and cost, reaching gold so cost can be told apart from work.
+    clauses:
+      - id: CAP-OBSERVABILITY.1
+        level: MUST
+        text: >-
+          Work records metrics per item, starting with a status of crashed that is overwritten on success, so a crashed item is never silently missing.
+        verify: >-
+          Kill a run mid-item; the item's metric reads crashed.
+      - id: CAP-OBSERVABILITY.2
+        level: MUST
+        text: >-
+          Cost is attributable to the task that caused it, and reaches gold beside throughput.
+        verify: >-
+          A gold model reports cost per task per period with item counts.
+      - id: CAP-OBSERVABILITY.3
+        level: MUST
+        text: >-
+          Health is judged from heartbeats and fresh output, not from process status.
+        verify: >-
+          A hung process with a live status is detected by its stale heartbeat.
+
+  # ---------------------------------------------------------------- governance
+  - id: CAP-IDENTITY
+    name: Identity and groups
+    domain: governance
+    layer: L1
+    summary: >-
+      One identity provider for people and groups, synchronised automatically, with break-glass access held apart.
+    clauses:
+      - id: CAP-IDENTITY.1
+        level: MUST
+        text: >-
+          The organisation's identity provider is the only source of users, groups and membership, synchronised to every platform service automatically.
+        verify: >-
+          No platform service has a locally created user or group except break-glass accounts.
+      - id: CAP-IDENTITY.2
+        level: MUST
+        text: >-
+          Group names are frozen once created, because renames do not propagate reliably.
+        verify: >-
+          The group declarations forbid renames (a rename is a new group plus migration).
+      - id: CAP-IDENTITY.3
+        level: MUST
+        text: >-
+          Two break-glass accounts exist, outside the identity provider's normal sign-in, protected by hardware keys, monitored on every use.
+        verify: >-
+          Sign-in by either account raises an alert.
+      - id: CAP-IDENTITY.4
+        level: MUST
+        text: >-
+          Indirect administrator paths (a directory role that becomes a platform administrator, a resource role that grants workspace administration) are closed or monitored.
+        verify: >-
+          The access review lists each such path and its control.
+
+  - id: CAP-ACCESS
+    name: Access model
+    domain: governance
+    layer: L1
+    summary: >-
+      Role decides reach, entitlements decide rows, classification decides columns.
+    depends_on: [CAP-IDENTITY, CAP-CATALOG, CAP-CLASSIFICATION]
+    clauses:
+      - id: CAP-ACCESS.1
+        level: MUST
+        text: >-
+          Reach (which catalogs and actions) is granted to identity-provider groups by role.
+        verify: >-
+          Every grant's principal is a group mapped to a role.
+      - id: CAP-ACCESS.2
+        level: MUST
+        text: >-
+          Row scope comes from an entitlement table derived from an authoritative feed (for example staff postings), with a validity period, never edited by hand.
+        verify: >-
+          The entitlement table is written only by its loader; a manual write is refused.
+      - id: CAP-ACCESS.3
+        level: MUST
+        text: >-
+          Row and column policies only narrow access. Each user and table resolves to exactly one row filter and each column to at most one mask; an ambiguity fails the query rather than choosing.
+        verify: >-
+          Test a user matching two filters; the query fails.
+      - id: CAP-ACCESS.4
+        level: MUST
+        text: >-
+          Only pipeline identities are exempt from policies, each exemption listed with its reason.
+        verify: >-
+          The exemption list contains only workload identities, each with a reason.
+      - id: CAP-ACCESS.5
+        level: MUST
+        text: >-
+          Access to identifiable columns is through a time-boxed, audited group.
+        verify: >-
+          Membership of the group expires; each grant appears in audit.
+      - id: CAP-ACCESS.6
+        level: MUST
+        text: >-
+          Reach, row scope and classification are each changed by a different owner, so no single change widens access across all three.
+        verify: >-
+          The owners of the group declarations, the entitlement feed and the classification rules are different roles.
+
+  - id: CAP-CLASSIFICATION
+    name: Classification and provenance
+    domain: governance
+    layer: L1
+    summary: >-
+      Every table and column is classified by sensitivity and tagged with provenance from the moment it lands.
+    depends_on: [CAP-CATALOG]
+    clauses:
+      - id: CAP-CLASSIFICATION.1
+        level: MUST
+        text: >-
+          Every table carries a classification (T0 public aggregate, T1 internal, T2 de-identified, T3 identifiable, T4 special category) and a provenance (real, simulated, derived).
+        verify: >-
+          The daily fitness function finds no untagged table.
+      - id: CAP-CLASSIFICATION.2
+        level: MUST
+        text: >-
+          Data not yet classified is blocked by default until classification has run.
+        verify: >-
+          A new unclassified table is unreadable by analysts.
+      - id: CAP-CLASSIFICATION.3
+        level: MUST
+        text: >-
+          T4 data lives in its own catalog and storage, and each grant on it is approved by its steward.
+        verify: >-
+          T4 tables exist only in the T4 catalog; its grants trace to approvals.
+      - id: CAP-CLASSIFICATION.4
+        level: MUST
+        text: >-
+          Tags are applied where data enters (landing and bronze), not added at gold.
+        verify: >-
+          Bronze tables carry the tags.
+      - id: CAP-CLASSIFICATION.5
+        level: MUST
+        text: >-
+          Simulated data lives only in sandbox catalogs, and derived data is built only from tagged tables.
+        verify: >-
+          No table tagged simulated is outside a sandbox catalog.
+
+  - id: CAP-AUDIT
+    name: Audit
+    domain: governance
+    layer: L1
+    summary: >-
+      Every access and administrative action recorded, retained beyond the platform default, readable by auditors only.
+    depends_on: [CAP-IDENTITY]
+    clauses:
+      - id: CAP-AUDIT.1
+        level: MUST
+        text: >-
+          Every data access and every administrative action is recorded with principal, object, action and time.
+        verify: >-
+          A test read and a test grant both appear in audit.
+      - id: CAP-AUDIT.2
+        level: MUST
+        text: >-
+          Audit is copied to a separate store with retention set by policy, beyond the platform's own retention, and is readable only by auditors.
+        verify: >-
+          The copy holds records older than the platform's retention; a non-auditor read is refused.
+      - id: CAP-AUDIT.3
+        level: SHOULD
+        text: >-
+          Query text is recorded only when a case needs it, because query text can contain personal data.
+        verify: >-
+          Verbose audit is off by default; turning it on is a reviewed change.
+
+  - id: CAP-SHARING
+    name: Publication and sharing
+    domain: governance
+    layer: L1
+    summary: >-
+      External parties receive de-identified tables from a publication catalog over an open protocol, each share approved and registered.
+    depends_on: [CAP-CATALOG, CAP-CLASSIFICATION, CAP-TRANSFORMATION]
+    clauses:
+      - id: CAP-SHARING.1
+        level: MUST
+        text: >-
+          Data leaves the platform only from a publication catalog of de-identified or aggregated materialised tables.
+        verify: >-
+          Every share's objects are in the publication catalog.
+      - id: CAP-SHARING.2
+        level: MUST
+        text: >-
+          Published tables enforce a minimum cell size by test, and replace identifiers with keyed hashes or surrogate keys, never unsalted hashes.
+        verify: >-
+          Publication models carry cell-size tests; no identifier column is an unkeyed hash.
+      - id: CAP-SHARING.3
+        level: MUST
+        text: >-
+          Sharing uses an open protocol, with recipients authenticated by federation where possible and otherwise by tokens rotated within a year.
+        verify: >-
+          The recipient register lists each recipient's method and token expiry.
+      - id: CAP-SHARING.4
+        level: MUST
+        text: >-
+          Each share is a reviewed change sponsored by a steward, approved by a sharing panel, and listed in a published register.
+        verify: >-
+          Every live share traces to an approved change and a register entry.
+      - id: CAP-SHARING.5
+        level: MUST
+        text: >-
+          Shares name explicit tables, never whole schemas, and share no table history.
+        verify: >-
+          No share includes a schema; shared tables have history sharing off.
+      - id: CAP-SHARING.6
+        level: SHOULD
+        text: >-
+          Researchers who need finer data work inside the platform, on a project basis, time-boxed.
+        verify: >-
+          Research grants carry a project and an expiry.
+
+  # ---------------------------------------------------------------- movement
+  - id: CAP-ENVIRONMENTS
+    name: Environments by branching
+    domain: movement
+    layer: L1
+    summary: >-
+      An environment is a template plus values; development is isolated inside production by branching.
+    depends_on: [CAP-OPERATIONALDB, CAP-CATALOG]
+    clauses:
+      - id: CAP-ENVIRONMENTS.1
+        level: MUST
+        text: >-
+          An environment is one template plus one values file, and every axis agrees which environment it is: catalog and schema, database branch and database, application identity and configuration, and jobs.
+        verify: >-
+          Each application's health endpoint (CAP-APPS.2) matches its values file.
+      - id: CAP-ENVIRONMENTS.2
+        level: MUST
+        text: >-
+          Without a funded development environment, development is isolated inside production: database branches, and development schemas in production catalogs with no consumer grants.
+        verify: >-
+          Development objects exist only as branches and ungranted schemas.
+      - id: CAP-ENVIRONMENTS.3
+        level: MUST
+        text: >-
+          A branch never writes to production object storage. Branches use their own storage, and may read production storage only through a read-only path.
+        verify: >-
+          A write to production storage from a branch's identity is refused.
+      - id: CAP-ENVIRONMENTS.4
+        level: MUST
+        text: >-
+          Each change under review gets its own branch and development schemas with a time to live, removed when the change merges.
+        verify: >-
+          After merge, the change's branch and schemas are gone.
+      - id: CAP-ENVIRONMENTS.5
+        level: MUST
+        text: >-
+          Grants and identities are declared per environment; the same configuration never implies the same securable.
+        verify: >-
+          Each environment's grants are listed separately in its plan.
+
+  - id: CAP-BACKFILL
+    name: Backfill and reprocessing
+    domain: movement
+    layer: L3
+    summary: >-
+      Loading history, reprocessing and filling gaps are idempotent, bounded, rehearsed and reconciled.
+    depends_on: [CAP-ORCHESTRATION, CAP-ENVIRONMENTS, CAP-QUALITY]
+    clauses:
+      - id: CAP-BACKFILL.1
+        level: MUST
+        text: >-
+          A backfill declares its range and writes by replacing exactly that range or merging on a natural key, so running it twice gives the same result.
+        verify: >-
+          Run the backfill twice; content hashes of the range match and rows outside it are unchanged.
+      - id: CAP-BACKFILL.2
+        level: MUST
+        text: >-
+          Every output row records the logic version and run that produced it, and event time separately from load time.
+        verify: >-
+          Restated rows show the new logic version; event and load time columns are both present.
+      - id: CAP-BACKFILL.3
+        level: MUST
+        text: >-
+          A backfill runs first on a branch or an unpublished copy, is audited there, and is published only after it passes.
+        verify: >-
+          The run log shows write, audit and publish steps in that order.
+      - id: CAP-BACKFILL.4
+        level: MUST
+        text: >-
+          A backfill is reconciled against its source by row counts, sums and content hashes per partition.
+        verify: >-
+          The reconciliation report exists and matches for every partition.
+      - id: CAP-BACKFILL.5
+        level: MUST
+        text: >-
+          A backfill is bounded and throttled so that production work and the source system keep their service levels.
+        verify: >-
+          Production latency and source load stay within objectives during the backfill.
+      - id: CAP-BACKFILL.6
+        level: MUST
+        text: >-
+          A backfill never overwrites fresher data or a human decision.
+        verify: >-
+          Test with a row updated after the backfill's snapshot and a human-ruled row; both survive.
+      - id: CAP-BACKFILL.7
+        level: MUST
+        text: >-
+          Source rows that fail quality checks are quarantined with a reason, never dropped.
+        verify: >-
+          Counts reconcile as loaded plus quarantined equals extracted.
+      - id: CAP-BACKFILL.8
+        level: MUST
+        text: >-
+          Incremental extraction tolerates late commits and clock skew, with an overlap window into an idempotent sink or a cursor in commit order.
+        verify: >-
+          Commit a row whose timestamp is behind the watermark; it is still loaded.
+
+  - id: CAP-MIGRATION
+    name: Migration and decommission
+    domain: movement
+    layer: L1
+    summary: >-
+      Moving between platforms or accounts without loss, with a fallback window and two-role sign-off.
+    depends_on: [CAP-OPERATIONALDB, CAP-CLASSIFICATION]
+    clauses:
+      - id: CAP-MIGRATION.1
+        level: MUST
+        text: >-
+          Lake data is moved by re-binding its storage to the new platform where possible; derived tables are rebuilt by their pipelines rather than copied.
+        verify: >-
+          The migration plan lists each dataset as re-bound or rebuilt.
+      - id: CAP-MIGRATION.2
+        level: MUST
+        text: >-
+          An operational database moves by a rehearsed sequence: freeze writes, snapshot, dump, restore in one transaction, verify (row counts, per-table content hashes, sequences, policies, grants, migration ledger), repoint, unfreeze.
+        verify: >-
+          The rehearsal and the production run each leave a verification report that matches.
+      - id: CAP-MIGRATION.3
+        level: MUST
+        text: >-
+          After cutover the old platform stays read-only for a fallback window (the reference value is 60 days), with history expiry held, until a restore drill passes on the new one.
+        verify: >-
+          Expiry jobs on the old platform are paused for the window; the drill report exists.
+      - id: CAP-MIGRATION.4
+        level: MUST
+        text: >-
+          Cutover, rollback and decommission need sign-off from both the Data Lead and the Technical Lead; either may halt.
+        verify: >-
+          The decommission record carries both sign-offs.
+      - id: CAP-MIGRATION.5
+        level: MUST
+        text: >-
+          Before any drop or decommission, each object's provenance is proved from first-hand evidence, audit is archived, and an immutable archive exists with a tested retrieval. Deletion is a plain delete, never a forced one.
+        verify: >-
+          The retirement tool refuses objects not tagged simulated or derived; the archive retrieval test has passed.
+
+  # ---------------------------------------------------------------- product
+  - id: CAP-PIPELINE
+    name: Retryable pipeline
+    domain: product
+    layer: L3
+    summary: >-
+      Content-addressed, deterministic stages that hand off through storage and can retry while the database is down.
+    depends_on: [CAP-ORCHESTRATION, CAP-STORAGE]
+    clauses:
+      - id: CAP-PIPELINE.1
+        level: MUST
+        text: >-
+          An input's identity is the hash of its bytes; duplicates and re-deliveries converge on one record.
+        verify: >-
+          Submit the same file twice under different names; one record results.
+      - id: CAP-PIPELINE.2
+        level: MUST
+        text: >-
+          The same input produces byte-identical output; any randomness is seeded per item from a hash of stable keys.
+        verify: >-
+          Process a fixed corpus twice; outputs are byte-identical.
+      - id: CAP-PIPELINE.3
+        level: MUST
+        text: >-
+          Each stage is its own job, triggered by the output of the stage before it, so no stage can outrun its predecessor.
+        verify: >-
+          The job graph has one job per stage with storage-arrival triggers.
+      - id: CAP-PIPELINE.4
+        level: MUST
+        text: >-
+          Pending work is recomputed from what exists, never consumed from a queue on read, so a failed run strands nothing.
+        verify: >-
+          Kill a run mid-way; the next run processes the remainder.
+      - id: CAP-PIPELINE.5
+        level: MUST
+        text: >-
+          Writes are atomic (write to a temporary name, then move), so a reader never sees a partial output.
+        verify: >-
+          Code review and a fault-injection test find no partial files.
+      - id: CAP-PIPELINE.6
+        level: MUST
+        text: >-
+          Only the publishing stage connects to the operational database; every other stage can retry while it is unavailable.
+        verify: >-
+          With the database unreachable, upstream stages complete.
+      - id: CAP-PIPELINE.7
+        level: MUST
+        text: >-
+          Each item carries a provenance record of every stage that touched it, with versions; a missing stage reads as absent, never invented.
+        verify: >-
+          Every published item has a provenance record with a field per stage.
+
+  - id: CAP-REVIEW
+    name: Human review
+    domain: product
+    layer: L3
+    summary: >-
+      Low-confidence results go to people, whose decisions are leased, durable and never overwritten by machines.
+    depends_on: [CAP-OPERATIONALDB, CAP-AUDIT]
+    clauses:
+      - id: CAP-REVIEW.1
+        level: MUST
+        text: >-
+          A result below its confidence threshold is routed to review with a reason code; thresholds live in one configuration module.
+        verify: >-
+          Grep finds thresholds only in the configuration module; a low-confidence fixture lands in review.
+      - id: CAP-REVIEW.2
+        level: MUST
+        text: >-
+          A reviewer claims an item with a lease held as a database key; claim is one statement, expiry is judged at read time, and a commit requires a live lease checked before its first write.
+        verify: >-
+          A race test with concurrent sessions yields exactly one holder.
+      - id: CAP-REVIEW.3
+        level: MUST
+        text: >-
+          A human decision outranks any machine re-delivery or re-run; guards test the condition that would make a write wrong, not a status label.
+        verify: >-
+          Re-run the pipeline over a reviewed item; the human decision is unchanged.
+      - id: CAP-REVIEW.4
+        level: MUST
+        text: >-
+          Decisions are reversed by a compensating action that keeps both records; nothing is deleted.
+        verify: >-
+          Undo a decision; both the decision and its reversal are present.
+      - id: CAP-REVIEW.5
+        level: MUST
+        text: >-
+          Each decision records its kind of attribution (automatic, affirmed, corrected, backfilled) so reporting can tell who or what decided.
+        verify: >-
+          Reporting groups decisions by attribution.
+
+  - id: CAP-RELEASE
+    name: Reconciliation and release
+    domain: product
+    layer: L3
+    summary: >-
+      Results are released per unit only when the unit reconciles against its register.
+    depends_on: [CAP-REVIEW]
+    clauses:
+      - id: CAP-RELEASE.1
+        level: MUST
+        text: >-
+          For each release unit, expected subjects (from an external register) balance against confirmed results; any duplicate, orphan, missing subject, pending identity or absent register reads BLOCKED.
+        verify: >-
+          Fixtures for each blocking condition read BLOCKED; a balanced unit reads CLEAR.
+      - id: CAP-RELEASE.2
+        level: MUST
+        text: >-
+          Results release only on CLEAR, and a release is recorded as the point after which changes are new versions.
+        verify: >-
+          A change after release creates a new version and leaves the released one intact.
+      - id: CAP-RELEASE.3
+        level: MUST
+        text: >-
+          The register is read through an adapter and frozen as an immutable snapshot per sitting; corrections are deterministic, evented operations, never ad-hoc edits.
+        verify: >-
+          Each sitting references one snapshot; register corrections appear as events.

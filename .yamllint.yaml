@@ -2,6 +2,10 @@ extends: default
 rules:
   line-length:
     max: 120
+    # Catalogue clauses are one sentence per folded scalar; wrapping them
+    # would add noise to every diff without changing the text.
+    ignore: |
+      blueprint/
   document-start: disable
   truthy:
     check-keys: false

@@ -1,0 +1,41 @@
+# CAP-ACCESS Access model
+
+Role decides reach, entitlements decide rows, classification decides columns.
+
+Layer L1 · domain: governance · depends on: [CAP-IDENTITY](cap-identity.md), [CAP-CATALOG](cap-catalog.md), [CAP-CLASSIFICATION](cap-classification.md).
+
+## Purpose
+
+Decide access from three independent inputs: role, scope and sensitivity.
+
+## Why
+
+No single change can widen access across all three ([P14](../principles.md#p14-access-is-role--scope--sensitivity)). Exemptions are named because each is a path to raw data ([P5](../principles.md#p5-least-privilege-enumerated)).
+
+## Interfaces
+
+- Groups for reach; an entitlement table for rows; classification tags for columns.
+- One row-filter function per class of table; masks per classification.
+
+## Notes
+
+Anyone exempt from a policy, any holder of a manage right, and the catalog administrator effectively see raw data. Keep those lists short and reviewed.
+
+## Contract
+
+<!-- BEGIN GENERATED: contract (just render) -->
+| Clause | Level | Requirement | How conformance is shown |
+| --- | --- | --- | --- |
+| CAP-ACCESS.1 | MUST | Reach (which catalogs and actions) is granted to identity-provider groups by role. | Every grant's principal is a group mapped to a role. |
+| CAP-ACCESS.2 | MUST | Row scope comes from an entitlement table derived from an authoritative feed (for example staff postings), with a validity period, never edited by hand. | The entitlement table is written only by its loader; a manual write is refused. |
+| CAP-ACCESS.3 | MUST | Row and column policies only narrow access. Each user and table resolves to exactly one row filter and each column to at most one mask; an ambiguity fails the query rather than choosing. | Test a user matching two filters; the query fails. |
+| CAP-ACCESS.4 | MUST | Only pipeline identities are exempt from policies, each exemption listed with its reason. | The exemption list contains only workload identities, each with a reason. |
+| CAP-ACCESS.5 | MUST | Access to identifiable columns is through a time-boxed, audited group. | Membership of the group expires; each grant appears in audit. |
+| CAP-ACCESS.6 | MUST | Reach, row scope and classification are each changed by a different owner, so no single change widens access across all three. | The owners of the group declarations, the entitlement feed and the classification rules are different roles. |
+<!-- END GENERATED: contract -->
+
+## Implementations
+
+<!-- BEGIN GENERATED: implementations (just render) -->
+No implementation binds this capability yet.
+<!-- END GENERATED: implementations -->

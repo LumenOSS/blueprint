@@ -39,6 +39,7 @@ lint:
     markdownlint-cli2 "**/*.md"
     yamllint --strict .
     biome lint .
+    check-jsonschema --check-metaschema schema/*.json
     shfmt --find . | xargs --no-run-if-empty shellcheck
     statix check .
     deadnix --fail .
@@ -46,6 +47,18 @@ lint:
 # Check that every link inside the repository resolves (no network).
 links:
     lychee "**/*.md"
+
+# Validate the catalogue, the capability pages and the reference bindings.
+blueprint:
+    python3 scripts/blueprint.py check
+
+# Regenerate the generated sections (contract tables, index, matrix).
+render:
+    python3 scripts/blueprint.py render
+
+# Validate implementation binding files and report their coverage.
+binding +files:
+    python3 scripts/blueprint.py binding {{ files }}
 
 # Render every Mermaid diagram to build/ as PNG, to look at before committing.
 # Run in the diagrams shell: nix develop .#diagrams --command just diagrams
@@ -61,4 +74,4 @@ diagrams:
     echo "rendered into build/"
 
 # Everything a change must pass.
-check: fmt-check lint links
+check: fmt-check lint blueprint links

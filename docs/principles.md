@@ -1,6 +1,6 @@
 # Principles
 
-The capability contracts in `capabilities/` are
+The capability contracts in [`capabilities/`](capabilities/README.md) are
 these principles made testable. When a contract and a principle seem to
 disagree, the principle states the intent and the contract is the bug.
 
