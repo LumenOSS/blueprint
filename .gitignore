@@ -1,0 +1,7 @@
+# Nix build outputs.
+result
+result-*
+# Rendered diagrams are build output; the Mermaid source is the artefact.
+build/
+# Python caches from the check scripts.
+__pycache__/
