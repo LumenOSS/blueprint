@@ -2,7 +2,7 @@
 
 Each rule below comes from a failure that happened while running this
 architecture with real data, stated in its general form. They are the
-reasons behind many of the [principles](../principles.md) and contract
+reasons behind many of the [principles](../specifications/principles.md) and contract
 clauses; when a rule looks over-cautious, it is because its absence once
 cost something.
 

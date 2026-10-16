@@ -20,15 +20,15 @@ Two rules from the first version were too narrow for an education system.
 - Three channels, each with its own controls:
   1. **Open publication** of T0 aggregates, readable without signing in,
      with disclosure control, permanent identifiers and open metadata
-     ([CAP-PUBLICATION](../capabilities/cap-publication.md)).
+     ([CAP-PUBLICATION](../specifications/capabilities/cap-publication.md)).
   2. **Partner sharing** of de-identified row-level tables, authenticated
-     and approved per recipient ([CAP-SHARING](../capabilities/cap-sharing.md)).
+     and approved per recipient ([CAP-SHARING](../specifications/capabilities/cap-sharing.md)).
   3. **Individual disclosure** of a person's own records to that person,
      their guardian or an authorised agency, logged and purpose-bound
-     ([CAP-RECORDS.7](../capabilities/cap-records.md)).
+     ([CAP-RECORDS.7](../specifications/capabilities/cap-records.md)).
 - **Scheduled disposal** is the one path by which real personal data is
   deleted: reviewed, audited, and reaching history, branches and backups
-  within a stated time ([CAP-RECORDS.3](../capabilities/cap-records.md)).
+  within a stated time ([CAP-RECORDS.3](../specifications/capabilities/cap-records.md)).
   P12 and P15 are restated to say so.
 
 ## Consequences

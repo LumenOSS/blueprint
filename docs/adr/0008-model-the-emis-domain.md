@@ -15,7 +15,7 @@ see their own data.
 
 ## Decision
 
-- Add a [domain model](../domain/README.md): domains, core resources,
+- Add a [domain model](../specifications/domain/README.md): domains, core resources,
   modelling rules, default classification and build order.
 - Add capabilities for master data and identifiers, reference data and the
   data dictionary, periodic collection, records lifecycle and data-subject

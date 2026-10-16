@@ -30,8 +30,8 @@ audited group. T4 data lives in its own catalog and storage.
 ## Consequences
 
 - No single change widens access across all three inputs
-  ([CAP-ACCESS.6](../capabilities/cap-access.md)).
+  ([CAP-ACCESS.6](../specifications/capabilities/cap-access.md)).
 - Where an engine cannot enforce row filters and masks, it is denied the
-  protected tables ([CAP-CATALOG.5](../capabilities/cap-catalog.md)).
+  protected tables ([CAP-CATALOG.5](../specifications/capabilities/cap-catalog.md)).
 - The entitlement feed's owner becomes a dependency of the platform and
   must be named.

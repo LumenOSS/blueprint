@@ -96,7 +96,7 @@ flowchart LR
 ## In the reference implementations
 
 Both reference implementations use the **dbt semantic layer**
-([ADR-0011](../adr/0011-dbt-semantic-layer.md)): semantic models and
+([ADR-0011](../../adr/0011-dbt-semantic-layer.md)): semantic models and
 metrics written in dbt's YAML specification (the latest spec, dbt 1.12 and
 later), validated and compiled by **MetricFlow**, which is Apache-2.0
 licensed.

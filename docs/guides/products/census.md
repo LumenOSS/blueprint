@@ -44,15 +44,15 @@ flowchart LR
 
 - **The registry decides who must respond.** Completeness is measured
   against the institutions that exist, not against the returns that
-  arrived ([CAP-COLLECTION.1](../capabilities/cap-collection.md)).
+  arrived ([CAP-COLLECTION.1](../../specifications/capabilities/cap-collection.md)).
 - **The head of the institution attests** the return, so accountability
   for the figures sits where they are known.
 - **Review can send a return back.** A query reopens the return with the
   reviewer's reason; every transition is an event
-  ([CAP-COLLECTION.3](../capabilities/cap-collection.md)).
+  ([CAP-COLLECTION.3](../../specifications/capabilities/cap-collection.md)).
 - **Nothing is computed until the area is complete,** and then only from a
-  locked snapshot ([CAP-COLLECTION.4](../capabilities/cap-collection.md),
-  [CAP-COLLECTION.5](../capabilities/cap-collection.md)).
+  locked snapshot ([CAP-COLLECTION.4](../../specifications/capabilities/cap-collection.md),
+  [CAP-COLLECTION.5](../../specifications/capabilities/cap-collection.md)).
 
 ## The instrument
 
@@ -62,7 +62,7 @@ An instrument is a versioned file that declares:
 - the expected respondents, as a query over the institution registry;
 - each item, with its code list, unit and whether it is required;
 - validation rules, each with its quality dimension and severity
-  ([CAP-QUALITY.4](../capabilities/cap-quality.md)): blocking rules stop
+  ([CAP-QUALITY.4](../../specifications/capabilities/cap-quality.md)): blocking rules stop
   submission, warnings need a reason;
 - cross-item checks, such as staff counts against postings in the
   registry, or enrolment against the previous year's enrolment in the
@@ -85,11 +85,11 @@ A committed instrument never changes; next year's census is a new version.
 
 - Gold counts as at the reference date, from which the semantic layer
   derives the participation, teacher and facilities indicators
-  ([indicators](../domain/indicators.md)).
+  ([indicators](../../specifications/domain/indicators.md)).
 - Completeness and timeliness per institution and area, as reported
   measures.
 - Open tables with permanent identifiers, after disclosure control
-  ([CAP-PUBLICATION](../capabilities/cap-publication.md)).
+  ([CAP-PUBLICATION](../../specifications/capabilities/cap-publication.md)).
 - A revision after a late correction is a new snapshot version, with the
   reason and both versions readable.
 
@@ -98,13 +98,13 @@ A committed instrument never changes; next year's census is a new version.
 1. Open a census for a fixture registry; the expected respondents equal
    the registry's active institutions as at the reference date.
 2. Submit a return with a blocking error; submission is refused with a
-   machine-readable error ([CAP-COLLECTION.2](../capabilities/cap-collection.md)).
+   machine-readable error ([CAP-COLLECTION.2](../../specifications/capabilities/cap-collection.md)).
 3. Submit the same return twice from an offline client; one return results.
 4. Leave one institution's return missing; its area reads BLOCKED, and the
-   other areas release ([CAP-COLLECTION.4](../capabilities/cap-collection.md)).
+   other areas release ([CAP-COLLECTION.4](../../specifications/capabilities/cap-collection.md)).
 5. Publish an area with a small cell; the cell and its complement are
    suppressed, and the suppressed value cannot be recomputed from totals
-   ([CAP-PUBLICATION.2](../capabilities/cap-publication.md)).
+   ([CAP-PUBLICATION.2](../../specifications/capabilities/cap-publication.md)).
 6. Correct an accepted return; a new snapshot version is created, the
    published table gains a new version, and the old one stays retrievable
-   ([CAP-PUBLICATION.3](../capabilities/cap-publication.md)).
+   ([CAP-PUBLICATION.3](../../specifications/capabilities/cap-publication.md)).

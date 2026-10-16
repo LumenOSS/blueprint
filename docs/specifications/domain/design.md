@@ -3,7 +3,7 @@
 How the EMIS domain is designed, using domain-driven design: which parts
 matter most, where the boundaries between models lie, what each model
 guarantees, and how the parts talk. The language of each context is in
-its `CONTEXT.md`, listed in the [context map](../../CONTEXT-MAP.md); the
+its `CONTEXT.md`, listed in the [context map](../../../CONTEXT-MAP.md); the
 resources and modelling rules are in the [domain model](README.md).
 
 ## Subdomains
@@ -78,7 +78,7 @@ flowchart TB
   ([CAP-INTEROPERABILITY.8](../capabilities/cap-interoperability.md)).
 - **Reference and Records have no edges** because they shape every
   context (shared codes, shared retention policy); drawing all their edges
-  would hide the rest. The [context map](../../CONTEXT-MAP.md) lists them.
+  would hide the rest. The [context map](../../../CONTEXT-MAP.md) lists them.
 - **ACL** is an anti-corruption layer; **OHS** an open host service;
   **counts** are the gold tables each context publishes.
 

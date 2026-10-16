@@ -22,7 +22,7 @@ Most system-level indicators are stocks at a reference date. They are only compa
 
 ## Notes
 
-Connectivity varies widely between institutions; plan for capture that works offline and synchronises later. The [census product](../product/census.md) is the worked example.
+Connectivity varies widely between institutions; plan for capture that works offline and synchronises later. The [census product](../../guides/products/census.md) is the worked example.
 
 ## Contract
 

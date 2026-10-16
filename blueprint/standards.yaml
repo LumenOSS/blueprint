@@ -2,7 +2,7 @@
 #
 # The standards register: every external standard the blueprint relies on,
 # with the edition relied on, the publisher's own page, and when and how it
-# was checked. docs/standards.md and each capability page's "Standards"
+# was checked. docs/specifications/standards.md and each capability page's "Standards"
 # section are generated from this file (`just render`). Re-check every
 # entry at least once a year; a new edition is a reviewed change.
 

@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../../schema/binding.schema.json
+# yaml-language-server: $schema=../../../schema/binding.schema.json
 #
 # Reference binding: open source on Kubernetes. Every clause is `planned` until the
 # implementation repository shows evidence and moves it to `met`.

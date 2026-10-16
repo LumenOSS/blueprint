@@ -6,7 +6,7 @@ disagree, the principle states the intent and the contract is the bug.
 
 Each principle is followed by why the architecture holds it. The reasons
 come from running the architecture with real data; where a reason is a
-failure that happened, the [lessons](patterns/lessons.md) record its general
+failure that happened, the [lessons](../guides/lessons.md) record its general
 form.
 
 ## P1. CI is the only deployer

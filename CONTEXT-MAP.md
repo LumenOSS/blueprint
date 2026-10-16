@@ -4,21 +4,21 @@ The EMIS domain is divided into bounded contexts. Each has its own
 language, one owning steward and its own catalogs, and talks to the
 others only through published interfaces. How the contexts are designed
 (subdomains, aggregates, invariants and events) is in
-[docs/domain/design.md](docs/domain/design.md). Terms about the blueprint
-and the platform itself are in [docs/glossary.md](docs/glossary.md).
+[domain design](docs/specifications/domain/design.md). Terms about the blueprint
+and the platform itself are in [glossary](docs/specifications/glossary.md).
 
 ## Contexts
 
-- [Reference](docs/domain/contexts/reference/CONTEXT.md): the shared kernel of time, codes, geography and registries
-- [People](docs/domain/contexts/people/CONTEXT.md): each person recorded once, whatever roles they hold
-- [Institutions](docs/domain/contexts/institutions/CONTEXT.md): institutions, the sites they occupy and the state of those sites
-- [Learning](docs/domain/contexts/learning/CONTEXT.md): enrolment, class membership, attendance, progression and guardianship
-- [Workforce](docs/domain/contexts/workforce/CONTEXT.md): posts and the staff posted to them
-- [Curriculum](docs/domain/contexts/curriculum/CONTEXT.md): programmes, grades, subjects and classes
-- [Assessment](docs/domain/contexts/assessment/CONTEXT.md): tests and examinations, candidates and results
-- [Statistics](docs/domain/contexts/statistics/CONTEXT.md): collections, returns, snapshots, indicators and publication
-- [Records](docs/domain/contexts/records/CONTEXT.md): retention, disposal, correction and individual disclosure
-- [Operations](docs/domain/contexts/operations/CONTEXT.md): budgets, assets, entitlement schemes and safety
+- [Reference](docs/specifications/domain/contexts/reference/CONTEXT.md): the shared kernel of time, codes, geography and registries
+- [People](docs/specifications/domain/contexts/people/CONTEXT.md): each person recorded once, whatever roles they hold
+- [Institutions](docs/specifications/domain/contexts/institutions/CONTEXT.md): institutions, the sites they occupy and the state of those sites
+- [Learning](docs/specifications/domain/contexts/learning/CONTEXT.md): enrolment, class membership, attendance, progression and guardianship
+- [Workforce](docs/specifications/domain/contexts/workforce/CONTEXT.md): posts and the staff posted to them
+- [Curriculum](docs/specifications/domain/contexts/curriculum/CONTEXT.md): programmes, grades, subjects and classes
+- [Assessment](docs/specifications/domain/contexts/assessment/CONTEXT.md): tests and examinations, candidates and results
+- [Statistics](docs/specifications/domain/contexts/statistics/CONTEXT.md): collections, returns, snapshots, indicators and publication
+- [Records](docs/specifications/domain/contexts/records/CONTEXT.md): retention, disposal, correction and individual disclosure
+- [Operations](docs/specifications/domain/contexts/operations/CONTEXT.md): budgets, assets, entitlement schemes and safety
 
 ## Relationships
 

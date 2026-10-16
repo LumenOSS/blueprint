@@ -7,7 +7,7 @@ publisher's own page, with the edition relied on and its verdict:
 - **reference:** a recommended method or background;
 - **track:** watched, not yet relied on.
 
-The register is [`blueprint/standards.yaml`](../blueprint/standards.yaml);
+The register is [`blueprint/standards.yaml`](../../blueprint/standards.yaml);
 this page and the "Standards" section of each capability page are generated
 from it. Every entry was last checked on the date in the register. Entries
 checked as `catalogue` were confirmed from the publisher's catalogue

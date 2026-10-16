@@ -16,7 +16,7 @@ path a change takes, how to set up, and what a reviewer will look for.
 | A new term, context, aggregate, invariant or event in the domain | A LIP of type Standards (Domain) | Splitting Statistics into Collection and Publication contexts |
 | A change to a schema the bindings or the catalogue use | A LIP of type Standards (Interface) | A new required field in `binding.schema.json` |
 | A change to how the project works | A LIP of type Process | Changing the length of Last Call |
-| A pattern, a guide or research that changes no requirement | A LIP of type Informational, or an ordinary change to `docs/patterns/` | A pattern for reconciling two systems |
+| A pattern, a guide or research that changes no requirement | A LIP of type Informational, or an ordinary change to `docs/guides/` | A pattern for reconciling two systems |
 | Evidence that an implementation meets a clause | A change to that implementation's repository, moving the clause to `met` | Linking the test that proves CAP-ACCESS.7 |
 
 If you are unsure, open a discussion and ask; it costs nothing to start

@@ -28,9 +28,9 @@ retention decision to one person.
 ## Consequences
 
 - Duplicate detection, merging and verification run once per person, not
-  once per role ([CAP-MASTERDATA](../capabilities/cap-masterdata.md)).
+  once per role ([CAP-MASTERDATA](../specifications/capabilities/cap-masterdata.md)).
 - A subject-access request or a disposal reaches every role a person has
-  held ([CAP-RECORDS](../capabilities/cap-records.md)).
+  held ([CAP-RECORDS](../specifications/capabilities/cap-records.md)).
 - Access rules must not leak across roles: being a staff member grants
   nothing about one's own children's records except through the guardian
   relationship, and the reverse.

@@ -7,7 +7,7 @@ only the upper-case words are requirements. Every clause says how
 conformance is shown, so an implementation can prove it rather than claim
 it.
 
-The clause text lives in [`blueprint/catalogue.yaml`](../../blueprint/catalogue.yaml);
+The clause text lives in [`blueprint/catalogue.yaml`](../../../blueprint/catalogue.yaml);
 the tables on each page are generated from it with `just render`.
 
 ## How to read a page

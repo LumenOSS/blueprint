@@ -16,7 +16,7 @@ another's operational database.
 - The domain has ten bounded contexts, listed in the
   [context map](../../CONTEXT-MAP.md), each with its own `CONTEXT.md`,
   steward and catalogs. Learning and Statistics are the core subdomains.
-- [Domain design](../domain/design.md) records each context's aggregates,
+- [Domain design](../specifications/domain/design.md) records each context's aggregates,
   invariants and domain events, and is kept in step with the languages.
 - Contexts integrate only through published interfaces
   (CAP-INTEROPERABILITY.8) and publish their domain events in a catalogue

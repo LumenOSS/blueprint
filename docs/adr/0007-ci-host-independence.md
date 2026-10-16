@@ -23,6 +23,6 @@ be rewritten when the host changes.
 ## Consequences
 
 - Changing host rewrites only a thin wrapper and the federated credential
-  subjects ([CAP-REPOSITORIES.5](../capabilities/cap-repositories.md)).
+  subjects ([CAP-REPOSITORIES.5](../specifications/capabilities/cap-repositories.md)).
 - Host-specific features (caching, approvals) are used through the wrapper
   only, and each has an equivalent on the other host.

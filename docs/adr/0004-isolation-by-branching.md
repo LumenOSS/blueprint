@@ -29,4 +29,4 @@ no storage cost until it diverges.
 - Branches hold production data, so they need production's access controls.
 - Where branching is slower (a new database instance from a volume
   snapshot), branches take minutes; the contract does not require seconds
-  ([CAP-OPERATIONALDB.2](../capabilities/cap-operationaldb.md)).
+  ([CAP-OPERATIONALDB.2](../specifications/capabilities/cap-operationaldb.md)).

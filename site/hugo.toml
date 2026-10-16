@@ -96,29 +96,67 @@ summaryLength = 0
   pageRef = "/getting-started"
   weight = 10
 [[menus.main]]
-  name = "Principles"
-  pageRef = "/principles"
-  weight = 20
-[[menus.main]]
-  name = "Architecture"
-  pageRef = "/architecture"
+  name = "Specifications"
+  pageRef = "/specifications"
   weight = 30
 [[menus.main]]
+  name = "Principles"
+  parent = "Specifications"
+  pageRef = "/specifications/principles"
+  weight = 31
+[[menus.main]]
   name = "Capabilities"
-  pageRef = "/capabilities"
-  weight = 40
+  parent = "Specifications"
+  pageRef = "/specifications/capabilities"
+  weight = 32
 [[menus.main]]
   name = "Domain"
-  pageRef = "/domain"
-  weight = 50
+  parent = "Specifications"
+  pageRef = "/specifications/domain"
+  weight = 33
+[[menus.main]]
+  name = "Architecture"
+  parent = "Specifications"
+  pageRef = "/specifications/architecture"
+  weight = 34
 [[menus.main]]
   name = "Standards"
-  pageRef = "/standards"
-  weight = 60
+  parent = "Specifications"
+  pageRef = "/specifications/standards"
+  weight = 35
+[[menus.main]]
+  name = "Implementations"
+  parent = "Specifications"
+  pageRef = "/specifications/implementations"
+  weight = 36
+[[menus.main]]
+  name = "Guides"
+  pageRef = "/guides"
+  weight = 40
+[[menus.main]]
+  name = "Building an implementation"
+  parent = "Guides"
+  pageRef = "/guides/building"
+  weight = 41
+[[menus.main]]
+  name = "Example products"
+  parent = "Guides"
+  pageRef = "/guides/products"
+  weight = 42
+[[menus.main]]
+  name = "Backfill"
+  parent = "Guides"
+  pageRef = "/guides/backfill"
+  weight = 43
+[[menus.main]]
+  name = "Lessons"
+  parent = "Guides"
+  pageRef = "/guides/lessons"
+  weight = 44
 [[menus.main]]
   name = "Proposals"
   pageRef = "/lips"
-  weight = 65
+  weight = 60
 [[menus.main]]
   name = "Decisions"
   pageRef = "/adr"

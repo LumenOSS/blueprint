@@ -1,8 +1,8 @@
 # Glossary
 
-Terms about the blueprint and the platform. The language of the EMIS domain itself (institution, learner, enrolment, return and so on) is in the language of each bounded context, listed in the [context map](../CONTEXT-MAP.md).
+Terms about the blueprint and the platform. The language of the EMIS domain itself (institution, learner, enrolment, return and so on) is in the language of each bounded context, listed in the [context map](../../CONTEXT-MAP.md).
 
-**Binding.** An implementation's statement of which components provide a capability, and the status and evidence of each of its clauses. Written as YAML against [`schema/binding.schema.json`](../schema/binding.schema.json).
+**Binding.** An implementation's statement of which components provide a capability, and the status and evidence of each of its clauses. Written as YAML against [`schema/binding.schema.json`](../../schema/binding.schema.json).
 
 **Blueprint.** This repository: the architecture as capabilities and contracts, independent of any vendor.
 

@@ -4,14 +4,14 @@ This repository is a **blueprint**: the architecture of a governed data
 platform, stated as **capabilities** with testable **contracts**. An
 **implementation** binds each capability to components and shows evidence
 for each clause; implementations live in their own repositories. Start at
-`README.md`; to build an implementation, follow `docs/building.md`.
+`README.md`; to build an implementation, follow `docs/guides/building.md`.
 
 ## Rules of the blueprint
 
 - **The catalogue is the source.** `blueprint/catalogue.yaml` holds every
   capability ID and clause text. Edit it, then run `just render`: contract
   tables, the index, the build order and the implementation matrix are
-  generated from it and from `docs/implementations/*.yaml`. Text between
+  generated from it and from `docs/specifications/implementations/*.yaml`. Text between
   `BEGIN GENERATED` and `END GENERATED` markers is never edited by hand.
 - **A contract is vendor-neutral and testable.** Product names appear only
   in bindings and in "Notes". Each clause says how conformance is shown; an
@@ -33,10 +33,10 @@ for each clause; implementations live in their own repositories. Start at
 
 - **Use the domain language.** The domain is split into bounded contexts,
   listed in `CONTEXT-MAP.md`; each has a `CONTEXT.md` under
-  `docs/domain/contexts/` with one canonical term per concept. The words
+  `docs/specifications/domain/contexts/` with one canonical term per concept. The words
   listed under *Avoid* are not used. When a new term is settled, add it to
   its context's `CONTEXT.md` in the same change. Aggregates, invariants
-  and domain events are in `docs/domain/design.md`; keep them in step.
+  and domain events are in `docs/specifications/domain/design.md`; keep them in step.
 
 - The repository is meant to be public: roles, never people; no
   organisation, tenant, host or account identifiers from any deployment.

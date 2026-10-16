@@ -6,7 +6,7 @@ them. The capabilities describe the platform; this page describes the data
 the platform exists for. Code lists and local terms vary by country; the
 resources and rules below do not. Every term here is defined in the
 language of its bounded context, listed in the
-[context map](../../CONTEXT-MAP.md); how the contexts are designed is in
+[context map](../../../CONTEXT-MAP.md); how the contexts are designed is in
 [domain design](design.md).
 
 ## Domains
@@ -39,7 +39,7 @@ The registries of [CAP-MASTERDATA](../capabilities/cap-masterdata.md) are
 split by what they identify: persons in `people`, institutions and sites in
 `institutions`, posts in `workforce`. A learner, a staff member and a
 guardian are not separate registries: they are roles a person holds through
-relationships ([ADR-0010](../adr/0010-one-person-registry.md)). `reference`
+relationships ([ADR-0010](../../adr/0010-one-person-registry.md)). `reference`
 holds the code lists and dictionary of
 [CAP-REFERENCE](../capabilities/cap-reference.md).
 
@@ -109,7 +109,7 @@ governed code lists; those links are left out of the drawing for clarity.
 - **One person, many roles.** A person is recorded once whether they are a
   learner, a guardian or a staff member, and may be all three over a life;
   the roles are relationships, not separate registries
-  ([ADR-0010](../adr/0010-one-person-registry.md)).
+  ([ADR-0010](../../adr/0010-one-person-registry.md)).
 - **Institutions occupy sites.** Two institutions can share one site on
   different shifts, and one institution can operate on several sites, so
   the link between them is a relationship with dates. Facilities belong to
@@ -174,7 +174,7 @@ reason.
 
 A resource can be built once everything it references exists, so
 reference data and the registries come first and derived outputs last.
-The [building guide](../building.md) generates the order of capabilities
+The [building guide](../../guides/building.md) generates the order of capabilities
 from their dependencies.
 
 See also: [indicators](indicators.md).

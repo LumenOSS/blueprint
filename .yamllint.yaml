@@ -6,7 +6,7 @@ rules:
     # scalar; wrapping them would add noise to every diff.
     ignore: |
       blueprint/
-      docs/implementations/
+      docs/specifications/implementations/
   document-start: disable
   truthy:
     check-keys: false

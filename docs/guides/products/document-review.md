@@ -4,9 +4,9 @@ A small, complete workload that exercises every layer of the platform:
 scanned documents arrive, are processed by machine, uncertain results go to
 people, and results are released only when they reconcile against an
 external register. It is the pattern behind the product capabilities
-([CAP-PIPELINE](../capabilities/cap-pipeline.md),
-[CAP-REVIEW](../capabilities/cap-review.md),
-[CAP-RELEASE](../capabilities/cap-release.md)) and the reference workload
+([CAP-PIPELINE](../../specifications/capabilities/cap-pipeline.md),
+[CAP-REVIEW](../../specifications/capabilities/cap-review.md),
+[CAP-RELEASE](../../specifications/capabilities/cap-release.md)) and the reference workload
 every implementation should run end to end.
 
 The pattern fits any **document in → machine verdict → human review →
@@ -74,7 +74,7 @@ flowchart LR
 - **Review loops back into the same database,** because a human decision is
   just another write, guarded so no machine write can overwrite it.
 - **Reports read gold through the catalog,** never the operational database
-  directly ([CAP-TRANSFORMATION.3](../capabilities/cap-transformation.md)).
+  directly ([CAP-TRANSFORMATION.3](../../specifications/capabilities/cap-transformation.md)).
 
 ## Stages
 
@@ -144,7 +144,7 @@ apart from a rise in work.
 ## Environments
 
 The product runs in production and in development branches of it
-([CAP-ENVIRONMENTS](../capabilities/cap-environments.md)). A development
+([CAP-ENVIRONMENTS](../../specifications/capabilities/cap-environments.md)). A development
 branch has its own database and its own storage; it may read production's
 documents only through a read-only path, and uploads there are refused.
 Every deployment reports on its health endpoint which environment it
@@ -156,14 +156,14 @@ An implementation proves the product capabilities by running a fixture
 corpus through the product:
 
 1. Submit the corpus; submit it again under different names. One record
-   per document results ([CAP-PIPELINE.1](../capabilities/cap-pipeline.md)).
+   per document results ([CAP-PIPELINE.1](../../specifications/capabilities/cap-pipeline.md)).
 2. Process it twice; outputs are byte-identical
-   ([CAP-PIPELINE.2](../capabilities/cap-pipeline.md)).
+   ([CAP-PIPELINE.2](../../specifications/capabilities/cap-pipeline.md)).
 3. Make the database unreachable; the three upstream stages complete
-   ([CAP-PIPELINE.6](../capabilities/cap-pipeline.md)).
+   ([CAP-PIPELINE.6](../../specifications/capabilities/cap-pipeline.md)).
 4. Race concurrent reviewers for one item; exactly one holds the lease
-   ([CAP-REVIEW.2](../capabilities/cap-review.md)).
+   ([CAP-REVIEW.2](../../specifications/capabilities/cap-review.md)).
 5. Re-run the pipeline over reviewed items; no human decision changes
-   ([CAP-REVIEW.3](../capabilities/cap-review.md)).
+   ([CAP-REVIEW.3](../../specifications/capabilities/cap-review.md)).
 6. Load each blocking fixture; the gate reads BLOCKED, and CLEAR only for
-   the balanced one ([CAP-RELEASE.1](../capabilities/cap-release.md)).
+   the balanced one ([CAP-RELEASE.1](../../specifications/capabilities/cap-release.md)).

@@ -5,7 +5,7 @@
 ## Context
 
 The semantic layer is the one place indicators are defined
-([P11](../principles.md#p11-reporting-goes-through-a-governed-transformation-layer)).
+([P11](../specifications/principles.md#p11-reporting-goes-through-a-governed-transformation-layer)).
 The two reference implementations serve different consumers: open-source
 dashboards on one, managed dashboards and natural-language query on the
 other. If each implementation defined measures in its own tool, the same

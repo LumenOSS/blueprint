@@ -13,6 +13,7 @@ Usage:
 
 import argparse
 import json
+import os
 import pathlib
 import re
 import sys
@@ -24,13 +25,14 @@ import yaml
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CATALOGUE = ROOT / "blueprint" / "catalogue.yaml"
 STANDARDS = ROOT / "blueprint" / "standards.yaml"
-STANDARDS_PAGE = ROOT / "docs" / "standards.md"
+SPECIFICATIONS = ROOT / "docs" / "specifications"
+STANDARDS_PAGE = SPECIFICATIONS / "standards.md"
 LIPS = ROOT / "docs" / "lips"
 ADRS = ROOT / "docs" / "adr"
 LIP_FILE = re.compile(r"^lip-(\d{4})\.md$")
-CAPABILITY_DOCS = ROOT / "docs" / "capabilities"
-IMPLEMENTATION_DOCS = ROOT / "docs" / "implementations"
-BUILDING_GUIDE = ROOT / "docs" / "building.md"
+CAPABILITY_DOCS = SPECIFICATIONS / "capabilities"
+IMPLEMENTATION_DOCS = SPECIFICATIONS / "implementations"
+BUILDING_GUIDE = ROOT / "docs" / "guides" / "building.md"
 SCHEMAS = ROOT / "schema"
 
 BEGIN = "<!-- BEGIN GENERATED: {name} (just render) -->"
@@ -394,7 +396,7 @@ def check_register(reg: Register, cat: Catalogue) -> list[str]:
     principles = set(
         re.findall(
             r"^## (P[0-9]+)\.",
-            (ROOT / "docs" / "principles.md").read_text(encoding="utf-8"),
+            (SPECIFICATIONS / "principles.md").read_text(encoding="utf-8"),
             re.M,
         )
     )
@@ -672,7 +674,8 @@ def build_order_table(cat: Catalogue) -> str:
     """Renders the build order as a numbered table."""
     rows = ["| Step | Capability | Layer | Depends on |", separator(4)]
     for step, cap in enumerate(build_order(cat), 1):
-        link = f"[{cap['id']}](capabilities/{cap['id'].lower()}.md)"
+        page = os.path.relpath(page_path(cap["id"]), BUILDING_GUIDE.parent)
+        link = f"[{cap['id']}]({pathlib.Path(page).as_posix()})"
         deps = ", ".join(cap.get("depends_on", [])) or "—"
         rows.append(
             f"| {step} | {link} {cell(cap['name'])} | {cap['layer']} | {deps} |"

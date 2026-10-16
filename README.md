@@ -39,24 +39,24 @@ set up, and what review looks for.
 | Read | For |
 | --- | --- |
 | [Getting started](docs/getting-started.md) | The order to read everything in, by role |
-| [Principles](docs/principles.md) | The 21 ideas the architecture rests on, and why |
-| [Architecture](docs/architecture/README.md) | C4 diagrams: context, containers, components |
-| [Capabilities](docs/capabilities/README.md) | 41 capabilities and their contracts |
-| [Implementations](docs/implementations/README.md) | Reference bindings for open source and Databricks, and where they differ |
-| [Building an implementation](docs/building.md) | The steps, in dependency order, with completion criteria |
-| [Domain model](docs/domain/README.md) | What an EMIS holds: domains, resources, modelling rules, default classification |
-| [Indicators](docs/domain/indicators.md) | How indicators are defined, computed and published |
-| [Semantic layer](docs/architecture/semantic-layer.md) | Every indicator defined once and served to every consumer; dbt in both implementations |
-| [Example products](docs/product/README.md) | Document review and an annual census, each running through every layer, and a checklist for new products |
-| [Backfill patterns](docs/patterns/backfill.md) | Loading history and reprocessing, from published sources |
-| [Lessons](docs/patterns/lessons.md) | Failures that shaped the design, as rules |
-| [Standards](docs/standards.md) | The international standards relied on, with current editions and publisher links |
+| [Principles](docs/specifications/principles.md) | The 21 ideas the architecture rests on, and why |
+| [Architecture](docs/specifications/architecture/README.md) | C4 diagrams: context, containers, components |
+| [Capabilities](docs/specifications/capabilities/README.md) | 41 capabilities and their contracts |
+| [Implementations](docs/specifications/implementations/README.md) | Reference bindings for open source and Databricks, and where they differ |
+| [Building an implementation](docs/guides/building.md) | The steps, in dependency order, with completion criteria |
+| [Domain model](docs/specifications/domain/README.md) | What an EMIS holds: domains, resources, modelling rules, default classification |
+| [Indicators](docs/specifications/domain/indicators.md) | How indicators are defined, computed and published |
+| [Semantic layer](docs/specifications/architecture/semantic-layer.md) | Every indicator defined once and served to every consumer; dbt in both implementations |
+| [Example products](docs/guides/products/README.md) | Document review and an annual census, each running through every layer, and a checklist for new products |
+| [Backfill patterns](docs/guides/backfill.md) | Loading history and reprocessing, from published sources |
+| [Lessons](docs/guides/lessons.md) | Failures that shaped the design, as rules |
+| [Standards](docs/specifications/standards.md) | The international standards relied on, with current editions and publisher links |
 | [Contributing](CONTRIBUTING.md) | Which path a change takes, setting up, writing and review |
 | [Improvement proposals](docs/lips/README.md) | How to propose a change, and every LIP so far |
 | [Decision records](docs/adr/README.md) | What was decided, and why |
 | [Context map](CONTEXT-MAP.md) | The bounded contexts of the EMIS domain and their language, with the words to avoid |
-| [Domain design](docs/domain/design.md) | Subdomains, aggregates, invariants and domain events |
-| [Glossary](docs/glossary.md) | Terms about the blueprint and the platform |
+| [Domain design](docs/specifications/domain/design.md) | Subdomains, aggregates, invariants and domain events |
+| [Glossary](docs/specifications/glossary.md) | Terms about the blueprint and the platform |
 
 ## Layout
 

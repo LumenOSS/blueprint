@@ -3,7 +3,7 @@
 How to load history, reprocess after a logic change, fill gaps after an
 outage, and onboard a source with years of history, without duplicates,
 loss, or harm to production. The contract these patterns serve is
-[CAP-BACKFILL](../capabilities/cap-backfill.md); section 8 maps each of its
+[CAP-BACKFILL](../specifications/capabilities/cap-backfill.md); section 8 maps each of its
 clauses to the invariants that prove it.
 
 The chapter is vendor-neutral. Each pattern ends with a one-line mapping to

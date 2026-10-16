@@ -24,4 +24,4 @@ exercised.
 - The Databricks reference implementation uses Delta Lake with UniForm, so
   the same tables are readable as Iceberg.
 - The exit test is a scheduled job with a cost
-  ([CAP-TABLES.2](../capabilities/cap-tables.md)).
+  ([CAP-TABLES.2](../specifications/capabilities/cap-tables.md)).

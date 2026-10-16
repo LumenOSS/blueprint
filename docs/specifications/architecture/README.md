@@ -331,7 +331,7 @@ flowchart LR
 ## C3 Components: product pipeline
 
 The example product's processing, from file to released result. The
-[document-review product](../product/document-review.md) describes it in full.
+[document-review product](../../guides/products/document-review.md) describes it in full.
 
 ```mermaid
 ---

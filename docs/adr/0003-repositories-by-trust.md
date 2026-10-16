@@ -29,8 +29,8 @@ Inside a repository, state is split per stack and environment.
 ## Consequences
 
 - A compromised product pipeline cannot reach platform or bootstrap
-  identities ([CAP-REPOSITORIES.2](../capabilities/cap-repositories.md)).
+  identities ([CAP-REPOSITORIES.2](../specifications/capabilities/cap-repositories.md)).
 - The root of trust is made once by a person and recorded
-  ([CAP-CIIDENTITY.4](../capabilities/cap-ciidentity.md)).
+  ([CAP-CIIDENTITY.4](../specifications/capabilities/cap-ciidentity.md)).
 - More repositories to keep in step; modules and published outputs are how
   they share without sharing state.

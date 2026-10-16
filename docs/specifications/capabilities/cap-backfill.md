@@ -12,7 +12,7 @@ Load history, reprocess after a logic change, and fill gaps without duplicates, 
 
 ## Why
 
-Backfills run rarely, under pressure, over more data than anything else; they are where idempotence, determinism and reconciliation are tested hardest ([P8](../principles.md#p8-every-write-is-idempotent), [P9](../principles.md#p9-determinism)). See the [backfill patterns](../patterns/backfill.md).
+Backfills run rarely, under pressure, over more data than anything else; they are where idempotence, determinism and reconciliation are tested hardest ([P8](../principles.md#p8-every-write-is-idempotent), [P9](../principles.md#p9-determinism)). See the [backfill patterns](../../guides/backfill.md).
 
 ## Interfaces
 
