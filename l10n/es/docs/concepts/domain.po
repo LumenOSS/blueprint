@@ -9,180 +9,180 @@ msgstr ""
 
 #: docs/concepts/domain.md
 msgid "The EMIS domain"
-msgstr ""
+msgstr "El dominio del SIGE"
 
 #: docs/concepts/domain.md
 msgid "Before anyone can build an EMIS, everyone involved has to mean the same thing by the same words. This page explains what a domain model is, why this blueprint uses one, and the main things an EMIS records."
-msgstr ""
+msgstr "Antes de que nadie pueda construir un SIGE, todas las personas implicadas deben entender lo mismo con las mismas palabras. Esta página explica qué es un modelo de dominio, por qué este plano usa uno y las principales cosas que registra un SIGE."
 
 #: docs/concepts/domain.md
 msgid "What a domain model is"
-msgstr ""
+msgstr "Qué es un modelo de dominio"
 
 #: docs/concepts/domain.md
 msgid "The idea comes from Eric Evans's book *Domain-Driven Design* (2003). His own summary, the [DDD Reference]{1} (2015, Creative Commons Attribution 4.0), defines the two key words:"
-msgstr ""
+msgstr "La idea procede del libro de Eric Evans *Domain-Driven Design* (2003). Su propio resumen, la [DDD Reference]{1} (2015, Creative Commons Attribution 4.0), define las dos palabras clave (traducción no oficial):"
 
 #: docs/concepts/domain.md
 msgid "**domain:** A sphere of knowledge, influence, or activity. The subject area to which the user applies a program is the domain of the software."
-msgstr ""
+msgstr "**dominio:** Una esfera de conocimiento, influencia o actividad. El área temática a la que el usuario aplica un programa es el dominio del software."
 
 #: docs/concepts/domain.md
 msgid "**model:** A system of abstractions that describes selected aspects of a domain and can be used to solve problems related to that domain."
-msgstr ""
+msgstr "**modelo:** Un sistema de abstracciones que describe aspectos seleccionados de un dominio y que puede usarse para resolver problemas relacionados con ese dominio."
 
 #: docs/concepts/domain.md
 msgid "Here the domain is education administration, and the model is the set of things an EMIS records and the rules between them: a learner is enrolled at an institution, a teacher is posted to a post, a census counts enrolments on a reference date."
-msgstr ""
+msgstr "Aquí el dominio es la administración educativa, y el modelo es el conjunto de cosas que registra un SIGE y las reglas entre ellas: un estudiante está matriculado en una institución, un docente está destinado a un puesto, un censo cuenta matrículas en una fecha de referencia."
 
 #: docs/concepts/domain.md
 msgid "Martin Fowler describes the approach as one that \"centers the development on programming a domain model that has a rich understanding of the processes and rules of a domain\", and notes it is \"particularly suited to complex domains, where a lot of often-messy logic needs to be organized\" ([Domain Driven Design]{1}, 2020)."
-msgstr ""
+msgstr "Martin Fowler describe el enfoque como uno que «centra el desarrollo en programar un modelo de dominio con una comprensión rica de los procesos y las reglas de un dominio», y señala que es «especialmente adecuado para dominios complejos, en los que hay que organizar mucha lógica a menudo desordenada» ([Domain Driven Design]{1}, 2020; traducción no oficial)."
 
 #: docs/concepts/domain.md
 msgid "Why this blueprint uses one"
-msgstr ""
+msgstr "Por qué este plano usa uno"
 
 #: docs/concepts/domain.md
 msgid "**The words are contested.** Planners, school staff, examination boards and statisticians all say \"student\", \"class\" or \"programme\", and often mean different things. A shared, written vocabulary removes the guesswork. Evans calls it the *ubiquitous language*: \"a language structured around the domain model and used by all team members\"."
-msgstr ""
+msgstr "**Las palabras se disputan.** Planificadores, personal escolar, organismos examinadores y estadísticos dicen todos «alumno», «clase» o «programa», y a menudo quieren decir cosas distintas. Un vocabulario compartido y escrito elimina las conjeturas. Evans lo llama el *lenguaje ubicuo*: «un lenguaje estructurado en torno al modelo de dominio y usado por todos los miembros del equipo»."
 
 #: docs/concepts/domain.md
 msgid "**Figures depend on definitions.** An enrolment rate is only comparable year on year if \"enrolled\" means the same thing each year."
-msgstr ""
+msgstr "**Las cifras dependen de las definiciones.** Una tasa de matrícula solo es comparable de un año a otro si «matriculado» significa lo mismo cada año."
 
 #: docs/concepts/domain.md
 msgid "**The data outlives the software.** Records about a learner matter for decades; the systems that hold them will be replaced several times. The model is what survives."
-msgstr ""
+msgstr "**Los datos sobreviven al software.** Los registros de un estudiante importan durante décadas; los sistemas que los contienen se sustituirán varias veces. El modelo es lo que perdura."
 
 #: docs/concepts/domain.md
 msgid "**Many teams build it.** This blueprint is implemented on different technology by different people. The model is what keeps their results compatible."
-msgstr ""
+msgstr "**Muchos equipos lo construyen.** Este plano lo implementan personas distintas con tecnologías distintas. El modelo es lo que mantiene compatibles sus resultados."
 
 #: docs/concepts/domain.md
 msgid "One model for everything does not work for a system this size. Fowler again: \"total unification of the domain model for a large system will not be feasible or cost-effective\" ([Bounded Context]{1}, 2014). So the EMIS domain is split into **bounded contexts** (learning, workforce, statistics and others), each with its own vocabulary. The [context map]{2} lists them."
-msgstr ""
+msgstr "Un único modelo para todo no funciona en un sistema de este tamaño. De nuevo Fowler: «la unificación total del modelo de dominio de un sistema grande no será viable ni rentable» ([Bounded Context]{1}, 2014; traducción no oficial). Por eso el dominio del SIGE se divide en **contextos delimitados** (aprendizaje, personal, estadística y otros), cada uno con su propio vocabulario. El [mapa de contextos]{2} los enumera."
 
 #: docs/concepts/domain.md
 msgid "The model at a glance"
-msgstr ""
+msgstr "El modelo de un vistazo"
 
 #: docs/concepts/domain.md
 msgid "Why it is drawn this way"
-msgstr ""
+msgstr "Por qué se dibuja así"
 
 #: docs/concepts/domain.md
 msgid "**Dark boxes are things that exist on their own:** a person, an institution, a site, a post, a programme."
-msgstr ""
+msgstr "**Las cajas oscuras son cosas que existen por sí mismas:** una persona, una institución, una sede, un puesto, un programa."
 
 #: docs/concepts/domain.md
 msgid "**Middle boxes are relationships with dates:** a person *is* a learner only through an enrolment, a teacher only through a posting, a guardian only through a guardian relationship. Each starts and ends."
-msgstr ""
+msgstr "**Las cajas intermedias son relaciones con fechas:** una persona *es* estudiante solo a través de una matrícula, docente solo a través de un destino, tutor solo a través de una relación de tutela. Cada una empieza y termina."
 
 #: docs/concepts/domain.md
 msgid "**Light boxes are statistics:** counted from the relationships, as at a reference date, and published as indicators."
-msgstr ""
+msgstr "**Las cajas claras son estadísticas:** se cuentan a partir de las relaciones, en una fecha de referencia, y se publican como indicadores."
 
 #: docs/concepts/domain.md
 msgid "The main concepts"
-msgstr ""
+msgstr "Los conceptos principales"
 
 #: docs/concepts/domain.md
 msgid "Each concept below is defined precisely in its context's vocabulary, linked at the end of each section."
-msgstr ""
+msgstr "Cada concepto de abajo se define con precisión en el vocabulario de su contexto, enlazado al final de cada sección."
 
 #: docs/concepts/domain.md
 msgid "Person"
-msgstr ""
+msgstr "Persona"
 
 #: docs/concepts/domain.md
 msgid "Every human the system knows about is recorded once, as a person, with an identifier that never changes. Being a learner, a teacher or a guardian is a *role* someone holds, not a separate record, so a teacher who is also a parent is still one person. [People context]{1}."
-msgstr ""
+msgstr "Cada ser humano que conoce el sistema se registra una sola vez, como persona, con un identificador que nunca cambia. Ser estudiante, docente o tutor es un *rol* que alguien desempeña, no un registro aparte: un docente que también es madre o padre sigue siendo una sola persona. [Contexto de personas]{1}."
 
 #: docs/concepts/domain.md
 msgid "Institution and site"
-msgstr ""
+msgstr "Institución y sede"
 
 #: docs/concepts/domain.md
 msgid "An institution is the organisation that provides education, such as a school or college. A site is a physical place. They are separate because one institution can use several sites, and one building can house several institutions. [Institutions context]{1}."
-msgstr ""
+msgstr "Una institución es la organización que imparte educación, como una escuela o un instituto. Una sede es un lugar físico. Se separan porque una institución puede usar varias sedes, y un edificio puede albergar varias instituciones. [Contexto de instituciones]{1}."
 
 #: docs/concepts/domain.md
 msgid "Learner and enrolment"
-msgstr ""
+msgstr "Estudiante y matrícula"
 
 #: docs/concepts/domain.md
 msgid "An enrolment says that a person is registered at an institution, in a programme and grade, for an academic period, from one date to another. Being a learner is having an enrolment. A transfer ends one enrolment and starts another; nothing is overwritten. [Learning context]{1}."
-msgstr ""
+msgstr "Una matrícula indica que una persona está inscrita en una institución, en un programa y grado, para un periodo académico, de una fecha a otra. Ser estudiante es tener una matrícula. Un traslado termina una matrícula y empieza otra; no se sobrescribe nada. [Contexto de aprendizaje]{1}."
 
 #: docs/concepts/domain.md
 msgid "Guardian"
-msgstr ""
+msgstr "Tutor"
 
 #: docs/concepts/domain.md
 msgid "A guardian is a person, or sometimes a body such as an agency, with legal authority for a learner. The relationship has dates, and when the authority ends, so does the guardian's access to the learner's records. [Learning context]{1}."
-msgstr ""
+msgstr "Un tutor es una persona, o a veces un organismo como una agencia, con autoridad legal sobre un estudiante. La relación tiene fechas, y cuando termina la autoridad, también termina el acceso del tutor a los registros del estudiante. [Contexto de aprendizaje]{1}."
 
 #: docs/concepts/domain.md
 msgid "Staff, post and posting"
-msgstr ""
+msgstr "Personal, puesto y destino"
 
 #: docs/concepts/domain.md
 msgid "A post is a position at an institution, such as a mathematics teacher post. A posting puts a person in a post for a period, possibly part time. Counting posts and postings separately shows vacancies as well as staff. [Workforce context]{1}."
-msgstr ""
+msgstr "Un puesto es una plaza en una institución, como un puesto de docente de matemáticas. Un destino asigna a una persona a un puesto durante un periodo, quizá a tiempo parcial. Contar puestos y destinos por separado muestra las vacantes además del personal. [Contexto de personal]{1}."
 
 #: docs/concepts/domain.md
 msgid "Programme, grade and class"
-msgstr ""
+msgstr "Programa, grado y clase"
 
 #: docs/concepts/domain.md
 msgid "A programme is a course of education, such as lower secondary; a grade is a year within it. A class is a group taught together, which may mix grades, so being in a class is recorded separately from being enrolled. [Curriculum context]{1}."
-msgstr ""
+msgstr "Un programa es un ciclo de enseñanza, como la secundaria inferior; un grado es un año dentro de él. Una clase es un grupo que recibe enseñanza junto, que puede mezclar grados, así que estar en una clase se registra aparte de estar matriculado. [Contexto curricular]{1}."
 
 #: docs/concepts/domain.md
 msgid "Assessment"
-msgstr ""
+msgstr "Evaluación"
 
 #: docs/concepts/domain.md
 msgid "Tests and examinations, who sat them, and their results. Once a result is released it is never edited; a correction is a new version. [Assessment context]{1}."
-msgstr ""
+msgstr "Las pruebas y los exámenes, quién los hizo y sus resultados. Una vez publicado, un resultado nunca se edita; una corrección es una nueva versión. [Contexto de evaluación]{1}."
 
 #: docs/concepts/domain.md
 msgid "Collection, return and snapshot"
-msgstr ""
+msgstr "Recogida, declaración e instantánea"
 
 #: docs/concepts/domain.md
 msgid "A collection, such as the annual census, asks every institution for a return about a fixed reference date. Returns are checked, attested and accepted; the accepted figures are locked as a snapshot, which is what gets published. [Statistics context]{1}."
-msgstr ""
+msgstr "Una recogida, como el censo anual, pide a cada institución una declaración sobre una fecha de referencia fija. Las declaraciones se comprueban, se certifican y se aceptan; las cifras aceptadas se fijan en una instantánea, que es lo que se publica. [Contexto estadístico]{1}."
 
 #: docs/concepts/domain.md
 msgid "Indicator"
-msgstr ""
+msgstr "Indicador"
 
 #: docs/concepts/domain.md
 msgid "An indicator is a defined calculation over the snapshot, such as the gross enrolment ratio. It is defined once and used everywhere: on dashboards, in publications and in international returns. [Statistics context]{1}."
-msgstr ""
+msgstr "Un indicador es un cálculo definido sobre la instantánea, como la tasa bruta de matrícula. Se define una sola vez y se usa en todas partes: en los paneles, en las publicaciones y en las declaraciones internacionales. [Contexto estadístico]{1}."
 
 #: docs/concepts/domain.md
 msgid "Reference data"
-msgstr ""
+msgstr "Datos de referencia"
 
 #: docs/concepts/domain.md
 msgid "Shared lists that give codes their meaning: types of institution, exit reasons, administrative areas, academic periods. A code keeps its meaning for ever; a new meaning gets a new code. [Reference context]{1}."
-msgstr ""
+msgstr "Listas compartidas que dan significado a los códigos: tipos de institución, motivos de baja, divisiones administrativas, periodos académicos. Un código conserva su significado para siempre; un significado nuevo recibe un código nuevo. [Contexto de referencia]{1}."
 
 #: docs/concepts/domain.md
 msgid "Where to go deeper"
-msgstr ""
+msgstr "Para profundizar"
 
 #: docs/concepts/domain.md
 msgid "The [domain specification]{1}: the resources, the modelling rules and the default sensitivity of each."
-msgstr ""
+msgstr "La [especificación del dominio]{1}: los recursos, las reglas de modelado y la sensibilidad por defecto de cada uno."
 
 #: docs/concepts/domain.md
 msgid "The [domain design]{1}: the bounded contexts, the rules each record must always keep, and the events they publish."
-msgstr ""
+msgstr "El [diseño del dominio]{1}: los contextos delimitados, las reglas que cada registro debe cumplir siempre y los eventos que publican."
 
 #: docs/concepts/domain.md
 msgid "Next: [data in an EMIS]{1}."
-msgstr ""
+msgstr "Siguiente: [los datos de un SIGE]{1}."

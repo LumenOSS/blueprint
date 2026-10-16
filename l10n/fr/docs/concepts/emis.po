@@ -9,116 +9,116 @@ msgstr ""
 
 #: docs/concepts/emis.md
 msgid "What is an EMIS"
-msgstr ""
+msgstr "Qu'est-ce qu'un SIGE"
 
 #: docs/concepts/emis.md
 msgid "An education management information system (EMIS) is how an education authority knows what is happening in its education system: how many learners there are and where, whether they attend and learn, who teaches them, and what it all costs."
-msgstr ""
+msgstr "Un système d'information pour la gestion de l'éducation (SIGE) est le moyen par lequel une autorité éducative sait ce qui se passe dans son système éducatif : combien d'apprenants il y a et où, s'ils sont présents et s'ils apprennent, qui leur enseigne, et ce que tout cela coûte."
 
 #: docs/concepts/emis.md
 msgid "UNESCO defines it as:"
-msgstr ""
+msgstr "L'UNESCO le définit comme :"
 
 #: docs/concepts/emis.md
 msgid "a system for the collection, integration, processing, maintenance and dissemination of data and information to support decision-making, policy-analysis and formulation, planning, monitoring and management at all levels of an education system."
-msgstr ""
+msgstr "un système de collecte, d'intégration, de traitement, de maintenance et de diffusion de données et d'informations destiné à appuyer la prise de décision, l'analyse et la formulation des politiques, la planification, le suivi et la gestion à tous les niveaux d'un système éducatif."
 
 #: docs/concepts/emis.md
 msgid "— UNESCO, [*Education for All by 2015: Will we make it?*]{1}, EFA Global Monitoring Report 2008, p. 101"
-msgstr ""
+msgstr "— UNESCO, [*Education for All by 2015: Will we make it?*]{1}, Rapport mondial de suivi sur l'EPT 2008, p. 101 (traduction non officielle)"
 
 #: docs/concepts/emis.md
 msgid "The same definition goes on to say that an EMIS is \"a system of people, technology, models, methods, processes, procedures, rules and regulations\". That matters: an EMIS is not one piece of software. It is the arrangement by which data about education is collected, trusted and used."
-msgstr ""
+msgstr "La même définition précise qu'un SIGE est « un système de personnes, de technologies, de modèles, de méthodes, de processus, de procédures, de règles et de réglementations ». C'est important : un SIGE n'est pas un logiciel. C'est l'organisation par laquelle les données sur l'éducation sont collectées, rendues fiables et utilisées."
 
 #: docs/concepts/emis.md
 msgid "Who relies on it"
-msgstr ""
+msgstr "Qui en dépend"
 
 #: docs/concepts/emis.md
 msgid "Who"
-msgstr ""
+msgstr "Qui"
 
 #: docs/concepts/emis.md
 msgid "What they need from it"
-msgstr ""
+msgstr "Ce dont ils ont besoin"
 
 #: docs/concepts/emis.md
 msgid "Ministry planners and leaders"
-msgstr ""
+msgstr "Planificateurs et responsables du ministère"
 
 #: docs/concepts/emis.md
 msgid "How many places, teachers and how much money are needed, and where"
-msgstr ""
+msgstr "Combien de places, d'enseignants et de moyens financiers sont nécessaires, et où"
 
 #: docs/concepts/emis.md
 msgid "District and regional officers"
-msgstr ""
+msgstr "Agents des districts et des régions"
 
 #: docs/concepts/emis.md
 msgid "Which institutions need support, and whether returns are complete"
-msgstr ""
+msgstr "Quels établissements ont besoin de soutien, et si les déclarations sont complètes"
 
 #: docs/concepts/emis.md
 msgid "Institution leaders and teachers"
-msgstr ""
+msgstr "Chefs d'établissement et enseignants"
 
 #: docs/concepts/emis.md
 msgid "Their own learners: enrolment, attendance, results, support needs"
-msgstr ""
+msgstr "Leurs propres apprenants : inscription, assiduité, résultats, besoins de soutien"
 
 #: docs/concepts/emis.md
 msgid "Learners and guardians"
-msgstr ""
+msgstr "Apprenants et tuteurs"
 
 #: docs/concepts/emis.md
 msgid "Their own records, and correct ones"
-msgstr ""
+msgstr "Leurs propres dossiers, et qu'ils soient exacts"
 
 #: docs/concepts/emis.md
 msgid "Statisticians and researchers"
-msgstr ""
+msgstr "Statisticiens et chercheurs"
 
 #: docs/concepts/emis.md
 msgid "Consistent figures over time and between places"
-msgstr ""
+msgstr "Des chiffres cohérents dans le temps et d'un lieu à l'autre"
 
 #: docs/concepts/emis.md
 msgid "The public and international bodies"
-msgstr ""
+msgstr "Le public et les organismes internationaux"
 
 #: docs/concepts/emis.md
 msgid "Published statistics, such as the indicators for the Sustainable Development Goal on education"
-msgstr ""
+msgstr "Des statistiques publiées, comme les indicateurs de l'objectif de développement durable consacré à l'éducation"
 
 #: docs/concepts/emis.md
 msgid "Two kinds of work"
-msgstr ""
+msgstr "Deux types de travail"
 
 #: docs/concepts/emis.md
 msgid "An EMIS does two different jobs, and much of this blueprint follows from keeping them apart."
-msgstr ""
+msgstr "Un SIGE remplit deux fonctions différentes, et une grande partie de ce plan découle du fait de les séparer."
 
 #: docs/concepts/emis.md
 msgid "**Recording.** Day to day, it keeps records about individual people and institutions: this learner is enrolled here, attended today, sat this examination. These records change all the time and must be correct for each person."
-msgstr ""
+msgstr "**Enregistrer.** Au quotidien, il tient des dossiers sur les personnes et les établissements : cet apprenant est inscrit ici, était présent aujourd'hui, a passé cet examen. Ces dossiers changent sans cesse et doivent être exacts pour chaque personne."
 
 #: docs/concepts/emis.md
 msgid "**Counting.** Periodically, it produces official figures: enrolment by grade and district on census day, the pupil–teacher ratio, the completion rate. These are counted *as at a reference date*, published, and then not changed silently, because policy and funding depend on them."
-msgstr ""
+msgstr "**Compter.** Périodiquement, il produit des chiffres officiels : les effectifs par niveau et par district le jour du recensement, le ratio élèves-enseignant, le taux d'achèvement. Ils sont comptés *à une date de référence*, publiés, puis jamais modifiés en silence, car les politiques et les financements en dépendent."
 
 #: docs/concepts/emis.md
 msgid "A good EMIS lets the second be derived from the first, so the figures can be traced back to the records they count."
-msgstr ""
+msgstr "Un bon SIGE permet de dériver le second du premier, pour que les chiffres puissent être retracés jusqu'aux dossiers qu'ils comptent."
 
 #: docs/concepts/emis.md
 msgid "What this blueprint covers"
-msgstr ""
+msgstr "Ce que couvre ce plan de référence"
 
 #: docs/concepts/emis.md
 msgid "This blueprint describes the **data platform** behind an EMIS: where the data lives, how it moves, how it is governed, who may see it, and how figures are defined and published. It does not prescribe the applications people type into, such as a school management system or a census form. Those are *products* that run on the platform."
-msgstr ""
+msgstr "Ce plan décrit la **plateforme de données** qui sous-tend un SIGE : où résident les données, comment elles circulent, comment elles sont gouvernées, qui peut les voir, et comment les chiffres sont définis et publiés. Il ne prescrit pas les applications dans lesquelles les gens saisissent des données, comme un logiciel de gestion scolaire ou un formulaire de recensement. Ce sont des *produits* qui s'exécutent sur la plateforme."
 
 #: docs/concepts/emis.md
 msgid "Next: [the EMIS domain]{1}."
-msgstr ""
+msgstr "Suite : [le domaine du SIGE]{1}."

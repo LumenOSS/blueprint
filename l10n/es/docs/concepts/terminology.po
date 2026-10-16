@@ -9,384 +9,384 @@ msgstr ""
 
 #: docs/concepts/terminology.md
 msgid "Terminology"
-msgstr ""
+msgstr "Terminología"
 
 #: docs/concepts/terminology.md
 msgid "The specifications use a handful of classifications over and over. Learn these and the rest of the blueprint reads easily. Every other term is in the [glossary]{1} or in the vocabulary of its bounded context, listed in the [context map]{2}."
-msgstr ""
+msgstr "Las especificaciones usan una y otra vez un puñado de clasificaciones. Apréndalas y el resto del plano se leerá con facilidad. Todos los demás términos están en el [glosario]{1} o en el vocabulario de su contexto delimitado, enumerado en el [mapa de contextos]{2}."
 
 #: docs/concepts/terminology.md
 msgid "Sensitivity tiers"
-msgstr ""
+msgstr "Niveles de sensibilidad"
 
 #: docs/concepts/terminology.md
 msgid "Every table is tagged with one tier. The tier decides who may see it, where it is stored and whether it may be published."
-msgstr ""
+msgstr "Cada tabla lleva un nivel. El nivel decide quién puede verla, dónde se almacena y si se puede publicar."
 
 #: docs/concepts/terminology.md
 msgid "Tier"
-msgstr ""
+msgstr "Nivel"
 
 #: docs/concepts/terminology.md
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: docs/concepts/terminology.md
 msgid "EMIS example"
-msgstr ""
+msgstr "Ejemplo en un SIGE"
 
 #: docs/concepts/terminology.md
 msgid "In short"
-msgstr ""
+msgstr "En resumen"
 
 #: docs/concepts/terminology.md
 msgid "T0"
-msgstr ""
+msgstr "T0"
 
 #: docs/concepts/terminology.md
 msgid "Public aggregate"
-msgstr ""
+msgstr "Agregado público"
 
 #: docs/concepts/terminology.md
 msgid "Enrolment by district, published"
-msgstr ""
+msgstr "Matrícula por distrito, publicada"
 
 #: docs/concepts/terminology.md
 msgid "Anyone may see it"
-msgstr ""
+msgstr "Cualquiera puede verlo"
 
 #: docs/concepts/terminology.md
 msgid "T1"
-msgstr ""
+msgstr "T1"
 
 #: docs/concepts/terminology.md
 msgid "Internal"
-msgstr ""
+msgstr "Interno"
 
 #: docs/concepts/terminology.md
 msgid "The list of institutions and their facilities"
-msgstr ""
+msgstr "La lista de instituciones y sus instalaciones"
 
 #: docs/concepts/terminology.md
 msgid "Staff of the authority"
-msgstr ""
+msgstr "El personal de la autoridad"
 
 #: docs/concepts/terminology.md
 msgid "T2"
-msgstr ""
+msgstr "T2"
 
 #: docs/concepts/terminology.md
 msgid "De-identified"
-msgstr ""
+msgstr "Desidentificado"
 
 #: docs/concepts/terminology.md
 msgid "Learner records with names removed and identifiers replaced"
-msgstr ""
+msgstr "Registros de estudiantes sin nombres y con identificadores sustituidos"
 
 #: docs/concepts/terminology.md
 msgid "Approved analysts and partners"
-msgstr ""
+msgstr "Analistas y socios aprobados"
 
 #: docs/concepts/terminology.md
 msgid "T3"
-msgstr ""
+msgstr "T3"
 
 #: docs/concepts/terminology.md
 msgid "Identifiable"
-msgstr ""
+msgstr "Identificable"
 
 #: docs/concepts/terminology.md
 msgid "A learner's name, birth date and enrolment"
-msgstr ""
+msgstr "El nombre, la fecha de nacimiento y la matrícula de un estudiante"
 
 #: docs/concepts/terminology.md
 msgid "Only those with a need and the right scope"
-msgstr ""
+msgstr "Solo quienes lo necesitan y tienen el ámbito adecuado"
 
 #: docs/concepts/terminology.md
 msgid "T4"
-msgstr ""
+msgstr "T4"
 
 #: docs/concepts/terminology.md
 msgid "Special category"
-msgstr ""
+msgstr "Categoría especial"
 
 #: docs/concepts/terminology.md
 msgid "Health, disability, child-protection records"
-msgstr ""
+msgstr "Salud, discapacidad, expedientes de protección de la infancia"
 
 #: docs/concepts/terminology.md
 msgid "Named people, each grant approved by a steward, in separate storage"
-msgstr ""
+msgstr "Personas con nombre, cada permiso aprobado por una persona responsable de datos, en almacenamiento separado"
 
 #: docs/concepts/terminology.md
 msgid "Defined in [CAP-CLASSIFICATION]{1}."
-msgstr ""
+msgstr "Definido en [CAP-CLASSIFICATION]{1}."
 
 #: docs/concepts/terminology.md
 msgid "Provenance"
-msgstr ""
+msgstr "Procedencia"
 
 #: docs/concepts/terminology.md
 msgid "Every table also says where its data came from: **real** (about real people and institutions), **simulated** (made up, for testing) or **derived** (computed from other tables). Nothing is deleted until its provenance is proven."
-msgstr ""
+msgstr "Cada tabla indica también de dónde vienen sus datos: **real** (sobre personas e instituciones reales), **simulated** (inventados, para pruebas) o **derived** (calculados a partir de otras tablas). No se borra nada hasta que se demuestra su procedencia."
 
 #: docs/concepts/terminology.md
 msgid "Bronze, silver and gold"
-msgstr ""
+msgstr "Bronce, plata y oro"
 
 #: docs/concepts/terminology.md
 msgid "Data passes through three stages on its way to being used:"
-msgstr ""
+msgstr "Los datos pasan por tres etapas antes de usarse:"
 
 #: docs/concepts/terminology.md
 msgid "Stage"
-msgstr ""
+msgstr "Etapa"
 
 #: docs/concepts/terminology.md
 msgid "Holds"
-msgstr ""
+msgstr "Contiene"
 
 #: docs/concepts/terminology.md
 msgid "Example"
-msgstr ""
+msgstr "Ejemplo"
 
 #: docs/concepts/terminology.md
 msgid "Bronze"
-msgstr ""
+msgstr "Bronce"
 
 #: docs/concepts/terminology.md
 msgid "Data exactly as received"
-msgstr ""
+msgstr "Los datos exactamente como se recibieron"
 
 #: docs/concepts/terminology.md
 msgid "A census return file, unchanged"
-msgstr ""
+msgstr "Un archivo de declaración del censo, sin cambios"
 
 #: docs/concepts/terminology.md
 msgid "Silver"
-msgstr ""
+msgstr "Plata"
 
 #: docs/concepts/terminology.md
 msgid "Data checked and made consistent"
-msgstr ""
+msgstr "Los datos comprobados y hechos coherentes"
 
 #: docs/concepts/terminology.md
 msgid "Returns with codes validated and institutions matched to the registry"
-msgstr ""
+msgstr "Declaraciones con códigos validados e instituciones vinculadas al registro"
 
 #: docs/concepts/terminology.md
 msgid "Gold"
-msgstr ""
+msgstr "Oro"
 
 #: docs/concepts/terminology.md
 msgid "Data ready to use"
-msgstr ""
+msgstr "Los datos listos para usar"
 
 #: docs/concepts/terminology.md
 msgid "Enrolment counts by grade and district, as at census day"
-msgstr ""
+msgstr "La matrícula por grado y distrito, en el día del censo"
 
 #: docs/concepts/terminology.md
 msgid "Reports and indicators read only from gold."
-msgstr ""
+msgstr "Los informes y los indicadores leen solo de la capa oro."
 
 #: docs/concepts/terminology.md
 msgid "Reference date and academic period"
-msgstr ""
+msgstr "Fecha de referencia y periodo académico"
 
 #: docs/concepts/terminology.md
 msgid "An **academic period** is a school year or term."
-msgstr ""
+msgstr "Un **periodo académico** es un curso escolar o un trimestre."
 
 #: docs/concepts/terminology.md
 msgid "A **reference date** is the single day a statistic describes, such as census day. Counting \"as at\" one date is what makes figures comparable."
-msgstr ""
+msgstr "Una **fecha de referencia** es el único día que describe una estadística, como el día del censo. Contar «a» una sola fecha es lo que hace comparables las cifras."
 
 #: docs/concepts/terminology.md
 msgid "Layers"
-msgstr ""
+msgstr "Capas"
 
 #: docs/concepts/terminology.md
 msgid "The platform is built in four layers, each trusted less than the one below and each in its own repository."
-msgstr ""
+msgstr "La plataforma se construye en cuatro capas, cada una con menos confianza que la de abajo y cada una en su propio repositorio."
 
 #: docs/concepts/terminology.md
 msgid "Layer"
-msgstr ""
+msgstr "Capa"
 
 #: docs/concepts/terminology.md
 msgid "L0"
-msgstr ""
+msgstr "L0"
 
 #: docs/concepts/terminology.md
 msgid "Bootstrap"
-msgstr ""
+msgstr "Arranque"
 
 #: docs/concepts/terminology.md
 msgid "The root of trust, made once by a person"
-msgstr ""
+msgstr "La raíz de confianza, creada una vez por una persona"
 
 #: docs/concepts/terminology.md
 msgid "L1"
-msgstr ""
+msgstr "L1"
 
 #: docs/concepts/terminology.md
 msgid "Platform"
-msgstr ""
+msgstr "Plataforma"
 
 #: docs/concepts/terminology.md
 msgid "Shared storage, compute, catalog, identity and governance"
-msgstr ""
+msgstr "Almacenamiento, cómputo, catálogo, identidad y gobernanza compartidos"
 
 #: docs/concepts/terminology.md
 msgid "L2"
-msgstr ""
+msgstr "L2"
 
 #: docs/concepts/terminology.md
 msgid "Modules"
-msgstr ""
+msgstr "Módulos"
 
 #: docs/concepts/terminology.md
 msgid "Reusable building blocks"
-msgstr ""
+msgstr "Piezas reutilizables"
 
 #: docs/concepts/terminology.md
 msgid "L3"
-msgstr ""
+msgstr "L3"
 
 #: docs/concepts/terminology.md
 msgid "Products"
-msgstr ""
+msgstr "Productos"
 
 #: docs/concepts/terminology.md
 msgid "Workloads such as a census or document review"
-msgstr ""
+msgstr "Cargas de trabajo como un censo o la revisión de documentos"
 
 #: docs/concepts/terminology.md
 msgid "Capabilities, clauses and bindings"
-msgstr ""
+msgstr "Capacidades, cláusulas y vinculaciones"
 
 #: docs/concepts/terminology.md
 msgid "A **capability** is something the platform must be able to do, such as `CAP-ACCESS`."
-msgstr ""
+msgstr "Una **capacidad** es algo que la plataforma debe poder hacer, como `CAP-ACCESS`."
 
 #: docs/concepts/terminology.md
 msgid "Its **contract** is a list of numbered **clauses**, such as `CAP-ACCESS.7`. Each clause has a level: **MUST** (required), **SHOULD** (required unless there is a recorded reason) or **MAY** (optional), in the sense of [BCP 14]{1}. Each says how conformance is shown."
-msgstr ""
+msgstr "Su **contrato** es una lista de **cláusulas** numeradas, como `CAP-ACCESS.7`. Cada cláusula tiene un nivel: **MUST** (obligatorio), **SHOULD** (obligatorio salvo razón registrada) o **MAY** (opcional), en el sentido de [BCP 14]{1}. Cada una indica cómo se demuestra la conformidad."
 
 #: docs/concepts/terminology.md
 msgid "An **implementation** is a real platform that meets the contracts. Its **binding** gives every clause a status:"
-msgstr ""
+msgstr "Una **implementación** es una plataforma real que cumple los contratos. Su **vinculación** da un estado a cada cláusula:"
 
 #: docs/concepts/terminology.md
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #: docs/concepts/terminology.md
 msgid "Means"
-msgstr ""
+msgstr "Significa"
 
 #: docs/concepts/terminology.md
 msgid "planned"
-msgstr ""
+msgstr "planned"
 
 #: docs/concepts/terminology.md
 msgid "Not yet shown"
-msgstr ""
+msgstr "Aún no demostrada"
 
 #: docs/concepts/terminology.md
 msgid "met"
-msgstr ""
+msgstr "met"
 
 #: docs/concepts/terminology.md
 msgid "Shown, with evidence"
-msgstr ""
+msgstr "Demostrada, con evidencias"
 
 #: docs/concepts/terminology.md
 msgid "deviation"
-msgstr ""
+msgstr "deviation"
 
 #: docs/concepts/terminology.md
 msgid "Will not be met; the consequence is recorded"
-msgstr ""
+msgstr "No se cumplirá; la consecuencia queda registrada"
 
 #: docs/concepts/terminology.md
 msgid "not-applicable"
-msgstr ""
+msgstr "not-applicable"
 
 #: docs/concepts/terminology.md
 msgid "Does not apply, with the reason"
-msgstr ""
+msgstr "No se aplica, con la razón"
 
 #: docs/concepts/terminology.md
 msgid "Roles"
-msgstr ""
+msgstr "Roles"
 
 #: docs/concepts/terminology.md
 msgid "Documents name roles, never people."
-msgstr ""
+msgstr "Los documentos nombran roles, nunca personas."
 
 #: docs/concepts/terminology.md
 msgid "Role"
-msgstr ""
+msgstr "Rol"
 
 #: docs/concepts/terminology.md
 msgid "Responsible for"
-msgstr ""
+msgstr "Responsable de"
 
 #: docs/concepts/terminology.md
 msgid "Data Lead"
-msgstr ""
+msgstr "Data Lead (responsable de datos)"
 
 #: docs/concepts/terminology.md
 msgid "What data is held and released; shares sign-off with the Technical Lead"
-msgstr ""
+msgstr "Qué datos se conservan y se publican; comparte la aprobación con el Technical Lead"
 
 #: docs/concepts/terminology.md
 msgid "Technical Lead"
-msgstr ""
+msgstr "Technical Lead (responsable técnico)"
 
 #: docs/concepts/terminology.md
 msgid "How the platform is built and run; shares sign-off with the Data Lead"
-msgstr ""
+msgstr "Cómo se construye y opera la plataforma; comparte la aprobación con el Data Lead"
 
 #: docs/concepts/terminology.md
 msgid "Steward"
-msgstr ""
+msgstr "Responsable de datos de un dominio (steward)"
 
 #: docs/concepts/terminology.md
 msgid "One domain's data, and who may see it"
-msgstr ""
+msgstr "Los datos de un dominio y quién puede verlos"
 
 #: docs/concepts/terminology.md
 msgid "Platform team"
-msgstr ""
+msgstr "Equipo de plataforma"
 
 #: docs/concepts/terminology.md
 msgid "Identity groups, shared infrastructure and the delivery pipeline"
-msgstr ""
+msgstr "Los grupos de identidad, la infraestructura compartida y la cadena de entrega"
 
 #: docs/concepts/terminology.md
 msgid "Operator"
-msgstr ""
+msgstr "Operador"
 
 #: docs/concepts/terminology.md
 msgid "Whoever carries out a procedure"
-msgstr ""
+msgstr "Quien lleve a cabo un procedimiento"
 
 #: docs/concepts/terminology.md
 msgid "Domains and environments"
-msgstr ""
+msgstr "Dominios y entornos"
 
 #: docs/concepts/terminology.md
 msgid "A **domain** is an area of data with one steward, such as `learners` or `workforce`. Each is a catalog."
-msgstr ""
+msgstr "Un **dominio** es un área de datos con una sola persona responsable, como `learners` o `workforce`. Cada uno es un catálogo."
 
 #: docs/concepts/terminology.md
 msgid "An **environment** is a separate world for a change to run in, such as production or a developer's branch. Catalogs are named `<domain>_<environment>`, for example `learners_prod`."
-msgstr ""
+msgstr "Un **entorno** es un mundo separado en el que se ejecuta un cambio, como producción o la rama de un desarrollador. Los catálogos se llaman `<domain>_<environment>`, por ejemplo `learners_prod`."
 
 #: docs/concepts/terminology.md
 msgid "You are ready for the [specifications]{1}."
-msgstr ""
+msgstr "Ya está preparado para las [especificaciones]{1}."

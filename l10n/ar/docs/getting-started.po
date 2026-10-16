@@ -9,272 +9,272 @@ msgstr ""
 
 #: docs/getting-started.md
 msgid "Getting started"
-msgstr ""
+msgstr "البدء"
 
 #: docs/getting-started.md
 msgid "The blueprint is meant to be read in layers: first what it is and why, then the part that matches your role. Each step says what you will know after reading it, so you can stop as soon as you have what you need."
-msgstr ""
+msgstr "يُقرأ هذا المخطط المرجعي على مراحل: أولًا ما هو ولماذا، ثم الجزء الذي يناسب دورك. تذكر كل خطوة ما ستعرفه بعد قراءتها، لتتوقف بمجرد حصولك على ما تحتاجه."
 
 #: docs/getting-started.md
 msgid "Everyone: the first hour"
-msgstr ""
+msgstr "للجميع: الساعة الأولى"
 
 #: docs/getting-started.md
 msgid "The documentation has three main sections, read in this order:"
-msgstr ""
+msgstr "للوثائق ثلاثة أقسام رئيسية، تُقرأ بهذا الترتيب:"
 
 #: docs/getting-started.md
 msgid "**[Core concepts]{1}** explain what an EMIS is and the ideas the rest builds on. They require nothing."
-msgstr ""
+msgstr "**[المفاهيم الأساسية]{1}** تشرح ما هو نظام معلومات إدارة التعليم والأفكار التي يقوم عليها الباقي. لا تتطلب أي معرفة مسبقة."
 
 #: docs/getting-started.md
 msgid "**[Specifications]{1}** state what is required, precisely enough to build against and test."
-msgstr ""
+msgstr "**[المواصفات]{1}** تحدد المطلوب بدقة تكفي للبناء والاختبار."
 
 #: docs/getting-started.md
 msgid "**[Guides]{1}** walk through doing things: building an implementation, running a product, loading history."
-msgstr ""
+msgstr "**[الأدلة]{1}** تشرح كيفية إنجاز الأمور: بناء تطبيق، وتشغيل منتج، وتحميل البيانات التاريخية."
 
 #: docs/getting-started.md
 msgid "Start here:"
-msgstr ""
+msgstr "ابدأ هنا:"
 
 #: docs/getting-started.md
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: docs/getting-started.md
 msgid "Read"
-msgstr ""
+msgstr "اقرأ"
 
 #: docs/getting-started.md
 msgid "You will know"
-msgstr ""
+msgstr "ستعرف"
 
 #: docs/getting-started.md
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/getting-started.md
 msgid "[What is an EMIS]{1}"
-msgstr ""
+msgstr "[ما هو نظام معلومات إدارة التعليم]{1}"
 
 #: docs/getting-started.md
 msgid "What the system is, who relies on it, and the part this blueprint covers"
-msgstr ""
+msgstr "ما هو النظام، ومن يعتمد عليه، والجزء الذي يغطيه هذا المخطط المرجعي"
 
 #: docs/getting-started.md
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/getting-started.md
 msgid "[The EMIS domain]{1}"
-msgstr ""
+msgstr "[مجال نظام معلومات إدارة التعليم]{1}"
 
 #: docs/getting-started.md
 msgid "What a domain model is, why it is used here, and the main things an EMIS records"
-msgstr ""
+msgstr "ما نموذج المجال، ولماذا يُستخدم هنا، وأهم ما يسجله النظام"
 
 #: docs/getting-started.md
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/getting-started.md
 msgid "[Data in an EMIS]{1}"
-msgstr ""
+msgstr "[البيانات في نظام معلومات إدارة التعليم]{1}"
 
 #: docs/getting-started.md
 msgid "The kinds of data, and five ideas about handling it: sensitivity, masking, access by role and attribute, sharing, lineage"
-msgstr ""
+msgstr "أنواع البيانات، وخمس أفكار للتعامل معها: الحساسية، والإخفاء، والوصول حسب الدور وحسب السمات، والمشاركة، وتتبّع المصدر"
 
 #: docs/getting-started.md
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/getting-started.md
 msgid "[Terminology]{1}"
-msgstr ""
+msgstr "[المصطلحات]{1}"
 
 #: docs/getting-started.md
 msgid "Sensitivity tiers, layers, clauses, statuses and roles"
-msgstr ""
+msgstr "مستويات الحساسية والطبقات والبنود والحالات والأدوار"
 
 #: docs/getting-started.md
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/getting-started.md
 msgid "[Principles]{1}"
-msgstr ""
+msgstr "[المبادئ]{1}"
 
 #: docs/getting-started.md
 msgid "The ideas every requirement rests on; when anything else seems to disagree, these state the intent"
-msgstr ""
+msgstr "الأفكار التي يقوم عليها كل متطلب؛ وعندما يبدو أن شيئًا يخالفها، فهي التي تعبّر عن المقصود"
 
 #: docs/getting-started.md
 msgid "The [README]{1} gives a one-page overview, and the [glossary]{2} and [context map]{3} define every other term."
-msgstr ""
+msgstr "يقدّم [README]{1} نظرة عامة في صفحة واحدة، ويعرّف [المسرد]{2} و[خريطة السياقات]{3} كل المصطلحات الأخرى."
 
 #: docs/getting-started.md
 msgid "Then follow your role"
-msgstr ""
+msgstr "ثم اتبع دورك"
 
 #: docs/getting-started.md
 msgid "Leads and decision-makers"
-msgstr ""
+msgstr "القادة وصانعو القرار"
 
 #: docs/getting-started.md
 msgid "You approve what is built and answer for it."
-msgstr ""
+msgstr "أنت توافق على ما يُبنى وتتحمل مسؤوليته."
 
 #: docs/getting-started.md
 msgid "[Decision records]{1}: what was decided, and why, in the order it was decided."
-msgstr ""
+msgstr "[سجلات القرارات]{1}: ما الذي تقرر ولماذا، بترتيب اتخاذ القرارات."
 
 #: docs/getting-started.md
 msgid "[Implementations]{1}: the two reference stacks and where open source differs from a managed platform."
-msgstr ""
+msgstr "[التطبيقات]{1}: المجموعتان المرجعيتان، وأين تختلف البرمجيات مفتوحة المصدر عن المنصة المُدارة."
 
 #: docs/getting-started.md
 msgid "[Standards]{1}: the international standards the blueprint relies on, with their current editions."
-msgstr ""
+msgstr "[المعايير]{1}: المعايير الدولية التي يعتمد عليها المخطط، بإصداراتها الحالية."
 
 #: docs/getting-started.md
 msgid "[Indicators]{1}: how official figures are defined and kept comparable."
-msgstr ""
+msgstr "[المؤشرات]{1}: كيف تُعرَّف الأرقام الرسمية وكيف تبقى قابلة للمقارنة."
 
 #: docs/getting-started.md
 msgid "Architects and engineers building an implementation"
-msgstr ""
+msgstr "المعماريون والمهندسون الذين يبنون تطبيقًا"
 
 #: docs/getting-started.md
 msgid "You turn the blueprint into a running platform."
-msgstr ""
+msgstr "أنت تحوّل المخطط المرجعي إلى منصة عاملة."
 
 #: docs/getting-started.md
 msgid "[Capabilities]{1}: every capability and its contract. Skim the index, then read the pages for the layer you start with."
-msgstr ""
+msgstr "[القدرات]{1}: كل قدرة وعقدها. تصفّح الفهرس، ثم اقرأ صفحات الطبقة التي تبدأ بها."
 
 #: docs/getting-started.md
 msgid "[Building an implementation]{1}: the steps, with a build order generated from the dependencies."
-msgstr ""
+msgstr "[بناء تطبيق]{1}: الخطوات، مع ترتيب بناء مولَّد من الاعتماديات."
 
 #: docs/getting-started.md
 msgid "[Semantic layer]{1}: how every indicator is defined once and served to every consumer."
-msgstr ""
+msgstr "[الطبقة الدلالية]{1}: كيف يُعرَّف كل مؤشر مرة واحدة ويُقدَّم لكل مستهلك."
 
 #: docs/getting-started.md
 msgid "[Implementations]{1} and a reference binding ([open source]{2} or [Databricks]{3}): the components and the status of every clause."
-msgstr ""
+msgstr "[التطبيقات]{1} وربط مرجعي ([مفتوح المصدر]{2} أو [Databricks]{3}): المكونات وحالة كل بند."
 
 #: docs/getting-started.md
 msgid "[Standards]{1}: the editions each clause names."
-msgstr ""
+msgstr "[المعايير]{1}: الإصدارات التي يسمّيها كل بند."
 
 #: docs/getting-started.md
 msgid "[Lessons]{1}: failures that shaped the design, so you do not repeat them."
-msgstr ""
+msgstr "[الدروس المستفادة]{1}: الإخفاقات التي شكّلت التصميم، كي لا تكررها."
 
 #: docs/getting-started.md
 msgid "Product teams"
-msgstr ""
+msgstr "فرق المنتجات"
 
 #: docs/getting-started.md
 msgid "You build a workload on the platform."
-msgstr ""
+msgstr "أنت تبني حمل عمل على المنصة."
 
 #: docs/getting-started.md
 msgid "[Domain model]{1}, [indicators]{2} and the [semantic layer]{3}."
-msgstr ""
+msgstr "[نموذج المجال]{1} و[المؤشرات]{2} و[الطبقة الدلالية]{3}."
 
 #: docs/getting-started.md
 msgid "[Example products]{1}: document review and the annual census, read as worked examples."
-msgstr ""
+msgstr "[المنتجات التوضيحية]{1}: مراجعة الوثائق والتعداد السنوي، تُقرأ أمثلةً مفصّلة."
 
 #: docs/getting-started.md
 msgid "[Product checklist]{1}: what your product records about each capability it relies on."
-msgstr ""
+msgstr "[قائمة التحقق للمنتج]{1}: ما يسجله منتجك عن كل قدرة يعتمد عليها."
 
 #: docs/getting-started.md
 msgid "[Backfill patterns]{1}: before you load any history."
-msgstr ""
+msgstr "[أنماط تحميل البيانات التاريخية]{1}: قبل أن تحمّل أي بيانات تاريخية."
 
 #: docs/getting-started.md
 msgid "Data stewards and governance"
-msgstr ""
+msgstr "أمناء البيانات والحوكمة"
 
 #: docs/getting-started.md
 msgid "You decide who may see what, and what leaves the platform."
-msgstr ""
+msgstr "أنت تقرر من يرى ماذا، وما الذي يغادر المنصة."
 
 #: docs/getting-started.md
 msgid "Principles [P12]{1}, [P14]{2}, [P15]{3} and [P20]{4}."
-msgstr ""
+msgstr "المبادئ [P12]{1} و[P14]{2} و[P15]{3} و[P20]{4}."
 
 #: docs/getting-started.md
 msgid "[CAP-ACCESS]{1}, [CAP-CLASSIFICATION]{2} and [CAP-RECORDS]{3}: who sees which rows and columns, and how long records are kept."
-msgstr ""
+msgstr "[CAP-ACCESS]{1} و[CAP-CLASSIFICATION]{2} و[CAP-RECORDS]{3}: من يرى أي صفوف وأعمدة، وكم تُحفظ السجلات."
 
 #: docs/getting-started.md
 msgid "[CAP-PUBLICATION]{1} and [CAP-SHARING]{2}: open statistics, partner sharing, and their controls."
-msgstr ""
+msgstr "[CAP-PUBLICATION]{1} و[CAP-SHARING]{2}: الإحصاءات المفتوحة، والمشاركة مع الشركاء، وضوابطهما."
 
 #: docs/getting-started.md
 msgid "[CAP-QUALITY]{1} and [CAP-REFERENCE]{2}: checks, corrections, code lists and the data dictionary."
-msgstr ""
+msgstr "[CAP-QUALITY]{1} و[CAP-REFERENCE]{2}: الفحوص والتصحيحات وقوائم الرموز وقاموس البيانات."
 
 #: docs/getting-started.md
 msgid "Contributors"
-msgstr ""
+msgstr "المساهمون"
 
 #: docs/getting-started.md
 msgid "You want to change the blueprint."
-msgstr ""
+msgstr "تريد تغيير المخطط المرجعي."
 
 #: docs/getting-started.md
 msgid "[Contributing]{1}: which path your change takes, setting up, and what review looks for."
-msgstr ""
+msgstr "[المساهمة]{1}: المسار الذي يتخذه تغييرك، والتجهيز، وما تبحث عنه المراجعة."
 
 #: docs/getting-started.md
 msgid "[LIP-1]{1}: how a change is proposed, reviewed and decided."
-msgstr ""
+msgstr "[LIP-1]{1}: كيف يُقترح التغيير ويُراجَع ويُقرَّر."
 
 #: docs/getting-started.md
 msgid "[Decision records]{1}: what has been decided so far, so a proposal builds on it rather than repeating it."
-msgstr ""
+msgstr "[سجلات القرارات]{1}: ما تقرر حتى الآن، كي يبني الاقتراح عليه بدل تكراره."
 
 #: docs/getting-started.md
 msgid "[Capabilities]{1} and the [domain language]{2}: the text a proposal changes, and the words it uses."
-msgstr ""
+msgstr "[القدرات]{1} و[لغة المجال]{2}: النص الذي يغيّره الاقتراح، والكلمات التي يستخدمها."
 
 #: docs/getting-started.md
 msgid "The [LIP template]{1}."
-msgstr ""
+msgstr "[قالب LIP]{1}."
 
 #: docs/getting-started.md
 msgid "Agents"
-msgstr ""
+msgstr "الوكلاء"
 
 #: docs/getting-started.md
 msgid "Start with [AGENTS.md]{1}, then [`blueprint/catalogue.yaml`]{2} for the clauses and [building.md]{3} for the order of work. Every claim the blueprint makes is either a clause with a verification or a principle with its reason; treat anything else as commentary."
-msgstr ""
+msgstr "ابدأ بـ [AGENTS.md]{1}، ثم [`blueprint/catalogue.yaml`]{2} للبنود و[building.md]{3} لترتيب العمل. كل ادعاء في المخطط إما بند مع طريقة التحقق منه أو مبدأ مع سببه؛ وما عدا ذلك فهو تعليق."
 
 #: docs/getting-started.md
 msgid "How the documents relate"
-msgstr ""
+msgstr "كيف ترتبط الوثائق"
 
 #: docs/getting-started.md
 msgid "Why it is drawn this way"
-msgstr ""
+msgstr "لماذا رُسم بهذه الطريقة"
 
 #: docs/getting-started.md
 msgid "**The catalogue is the centre.** Clauses are written once there; the capability pages, the build order and the implementation tables are generated from it, so they cannot drift apart."
-msgstr ""
+msgstr "**الفهرس هو المركز.** تُكتب البنود فيه مرة واحدة؛ وتُولَّد منه صفحات القدرات وترتيب البناء وجداول التطبيقات، فلا يمكن أن تتباعد."
 
 #: docs/getting-started.md
 msgid "**Principles and decision records sit upstream.** A clause exists because a principle requires it, and it changes only through a decision record."
-msgstr ""
+msgstr "**المبادئ وسجلات القرارات تسبقه.** يوجد البند لأن مبدأً يتطلبه، ولا يتغير إلا عبر سجل قرار."
 
 #: docs/getting-started.md
 msgid "**Bindings and the standards register feed the pages** so each capability shows what implements it and which standards it names."
-msgstr ""
+msgstr "**الروابط وسجل المعايير تغذي الصفحات**، فتُظهر كل قدرة ما ينفذها والمعايير التي تسمّيها."

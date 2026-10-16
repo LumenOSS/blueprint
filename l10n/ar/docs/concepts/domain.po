@@ -9,180 +9,180 @@ msgstr ""
 
 #: docs/concepts/domain.md
 msgid "The EMIS domain"
-msgstr ""
+msgstr "مجال نظام معلومات إدارة التعليم"
 
 #: docs/concepts/domain.md
 msgid "Before anyone can build an EMIS, everyone involved has to mean the same thing by the same words. This page explains what a domain model is, why this blueprint uses one, and the main things an EMIS records."
-msgstr ""
+msgstr "قبل أن يتمكن أحد من بناء النظام، يجب أن يقصد جميع المعنيين المعنى نفسه بالكلمات نفسها. تشرح هذه الصفحة ما نموذج المجال، ولماذا يستخدمه هذا المخطط، وأهم ما يسجله النظام."
 
 #: docs/concepts/domain.md
 msgid "What a domain model is"
-msgstr ""
+msgstr "ما نموذج المجال"
 
 #: docs/concepts/domain.md
 msgid "The idea comes from Eric Evans's book *Domain-Driven Design* (2003). His own summary, the [DDD Reference]{1} (2015, Creative Commons Attribution 4.0), defines the two key words:"
-msgstr ""
+msgstr "تأتي الفكرة من كتاب إريك إيفانز *Domain-Driven Design* (2003). ويعرّف ملخصه الخاص، [DDD Reference]{1} (2015، رخصة المشاع الإبداعي نَسب المُصنَّف 4.0)، الكلمتين الأساسيتين (ترجمة غير رسمية):"
 
 #: docs/concepts/domain.md
 msgid "**domain:** A sphere of knowledge, influence, or activity. The subject area to which the user applies a program is the domain of the software."
-msgstr ""
+msgstr "**المجال:** نطاق من المعرفة أو التأثير أو النشاط. والموضوع الذي يطبّق عليه المستخدم برنامجًا هو مجال البرمجية."
 
 #: docs/concepts/domain.md
 msgid "**model:** A system of abstractions that describes selected aspects of a domain and can be used to solve problems related to that domain."
-msgstr ""
+msgstr "**النموذج:** منظومة من التجريدات تصف جوانب مختارة من مجال ما، ويمكن استخدامها لحل مشكلات تتعلق بذلك المجال."
 
 #: docs/concepts/domain.md
 msgid "Here the domain is education administration, and the model is the set of things an EMIS records and the rules between them: a learner is enrolled at an institution, a teacher is posted to a post, a census counts enrolments on a reference date."
-msgstr ""
+msgstr "المجال هنا هو إدارة التعليم، والنموذج هو مجموعة الأشياء التي يسجلها النظام والقواعد التي تربط بينها: المتعلم مسجّل في مؤسسة، والمعلم مُعيَّن في وظيفة، والتعداد يعدّ التسجيلات في تاريخ مرجعي."
 
 #: docs/concepts/domain.md
 msgid "Martin Fowler describes the approach as one that \"centers the development on programming a domain model that has a rich understanding of the processes and rules of a domain\", and notes it is \"particularly suited to complex domains, where a lot of often-messy logic needs to be organized\" ([Domain Driven Design]{1}, 2020)."
-msgstr ""
+msgstr "يصف مارتن فاولر هذا النهج بأنه «يجعل محور التطوير برمجة نموذج للمجال يملك فهمًا عميقًا لعمليات المجال وقواعده»، ويشير إلى أنه «مناسب خصوصًا للمجالات المعقدة، حيث يلزم تنظيم كثير من المنطق الذي غالبًا ما يكون فوضويًا» ([Domain Driven Design]{1}، 2020؛ ترجمة غير رسمية)."
 
 #: docs/concepts/domain.md
 msgid "Why this blueprint uses one"
-msgstr ""
+msgstr "لماذا يستخدمه هذا المخطط"
 
 #: docs/concepts/domain.md
 msgid "**The words are contested.** Planners, school staff, examination boards and statisticians all say \"student\", \"class\" or \"programme\", and often mean different things. A shared, written vocabulary removes the guesswork. Evans calls it the *ubiquitous language*: \"a language structured around the domain model and used by all team members\"."
-msgstr ""
+msgstr "**الكلمات موضع خلاف.** المخططون والعاملون في المدارس وهيئات الامتحانات والإحصائيون جميعًا يقولون «طالب» و«صف» و«برنامج»، وكثيرًا ما يقصدون أشياء مختلفة. والمفردات المشتركة المكتوبة تزيل التخمين. يسمّيها إيفانز *اللغة الشاملة*: «لغة مبنية حول نموذج المجال ويستخدمها جميع أعضاء الفريق»."
 
 #: docs/concepts/domain.md
 msgid "**Figures depend on definitions.** An enrolment rate is only comparable year on year if \"enrolled\" means the same thing each year."
-msgstr ""
+msgstr "**الأرقام تعتمد على التعريفات.** لا يمكن مقارنة معدل التسجيل من عام إلى آخر إلا إذا كان «مسجّل» يعني الشيء نفسه كل عام."
 
 #: docs/concepts/domain.md
 msgid "**The data outlives the software.** Records about a learner matter for decades; the systems that hold them will be replaced several times. The model is what survives."
-msgstr ""
+msgstr "**البيانات تدوم أطول من البرمجيات.** تبقى سجلات المتعلم مهمة لعقود؛ وستُستبدل الأنظمة التي تحفظها مرات عدة. والنموذج هو ما يبقى."
 
 #: docs/concepts/domain.md
 msgid "**Many teams build it.** This blueprint is implemented on different technology by different people. The model is what keeps their results compatible."
-msgstr ""
+msgstr "**فرق كثيرة تبنيه.** يُنفَّذ هذا المخطط بتقنيات مختلفة على أيدي أشخاص مختلفين. والنموذج هو ما يُبقي نتائجهم متوافقة."
 
 #: docs/concepts/domain.md
 msgid "One model for everything does not work for a system this size. Fowler again: \"total unification of the domain model for a large system will not be feasible or cost-effective\" ([Bounded Context]{1}, 2014). So the EMIS domain is split into **bounded contexts** (learning, workforce, statistics and others), each with its own vocabulary. The [context map]{2} lists them."
-msgstr ""
+msgstr "لا يصلح نموذج واحد لكل شيء في نظام بهذا الحجم. ويقول فاولر أيضًا: «التوحيد الكامل لنموذج المجال في نظام كبير لن يكون ممكنًا ولا مجديًا من حيث التكلفة» ([Bounded Context]{1}، 2014؛ ترجمة غير رسمية). لذلك يُقسَّم مجال النظام إلى **سياقات محدّدة** (التعلّم، والعاملون، والإحصاء وغيرها)، لكل منها مفرداته الخاصة. وتسردها [خريطة السياقات]{2}."
 
 #: docs/concepts/domain.md
 msgid "The model at a glance"
-msgstr ""
+msgstr "النموذج في لمحة"
 
 #: docs/concepts/domain.md
 msgid "Why it is drawn this way"
-msgstr ""
+msgstr "لماذا رُسم بهذه الطريقة"
 
 #: docs/concepts/domain.md
 msgid "**Dark boxes are things that exist on their own:** a person, an institution, a site, a post, a programme."
-msgstr ""
+msgstr "**الصناديق الداكنة أشياء قائمة بذاتها:** شخص، ومؤسسة، وموقع، ووظيفة، وبرنامج."
 
 #: docs/concepts/domain.md
 msgid "**Middle boxes are relationships with dates:** a person *is* a learner only through an enrolment, a teacher only through a posting, a guardian only through a guardian relationship. Each starts and ends."
-msgstr ""
+msgstr "**الصناديق الوسطى علاقات مؤرّخة:** لا *يكون* الشخص متعلمًا إلا عبر تسجيل، ولا معلمًا إلا عبر تعيين، ولا ولي أمر إلا عبر علاقة ولاية. ولكل منها بداية ونهاية."
 
 #: docs/concepts/domain.md
 msgid "**Light boxes are statistics:** counted from the relationships, as at a reference date, and published as indicators."
-msgstr ""
+msgstr "**الصناديق الفاتحة إحصاءات:** تُعدّ من العلاقات في تاريخ مرجعي، وتُنشر مؤشرات."
 
 #: docs/concepts/domain.md
 msgid "The main concepts"
-msgstr ""
+msgstr "المفاهيم الرئيسية"
 
 #: docs/concepts/domain.md
 msgid "Each concept below is defined precisely in its context's vocabulary, linked at the end of each section."
-msgstr ""
+msgstr "يُعرَّف كل مفهوم أدناه بدقة في مفردات سياقه، ويوجد الرابط في نهاية كل قسم."
 
 #: docs/concepts/domain.md
 msgid "Person"
-msgstr ""
+msgstr "الشخص"
 
 #: docs/concepts/domain.md
 msgid "Every human the system knows about is recorded once, as a person, with an identifier that never changes. Being a learner, a teacher or a guardian is a *role* someone holds, not a separate record, so a teacher who is also a parent is still one person. [People context]{1}."
-msgstr ""
+msgstr "يُسجَّل كل إنسان يعرفه النظام مرة واحدة، بوصفه شخصًا، بمعرّف لا يتغير أبدًا. وكون المرء متعلمًا أو معلمًا أو ولي أمر *دور* يشغله، لا سجل منفصل؛ فالمعلم الذي هو أيضًا والد يبقى شخصًا واحدًا. [سياق الأشخاص]{1}."
 
 #: docs/concepts/domain.md
 msgid "Institution and site"
-msgstr ""
+msgstr "المؤسسة والموقع"
 
 #: docs/concepts/domain.md
 msgid "An institution is the organisation that provides education, such as a school or college. A site is a physical place. They are separate because one institution can use several sites, and one building can house several institutions. [Institutions context]{1}."
-msgstr ""
+msgstr "المؤسسة هي الجهة التي تقدّم التعليم، مثل مدرسة أو كلية. والموقع مكان مادي. وهما منفصلان لأن المؤسسة الواحدة قد تستخدم عدة مواقع، والمبنى الواحد قد يضم عدة مؤسسات. [سياق المؤسسات]{1}."
 
 #: docs/concepts/domain.md
 msgid "Learner and enrolment"
-msgstr ""
+msgstr "المتعلم والتسجيل"
 
 #: docs/concepts/domain.md
 msgid "An enrolment says that a person is registered at an institution, in a programme and grade, for an academic period, from one date to another. Being a learner is having an enrolment. A transfer ends one enrolment and starts another; nothing is overwritten. [Learning context]{1}."
-msgstr ""
+msgstr "يفيد التسجيل بأن شخصًا مسجّل في مؤسسة، في برنامج وصف، لفترة دراسية، من تاريخ إلى آخر. وكون المرء متعلمًا يعني أن له تسجيلًا. والانتقال يُنهي تسجيلًا ويبدأ آخر؛ ولا يُكتب شيء فوق شيء. [سياق التعلّم]{1}."
 
 #: docs/concepts/domain.md
 msgid "Guardian"
-msgstr ""
+msgstr "ولي الأمر"
 
 #: docs/concepts/domain.md
 msgid "A guardian is a person, or sometimes a body such as an agency, with legal authority for a learner. The relationship has dates, and when the authority ends, so does the guardian's access to the learner's records. [Learning context]{1}."
-msgstr ""
+msgstr "ولي الأمر شخص، أو أحيانًا جهة مثل وكالة، له سلطة قانونية على المتعلم. والعلاقة مؤرّخة، وعندما تنتهي السلطة ينتهي أيضًا وصول ولي الأمر إلى سجلات المتعلم. [سياق التعلّم]{1}."
 
 #: docs/concepts/domain.md
 msgid "Staff, post and posting"
-msgstr ""
+msgstr "العاملون والوظيفة والتعيين"
 
 #: docs/concepts/domain.md
 msgid "A post is a position at an institution, such as a mathematics teacher post. A posting puts a person in a post for a period, possibly part time. Counting posts and postings separately shows vacancies as well as staff. [Workforce context]{1}."
-msgstr ""
+msgstr "الوظيفة منصب في مؤسسة، مثل وظيفة معلم رياضيات. والتعيين يضع شخصًا في وظيفة لفترة، ربما بدوام جزئي. وعدّ الوظائف والتعيينات كلٌّ على حدة يُظهر الشواغر إلى جانب العاملين. [سياق العاملين]{1}."
 
 #: docs/concepts/domain.md
 msgid "Programme, grade and class"
-msgstr ""
+msgstr "البرنامج والصف والفصل"
 
 #: docs/concepts/domain.md
 msgid "A programme is a course of education, such as lower secondary; a grade is a year within it. A class is a group taught together, which may mix grades, so being in a class is recorded separately from being enrolled. [Curriculum context]{1}."
-msgstr ""
+msgstr "البرنامج مسار تعليمي، مثل المرحلة الإعدادية؛ والصف سنة ضمنه. والفصل مجموعة تتعلم معًا، وقد يجمع أكثر من صف، لذا يُسجَّل الانتماء إلى فصل بمعزل عن التسجيل. [سياق المناهج]{1}."
 
 #: docs/concepts/domain.md
 msgid "Assessment"
-msgstr ""
+msgstr "التقييم"
 
 #: docs/concepts/domain.md
 msgid "Tests and examinations, who sat them, and their results. Once a result is released it is never edited; a correction is a new version. [Assessment context]{1}."
-msgstr ""
+msgstr "الاختبارات والامتحانات، ومن أداها، ونتائجها. وبعد إعلان النتيجة لا تُعدَّل أبدًا؛ فالتصحيح نسخة جديدة. [سياق التقييم]{1}."
 
 #: docs/concepts/domain.md
 msgid "Collection, return and snapshot"
-msgstr ""
+msgstr "الجمع والبيانات المقدَّمة واللقطة"
 
 #: docs/concepts/domain.md
 msgid "A collection, such as the annual census, asks every institution for a return about a fixed reference date. Returns are checked, attested and accepted; the accepted figures are locked as a snapshot, which is what gets published. [Statistics context]{1}."
-msgstr ""
+msgstr "الجمع، مثل التعداد السنوي، يطلب من كل مؤسسة تقديم بيانات عن تاريخ مرجعي ثابت. تُفحص البيانات المقدَّمة وتُعتمد وتُقبل؛ وتُثبَّت الأرقام المقبولة في لقطة، وهي ما يُنشر. [سياق الإحصاء]{1}."
 
 #: docs/concepts/domain.md
 msgid "Indicator"
-msgstr ""
+msgstr "المؤشر"
 
 #: docs/concepts/domain.md
 msgid "An indicator is a defined calculation over the snapshot, such as the gross enrolment ratio. It is defined once and used everywhere: on dashboards, in publications and in international returns. [Statistics context]{1}."
-msgstr ""
+msgstr "المؤشر حساب معرَّف على اللقطة، مثل نسبة القيد الإجمالية. يُعرَّف مرة واحدة ويُستخدم في كل مكان: في لوحات المعلومات والمنشورات والتقارير الدولية. [سياق الإحصاء]{1}."
 
 #: docs/concepts/domain.md
 msgid "Reference data"
-msgstr ""
+msgstr "البيانات المرجعية"
 
 #: docs/concepts/domain.md
 msgid "Shared lists that give codes their meaning: types of institution, exit reasons, administrative areas, academic periods. A code keeps its meaning for ever; a new meaning gets a new code. [Reference context]{1}."
-msgstr ""
+msgstr "قوائم مشتركة تعطي الرموز معانيها: أنواع المؤسسات، وأسباب الانسحاب، والتقسيمات الإدارية، والفترات الدراسية. ويحتفظ الرمز بمعناه إلى الأبد؛ والمعنى الجديد يأخذ رمزًا جديدًا. [السياق المرجعي]{1}."
 
 #: docs/concepts/domain.md
 msgid "Where to go deeper"
-msgstr ""
+msgstr "للتعمق أكثر"
 
 #: docs/concepts/domain.md
 msgid "The [domain specification]{1}: the resources, the modelling rules and the default sensitivity of each."
-msgstr ""
+msgstr "[مواصفة المجال]{1}: الموارد، وقواعد النمذجة، ومستوى الحساسية الافتراضي لكل منها."
 
 #: docs/concepts/domain.md
 msgid "The [domain design]{1}: the bounded contexts, the rules each record must always keep, and the events they publish."
-msgstr ""
+msgstr "[تصميم المجال]{1}: السياقات المحدّدة، والقواعد التي يجب أن يحترمها كل سجل دائمًا، والأحداث التي تنشرها."
 
 #: docs/concepts/domain.md
 msgid "Next: [data in an EMIS]{1}."
-msgstr ""
+msgstr "التالي: [البيانات في نظام معلومات إدارة التعليم]{1}."

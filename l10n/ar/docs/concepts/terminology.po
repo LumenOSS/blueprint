@@ -9,384 +9,384 @@ msgstr ""
 
 #: docs/concepts/terminology.md
 msgid "Terminology"
-msgstr ""
+msgstr "المصطلحات"
 
 #: docs/concepts/terminology.md
 msgid "The specifications use a handful of classifications over and over. Learn these and the rest of the blueprint reads easily. Every other term is in the [glossary]{1} or in the vocabulary of its bounded context, listed in the [context map]{2}."
-msgstr ""
+msgstr "تستخدم المواصفات حفنة من التصنيفات مرارًا وتكرارًا. تعلّمها وستسهل عليك قراءة باقي المخطط. وكل المصطلحات الأخرى موجودة في [المسرد]{1} أو في مفردات سياقها المحدّد، المدرَج في [خريطة السياقات]{2}."
 
 #: docs/concepts/terminology.md
 msgid "Sensitivity tiers"
-msgstr ""
+msgstr "مستويات الحساسية"
 
 #: docs/concepts/terminology.md
 msgid "Every table is tagged with one tier. The tier decides who may see it, where it is stored and whether it may be published."
-msgstr ""
+msgstr "يحمل كل جدول مستوى واحدًا. ويحدد المستوى من يمكنه رؤيته، وأين يُخزَّن، وهل يجوز نشره."
 
 #: docs/concepts/terminology.md
 msgid "Tier"
-msgstr ""
+msgstr "المستوى"
 
 #: docs/concepts/terminology.md
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #: docs/concepts/terminology.md
 msgid "EMIS example"
-msgstr ""
+msgstr "مثال من النظام"
 
 #: docs/concepts/terminology.md
 msgid "In short"
-msgstr ""
+msgstr "باختصار"
 
 #: docs/concepts/terminology.md
 msgid "T0"
-msgstr ""
+msgstr "T0"
 
 #: docs/concepts/terminology.md
 msgid "Public aggregate"
-msgstr ""
+msgstr "مجمّع عام"
 
 #: docs/concepts/terminology.md
 msgid "Enrolment by district, published"
-msgstr ""
+msgstr "التسجيل حسب المديرية، منشورًا"
 
 #: docs/concepts/terminology.md
 msgid "Anyone may see it"
-msgstr ""
+msgstr "يمكن لأي أحد رؤيته"
 
 #: docs/concepts/terminology.md
 msgid "T1"
-msgstr ""
+msgstr "T1"
 
 #: docs/concepts/terminology.md
 msgid "Internal"
-msgstr ""
+msgstr "داخلي"
 
 #: docs/concepts/terminology.md
 msgid "The list of institutions and their facilities"
-msgstr ""
+msgstr "قائمة المؤسسات ومرافقها"
 
 #: docs/concepts/terminology.md
 msgid "Staff of the authority"
-msgstr ""
+msgstr "موظفو السلطة"
 
 #: docs/concepts/terminology.md
 msgid "T2"
-msgstr ""
+msgstr "T2"
 
 #: docs/concepts/terminology.md
 msgid "De-identified"
-msgstr ""
+msgstr "منزوع الهوية"
 
 #: docs/concepts/terminology.md
 msgid "Learner records with names removed and identifiers replaced"
-msgstr ""
+msgstr "سجلات المتعلمين بلا أسماء ومع استبدال المعرّفات"
 
 #: docs/concepts/terminology.md
 msgid "Approved analysts and partners"
-msgstr ""
+msgstr "المحللون والشركاء المعتمدون"
 
 #: docs/concepts/terminology.md
 msgid "T3"
-msgstr ""
+msgstr "T3"
 
 #: docs/concepts/terminology.md
 msgid "Identifiable"
-msgstr ""
+msgstr "قابل للتعريف"
 
 #: docs/concepts/terminology.md
 msgid "A learner's name, birth date and enrolment"
-msgstr ""
+msgstr "اسم المتعلم وتاريخ ميلاده وتسجيله"
 
 #: docs/concepts/terminology.md
 msgid "Only those with a need and the right scope"
-msgstr ""
+msgstr "فقط من يحتاج إليه وضمن النطاق الصحيح"
 
 #: docs/concepts/terminology.md
 msgid "T4"
-msgstr ""
+msgstr "T4"
 
 #: docs/concepts/terminology.md
 msgid "Special category"
-msgstr ""
+msgstr "فئة خاصة"
 
 #: docs/concepts/terminology.md
 msgid "Health, disability, child-protection records"
-msgstr ""
+msgstr "الصحة والإعاقة وسجلات حماية الطفل"
 
 #: docs/concepts/terminology.md
 msgid "Named people, each grant approved by a steward, in separate storage"
-msgstr ""
+msgstr "أشخاص محددون بالاسم، وكل منح للوصول يوافق عليه أمين بيانات، في تخزين منفصل"
 
 #: docs/concepts/terminology.md
 msgid "Defined in [CAP-CLASSIFICATION]{1}."
-msgstr ""
+msgstr "معرَّف في [CAP-CLASSIFICATION]{1}."
 
 #: docs/concepts/terminology.md
 msgid "Provenance"
-msgstr ""
+msgstr "المصدر"
 
 #: docs/concepts/terminology.md
 msgid "Every table also says where its data came from: **real** (about real people and institutions), **simulated** (made up, for testing) or **derived** (computed from other tables). Nothing is deleted until its provenance is proven."
-msgstr ""
+msgstr "يذكر كل جدول أيضًا مصدر بياناته: **real** (عن أشخاص ومؤسسات حقيقيين)، أو **simulated** (مختلَقة للاختبار)، أو **derived** (محسوبة من جداول أخرى). ولا يُحذف شيء قبل إثبات مصدره."
 
 #: docs/concepts/terminology.md
 msgid "Bronze, silver and gold"
-msgstr ""
+msgstr "البرونز والفضة والذهب"
 
 #: docs/concepts/terminology.md
 msgid "Data passes through three stages on its way to being used:"
-msgstr ""
+msgstr "تمر البيانات بثلاث مراحل قبل استخدامها:"
 
 #: docs/concepts/terminology.md
 msgid "Stage"
-msgstr ""
+msgstr "المرحلة"
 
 #: docs/concepts/terminology.md
 msgid "Holds"
-msgstr ""
+msgstr "تحتوي"
 
 #: docs/concepts/terminology.md
 msgid "Example"
-msgstr ""
+msgstr "مثال"
 
 #: docs/concepts/terminology.md
 msgid "Bronze"
-msgstr ""
+msgstr "البرونز"
 
 #: docs/concepts/terminology.md
 msgid "Data exactly as received"
-msgstr ""
+msgstr "البيانات كما وردت تمامًا"
 
 #: docs/concepts/terminology.md
 msgid "A census return file, unchanged"
-msgstr ""
+msgstr "ملف بيانات التعداد، دون تغيير"
 
 #: docs/concepts/terminology.md
 msgid "Silver"
-msgstr ""
+msgstr "الفضة"
 
 #: docs/concepts/terminology.md
 msgid "Data checked and made consistent"
-msgstr ""
+msgstr "البيانات بعد فحصها وجعلها متسقة"
 
 #: docs/concepts/terminology.md
 msgid "Returns with codes validated and institutions matched to the registry"
-msgstr ""
+msgstr "بيانات مقدَّمة برموز متحقَّق منها ومؤسسات مطابَقة مع السجل"
 
 #: docs/concepts/terminology.md
 msgid "Gold"
-msgstr ""
+msgstr "الذهب"
 
 #: docs/concepts/terminology.md
 msgid "Data ready to use"
-msgstr ""
+msgstr "البيانات الجاهزة للاستخدام"
 
 #: docs/concepts/terminology.md
 msgid "Enrolment counts by grade and district, as at census day"
-msgstr ""
+msgstr "أعداد المسجلين حسب الصف والمديرية في يوم التعداد"
 
 #: docs/concepts/terminology.md
 msgid "Reports and indicators read only from gold."
-msgstr ""
+msgstr "لا تقرأ التقارير والمؤشرات إلا من طبقة الذهب."
 
 #: docs/concepts/terminology.md
 msgid "Reference date and academic period"
-msgstr ""
+msgstr "التاريخ المرجعي والفترة الدراسية"
 
 #: docs/concepts/terminology.md
 msgid "An **academic period** is a school year or term."
-msgstr ""
+msgstr "**الفترة الدراسية** عام دراسي أو فصل دراسي."
 
 #: docs/concepts/terminology.md
 msgid "A **reference date** is the single day a statistic describes, such as census day. Counting \"as at\" one date is what makes figures comparable."
-msgstr ""
+msgstr "**التاريخ المرجعي** هو اليوم الواحد الذي تصفه الإحصائية، مثل يوم التعداد. والعدّ «في» تاريخ واحد هو ما يجعل الأرقام قابلة للمقارنة."
 
 #: docs/concepts/terminology.md
 msgid "Layers"
-msgstr ""
+msgstr "الطبقات"
 
 #: docs/concepts/terminology.md
 msgid "The platform is built in four layers, each trusted less than the one below and each in its own repository."
-msgstr ""
+msgstr "تُبنى المنصة في أربع طبقات، كل منها أقل ثقة من التي تحتها، ولكل منها مستودعها الخاص."
 
 #: docs/concepts/terminology.md
 msgid "Layer"
-msgstr ""
+msgstr "الطبقة"
 
 #: docs/concepts/terminology.md
 msgid "L0"
-msgstr ""
+msgstr "L0"
 
 #: docs/concepts/terminology.md
 msgid "Bootstrap"
-msgstr ""
+msgstr "التمهيد"
 
 #: docs/concepts/terminology.md
 msgid "The root of trust, made once by a person"
-msgstr ""
+msgstr "جذر الثقة، ينشئه شخص مرة واحدة"
 
 #: docs/concepts/terminology.md
 msgid "L1"
-msgstr ""
+msgstr "L1"
 
 #: docs/concepts/terminology.md
 msgid "Platform"
-msgstr ""
+msgstr "المنصة"
 
 #: docs/concepts/terminology.md
 msgid "Shared storage, compute, catalog, identity and governance"
-msgstr ""
+msgstr "التخزين والحوسبة والفهرس والهوية والحوكمة المشتركة"
 
 #: docs/concepts/terminology.md
 msgid "L2"
-msgstr ""
+msgstr "L2"
 
 #: docs/concepts/terminology.md
 msgid "Modules"
-msgstr ""
+msgstr "الوحدات"
 
 #: docs/concepts/terminology.md
 msgid "Reusable building blocks"
-msgstr ""
+msgstr "لبنات قابلة لإعادة الاستخدام"
 
 #: docs/concepts/terminology.md
 msgid "L3"
-msgstr ""
+msgstr "L3"
 
 #: docs/concepts/terminology.md
 msgid "Products"
-msgstr ""
+msgstr "المنتجات"
 
 #: docs/concepts/terminology.md
 msgid "Workloads such as a census or document review"
-msgstr ""
+msgstr "أحمال عمل مثل التعداد أو مراجعة الوثائق"
 
 #: docs/concepts/terminology.md
 msgid "Capabilities, clauses and bindings"
-msgstr ""
+msgstr "القدرات والبنود والروابط"
 
 #: docs/concepts/terminology.md
 msgid "A **capability** is something the platform must be able to do, such as `CAP-ACCESS`."
-msgstr ""
+msgstr "**القدرة** شيء يجب أن تستطيع المنصة القيام به، مثل `CAP-ACCESS`."
 
 #: docs/concepts/terminology.md
 msgid "Its **contract** is a list of numbered **clauses**, such as `CAP-ACCESS.7`. Each clause has a level: **MUST** (required), **SHOULD** (required unless there is a recorded reason) or **MAY** (optional), in the sense of [BCP 14]{1}. Each says how conformance is shown."
-msgstr ""
+msgstr "**عقدها** قائمة من **البنود** المرقّمة، مثل `CAP-ACCESS.7`. ولكل بند مستوى: **MUST** (إلزامي)، أو **SHOULD** (إلزامي ما لم يُسجَّل سبب)، أو **MAY** (اختياري)، بالمعنى الوارد في [BCP 14]{1}. ويذكر كل بند كيف تُثبت المطابقة."
 
 #: docs/concepts/terminology.md
 msgid "An **implementation** is a real platform that meets the contracts. Its **binding** gives every clause a status:"
-msgstr ""
+msgstr "**التطبيق** منصة حقيقية تفي بالعقود. ويمنح **ربطه** كل بند حالة:"
 
 #: docs/concepts/terminology.md
 msgid "Status"
-msgstr ""
+msgstr "الحالة"
 
 #: docs/concepts/terminology.md
 msgid "Means"
-msgstr ""
+msgstr "تعني"
 
 #: docs/concepts/terminology.md
 msgid "planned"
-msgstr ""
+msgstr "planned"
 
 #: docs/concepts/terminology.md
 msgid "Not yet shown"
-msgstr ""
+msgstr "لم يُثبت بعد"
 
 #: docs/concepts/terminology.md
 msgid "met"
-msgstr ""
+msgstr "met"
 
 #: docs/concepts/terminology.md
 msgid "Shown, with evidence"
-msgstr ""
+msgstr "أُثبت، مع الدليل"
 
 #: docs/concepts/terminology.md
 msgid "deviation"
-msgstr ""
+msgstr "deviation"
 
 #: docs/concepts/terminology.md
 msgid "Will not be met; the consequence is recorded"
-msgstr ""
+msgstr "لن يُستوفى؛ والعاقبة مسجّلة"
 
 #: docs/concepts/terminology.md
 msgid "not-applicable"
-msgstr ""
+msgstr "not-applicable"
 
 #: docs/concepts/terminology.md
 msgid "Does not apply, with the reason"
-msgstr ""
+msgstr "لا ينطبق، مع السبب"
 
 #: docs/concepts/terminology.md
 msgid "Roles"
-msgstr ""
+msgstr "الأدوار"
 
 #: docs/concepts/terminology.md
 msgid "Documents name roles, never people."
-msgstr ""
+msgstr "تسمّي الوثائق الأدوار، لا الأشخاص أبدًا."
 
 #: docs/concepts/terminology.md
 msgid "Role"
-msgstr ""
+msgstr "الدور"
 
 #: docs/concepts/terminology.md
 msgid "Responsible for"
-msgstr ""
+msgstr "مسؤول عن"
 
 #: docs/concepts/terminology.md
 msgid "Data Lead"
-msgstr ""
+msgstr "Data Lead (مسؤول البيانات)"
 
 #: docs/concepts/terminology.md
 msgid "What data is held and released; shares sign-off with the Technical Lead"
-msgstr ""
+msgstr "البيانات المحتفظ بها والمُفرج عنها؛ ويتقاسم الاعتماد مع Technical Lead"
 
 #: docs/concepts/terminology.md
 msgid "Technical Lead"
-msgstr ""
+msgstr "Technical Lead (المسؤول التقني)"
 
 #: docs/concepts/terminology.md
 msgid "How the platform is built and run; shares sign-off with the Data Lead"
-msgstr ""
+msgstr "كيفية بناء المنصة وتشغيلها؛ ويتقاسم الاعتماد مع Data Lead"
 
 #: docs/concepts/terminology.md
 msgid "Steward"
-msgstr ""
+msgstr "أمين البيانات (steward)"
 
 #: docs/concepts/terminology.md
 msgid "One domain's data, and who may see it"
-msgstr ""
+msgstr "بيانات مجال واحد، ومن يمكنه رؤيتها"
 
 #: docs/concepts/terminology.md
 msgid "Platform team"
-msgstr ""
+msgstr "فريق المنصة"
 
 #: docs/concepts/terminology.md
 msgid "Identity groups, shared infrastructure and the delivery pipeline"
-msgstr ""
+msgstr "مجموعات الهوية والبنية التحتية المشتركة وسلسلة التسليم"
 
 #: docs/concepts/terminology.md
 msgid "Operator"
-msgstr ""
+msgstr "المشغّل"
 
 #: docs/concepts/terminology.md
 msgid "Whoever carries out a procedure"
-msgstr ""
+msgstr "أيًّا كان من ينفّذ إجراءً"
 
 #: docs/concepts/terminology.md
 msgid "Domains and environments"
-msgstr ""
+msgstr "المجالات والبيئات"
 
 #: docs/concepts/terminology.md
 msgid "A **domain** is an area of data with one steward, such as `learners` or `workforce`. Each is a catalog."
-msgstr ""
+msgstr "**المجال** نطاق من البيانات له أمين واحد، مثل `learners` أو `workforce`. وكل مجال فهرس."
 
 #: docs/concepts/terminology.md
 msgid "An **environment** is a separate world for a change to run in, such as production or a developer's branch. Catalogs are named `<domain>_<environment>`, for example `learners_prod`."
-msgstr ""
+msgstr "**البيئة** عالم منفصل يُنفَّذ فيه التغيير، مثل بيئة الإنتاج أو فرع أحد المطورين. وتُسمّى الفهارس `<domain>_<environment>`، مثل `learners_prod`."
 
 #: docs/concepts/terminology.md
 msgid "You are ready for the [specifications]{1}."
-msgstr ""
+msgstr "أنت الآن مستعد لقراءة [المواصفات]{1}."

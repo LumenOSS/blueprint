@@ -9,184 +9,184 @@ msgstr ""
 
 #: site/home.md
 msgid "Data platform blueprint"
-msgstr ""
+msgstr "Plan de référence de plateforme de données"
 
 #: site/home.md
 msgid "A reference architecture for the governed data platform behind an education management information system. The architecture stays fixed; the implementation is yours to choose."
-msgstr ""
+msgstr "Une architecture de référence pour la plateforme de données gouvernée qui sous-tend un système d'information pour la gestion de l'éducation. L'architecture reste fixe ; l'implémentation est à votre choix."
 
 #: site/home.md
 msgid "[Get started]{1} · [View on GitHub]{2}"
-msgstr ""
+msgstr "[Commencer]{1} · [Voir sur GitHub]{2}"
 
 #: site/home.md
 msgid "Start with the concepts"
-msgstr ""
+msgstr "Commencer par les concepts"
 
 #: site/home.md
 msgid "What is an EMIS"
-msgstr ""
+msgstr "Qu'est-ce qu'un SIGE"
 
 #: site/home.md
 msgid "The system an education authority uses to know how many learners there are, where, and how they are doing, and the part this blueprint covers."
-msgstr ""
+msgstr "Le système qu'une autorité éducative utilise pour savoir combien d'apprenants elle compte, où ils se trouvent et comment ils progressent, et la partie que couvre ce plan de référence."
 
 #: site/home.md
 msgid "[Read the definition]{1}"
-msgstr ""
+msgstr "[Lire la définition]{1}"
 
 #: site/home.md
 msgid "The EMIS domain"
-msgstr ""
+msgstr "Le domaine du SIGE"
 
 #: site/home.md
 msgid "What a domain model is, why it is used here, and the main things an EMIS records, in one diagram."
-msgstr ""
+msgstr "Ce qu'est un modèle de domaine, pourquoi il est utilisé ici, et les principales choses qu'un SIGE enregistre, en un seul schéma."
 
 #: site/home.md
 msgid "[Meet the model]{1}"
-msgstr ""
+msgstr "[Découvrir le modèle]{1}"
 
 #: site/home.md
 msgid "Data in an EMIS"
-msgstr ""
+msgstr "Les données d'un SIGE"
 
 #: site/home.md
 msgid "Sensitive data, masking, access by role and attribute, sharing, and lineage: five ideas to keep in mind."
-msgstr ""
+msgstr "Données sensibles, masquage, accès par rôle et par attribut, partage et traçabilité : cinq idées à garder en tête."
 
 #: site/home.md
 msgid "[Read the primer]{1}"
-msgstr ""
+msgstr "[Lire l'introduction]{1}"
 
 #: site/home.md
 msgid "Terminology"
-msgstr ""
+msgstr "Terminologie"
 
 #: site/home.md
 msgid "Sensitivity tiers, layers, clauses and roles: what you need to read the specifications."
-msgstr ""
+msgstr "Niveaux de sensibilité, couches, clauses et rôles : ce qu'il faut savoir pour lire les spécifications."
 
 #: site/home.md
 msgid "[Learn the terms]{1}"
-msgstr ""
+msgstr "[Apprendre les termes]{1}"
 
 #: site/home.md
 msgid "Specifications"
-msgstr ""
+msgstr "Spécifications"
 
 #: site/home.md
 msgid "Principles"
-msgstr ""
+msgstr "Principes"
 
 #: site/home.md
 msgid "The ideas every decision rests on, each with its reason, from CI as the only deployer to collecting data only for a declared purpose."
-msgstr ""
+msgstr "Les idées sur lesquelles repose chaque décision, chacune avec sa raison, de la CI comme seul moyen de déploiement à la collecte de données uniquement pour une finalité déclarée."
 
 #: site/home.md
 msgid "[Read the principles]{1}"
-msgstr ""
+msgstr "[Lire les principes]{1}"
 
 #: site/home.md
 msgid "Architecture"
-msgstr ""
+msgstr "Architecture"
 
 #: site/home.md
 msgid "C4 diagrams from system context to components, each followed by why it is drawn that way."
-msgstr ""
+msgstr "Des schémas C4, du contexte du système jusqu'aux composants, chacun suivi de la raison pour laquelle il est dessiné ainsi."
 
 #: site/home.md
 msgid "[See the diagrams]{1}"
-msgstr ""
+msgstr "[Voir les schémas]{1}"
 
 #: site/home.md
 msgid "Capabilities"
-msgstr ""
+msgstr "Capacités"
 
 #: site/home.md
 msgid "Forty-one capabilities, each a contract of testable clauses that name no vendor."
-msgstr ""
+msgstr "Quarante et une capacités, chacune un contrat de clauses vérifiables qui ne nomment aucun fournisseur."
 
 #: site/home.md
 msgid "[Browse the contracts]{1}"
-msgstr ""
+msgstr "[Parcourir les contrats]{1}"
 
 #: site/home.md
 msgid "Domain model"
-msgstr ""
+msgstr "Modèle de domaine"
 
 #: site/home.md
 msgid "Institutions, learners, staff and their relationships, modelled so that every indicator can be counted at a reference date."
-msgstr ""
+msgstr "Établissements, apprenants, personnels et leurs relations, modélisés pour que chaque indicateur puisse être compté à une date de référence."
 
 #: site/home.md
 msgid "[Explore the domain]{1}"
-msgstr ""
+msgstr "[Explorer le domaine]{1}"
 
 #: site/home.md
 msgid "Semantic layer"
-msgstr ""
+msgstr "Couche sémantique"
 
 #: site/home.md
 msgid "Every indicator defined once and served to every dashboard, agent and publication, with dbt in both reference implementations."
-msgstr ""
+msgstr "Chaque indicateur défini une seule fois et servi à chaque tableau de bord, agent et publication, avec dbt dans les deux implémentations de référence."
 
 #: site/home.md
 msgid "[How indicators are defined]{1}"
-msgstr ""
+msgstr "[Comment les indicateurs sont définis]{1}"
 
 #: site/home.md
 msgid "Standards"
-msgstr ""
+msgstr "Normes"
 
 #: site/home.md
 msgid "The international standards relied on, each linked to its publisher with the edition and the date it was checked."
-msgstr ""
+msgstr "Les normes internationales sur lesquelles le plan s'appuie, chacune liée à son éditeur, avec l'édition et la date de vérification."
 
 #: site/home.md
 msgid "[See the register]{1}"
-msgstr ""
+msgstr "[Voir le registre]{1}"
 
 #: site/home.md
 msgid "Guides and implementations"
-msgstr ""
+msgstr "Guides et implémentations"
 
 #: site/home.md
 msgid "Building an implementation"
-msgstr ""
+msgstr "Construire une implémentation"
 
 #: site/home.md
 msgid "The steps in dependency order, each with a clear point at which it is done."
-msgstr ""
+msgstr "Les étapes dans l'ordre des dépendances, chacune avec un point clair où elle est terminée."
 
 #: site/home.md
 msgid "[Follow the steps]{1}"
-msgstr ""
+msgstr "[Suivre les étapes]{1}"
 
 #: site/home.md
 msgid "Implementations"
-msgstr ""
+msgstr "Implémentations"
 
 #: site/home.md
 msgid "Open source on Kubernetes, or Databricks on Azure, and exactly where the two differ."
-msgstr ""
+msgstr "Logiciel libre sur Kubernetes, ou Databricks sur Azure, et exactement où les deux diffèrent."
 
 #: site/home.md
 msgid "[Compare the stacks]{1}"
-msgstr ""
+msgstr "[Comparer les piles]{1}"
 
 #: site/home.md
 msgid "Example products"
-msgstr ""
+msgstr "Produits d'exemple"
 
 #: site/home.md
 msgid "Document review and an annual census, each running through every layer of the platform."
-msgstr ""
+msgstr "L'examen de documents et un recensement annuel, chacun traversant toutes les couches de la plateforme."
 
 #: site/home.md
 msgid "[See them work]{1}"
-msgstr ""
+msgstr "[Les voir fonctionner]{1}"
 
 #: site/home.md
 msgid "Open source under the Apache License 2.0."
-msgstr ""
+msgstr "Logiciel libre sous licence Apache 2.0."

@@ -9,272 +9,272 @@ msgstr ""
 
 #: docs/getting-started.md
 msgid "Getting started"
-msgstr ""
+msgstr "Primeros pasos"
 
 #: docs/getting-started.md
 msgid "The blueprint is meant to be read in layers: first what it is and why, then the part that matches your role. Each step says what you will know after reading it, so you can stop as soon as you have what you need."
-msgstr ""
+msgstr "Este plano de referencia se lee por capas: primero qué es y por qué, después la parte que corresponde a su rol. Cada paso indica lo que sabrá después de leerlo, para que pueda detenerse en cuanto tenga lo que necesita."
 
 #: docs/getting-started.md
 msgid "Everyone: the first hour"
-msgstr ""
+msgstr "Para todos: la primera hora"
 
 #: docs/getting-started.md
 msgid "The documentation has three main sections, read in this order:"
-msgstr ""
+msgstr "La documentación tiene tres secciones principales, que se leen en este orden:"
 
 #: docs/getting-started.md
 msgid "**[Core concepts]{1}** explain what an EMIS is and the ideas the rest builds on. They require nothing."
-msgstr ""
+msgstr "**[Conceptos básicos]{1}** explican qué es un SIGE y las ideas en las que se basa el resto. No requieren nada previo."
 
 #: docs/getting-started.md
 msgid "**[Specifications]{1}** state what is required, precisely enough to build against and test."
-msgstr ""
+msgstr "**[Especificaciones]{1}** establecen lo que se exige, con la precisión suficiente para construir y probar."
 
 #: docs/getting-started.md
 msgid "**[Guides]{1}** walk through doing things: building an implementation, running a product, loading history."
-msgstr ""
+msgstr "**[Guías]{1}** muestran cómo hacer las cosas: construir una implementación, operar un producto, cargar el histórico."
 
 #: docs/getting-started.md
 msgid "Start here:"
-msgstr ""
+msgstr "Empiece aquí:"
 
 #: docs/getting-started.md
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: docs/getting-started.md
 msgid "Read"
-msgstr ""
+msgstr "Leer"
 
 #: docs/getting-started.md
 msgid "You will know"
-msgstr ""
+msgstr "Sabrá"
 
 #: docs/getting-started.md
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/getting-started.md
 msgid "[What is an EMIS]{1}"
-msgstr ""
+msgstr "[Qué es un SIGE]{1}"
 
 #: docs/getting-started.md
 msgid "What the system is, who relies on it, and the part this blueprint covers"
-msgstr ""
+msgstr "Qué es el sistema, quién depende de él y la parte que cubre este plano de referencia"
 
 #: docs/getting-started.md
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/getting-started.md
 msgid "[The EMIS domain]{1}"
-msgstr ""
+msgstr "[El dominio del SIGE]{1}"
 
 #: docs/getting-started.md
 msgid "What a domain model is, why it is used here, and the main things an EMIS records"
-msgstr ""
+msgstr "Qué es un modelo de dominio, por qué se usa aquí y las principales cosas que registra un SIGE"
 
 #: docs/getting-started.md
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/getting-started.md
 msgid "[Data in an EMIS]{1}"
-msgstr ""
+msgstr "[Los datos de un SIGE]{1}"
 
 #: docs/getting-started.md
 msgid "The kinds of data, and five ideas about handling it: sensitivity, masking, access by role and attribute, sharing, lineage"
-msgstr ""
+msgstr "Los tipos de datos y cinco ideas para tratarlos: sensibilidad, enmascaramiento, acceso por rol y por atributo, intercambio, trazabilidad"
 
 #: docs/getting-started.md
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/getting-started.md
 msgid "[Terminology]{1}"
-msgstr ""
+msgstr "[Terminología]{1}"
 
 #: docs/getting-started.md
 msgid "Sensitivity tiers, layers, clauses, statuses and roles"
-msgstr ""
+msgstr "Niveles de sensibilidad, capas, cláusulas, estados y roles"
 
 #: docs/getting-started.md
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/getting-started.md
 msgid "[Principles]{1}"
-msgstr ""
+msgstr "[Principios]{1}"
 
 #: docs/getting-started.md
 msgid "The ideas every requirement rests on; when anything else seems to disagree, these state the intent"
-msgstr ""
+msgstr "Las ideas en las que se basa cada requisito; cuando algo parezca contradecirlas, son ellas las que expresan la intención"
 
 #: docs/getting-started.md
 msgid "The [README]{1} gives a one-page overview, and the [glossary]{2} and [context map]{3} define every other term."
-msgstr ""
+msgstr "El [README]{1} ofrece una visión general en una página, y el [glosario]{2} y el [mapa de contextos]{3} definen todos los demás términos."
 
 #: docs/getting-started.md
 msgid "Then follow your role"
-msgstr ""
+msgstr "Después, siga su rol"
 
 #: docs/getting-started.md
 msgid "Leads and decision-makers"
-msgstr ""
+msgstr "Responsables y personas que deciden"
 
 #: docs/getting-started.md
 msgid "You approve what is built and answer for it."
-msgstr ""
+msgstr "Usted aprueba lo que se construye y responde por ello."
 
 #: docs/getting-started.md
 msgid "[Decision records]{1}: what was decided, and why, in the order it was decided."
-msgstr ""
+msgstr "[Registros de decisiones]{1}: qué se decidió y por qué, en el orden en que se decidió."
 
 #: docs/getting-started.md
 msgid "[Implementations]{1}: the two reference stacks and where open source differs from a managed platform."
-msgstr ""
+msgstr "[Implementaciones]{1}: las dos pilas de referencia y dónde difiere el código abierto de una plataforma gestionada."
 
 #: docs/getting-started.md
 msgid "[Standards]{1}: the international standards the blueprint relies on, with their current editions."
-msgstr ""
+msgstr "[Normas]{1}: las normas internacionales en las que se apoya el plano, con sus ediciones vigentes."
 
 #: docs/getting-started.md
 msgid "[Indicators]{1}: how official figures are defined and kept comparable."
-msgstr ""
+msgstr "[Indicadores]{1}: cómo se definen las cifras oficiales y cómo se mantienen comparables."
 
 #: docs/getting-started.md
 msgid "Architects and engineers building an implementation"
-msgstr ""
+msgstr "Arquitectos e ingenieros que construyen una implementación"
 
 #: docs/getting-started.md
 msgid "You turn the blueprint into a running platform."
-msgstr ""
+msgstr "Usted convierte el plano de referencia en una plataforma en funcionamiento."
 
 #: docs/getting-started.md
 msgid "[Capabilities]{1}: every capability and its contract. Skim the index, then read the pages for the layer you start with."
-msgstr ""
+msgstr "[Capacidades]{1}: cada capacidad y su contrato. Recorra el índice y luego lea las páginas de la capa por la que empieza."
 
 #: docs/getting-started.md
 msgid "[Building an implementation]{1}: the steps, with a build order generated from the dependencies."
-msgstr ""
+msgstr "[Construir una implementación]{1}: los pasos, con un orden de construcción generado a partir de las dependencias."
 
 #: docs/getting-started.md
 msgid "[Semantic layer]{1}: how every indicator is defined once and served to every consumer."
-msgstr ""
+msgstr "[Capa semántica]{1}: cómo cada indicador se define una sola vez y se sirve a cada consumidor."
 
 #: docs/getting-started.md
 msgid "[Implementations]{1} and a reference binding ([open source]{2} or [Databricks]{3}): the components and the status of every clause."
-msgstr ""
+msgstr "[Implementaciones]{1} y una vinculación de referencia ([código abierto]{2} o [Databricks]{3}): los componentes y el estado de cada cláusula."
 
 #: docs/getting-started.md
 msgid "[Standards]{1}: the editions each clause names."
-msgstr ""
+msgstr "[Normas]{1}: las ediciones que nombra cada cláusula."
 
 #: docs/getting-started.md
 msgid "[Lessons]{1}: failures that shaped the design, so you do not repeat them."
-msgstr ""
+msgstr "[Lecciones]{1}: los fallos que dieron forma al diseño, para no repetirlos."
 
 #: docs/getting-started.md
 msgid "Product teams"
-msgstr ""
+msgstr "Equipos de producto"
 
 #: docs/getting-started.md
 msgid "You build a workload on the platform."
-msgstr ""
+msgstr "Usted construye una carga de trabajo sobre la plataforma."
 
 #: docs/getting-started.md
 msgid "[Domain model]{1}, [indicators]{2} and the [semantic layer]{3}."
-msgstr ""
+msgstr "[Modelo de dominio]{1}, [indicadores]{2} y la [capa semántica]{3}."
 
 #: docs/getting-started.md
 msgid "[Example products]{1}: document review and the annual census, read as worked examples."
-msgstr ""
+msgstr "[Productos de ejemplo]{1}: la revisión de documentos y el censo anual, leídos como ejemplos desarrollados."
 
 #: docs/getting-started.md
 msgid "[Product checklist]{1}: what your product records about each capability it relies on."
-msgstr ""
+msgstr "[Lista de comprobación de producto]{1}: lo que su producto registra sobre cada capacidad de la que depende."
 
 #: docs/getting-started.md
 msgid "[Backfill patterns]{1}: before you load any history."
-msgstr ""
+msgstr "[Patrones de carga del histórico]{1}: antes de cargar cualquier histórico."
 
 #: docs/getting-started.md
 msgid "Data stewards and governance"
-msgstr ""
+msgstr "Responsables de datos y gobernanza"
 
 #: docs/getting-started.md
 msgid "You decide who may see what, and what leaves the platform."
-msgstr ""
+msgstr "Usted decide quién puede ver qué y qué sale de la plataforma."
 
 #: docs/getting-started.md
 msgid "Principles [P12]{1}, [P14]{2}, [P15]{3} and [P20]{4}."
-msgstr ""
+msgstr "Principios [P12]{1}, [P14]{2}, [P15]{3} y [P20]{4}."
 
 #: docs/getting-started.md
 msgid "[CAP-ACCESS]{1}, [CAP-CLASSIFICATION]{2} and [CAP-RECORDS]{3}: who sees which rows and columns, and how long records are kept."
-msgstr ""
+msgstr "[CAP-ACCESS]{1}, [CAP-CLASSIFICATION]{2} y [CAP-RECORDS]{3}: quién ve qué filas y columnas, y cuánto tiempo se conservan los registros."
 
 #: docs/getting-started.md
 msgid "[CAP-PUBLICATION]{1} and [CAP-SHARING]{2}: open statistics, partner sharing, and their controls."
-msgstr ""
+msgstr "[CAP-PUBLICATION]{1} y [CAP-SHARING]{2}: estadísticas abiertas, intercambio con socios y sus controles."
 
 #: docs/getting-started.md
 msgid "[CAP-QUALITY]{1} and [CAP-REFERENCE]{2}: checks, corrections, code lists and the data dictionary."
-msgstr ""
+msgstr "[CAP-QUALITY]{1} y [CAP-REFERENCE]{2}: comprobaciones, correcciones, listas de códigos y el diccionario de datos."
 
 #: docs/getting-started.md
 msgid "Contributors"
-msgstr ""
+msgstr "Personas que contribuyen"
 
 #: docs/getting-started.md
 msgid "You want to change the blueprint."
-msgstr ""
+msgstr "Usted quiere cambiar el plano de referencia."
 
 #: docs/getting-started.md
 msgid "[Contributing]{1}: which path your change takes, setting up, and what review looks for."
-msgstr ""
+msgstr "[Contribuir]{1}: qué camino sigue su cambio, cómo prepararse y qué examina la revisión."
 
 #: docs/getting-started.md
 msgid "[LIP-1]{1}: how a change is proposed, reviewed and decided."
-msgstr ""
+msgstr "[LIP-1]{1}: cómo se propone, revisa y decide un cambio."
 
 #: docs/getting-started.md
 msgid "[Decision records]{1}: what has been decided so far, so a proposal builds on it rather than repeating it."
-msgstr ""
+msgstr "[Registros de decisiones]{1}: lo que ya se ha decidido, para que una propuesta se apoye en ello en lugar de repetirlo."
 
 #: docs/getting-started.md
 msgid "[Capabilities]{1} and the [domain language]{2}: the text a proposal changes, and the words it uses."
-msgstr ""
+msgstr "[Capacidades]{1} y el [lenguaje del dominio]{2}: el texto que cambia una propuesta y las palabras que usa."
 
 #: docs/getting-started.md
 msgid "The [LIP template]{1}."
-msgstr ""
+msgstr "La [plantilla de LIP]{1}."
 
 #: docs/getting-started.md
 msgid "Agents"
-msgstr ""
+msgstr "Agentes"
 
 #: docs/getting-started.md
 msgid "Start with [AGENTS.md]{1}, then [`blueprint/catalogue.yaml`]{2} for the clauses and [building.md]{3} for the order of work. Every claim the blueprint makes is either a clause with a verification or a principle with its reason; treat anything else as commentary."
-msgstr ""
+msgstr "Empiece por [AGENTS.md]{1}, luego [`blueprint/catalogue.yaml`]{2} para las cláusulas y [building.md]{3} para el orden del trabajo. Toda afirmación del plano es o bien una cláusula con su verificación o bien un principio con su razón; trate todo lo demás como comentario."
 
 #: docs/getting-started.md
 msgid "How the documents relate"
-msgstr ""
+msgstr "Cómo se relacionan los documentos"
 
 #: docs/getting-started.md
 msgid "Why it is drawn this way"
-msgstr ""
+msgstr "Por qué se dibuja así"
 
 #: docs/getting-started.md
 msgid "**The catalogue is the centre.** Clauses are written once there; the capability pages, the build order and the implementation tables are generated from it, so they cannot drift apart."
-msgstr ""
+msgstr "**El catálogo es el centro.** Las cláusulas se escriben allí una sola vez; las páginas de capacidades, el orden de construcción y las tablas de implementación se generan a partir de él, así que no pueden divergir."
 
 #: docs/getting-started.md
 msgid "**Principles and decision records sit upstream.** A clause exists because a principle requires it, and it changes only through a decision record."
-msgstr ""
+msgstr "**Los principios y los registros de decisiones están antes.** Una cláusula existe porque un principio la exige, y solo cambia mediante un registro de decisión."
 
 #: docs/getting-started.md
 msgid "**Bindings and the standards register feed the pages** so each capability shows what implements it and which standards it names."
-msgstr ""
+msgstr "**Las vinculaciones y el registro de normas alimentan las páginas**, de modo que cada capacidad muestra qué la implementa y qué normas nombra."

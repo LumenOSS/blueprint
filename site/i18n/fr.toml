@@ -1,0 +1,77 @@
+# Interface strings for the website, in French. Keys match
+# site/i18n/en.toml; a missing key falls back to English.
+
+[menu-getting-started]
+  other = "Pour commencer"
+
+[menu-concepts]
+  other = "Concepts"
+
+[menu-what-is-an-emis]
+  other = "Qu'est-ce qu'un SIGE"
+
+[menu-the-emis-domain]
+  other = "Le domaine du SIGE"
+
+[menu-data-in-an-emis]
+  other = "Les données d'un SIGE"
+
+[menu-terminology]
+  other = "Terminologie"
+
+[menu-specifications]
+  other = "Spécifications"
+
+[menu-principles]
+  other = "Principes"
+
+[menu-capabilities]
+  other = "Capacités"
+
+[menu-domain]
+  other = "Domaine"
+
+[menu-architecture]
+  other = "Architecture"
+
+[menu-standards]
+  other = "Normes"
+
+[menu-implementations]
+  other = "Implémentations"
+
+[menu-guides]
+  other = "Guides"
+
+[menu-building-an-implementation]
+  other = "Construire une implémentation"
+
+[menu-example-products]
+  other = "Produits d'exemple"
+
+[menu-backfill]
+  other = "Reprise de l'historique"
+
+[menu-lessons]
+  other = "Leçons"
+
+[menu-proposals]
+  other = "Propositions"
+
+[menu-decisions]
+  other = "Décisions"
+
+[menu-github]
+  other = "GitHub"
+
+[menu-contributing]
+  other = "Contribuer"
+
+[menu-licence]
+  other = "Licence"
+
+[l10n-unreviewed]
+  other = "Cette page a été traduite de l'anglais et n'a pas encore été relue par une personne de langue maternelle. En cas de doute, la page anglaise fait foi."
+
+[site-title]
+  other = "Plan de référence"

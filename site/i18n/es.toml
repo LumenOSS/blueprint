@@ -1,0 +1,77 @@
+# Interface strings for the website, in Spanish. Keys match
+# site/i18n/en.toml; a missing key falls back to English.
+
+[menu-getting-started]
+  other = "Primeros pasos"
+
+[menu-concepts]
+  other = "Conceptos"
+
+[menu-what-is-an-emis]
+  other = "Qué es un SIGE"
+
+[menu-the-emis-domain]
+  other = "El dominio del SIGE"
+
+[menu-data-in-an-emis]
+  other = "Los datos de un SIGE"
+
+[menu-terminology]
+  other = "Terminología"
+
+[menu-specifications]
+  other = "Especificaciones"
+
+[menu-principles]
+  other = "Principios"
+
+[menu-capabilities]
+  other = "Capacidades"
+
+[menu-domain]
+  other = "Dominio"
+
+[menu-architecture]
+  other = "Arquitectura"
+
+[menu-standards]
+  other = "Normas"
+
+[menu-implementations]
+  other = "Implementaciones"
+
+[menu-guides]
+  other = "Guías"
+
+[menu-building-an-implementation]
+  other = "Construir una implementación"
+
+[menu-example-products]
+  other = "Productos de ejemplo"
+
+[menu-backfill]
+  other = "Carga del histórico"
+
+[menu-lessons]
+  other = "Lecciones"
+
+[menu-proposals]
+  other = "Propuestas"
+
+[menu-decisions]
+  other = "Decisiones"
+
+[menu-github]
+  other = "GitHub"
+
+[menu-contributing]
+  other = "Contribuir"
+
+[menu-licence]
+  other = "Licencia"
+
+[l10n-unreviewed]
+  other = "Esta página se tradujo del inglés y aún no la ha revisado una persona hablante nativa. Si algo no se entiende bien, la página en inglés es la que prevalece."
+
+[site-title]
+  other = "Plano de referencia"

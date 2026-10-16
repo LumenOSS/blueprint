@@ -9,72 +9,72 @@ msgstr ""
 
 #: docs/concepts/README.md
 msgid "Core concepts"
-msgstr ""
+msgstr "المفاهيم الأساسية"
 
 #: docs/concepts/README.md
 msgid "What you need in your head before the specifications make sense. These four pages explain; they require nothing. Read them in order. Each takes about ten minutes."
-msgstr ""
+msgstr "ما تحتاج إلى معرفته قبل أن تصبح المواصفات مفهومة. هذه الصفحات الأربع تشرح ولا تفرض شيئًا. اقرأها بالترتيب. تستغرق كل منها نحو عشر دقائق."
 
 #: docs/concepts/README.md
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: docs/concepts/README.md
 msgid "Read"
-msgstr ""
+msgstr "اقرأ"
 
 #: docs/concepts/README.md
 msgid "You will know"
-msgstr ""
+msgstr "ستعرف"
 
 #: docs/concepts/README.md
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/concepts/README.md
 msgid "[What is an EMIS]{1}"
-msgstr ""
+msgstr "[ما هو نظام معلومات إدارة التعليم]{1}"
 
 #: docs/concepts/README.md
 msgid "What an education management information system is, who relies on it, and the part this blueprint covers"
-msgstr ""
+msgstr "ما هو نظام معلومات إدارة التعليم، ومن يعتمد عليه، والجزء الذي يغطيه هذا المخطط المرجعي"
 
 #: docs/concepts/README.md
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/concepts/README.md
 msgid "[The EMIS domain]{1}"
-msgstr ""
+msgstr "[مجال نظام معلومات إدارة التعليم]{1}"
 
 #: docs/concepts/README.md
 msgid "What a domain model is, why this blueprint uses one, and the main things an EMIS records"
-msgstr ""
+msgstr "ما نموذج المجال، ولماذا يستخدمه هذا المخطط، وأهم ما يسجله النظام"
 
 #: docs/concepts/README.md
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/concepts/README.md
 msgid "[Data in an EMIS]{1}"
-msgstr ""
+msgstr "[البيانات في نظام معلومات إدارة التعليم]{1}"
 
 #: docs/concepts/README.md
 msgid "The kinds of data an EMIS holds, and five ideas about handling it that the rest of the blueprint builds on"
-msgstr ""
+msgstr "أنواع البيانات التي يحتفظ بها النظام، وخمس أفكار للتعامل معها يقوم عليها باقي المخطط"
 
 #: docs/concepts/README.md
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/concepts/README.md
 msgid "[Terminology]{1}"
-msgstr ""
+msgstr "[المصطلحات]{1}"
 
 #: docs/concepts/README.md
 msgid "The few classifications and terms you need to read the specifications: sensitivity tiers, layers, clauses and roles"
-msgstr ""
+msgstr "التصنيفات والمصطلحات القليلة اللازمة لقراءة المواصفات: مستويات الحساسية والطبقات والبنود والأدوار"
 
 #: docs/concepts/README.md
 msgid "Then go on to the [specifications]{1}, starting with the principles."
-msgstr ""
+msgstr "ثم انتقل إلى [المواصفات]{1}، بدءًا بالمبادئ."

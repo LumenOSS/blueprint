@@ -9,184 +9,184 @@ msgstr ""
 
 #: site/home.md
 msgid "Data platform blueprint"
-msgstr ""
+msgstr "مخطط مرجعي لمنصة البيانات"
 
 #: site/home.md
 msgid "A reference architecture for the governed data platform behind an education management information system. The architecture stays fixed; the implementation is yours to choose."
-msgstr ""
+msgstr "بنية مرجعية لمنصة البيانات المحوكمة التي يقوم عليها نظام معلومات إدارة التعليم. تبقى البنية ثابتة، ويعود إليك اختيار طريقة التنفيذ."
 
 #: site/home.md
 msgid "[Get started]{1} · [View on GitHub]{2}"
-msgstr ""
+msgstr "[ابدأ هنا]{1} · [اعرض على GitHub]{2}"
 
 #: site/home.md
 msgid "Start with the concepts"
-msgstr ""
+msgstr "ابدأ بالمفاهيم"
 
 #: site/home.md
 msgid "What is an EMIS"
-msgstr ""
+msgstr "ما هو نظام معلومات إدارة التعليم"
 
 #: site/home.md
 msgid "The system an education authority uses to know how many learners there are, where, and how they are doing, and the part this blueprint covers."
-msgstr ""
+msgstr "النظام الذي تستخدمه السلطة التعليمية لمعرفة عدد المتعلمين وأماكنهم وأحوالهم، والجزء الذي يغطيه هذا المخطط المرجعي."
 
 #: site/home.md
 msgid "[Read the definition]{1}"
-msgstr ""
+msgstr "[اقرأ التعريف]{1}"
 
 #: site/home.md
 msgid "The EMIS domain"
-msgstr ""
+msgstr "مجال نظام معلومات إدارة التعليم"
 
 #: site/home.md
 msgid "What a domain model is, why it is used here, and the main things an EMIS records, in one diagram."
-msgstr ""
+msgstr "ما نموذج المجال، ولماذا يُستخدم هنا، وأهم ما يسجله النظام، في مخطط واحد."
 
 #: site/home.md
 msgid "[Meet the model]{1}"
-msgstr ""
+msgstr "[تعرّف على النموذج]{1}"
 
 #: site/home.md
 msgid "Data in an EMIS"
-msgstr ""
+msgstr "البيانات في نظام معلومات إدارة التعليم"
 
 #: site/home.md
 msgid "Sensitive data, masking, access by role and attribute, sharing, and lineage: five ideas to keep in mind."
-msgstr ""
+msgstr "البيانات الحساسة، والإخفاء، والوصول حسب الدور وحسب السمات، والمشاركة، وتتبّع المصدر: خمس أفكار ينبغي تذكرها."
 
 #: site/home.md
 msgid "[Read the primer]{1}"
-msgstr ""
+msgstr "[اقرأ المقدمة]{1}"
 
 #: site/home.md
 msgid "Terminology"
-msgstr ""
+msgstr "المصطلحات"
 
 #: site/home.md
 msgid "Sensitivity tiers, layers, clauses and roles: what you need to read the specifications."
-msgstr ""
+msgstr "مستويات الحساسية والطبقات والبنود والأدوار: ما تحتاجه لقراءة المواصفات."
 
 #: site/home.md
 msgid "[Learn the terms]{1}"
-msgstr ""
+msgstr "[تعلّم المصطلحات]{1}"
 
 #: site/home.md
 msgid "Specifications"
-msgstr ""
+msgstr "المواصفات"
 
 #: site/home.md
 msgid "Principles"
-msgstr ""
+msgstr "المبادئ"
 
 #: site/home.md
 msgid "The ideas every decision rests on, each with its reason, from CI as the only deployer to collecting data only for a declared purpose."
-msgstr ""
+msgstr "الأفكار التي يقوم عليها كل قرار، ولكل منها سببها، من التكامل المستمر بوصفه الطريق الوحيد للنشر إلى جمع البيانات لغرض معلن فقط."
 
 #: site/home.md
 msgid "[Read the principles]{1}"
-msgstr ""
+msgstr "[اقرأ المبادئ]{1}"
 
 #: site/home.md
 msgid "Architecture"
-msgstr ""
+msgstr "البنية"
 
 #: site/home.md
 msgid "C4 diagrams from system context to components, each followed by why it is drawn that way."
-msgstr ""
+msgstr "مخططات C4 من سياق النظام حتى المكونات، يتبع كلًّا منها سبب رسمه بهذه الطريقة."
 
 #: site/home.md
 msgid "[See the diagrams]{1}"
-msgstr ""
+msgstr "[اعرض المخططات]{1}"
 
 #: site/home.md
 msgid "Capabilities"
-msgstr ""
+msgstr "القدرات"
 
 #: site/home.md
 msgid "Forty-one capabilities, each a contract of testable clauses that name no vendor."
-msgstr ""
+msgstr "إحدى وأربعون قدرة، لكل منها عقد من بنود قابلة للتحقق لا تسمّي أي مورّد."
 
 #: site/home.md
 msgid "[Browse the contracts]{1}"
-msgstr ""
+msgstr "[تصفّح العقود]{1}"
 
 #: site/home.md
 msgid "Domain model"
-msgstr ""
+msgstr "نموذج المجال"
 
 #: site/home.md
 msgid "Institutions, learners, staff and their relationships, modelled so that every indicator can be counted at a reference date."
-msgstr ""
+msgstr "المؤسسات والمتعلمون والعاملون والعلاقات بينهم، منمذجة بحيث يمكن عدّ كل مؤشر في تاريخ مرجعي."
 
 #: site/home.md
 msgid "[Explore the domain]{1}"
-msgstr ""
+msgstr "[استكشف المجال]{1}"
 
 #: site/home.md
 msgid "Semantic layer"
-msgstr ""
+msgstr "الطبقة الدلالية"
 
 #: site/home.md
 msgid "Every indicator defined once and served to every dashboard, agent and publication, with dbt in both reference implementations."
-msgstr ""
+msgstr "كل مؤشر يُعرَّف مرة واحدة ويُقدَّم لكل لوحة معلومات ووكيل ومنشور، باستخدام dbt في التطبيقين المرجعيين كليهما."
 
 #: site/home.md
 msgid "[How indicators are defined]{1}"
-msgstr ""
+msgstr "[كيف تُعرَّف المؤشرات]{1}"
 
 #: site/home.md
 msgid "Standards"
-msgstr ""
+msgstr "المعايير"
 
 #: site/home.md
 msgid "The international standards relied on, each linked to its publisher with the edition and the date it was checked."
-msgstr ""
+msgstr "المعايير الدولية المعتمد عليها، كلٌّ منها مرتبط بجهته الناشرة مع الإصدار وتاريخ التحقق."
 
 #: site/home.md
 msgid "[See the register]{1}"
-msgstr ""
+msgstr "[اعرض السجل]{1}"
 
 #: site/home.md
 msgid "Guides and implementations"
-msgstr ""
+msgstr "الأدلة والتطبيقات"
 
 #: site/home.md
 msgid "Building an implementation"
-msgstr ""
+msgstr "بناء تطبيق"
 
 #: site/home.md
 msgid "The steps in dependency order, each with a clear point at which it is done."
-msgstr ""
+msgstr "الخطوات بترتيب الاعتماديات، ولكل منها نقطة واضحة تكتمل عندها."
 
 #: site/home.md
 msgid "[Follow the steps]{1}"
-msgstr ""
+msgstr "[اتبع الخطوات]{1}"
 
 #: site/home.md
 msgid "Implementations"
-msgstr ""
+msgstr "التطبيقات"
 
 #: site/home.md
 msgid "Open source on Kubernetes, or Databricks on Azure, and exactly where the two differ."
-msgstr ""
+msgstr "برمجيات مفتوحة المصدر على Kubernetes، أو Databricks على Azure، وأين يختلفان بالضبط."
 
 #: site/home.md
 msgid "[Compare the stacks]{1}"
-msgstr ""
+msgstr "[قارن بين المجموعتين]{1}"
 
 #: site/home.md
 msgid "Example products"
-msgstr ""
+msgstr "منتجات توضيحية"
 
 #: site/home.md
 msgid "Document review and an annual census, each running through every layer of the platform."
-msgstr ""
+msgstr "مراجعة الوثائق وتعداد سنوي، يمر كل منهما بجميع طبقات المنصة."
 
 #: site/home.md
 msgid "[See them work]{1}"
-msgstr ""
+msgstr "[شاهدها تعمل]{1}"
 
 #: site/home.md
 msgid "Open source under the Apache License 2.0."
-msgstr ""
+msgstr "مفتوح المصدر بموجب ترخيص Apache 2.0."

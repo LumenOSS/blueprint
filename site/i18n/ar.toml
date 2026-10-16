@@ -1,0 +1,77 @@
+# Interface strings for the website, in Arabic. Keys match
+# site/i18n/en.toml; a missing key falls back to English.
+
+[menu-getting-started]
+  other = "البدء"
+
+[menu-concepts]
+  other = "المفاهيم"
+
+[menu-what-is-an-emis]
+  other = "ما هو نظام معلومات إدارة التعليم"
+
+[menu-the-emis-domain]
+  other = "مجال نظام معلومات إدارة التعليم"
+
+[menu-data-in-an-emis]
+  other = "البيانات في نظام معلومات إدارة التعليم"
+
+[menu-terminology]
+  other = "المصطلحات"
+
+[menu-specifications]
+  other = "المواصفات"
+
+[menu-principles]
+  other = "المبادئ"
+
+[menu-capabilities]
+  other = "القدرات"
+
+[menu-domain]
+  other = "المجال"
+
+[menu-architecture]
+  other = "البنية"
+
+[menu-standards]
+  other = "المعايير"
+
+[menu-implementations]
+  other = "التطبيقات"
+
+[menu-guides]
+  other = "الأدلة"
+
+[menu-building-an-implementation]
+  other = "بناء تطبيق"
+
+[menu-example-products]
+  other = "منتجات توضيحية"
+
+[menu-backfill]
+  other = "تحميل البيانات التاريخية"
+
+[menu-lessons]
+  other = "الدروس المستفادة"
+
+[menu-proposals]
+  other = "المقترحات"
+
+[menu-decisions]
+  other = "القرارات"
+
+[menu-github]
+  other = "GitHub"
+
+[menu-contributing]
+  other = "المساهمة"
+
+[menu-licence]
+  other = "الترخيص"
+
+[l10n-unreviewed]
+  other = "تُرجمت هذه الصفحة من الإنجليزية ولم يراجعها بعد متحدث أصلي باللغة. إذا بدا شيء غير دقيق، فالصفحة الإنجليزية هي المرجع المعتمد."
+
+[site-title]
+  other = "مخطط مرجعي لمنصة البيانات"

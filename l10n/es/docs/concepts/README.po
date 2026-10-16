@@ -9,72 +9,72 @@ msgstr ""
 
 #: docs/concepts/README.md
 msgid "Core concepts"
-msgstr ""
+msgstr "Conceptos básicos"
 
 #: docs/concepts/README.md
 msgid "What you need in your head before the specifications make sense. These four pages explain; they require nothing. Read them in order. Each takes about ten minutes."
-msgstr ""
+msgstr "Lo que necesita tener en mente antes de que las especificaciones cobren sentido. Estas cuatro páginas explican; no exigen nada. Léalas en orden. Cada una lleva unos diez minutos."
 
 #: docs/concepts/README.md
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: docs/concepts/README.md
 msgid "Read"
-msgstr ""
+msgstr "Leer"
 
 #: docs/concepts/README.md
 msgid "You will know"
-msgstr ""
+msgstr "Sabrá"
 
 #: docs/concepts/README.md
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/concepts/README.md
 msgid "[What is an EMIS]{1}"
-msgstr ""
+msgstr "[Qué es un SIGE]{1}"
 
 #: docs/concepts/README.md
 msgid "What an education management information system is, who relies on it, and the part this blueprint covers"
-msgstr ""
+msgstr "Qué es un sistema de información para la gestión educativa, quién depende de él y la parte que cubre este plano de referencia"
 
 #: docs/concepts/README.md
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/concepts/README.md
 msgid "[The EMIS domain]{1}"
-msgstr ""
+msgstr "[El dominio del SIGE]{1}"
 
 #: docs/concepts/README.md
 msgid "What a domain model is, why this blueprint uses one, and the main things an EMIS records"
-msgstr ""
+msgstr "Qué es un modelo de dominio, por qué este plano usa uno y las principales cosas que registra un SIGE"
 
 #: docs/concepts/README.md
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/concepts/README.md
 msgid "[Data in an EMIS]{1}"
-msgstr ""
+msgstr "[Los datos de un SIGE]{1}"
 
 #: docs/concepts/README.md
 msgid "The kinds of data an EMIS holds, and five ideas about handling it that the rest of the blueprint builds on"
-msgstr ""
+msgstr "Los tipos de datos que contiene un SIGE y cinco ideas para tratarlos en las que se basa el resto del plano"
 
 #: docs/concepts/README.md
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/concepts/README.md
 msgid "[Terminology]{1}"
-msgstr ""
+msgstr "[Terminología]{1}"
 
 #: docs/concepts/README.md
 msgid "The few classifications and terms you need to read the specifications: sensitivity tiers, layers, clauses and roles"
-msgstr ""
+msgstr "Las pocas clasificaciones y términos que necesita para leer las especificaciones: niveles de sensibilidad, capas, cláusulas y roles"
 
 #: docs/concepts/README.md
 msgid "Then go on to the [specifications]{1}, starting with the principles."
-msgstr ""
+msgstr "Después continúe con las [especificaciones]{1}, empezando por los principios."
