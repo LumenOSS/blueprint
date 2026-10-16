@@ -8,7 +8,8 @@ keep a second copy, this script derives Hugo content from the docs on every
 build:
 
 - README.md becomes _index.md; the repository README becomes an overview
-  page and CONTEXT.md the domain-language page. The landing page itself is
+  page, CONTEXT-MAP.md the section page of the bounded contexts, and each
+  context's CONTEXT.md a page in that section. The landing page itself is
   site content (site/home.md), copied as it is.
 - The first heading becomes the page title, and the first paragraph its
   description, in front matter. Capability pages are ordered as in the
@@ -39,7 +40,7 @@ REPO_URL = "https://github.com/LumenOSS/data-platform-blueprint/blob/main"
 # Repository files that become pages, and where they live on the site.
 EXTRA_PAGES = {
     ROOT / "README.md": "overview.md",
-    ROOT / "CONTEXT.md": "domain-language.md",
+    ROOT / "CONTEXT-MAP.md": "domain/contexts/_index.md",
 }
 
 LINK = re.compile(r"(\]\()([^)\s]+)(\))")
@@ -58,6 +59,8 @@ def site_path(source: pathlib.Path) -> str:
     if source in EXTRA_PAGES:
         return EXTRA_PAGES[source]
     relative = source.relative_to(DOCS).as_posix()
+    if source.name == "CONTEXT.md":
+        return posixpath.dirname(relative) + ".md"
     if source.name == "README.md":
         return posixpath.join(posixpath.dirname(relative), "_index.md")
     return relative

@@ -5,14 +5,18 @@ into domains, and the rules every implementation follows when it models
 them. The capabilities describe the platform; this page describes the data
 the platform exists for. Code lists and local terms vary by country; the
 resources and rules below do not. Every term here is defined in the
-[domain language](../../CONTEXT.md).
+language of its bounded context, listed in the
+[context map](../../CONTEXT-MAP.md); how the contexts are designed is in
+[domain design](design.md).
 
 ## Domains
 
 Each domain is a catalog per environment (`<domain>_<env>`,
 [CAP-CATALOG.2](../capabilities/cap-catalog.md)) with one owning steward.
 A resource lives in exactly one domain and is referenced, never copied, by
-the others.
+the others. Each domain belongs to one bounded context
+([domain design](design.md#contexts-and-catalogs)); a context may own
+several.
 
 | Domain | Core resources | Typical sensitivity |
 | --- | --- | --- |
@@ -24,8 +28,10 @@ the others.
 | `curriculum` | Programme, grade, subject, class, academic period, timetable | T1 |
 | `finance` | Budget, income, expenditure by function, fee and payment, grant and aid | T1; individual payments T3 |
 | `resources` | Asset, inventory, issue of an item to a person, distribution from the centre | T1 |
-| `programmes` | Entitlement schemes and their beneficiaries | T3 |
+| `entitlements` | Entitlement schemes and their beneficiaries | T3 |
 | `safety` | Incident, risk assessment, emergency plan | T3; health T4 |
+| `statistics` | Collections, instruments, returns, attestations, snapshots | T1; returns naming individuals T3 |
+| `records` | Record classes, disposals, correction requests, disclosures, purposes | T3 |
 | `reference` | Code lists, crosswalks, administrative geography, calendars, external denominators | T0 |
 | `publication` | De-identified and aggregate outputs only | T0 or T2 |
 

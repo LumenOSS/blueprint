@@ -15,7 +15,7 @@ Read these four in order.
 | 3 | [Architecture](architecture/README.md) | How the parts fit together, at three levels of detail |
 | 4 | [Domain model](domain/README.md) | What an EMIS holds: domains, resources and the rules for modelling them |
 
-Keep the [domain language](../CONTEXT.md) and the [glossary](glossary.md)
+Keep the [domain language](../CONTEXT-MAP.md) and the [glossary](glossary.md)
 open beside you. Domain terms such as *learner*, *enrolment*, *post* and
 *reference date*, and blueprint terms such as *capability*, *clause*,
 *binding* and *steward*, have precise meanings here.
@@ -94,7 +94,7 @@ You want to change the blueprint.
 2. [Decision records](adr/README.md): what has been decided so far, so a
    proposal builds on it rather than repeating it.
 3. [Capabilities](capabilities/README.md) and the
-   [domain language](../CONTEXT.md): the text a proposal changes, and the
+   [domain language](../CONTEXT-MAP.md): the text a proposal changes, and the
    words it uses.
 4. The [LIP template](lips/template.md).
 

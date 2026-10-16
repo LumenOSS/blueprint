@@ -30,9 +30,12 @@ for each clause; implementations live in their own repositories. Start at
 
 ## Writing
 
-- **Use the domain language in `CONTEXT.md`.** Each concept has one
-  canonical term; the words listed under *Avoid* are not used. When a new
-  domain term is settled, add it to `CONTEXT.md` in the same change.
+- **Use the domain language.** The domain is split into bounded contexts,
+  listed in `CONTEXT-MAP.md`; each has a `CONTEXT.md` under
+  `docs/domain/contexts/` with one canonical term per concept. The words
+  listed under *Avoid* are not used. When a new term is settled, add it to
+  its context's `CONTEXT.md` in the same change. Aggregates, invariants
+  and domain events are in `docs/domain/design.md`; keep them in step.
 
 - The repository is meant to be public: roles, never people; no
   organisation, tenant, host or account identifiers from any deployment.

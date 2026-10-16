@@ -14,8 +14,9 @@ each capability to real components and shows evidence for every clause.
 Two reference implementations are planned: one fully open source on
 Kubernetes, one on Databricks.
 
-Status: blueprint 0.3.0. Contracts are drafted; no implementation has
-evidence yet.
+<!-- BEGIN GENERATED: status (just render) -->
+Status: blueprint 0.4.0, with 41 capabilities and 245 clauses. Contracts are drafted; no implementation has evidence yet.
+<!-- END GENERATED: status -->
 
 **New here?** Start with [getting started](docs/getting-started.md): it
 gives a reading order for everyone and a track for each role.
@@ -50,7 +51,8 @@ decision records and released in a catalogue version. Read
 | [Standards](docs/standards.md) | The international standards relied on, with current editions and publisher links |
 | [Improvement proposals](docs/lips/README.md) | How to propose a change, and every LIP so far |
 | [Decision records](docs/adr/README.md) | What was decided, and why |
-| [Domain language](CONTEXT.md) | The EMIS terms used throughout, with the words to avoid |
+| [Context map](CONTEXT-MAP.md) | The bounded contexts of the EMIS domain and their language, with the words to avoid |
+| [Domain design](docs/domain/design.md) | Subdomains, aggregates, invariants and domain events |
 | [Glossary](docs/glossary.md) | Terms about the blueprint and the platform |
 
 ## Layout

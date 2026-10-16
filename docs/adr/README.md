@@ -20,5 +20,6 @@ supersedes the old one, and the old one stays.
 | [0010](0010-one-person-registry.md) | Record each person once; roles are relationships | Accepted |
 | [0011](0011-dbt-semantic-layer.md) | Use the dbt semantic layer in both reference implementations | Accepted |
 | [0012](0012-improvement-proposals.md) | Propose changes as LumenOSS Improvement Proposals | Accepted |
+| [0013](0013-bounded-contexts.md) | Divide the EMIS domain into bounded contexts | Accepted |
 
 New records copy [`template.md`](template.md) and take the next number.

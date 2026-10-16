@@ -690,6 +690,16 @@ def reference_bindings() -> list[BindingFile]:
     return files
 
 
+def status_line(cat: Catalogue) -> str:
+    """Renders the README's one-line status of the catalogue."""
+    clauses = sum(len(cap["clauses"]) for cap in cat["capabilities"])
+    return (
+        f"Status: blueprint {cat['version']}, with"
+        f" {len(cat['capabilities'])} capabilities and {clauses} clauses."
+        " Contracts are drafted; no implementation has evidence yet."
+    )
+
+
 def render(cat: Catalogue, *, write: bool) -> list[pathlib.Path]:
     """Regenerates every generated block; returns the paths that changed."""
     changed: list[pathlib.Path] = []
@@ -715,6 +725,7 @@ def render(cat: Catalogue, *, write: bool) -> list[pathlib.Path]:
         update(STANDARDS_PAGE, "register", register_tables(reg))
     lips, _ = load_lips()
     update(LIPS / "README.md", "lips", lip_index(lips))
+    update(ROOT / "README.md", "status", status_line(cat))
     update(CAPABILITY_DOCS / "README.md", "index", capability_index(cat))
     update(BUILDING_GUIDE, "order", build_order_table(cat))
     if files:

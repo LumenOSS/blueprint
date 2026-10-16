@@ -5,7 +5,7 @@
 # text; the capability pages render their contract tables from it
 # (`just render`). IDs are never renumbered or reused.
 
-version: 0.3.1
+version: 0.4.0
 
 layers:
   - id: L0
@@ -695,6 +695,22 @@ capabilities:
           Evented interfaces are described in AsyncAPI 3 and carry a CloudEvents envelope whose id and source form the idempotency key.
         verify: >-
           Each evented feed has an AsyncAPI document; a replayed event with the same id and source changes nothing.
+      - id: CAP-INTEROPERABILITY.8
+        level: MUST
+        text: >-
+          Bounded contexts integrate only through published interfaces: registry interfaces, domain events, and gold tables with their semantic-layer definitions. No product reads or writes another context's operational database.
+        verify: >-
+          Database grants give each product access to its own context's operational database only; a cross-context connection fails.
+        example: >-
+          The census product needs each institution's sites; it reads them through the institution registry interface, not from the institutions context's operational tables.
+      - id: CAP-INTEROPERABILITY.9
+        level: SHOULD
+        text: >-
+          Each context publishes its domain events in a catalogue, named in the past tense in the context's language, and other contexts react to those events instead of polling each other's records.
+        verify: >-
+          Every published event type appears in its context's event catalogue with its schema and owner.
+        example: >-
+          The learning context publishes EnrolmentEnded with the exit reason; the records context starts the retention clock of that enrolment when it receives the event.
 
   - id: CAP-ORCHESTRATION
     name: Orchestration

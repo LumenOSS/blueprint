@@ -52,7 +52,7 @@ Where data lives, how it is computed on, and how it reaches the people who use i
 | [CAP-COMPUTE Compute](cap-compute.md) | L1 Platform | Batch, streaming and interactive SQL compute that scales to zero and reads only through the catalog. | 4 (4 MUST) |
 | [CAP-OPERATIONALDB Operational database with branching](cap-operationaldb.md) | L1 Platform | Each product's transactional Postgres store, with copy-on-write branches of production. | 7 (6 MUST) |
 | [CAP-INGESTION Ingestion](cap-ingestion.md) | L1 Platform | Files, in-place federation and change data capture behind one onboarding step. | 4 (3 MUST) |
-| [CAP-INTEROPERABILITY Exchange with other systems](cap-interoperability.md) | L1 Platform | Every feed to or from another system is declared, validated at the edge and reconciled. | 7 (4 MUST) |
+| [CAP-INTEROPERABILITY Exchange with other systems](cap-interoperability.md) | L1 Platform | Every feed to or from another system is declared, validated at the edge and reconciled. | 9 (5 MUST) |
 | [CAP-ORCHESTRATION Orchestration](cap-orchestration.md) | L3 Products | Declared jobs with bounded runs, safe retries and range re-runs. | 6 (6 MUST) |
 | [CAP-TRANSFORMATION Transformation layer](cap-transformation.md) | L3 Products | Versioned, tested models from bronze to silver to gold; the only place measures are computed. | 8 (6 MUST) |
 | [CAP-SEMANTICS Semantic layer](cap-semantics.md) | L1 Platform | Every measure defined once, beside the models that produce its counts, and served to every consumer from that one definition. | 10 (8 MUST) |
