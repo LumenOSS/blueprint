@@ -1,0 +1,41 @@
+/* Lumen scheme: the LumenOSS brand. Primary is the night navy of the mark
+   (#17386a at 800), secondary is the sun's amber (#ffa62b at 400); neutrals
+   are slate. Values are RGB triplets, as Blowfish schemes expect. */
+:root {
+  --color-neutral: 255, 255, 255;
+  --color-neutral-50: 248, 250, 252;
+  --color-neutral-100: 241, 245, 249;
+  --color-neutral-200: 226, 232, 240;
+  --color-neutral-300: 203, 213, 225;
+  --color-neutral-400: 148, 163, 184;
+  --color-neutral-500: 100, 116, 139;
+  --color-neutral-600: 71, 85, 105;
+  --color-neutral-700: 51, 65, 85;
+  --color-neutral-800: 30, 41, 59;
+  --color-neutral-900: 15, 23, 42;
+  --color-neutral-950: 2, 6, 23;
+  /* Night */
+  --color-primary-50: 239, 244, 251;
+  --color-primary-100: 219, 229, 245;
+  --color-primary-200: 187, 206, 235;
+  --color-primary-300: 143, 174, 220;
+  --color-primary-400: 92, 134, 197;
+  --color-primary-500: 56, 99, 170;
+  --color-primary-600: 37, 77, 145;
+  --color-primary-700: 28, 62, 120;
+  --color-primary-800: 23, 56, 106;
+  --color-primary-900: 16, 37, 72;
+  --color-primary-950: 10, 26, 51;
+  /* Sun */
+  --color-secondary-50: 255, 251, 235;
+  --color-secondary-100: 255, 243, 204;
+  --color-secondary-200: 255, 229, 153;
+  --color-secondary-300: 255, 210, 110;
+  --color-secondary-400: 255, 166, 43;
+  --color-secondary-500: 245, 140, 20;
+  --color-secondary-600: 217, 112, 6;
+  --color-secondary-700: 180, 83, 9;
+  --color-secondary-800: 146, 64, 14;
+  --color-secondary-900: 120, 53, 15;
+  --color-secondary-950: 69, 26, 3;
+}

@@ -71,7 +71,8 @@
         };
 
         # Website: Hugo builds the documentation site; Go fetches the theme
-        # as a Hugo module. Only the site build needs them.
+        # as a Hugo module; resvg and ImageMagick render the favicons from
+        # the logo. Only the site build needs them.
         site = pkgs.mkShell {
           packages = with pkgs; [
             just
@@ -79,6 +80,8 @@
             go
             git
             python3
+            resvg
+            imagemagick
           ];
         };
 

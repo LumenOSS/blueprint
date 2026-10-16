@@ -24,17 +24,32 @@ summaryLength = 0
     startLevel = 2
     endLevel = 3
 
+# One page per section, so every capability card shows at once.
+[pagination]
+  pagerSize = 100
+
+[taxonomies]
+  tag = "tags"
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
 [params]
-  colorScheme = "ocean"
+  colorScheme = "lumen"
+  copyright = "© LumenOSS contributors · Apache License 2.0"
+  logo = "img/lumenoss.svg"
   defaultAppearance = "light"
   autoSwitchAppearance = true
   enableSearch = true
   enableCodeCopy = true
+  enableStructuredBreadcrumbs = true
+  highlightCurrentMenuArea = true
+  smartTOC = true
+  defaultFeaturedImage = "img/featured.svg"
+  mainSections = ["capabilities"]
   [params.header]
-    layout = "fixed"
+    layout = "floating"
+    mobileMenuStyle = "dropdown"
   [params.footer]
     showMenu = true
     showCopyright = true
@@ -42,23 +57,39 @@ summaryLength = 0
     showAppearanceSwitcher = true
     showScrollToTop = true
   [params.homepage]
-    layout = "page"
+    layout = "landing"
+    homepageImage = "img/hero.svg"
     showRecent = false
   [params.article]
     showDate = false
     showAuthor = false
-    showReadingTime = false
+    showReadingTime = true
+    showReadingProgress = true
     showWordCount = false
+    showHero = true
+    heroStyle = "background"
+    layoutBackgroundBlur = true
+    layoutBackgroundHeaderSpace = true
     showBreadcrumbs = true
     showTableOfContents = true
-    showPagination = false
+    showTaxonomies = true
+    showPagination = true
     showHeadingAnchors = true
+    showZenMode = true
     showEdit = false
+    showRelatedContent = false
   [params.list]
+    showHero = true
+    heroStyle = "background"
+    layoutBackgroundBlur = true
     showBreadcrumbs = true
+    showSummary = true
     showTableOfContents = true
+    showCards = true
+    cardView = true
+    orderByWeight = true
     groupByYear = false
-    showCards = false
+    constrainItemsWidth = false
 
 [[menus.main]]
   name = "Getting started"

@@ -63,12 +63,24 @@ binding +files:
 
 # Build the documentation website into build/site/public.
 # Run in the site shell: nix develop .#site --command just site
-site base_url="https://lumenoss.github.io/data-platform-blueprint/":
+site base_url="https://lumenoss.github.io/data-platform-blueprint/": site-icons
     python3 scripts/site.py build/site/content
     hugo build --source site --contentDir ../build/site/content --destination ../build/site/public --baseURL "{{ base_url }}" --minify --cleanDestinationDir
 
+# Render the favicons from the logo into site/static (gitignored).
+site-icons:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out=site/static
+    mkdir -p "$out"
+    logo=site/assets/img/lumenoss.svg
+    for size in 16 32; do resvg -w "$size" -h "$size" "$logo" "$out/favicon-${size}x${size}.png"; done
+    resvg -w 180 -h 180 "$logo" "$out/apple-touch-icon.png"
+    for size in 192 512; do resvg -w "$size" -h "$size" "$logo" "$out/android-chrome-${size}x${size}.png"; done
+    magick "$out/favicon-16x16.png" "$out/favicon-32x32.png" "$out/favicon.ico"
+
 # Serve the documentation website locally with live reload.
-site-serve:
+site-serve: site-icons
     python3 scripts/site.py build/site/content
     hugo server --source site --contentDir ../build/site/content --baseURL "http://localhost:1313/"
 

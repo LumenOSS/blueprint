@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <!-- Landing backdrop: night sky with sunrise light from below centre. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1a33"/>
+      <stop offset="1" stop-color="#17386a"/>
+    </linearGradient>
+    <radialGradient id="dawn" cx="800" cy="960" r="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffa62b" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#ffa62b" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffa62b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#dawn)"/>
+  <g stroke="#ffe7a8" stroke-opacity="0.08" stroke-width="2">
+    <line x1="800" y1="960" x2="800" y2="0"/>
+    <line x1="800" y1="960" x2="380" y2="0"/>
+    <line x1="800" y1="960" x2="1220" y2="0"/>
+    <line x1="800" y1="960" x2="0" y2="260"/>
+    <line x1="800" y1="960" x2="1600" y2="260"/>
+    <line x1="800" y1="960" x2="0" y2="640"/>
+    <line x1="800" y1="960" x2="1600" y2="640"/>
+  </g>
+</svg>

@@ -7,3 +7,9 @@ build/
 __pycache__/
 # Hugo writes a lock file while building.
 site/.hugo_build.lock
+# Favicons are rendered from the logo by `just site-icons`.
+site/static/*.png
+site/static/favicon.ico
+# Hugo output and caches when run from site/.
+site/public/
+site/resources/
