@@ -89,14 +89,16 @@ You decide who may see what, and what leaves the platform.
 
 You want to change the blueprint.
 
-1. [LIP-1](lips/lip-0001.md): how a change is proposed, reviewed and
+1. [Contributing](../CONTRIBUTING.md): which path your change takes,
+   setting up, and what review looks for.
+2. [LIP-1](lips/lip-0001.md): how a change is proposed, reviewed and
    decided.
-2. [Decision records](adr/README.md): what has been decided so far, so a
+3. [Decision records](adr/README.md): what has been decided so far, so a
    proposal builds on it rather than repeating it.
-3. [Capabilities](capabilities/README.md) and the
+4. [Capabilities](capabilities/README.md) and the
    [domain language](../CONTEXT-MAP.md): the text a proposal changes, and the
    words it uses.
-4. The [LIP template](lips/template.md).
+5. The [LIP template](lips/template.md).
 
 ### Agents
 

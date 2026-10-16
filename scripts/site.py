@@ -7,10 +7,11 @@ expects _index.md section pages and resolves links by page path. Rather than
 keep a second copy, this script derives Hugo content from the docs on every
 build:
 
-- README.md becomes _index.md; the repository README becomes an overview
-  page, CONTEXT-MAP.md the section page of the bounded contexts, and each
-  context's CONTEXT.md a page in that section. The landing page itself is
-  site content (site/home.md), copied as it is.
+- README.md becomes _index.md. The repository README becomes an overview
+  page and CONTRIBUTING.md the contributing page; CONTEXT-MAP.md becomes
+  the section page of the bounded contexts, and each context's CONTEXT.md
+  a page in that section. The landing page itself is site content
+  (site/home.md), copied as it is.
 - The first heading becomes the page title, and the first paragraph its
   description, in front matter. Capability pages are ordered as in the
   catalogue and tagged with their domain and layer; decision records are
@@ -40,6 +41,7 @@ REPO_URL = "https://github.com/LumenOSS/data-platform-blueprint/blob/main"
 # Repository files that become pages, and where they live on the site.
 EXTRA_PAGES = {
     ROOT / "README.md": "overview.md",
+    ROOT / "CONTRIBUTING.md": "contributing.md",
     ROOT / "CONTEXT-MAP.md": "domain/contexts/_index.md",
 }
 

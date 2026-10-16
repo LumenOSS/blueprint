@@ -20,7 +20,8 @@ for each clause; implementations live in their own repositories. Start at
   or reused; a retired clause stays, with `retired:` saying why.
 - **The architecture changes only through a LIP** (`docs/lips/`, process
   in LIP-1); an accepted LIP is recorded as an ADR (`docs/adr/`). Small
-  corrections that change no meaning need neither. An implementation that
+  corrections that change no meaning need neither; `CONTRIBUTING.md`
+  says which path a change takes, and its writing rules apply to agents. An implementation that
   cannot meet a clause records a `deviation` in its binding; it does not
   edit the contract.
 - **Diagrams are C4 levels 1–3 in Mermaid**, drawn as `flowchart` with step

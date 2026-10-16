@@ -127,3 +127,17 @@ summaryLength = 0
   name = "GitHub"
   url = "https://github.com/LumenOSS/data-platform-blueprint"
   weight = 80
+
+# The header holds the reading path; the footer holds the project's own pages.
+[[menus.footer]]
+  name = "Contributing"
+  pageRef = "/contributing"
+  weight = 10
+[[menus.footer]]
+  name = "Proposals"
+  pageRef = "/lips"
+  weight = 20
+[[menus.footer]]
+  name = "Licence"
+  url = "https://github.com/LumenOSS/data-platform-blueprint/blob/main/LICENSE"
+  weight = 30

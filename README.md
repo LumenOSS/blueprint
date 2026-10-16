@@ -30,7 +30,9 @@ PEPs, Bitcoin's BIPs, Ethereum's EIPs and Cardano's CIPs. Every proposal
 states its effect on learners' data. Accepted LIPs are recorded as
 decision records and released in a catalogue version. Read
 [LIP-1](docs/lips/lip-0001.md) for the process and start from the
-[template](docs/lips/template.md).
+[template](docs/lips/template.md). [CONTRIBUTING.md](CONTRIBUTING.md) says
+which changes need a LIP and which are ordinary reviewed changes, how to
+set up, and what review looks for.
 
 ## Map
 
@@ -49,6 +51,7 @@ decision records and released in a catalogue version. Read
 | [Backfill patterns](docs/patterns/backfill.md) | Loading history and reprocessing, from published sources |
 | [Lessons](docs/patterns/lessons.md) | Failures that shaped the design, as rules |
 | [Standards](docs/standards.md) | The international standards relied on, with current editions and publisher links |
+| [Contributing](CONTRIBUTING.md) | Which path a change takes, setting up, writing and review |
 | [Improvement proposals](docs/lips/README.md) | How to propose a change, and every LIP so far |
 | [Decision records](docs/adr/README.md) | What was decided, and why |
 | [Context map](CONTEXT-MAP.md) | The bounded contexts of the EMIS domain and their language, with the words to avoid |
