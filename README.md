@@ -17,10 +17,14 @@ Kubernetes, one on Databricks.
 Status: blueprint 0.2.0. Contracts are drafted; no implementation has
 evidence yet.
 
+**New here?** Start with [getting started](docs/getting-started.md): it
+gives a reading order for everyone and a track for each role.
+
 ## Map
 
 | Read | For |
 | --- | --- |
+| [Getting started](docs/getting-started.md) | The order to read everything in, by role |
 | [Principles](docs/principles.md) | The 21 ideas the architecture rests on, and why |
 | [Architecture](docs/architecture/README.md) | C4 diagrams: context, containers, components |
 | [Capabilities](docs/capabilities/README.md) | 41 capabilities and their contracts |
