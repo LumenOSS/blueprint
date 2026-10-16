@@ -26,7 +26,7 @@ Platform audit retention is usually shorter than legal retention, so audit is co
 | CAP-AUDIT.1 | MUST | Every data access and every administrative action is recorded with principal, object, action and time. | A test read and a test grant both appear in audit. |
 | CAP-AUDIT.2 | MUST | Audit is copied to a separate store with retention set by policy, beyond the platform's own retention, and is readable only by auditors. | The copy holds records older than the platform's retention; a non-auditor read is refused. |
 | CAP-AUDIT.3 | SHOULD | Query text is recorded only when a case needs it, because query text can contain personal data. | Verbose audit is off by default; turning it on is a reviewed change. |
-| CAP-AUDIT.4 | MUST | Access to identifiable or special-category records (T3, T4) records a purpose chosen from a declared list, as well as principal, object, action and time. | Audit rows for T3 and T4 reads carry a purpose. |
+| CAP-AUDIT.4 | MUST | Access to identifiable or special-category records (T3, T4) records a purpose chosen from a declared list, as well as principal, object, action and time.<br><br>*Example:* An officer opens a learner's support plan and chooses the purpose 'case review'; the audit row records the purpose with the officer, the record and the time. | Audit rows for T3 and T4 reads carry a purpose. |
 | CAP-AUDIT.5 | SHOULD | Anomalous access to T3 and T4 data (unusual volume, time or scope outside the entitlement) raises an alert. | A simulated out-of-scope read raises an alert. |
 <!-- END GENERATED: contract -->
 

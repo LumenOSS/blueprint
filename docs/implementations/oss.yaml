@@ -4,7 +4,7 @@
 # implementation repository shows evidence and moves it to `met`.
 
 blueprint:
-  version: 0.3.0
+  version: 0.3.1
 implementation:
   name: oss
   summary: Open-source components only, on any Kubernetes cluster.

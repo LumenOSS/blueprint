@@ -30,7 +30,7 @@ Prefer interpretable models; an early-warning signal that a teacher cannot under
 | --- | --- | --- | --- |
 | CAP-MODELS.1 | MUST | A model is versioned with its training data pinned, scoring is deterministic, and every score records the model version. | Scoring a fixed input twice gives identical scores with the version attached. |
 | CAP-MODELS.2 | MUST | A risk flag is advice to a person and never triggers an automatic action on a learner or staff member; the person's decision is recorded with attribution. | No downstream process consumes a flag except the review queue. |
-| CAP-MODELS.3 | MUST | Performance and error rates are reported by sex, area, disability and other declared equity dimensions before release and on a schedule; a model whose disparity exceeds its declared bound is not released. | The release record holds the disaggregated evaluation and the bound. |
+| CAP-MODELS.3 | MUST | Performance and error rates are reported by sex, area, disability and other declared equity dimensions before release and on a schedule; a model whose disparity exceeds its declared bound is not released.<br><br>*Example:* An early-warning model flags boys three times as often as girls with the same actual dropout rate; the disparity exceeds its declared bound, so it is not released. | The release record holds the disaggregated evaluation and the bound. |
 | CAP-MODELS.4 | SHOULD | Each flag shows the signals that raised it. | The review view lists the contributing signals for each flag. |
 | CAP-MODELS.5 | MUST | Before a model that scores learners is released, it is assessed against the UNICEF Guidance on AI and Children, and the assessment is kept with the release. | The release record holds the assessment. |
 <!-- END GENERATED: contract -->

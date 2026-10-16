@@ -25,7 +25,7 @@ A half-switched environment is not partially safe: an application can write to o
 | Clause | Level | Requirement | How conformance is shown |
 | --- | --- | --- | --- |
 | CAP-APPS.1 | MUST | Applications sit behind identity-provider sign-in and reach data services privately. | See CAP-NETWORK.1 and CAP-NETWORK.2 for each application host. |
-| CAP-APPS.2 | MUST | A health endpoint reports the environment the application believes it is in: target, catalog and schema, database branch and schema version, and build version. | Query the endpoint in each environment; every field matches the environment. |
+| CAP-APPS.2 | MUST | A health endpoint reports the environment the application believes it is in: target, catalog and schema, database branch and schema version, and build version.<br><br>*Example:* GET /healthz returns the target, catalog and schema, database branch, schema version and build, so an operator can ask an application which environment it is in. | Query the endpoint in each environment; every field matches the environment. |
 | CAP-APPS.3 | MUST | Application interfaces are versioned and change additively; a changed shape is a new route. | A pinned interface snapshot is compared in CI; removals fail. |
 | CAP-APPS.4 | MUST | Applications are deployed by CI from a versioned image or artefact. | Running versions match a tag; no image is pushed from a workstation. |
 | CAP-APPS.5 | MUST | Interfaces used by staff, learners, guardians or the public meet WCAG 2.2 Level AA (also published as ISO/IEC 40500:2025), checked automatically in CI and by a manual audit for each release. | An automated accessibility check runs in CI; manual audit findings are tracked. |

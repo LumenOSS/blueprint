@@ -5,7 +5,7 @@
 # text; the capability pages render their contract tables from it
 # (`just render`). IDs are never renumbered or reused.
 
-version: 0.3.0
+version: 0.3.1
 
 layers:
   - id: L0
@@ -131,6 +131,8 @@ capabilities:
           Stacks find each other's resources by deterministic name, not by reading each other's state.
         verify: >-
           No stack declares a remote-state data source.
+        example: >-
+          The platform stack finds the state store by the name the naming module derives for it, instead of reading the bootstrap stack's state to learn it.
       - id: CAP-STATE.7
         level: MUST
         text: >-
@@ -163,6 +165,8 @@ capabilities:
           A federated credential binds a protected environment, not a branch or tag, so the binding cannot be edited by a change under review.
         verify: >-
           Every credential subject names an environment; every environment restricts which branch may deploy.
+        example: >-
+          A credential trusts 'repository data-platform, environment production'; a workflow running on an unreviewed branch is not in that environment, so it cannot obtain a token.
       - id: CAP-CIIDENTITY.3
         level: MUST
         text: >-
@@ -226,6 +230,8 @@ capabilities:
           A deletion is two changes: adopt the object into code, then remove it.
         verify: >-
           Every removal of a resource in history is preceded by a change that imported it or created it.
+        example: >-
+          To remove an unused storage account, one reviewed change imports it into code and the next deletes it, so the removal is planned and reviewed like any other change.
       - id: CAP-DELIVERY.6
         level: MUST
         text: >-
@@ -565,6 +571,8 @@ capabilities:
           A branch of production, or of a point in time, is created without copying data first, and carries a time to live.
         verify: >-
           Create a branch of the production database and time it; it expires on schedule.
+        example: >-
+          A developer branches production as it was at 09:00 to test a migration; the branch costs nothing until it diverges and is deleted automatically after seven days.
       - id: CAP-OPERATIONALDB.3
         level: MUST
         text: >-
@@ -583,6 +591,8 @@ capabilities:
           Migrations are idempotent twice over: a ledger records what ran, and every statement can be run again safely. Schemas change by expand then contract, one phase per migration, and the application refuses to write to a database behind its code.
         verify: >-
           CI applies every migration twice to a branch; the application's schema gate is tested against an older database.
+        example: >-
+          A migration that adds a column is run twice on a branch in CI; the second run changes nothing, and the application refuses to write to a database still on the previous schema.
       - id: CAP-OPERATIONALDB.6
         level: MUST
         text: >-
@@ -616,6 +626,8 @@ capabilities:
           A landing area is a queue, not a store: accepted inputs move to a content-addressed archive after verification, and refused inputs move to quarantine with a reason. Nothing is deleted without a verified archive copy.
         verify: >-
           After a run, landing holds only unprocessed files; every quarantined file has a reason sidecar.
+        example: >-
+          A scanned register lands, is processed, and moves to the archive under its content hash; a file that cannot be read moves to quarantine with the reason 'unreadable page 3'.
       - id: CAP-INGESTION.3
         level: MUST
         text: >-
@@ -649,12 +661,16 @@ capabilities:
           Inbound feeds from other systems are validated at the edge against a published schema before landing, and a reject report goes back to the sender.
         verify: >-
           A malformed fixture is rejected with a report and never lands.
+        example: >-
+          A partner feed arrives with a malformed date column; it is refused at the edge, and the sender receives a report naming the row and the rule it broke.
       - id: CAP-INTEROPERABILITY.3
         level: MUST
         text: >-
           Outbound feeds are reconciled with their recipient by counts and hashes for each period.
         verify: >-
           Each outbound feed has a reconciliation record per period.
+        example: >-
+          Each month the outbound feed is compared with the recipient's own count and hash; a mismatch opens an incident.
       - id: CAP-INTEROPERABILITY.4
         level: MUST
         text: >-
@@ -706,6 +722,8 @@ capabilities:
           Each run has a budget. Work beyond the budget is re-triggered by a finishing step that re-queues only if work remains and the run made progress, and a run with nothing to do exits within seconds on the cheapest compute.
         verify: >-
           Feed more work than one budget allows; the backlog drains without manual triggers, and an empty run costs seconds.
+        example: >-
+          A run may process 400 pages in its time budget; with 1,000 waiting, it processes 400 and re-queues itself, and the backlog drains without anyone triggering it.
       - id: CAP-ORCHESTRATION.4
         level: MUST
         text: >-
@@ -763,18 +781,24 @@ capabilities:
           Gold stores counts and sums, not ratios, so measures re-aggregate correctly.
         verify: >-
           Review gold columns; ratios are computed in the semantic layer.
+        example: >-
+          Gold stores 'enrolled 412' and 'population 455', not '90.5 per cent', so a district figure is the sum of counts divided once, not an average of school percentages.
       - id: CAP-TRANSFORMATION.6
         level: MUST
         text: >-
           Silver keeps effective-dated history for every relationship that changes over time (enrolment, posting, guardianship, programme), with valid-from, valid-to and recorded-at, and gold is computed as at a declared reference date.
         verify: >-
           Silver relationship tables carry the three time columns; each gold model names its reference-date rule.
+        example: >-
+          An enrolment valid from 2025-09-01 to 2026-03-15 is counted by a census with reference date 2026-02-01 and not by one dated 2026-10-01.
       - id: CAP-TRANSFORMATION.7
         level: MUST
         text: >-
           A document about one record, such as a certificate, transcript or letter, may be produced by an application from operational data; any aggregate it prints (a rank, an average) comes from gold or the semantic layer.
         verify: >-
           Document templates read aggregates only through the semantic layer or gold.
+        example: >-
+          A transcript lists one learner's results straight from operational data, but the class average printed on it comes from the semantic layer.
       - id: CAP-TRANSFORMATION.8
         level: SHOULD
         text: >-
@@ -796,6 +820,8 @@ capabilities:
           Each measure and dimension is defined once, in version control, per domain.
         verify: >-
           No measure name has two definitions.
+        example: >-
+          'Gross enrolment ratio' is defined once; the dashboard, the published table and the international return all use that one definition.
       - id: CAP-SEMANTICS.2
         level: MUST
         text: >-
@@ -808,6 +834,8 @@ capabilities:
           Each indicator carries metadata saying what it means and how to read it, how it is computed (numerator and denominator as separate measures, unit, reference-date rule), how it may be broken down, where its counts come from and how often, what coverage it needs before publication, and who owns which version of it.
         verify: >-
           A check finds no indicator with a missing metadata field.
+        example: >-
+          The metadata of the gross enrolment ratio names its numerator (enrolled learners) and denominator (official-age population), its unit, the census reference date, the breakdowns allowed and its owner.
       - id: CAP-SEMANTICS.4
         level: SHOULD
         text: >-
@@ -820,6 +848,8 @@ capabilities:
           A denominator from outside the platform, such as a population estimate by age, is versioned reference data that names its source and vintage.
         verify: >-
           Indicators with external denominators reference a versioned reference table.
+        example: >-
+          The population estimate used as the denominator is stored as reference data, 'population projections, 2024 vintage', so a figure computed with it can be reproduced after the next vintage arrives.
       - id: CAP-SEMANTICS.6
         level: MUST
         text: >-
@@ -832,6 +862,8 @@ capabilities:
           Published indicators use a portable subset of definitions (simple counts and sums, ratios, and derived expressions without time offsets), each indicator a ratio of additive counts on one gold table; any other construct has a recorded, tested mapping for each serving engine.
         verify: >-
           A CI lint lists every definition outside the portable subset with its mapping.
+        example: >-
+          A gross enrolment ratio is a count divided by a count on one gold table, which every engine computes alike. A twelve-month rolling attendance average is cumulative, so it needs a recorded mapping for each engine.
       - id: CAP-SEMANTICS.8
         level: MUST
         text: >-
@@ -844,6 +876,8 @@ capabilities:
           A parity test runs every saved query through every serving path and requires identical results.
         verify: >-
           The parity report lists each saved query and serving path with a match.
+        example: >-
+          The saved query 'enrolment by district, 2026' returns the same total through the metric view and through the generated table; any difference fails CI.
       - id: CAP-SEMANTICS.10
         level: SHOULD
         text: >-
@@ -898,6 +932,8 @@ capabilities:
           A health endpoint reports the environment the application believes it is in: target, catalog and schema, database branch and schema version, and build version.
         verify: >-
           Query the endpoint in each environment; every field matches the environment.
+        example: >-
+          GET /healthz returns the target, catalog and schema, database branch, schema version and build, so an operator can ask an application which environment it is in.
       - id: CAP-APPS.3
         level: MUST
         text: >-
@@ -973,12 +1009,16 @@ capabilities:
           Every check names the ISO/IEC 25012 data-quality characteristic it measures (for example accuracy, completeness, consistency, credibility or currentness) and its severity.
         verify: >-
           The check registry has a dimension and severity for every check.
+        example: >-
+          The check 'enrolment date not before birth date' names the characteristic consistency and the severity blocking.
       - id: CAP-QUALITY.5
         level: MUST
         text: >-
           An error found after load is fixed by a correction request approved by the data's steward; the correction lands as a new version, never an edit in place, and the request is kept with the record.
         verify: >-
           A correction fixture produces a new version linked to its request; the old version stays readable.
+        example: >-
+          An institution reported 120 learners in grade 4 instead of 210; the correction request records the new value, the reason 'transcription error', the scanned register as evidence and the steward's approval, and the census snapshot gets a new version.
       - id: CAP-QUALITY.6
         level: SHOULD
         text: >-
@@ -1053,42 +1093,56 @@ capabilities:
           Each core resource (institution, site, person, post) has one authoritative registry with one owning steward; other domains reference it by identifier and never copy it.
         verify: >-
           Every reference to a core resource is a foreign key to its registry.
+        example: >-
+          The learners domain references a person by identifier; it never keeps its own copy of the person's name and birth date.
       - id: CAP-MASTERDATA.2
         level: MUST
         text: >-
           Identifiers are opaque, permanent surrogates minted by one authority, never reused, and carry no meaning about the thing they identify.
         verify: >-
           The identifier pattern is declared and tested; no part of an identifier can be decoded into an attribute.
+        example: >-
+          A learner's identifier is a random value such as L-7F3K-9Q2M, not one built from the enrolment year and first school, which would stop being true the day the learner transfers.
       - id: CAP-MASTERDATA.3
         level: MUST
         text: >-
           Identifiers issued by other authorities are attributes in a separate identifier table with type, issuer and validity, classified at least T3, and never used as keys or carried into gold or shared tables.
         verify: >-
           No gold or shared table has an external-identifier column.
+        example: >-
+          A national identity number is stored in the external-identifier table with its type, its issuer and the date it became valid; gold tables carry only the learner's surrogate identifier.
       - id: CAP-MASTERDATA.4
         level: MUST
         text: >-
           A learner keeps one identifier across institutions, levels and years; the institution belongs to the enrolment, not to the identifier.
         verify: >-
           A transfer fixture keeps the learner's identifier.
+        example: >-
+          A learner who moves from primary at one institution to secondary at another keeps the same identifier; only a new enrolment is added.
       - id: CAP-MASTERDATA.5
         level: MUST
         text: >-
           Duplicate detection is deterministic and explainable; uncertain matches go to a person; a merge keeps a surviving identifier and a redirect from each retired one, is audited, and can be reversed. Nothing is deleted.
         verify: >-
           A merge and unmerge fixture round-trips; references to a retired identifier resolve to the survivor.
+        example: >-
+          Two records share a name and birth date but have different guardians; the matcher scores them below its threshold, so a person decides. If they are merged, the retired identifier redirects to the survivor, and the merge can be undone.
       - id: CAP-MASTERDATA.6
         level: MUST
         text: >-
           Verification against an external authoritative register goes through an adapter, and its outcome (verified, unverified or mismatch, with date and method) is recorded per record, never inferred.
         verify: >-
           Each verified record carries an outcome, date and method.
+        example: >-
+          A lookup in the civil register finds no match; the record is marked 'unverified, 2026-10-16, register lookup' rather than left blank or assumed verified.
       - id: CAP-MASTERDATA.7
         level: MUST
         text: >-
           Changes to an institution (renaming, merger, split, closure, change of ownership) are effective-dated events that keep its history.
         verify: >-
           A merger fixture leaves both histories queryable.
+        example: >-
+          When two institutions merge, the surviving one records 'merged with' effective 2027-01-01 and the other is closed on that date; both histories remain.
       - id: CAP-MASTERDATA.8
         level: MUST
         text: >-
@@ -1140,6 +1194,8 @@ capabilities:
           Administrators and every role that can read identifiable or special-category data (T3, T4) authenticate at NIST SP 800-63-4 authentication assurance level 2 or higher with a phishing-resistant authenticator, such as a WebAuthn passkey; platform administrators and holders of the root of trust authenticate at level 3.
         verify: >-
           Sign-in policy for those roles requires it; a sign-in without it is refused.
+        example: >-
+          A support officer who can read special-category records signs in with a passkey; a password with a text-message code is refused for that role.
       - id: CAP-IDENTITY.6
         level: MUST
         text: >-
@@ -1161,42 +1217,56 @@ capabilities:
           Every coded attribute references a governed code list with an owner, a version and a validity period; a code is retired, never reused or redefined.
         verify: >-
           A check finds no coded column without a code list and no code redefined across versions.
+        example: >-
+          Version 3 of the exit-reason list has TRF for 'transferred to another institution'. Version 4 keeps TRF as it was and adds TRA for 'transferred abroad', rather than widening TRF, which would silently change what every past TRF row means.
       - id: CAP-REFERENCE.2
         level: MUST
         text: >-
           Changes to code lists and element definitions are reviewed changes approved by the owning steward; each is versioned and announced to the people who use it before it takes effect.
         verify: >-
           Each code-list or definition change traces to an approved change and a notice.
+        example: >-
+          Adding an exit reason 'home education' is a reviewed change approved by the learners steward, published as a new version of the list, and announced before institutions can use it.
       - id: CAP-REFERENCE.3
         level: MUST
         text: >-
           Every published element is registered in the catalog's data dictionary following the ISO/IEC 11179 model: the concept it represents and its definition, its value domain (data type, format and code list), and its registration status, version and steward.
         verify: >-
           A fitness function finds no gold column with missing dictionary fields.
+        example: >-
+          The element 'date of birth' is registered once, with its definition, type, format, validation rule and steward; every table that carries it points to that entry.
       - id: CAP-REFERENCE.4
         level: MUST
         text: >-
           Local classifications carry versioned crosswalks to the international classifications used for reporting (ISCED 2011 for levels of education, ISCED-F 2013 for fields, ISCED-T 2021 for teacher-training programmes), and each crosswalk is tested to map every local code.
         verify: >-
           Each crosswalk's test maps every local code.
+        example: >-
+          A local 'grade 9' maps to ISCED 2011 level 2 (lower secondary) in the 2026 crosswalk; a test fails if any local grade has no mapping.
       - id: CAP-REFERENCE.5
         level: MUST
         text: >-
           Administrative geography is versioned: a boundary change creates a new version and keeps the old, so a time series can be restated on either.
         verify: >-
           Two boundary versions coexist and each resolves its own codes.
+        example: >-
+          Two districts merge in 2027. Boundary version 2027 has one district and version 2026 keeps both, so a 2025 enrolment trend can be shown on either.
       - id: CAP-REFERENCE.6
         level: MUST
         text: >-
           Value formats are fixed in the data dictionary and enforced at entry and at load: timestamps follow RFC 3339 with an explicit offset (with RFC 9557 time-zone names where local civil time matters); amounts are fixed-point decimals with an ISO 4217 currency code; telephone numbers follow ITU-T E.164; countries use ISO 3166-1; languages use BCP 47 tags; text is UTF-8 in Unicode Normalization Form C; coordinates declare their reference system.
         verify: >-
           Each format in the dictionary has a validation rule used at entry and at load.
+        example: >-
+          A fee is stored as 1500.00 with its ISO 4217 currency code, a telephone number as +15551234567, and an attendance mark as 2026-10-16T08:05:00+01:00[Europe/Lisbon].
       - id: CAP-REFERENCE.7
         level: SHOULD
         text: >-
           A value outside its code list is quarantined with a reason rather than coerced to a catch-all code.
         verify: >-
           An unknown-code fixture lands in quarantine.
+        example: >-
+          A return gives an institution type that is not on the list; the row goes to quarantine with 'unknown code' instead of being stored as 'other'.
       - id: CAP-REFERENCE.8
         level: SHOULD
         text: >-
@@ -1224,12 +1294,16 @@ capabilities:
           Row scope comes from an entitlement table derived from an authoritative feed (for example staff postings), with a validity period, never edited by hand.
         verify: >-
           The entitlement table is written only by its loader; a manual write is refused.
+        example: >-
+          An officer posted to District B sees District B's learners; when the posting ends on 31 August, the rows disappear from their queries that day, with no one editing a permission.
       - id: CAP-ACCESS.3
         level: MUST
         text: >-
           Row and column policies only narrow access. Each user and table resolves to exactly one row filter and each column to at most one mask; an ambiguity fails the query rather than choosing.
         verify: >-
           Test a user matching two filters; the query fails.
+        example: >-
+          A user who is a teacher at one school and an officer for a district would match two row filters on the learner table; the query fails until one scope is chosen, rather than silently using the wider one.
       - id: CAP-ACCESS.4
         level: MUST
         text: >-
@@ -1248,18 +1322,24 @@ capabilities:
           Reach, row scope and classification are each changed by a different owner, so no single change widens access across all three.
         verify: >-
           The owners of the group declarations, the entitlement feed and the classification rules are different roles.
+        example: >-
+          Joining the analyst group gives a person reach but no rows until the posting feed gives them a scope, and no special-category columns unless a steward's classification allows them.
       - id: CAP-ACCESS.7
         level: MUST
         text: >-
           Row scope may also come from a relationship (the record is the person's own, or the person is a guardian with verified authority), taken from the authoritative relationship record, effective-dated, and ended when the relationship or the authority ends.
         verify: >-
           Ending a guardian relationship removes access at the next query.
+        example: >-
+          A guardian sees their child's attendance; when a court order ends their authority on 1 March, the next query after that date returns nothing.
       - id: CAP-ACCESS.8
         level: MUST
         text: >-
           A view for a data subject or guardian exposes a declared, minimal set of columns per record class; designated special-category fields are excluded from guardian views by default, with the reason recorded.
         verify: >-
           Subject-facing views are declared in code with their column lists and exclusions.
+        example: >-
+          The guardian view of a learner shows enrolment, attendance and results, but not counselling notes, which are excluded by default with the reason recorded.
 
   - id: CAP-CLASSIFICATION
     name: Classification and provenance
@@ -1281,6 +1361,8 @@ capabilities:
           Data not yet classified is blocked by default until classification has run.
         verify: >-
           A new unclassified table is unreadable by analysts.
+        example: >-
+          A table loaded from a partner arrives unclassified; analysts cannot read it until classification has run and a steward has confirmed it as T3.
       - id: CAP-CLASSIFICATION.3
         level: MUST
         text: >-
@@ -1305,12 +1387,16 @@ capabilities:
           Attributes follow a default classification by kind: data that identifies or locates a person is at least T3; special-category data under the applicable data-protection law, and child-protection and wellbeing records, are T4. Exceptions are recorded with a reason.
         verify: >-
           A check compares column classifications with the default table and lists exceptions.
+        example: >-
+          A column of birth dates is T3 by default and a column of health conditions T4; classifying the birth dates lower requires a recorded reason.
       - id: CAP-CLASSIFICATION.7
         level: MUST
         text: >-
           Every personal-data element declares its purpose and legal basis in the catalog; an element with no consuming process or measure at its periodic review is proposed for removal.
         verify: >-
           A report lists personal-data elements without a purpose or without a consumer.
+        example: >-
+          The element 'guardian occupation' has had no consuming report or process for a year, so its review proposes removing it.
 
   - id: CAP-AUDIT
     name: Audit
@@ -1344,6 +1430,8 @@ capabilities:
           Access to identifiable or special-category records (T3, T4) records a purpose chosen from a declared list, as well as principal, object, action and time.
         verify: >-
           Audit rows for T3 and T4 reads carry a purpose.
+        example: >-
+          An officer opens a learner's support plan and chooses the purpose 'case review'; the audit row records the purpose with the officer, the record and the time.
       - id: CAP-AUDIT.5
         level: SHOULD
         text: >-
@@ -1365,6 +1453,8 @@ capabilities:
           A retention schedule in code gives each record class its retention period, trigger event, legal basis and owning role, and every table and file belongs to a record class.
         verify: >-
           A fitness function finds no table or file without a record class.
+        example: >-
+          Record class 'attendance session': kept for a stated number of years after the academic period ends, under the education law, owned by the learners steward.
       - id: CAP-RECORDS.2
         level: MUST
         text: >-
@@ -1377,6 +1467,8 @@ capabilities:
           Disposal at the end of retention is a reviewed, audited operation that reaches table history, branches and backups within a stated maximum time; where history cannot be rewritten, per-subject or per-partition keys are destroyed. This is the only path by which real personal data is deleted.
         verify: >-
           A disposal fixture leaves no readable copy in any store within the stated time; the audit shows the review.
+        example: >-
+          When a record class reaches its disposal date, the rows are deleted from current tables, table history older than the stated maximum is expired, and the key protecting the backed-up copy is destroyed.
       - id: CAP-RECORDS.4
         level: MUST
         text: >-
@@ -1389,6 +1481,8 @@ capabilities:
           A subject-access request is answered from the catalog by the person's identifier across all domains, and the answer is reproducible.
         verify: >-
           Two runs of a subject-access fixture return identical results.
+        example: >-
+          A guardian asks what is held about their child; one query by the learner's identifier returns enrolments, attendance, results and support plans from every domain.
       - id: CAP-RECORDS.6
         level: MUST
         text: >-
@@ -1401,6 +1495,8 @@ capabilities:
           Releasing an individual's records to that person, a guardian with verified authority, or an authorised agency is a logged request that records who received what, why, on what basis and how; it is separate from statistical publication, which never releases individual records.
         verify: >-
           The disclosure register has an entry for each release with all fields.
+        example: >-
+          A receiving institution asks for a transferring learner's records; the release is logged with the requester, the purpose 'continuity of education', the legal basis, the categories sent and the channel.
 
   - id: CAP-SHARING
     name: Publication and sharing
@@ -1422,6 +1518,8 @@ capabilities:
           Published tables enforce a minimum cell size by test, and replace identifiers with keyed hashes or surrogate keys, never unsalted hashes.
         verify: >-
           Publication models carry cell-size tests; no identifier column is an unkeyed hash.
+        example: >-
+          A published identifier is a keyed hash, so someone holding a list of learner numbers cannot hash the list and match it; an unsalted hash would allow exactly that.
       - id: CAP-SHARING.3
         level: MUST
         text: >-
@@ -1467,12 +1565,16 @@ capabilities:
           Published tables apply disclosure control using methods from the Handbook on Statistical Disclosure Control: a minimum cell size, secondary suppression so suppressed cells cannot be derived, and rounding or perturbation where declared, with small populations treated as high risk. The method is published as metadata.
         verify: >-
           Publication models carry disclosure tests, including a test that suppressed cells cannot be recomputed from totals.
+        example: >-
+          A table shows 3 learners with a given disability in one school. That cell is suppressed, and so is one more cell in the same row and the same column, so the 3 cannot be recovered by subtracting from the totals.
       - id: CAP-PUBLICATION.3
         level: MUST
         text: >-
           Each published dataset has a permanent identifier and stable address; new periods are appended, and a revision is a new version with the previous one still retrievable.
         verify: >-
           An earlier version of a revised dataset can still be fetched by its identifier.
+        example: >-
+          The 2025 enrolment table keeps its identifier after a correction; version 2 becomes current, and version 1 can still be downloaded.
       - id: CAP-PUBLICATION.4
         level: MUST
         text: >-
@@ -1537,6 +1639,8 @@ capabilities:
           A branch never writes to production object storage. Branches use their own storage, and may read production storage only through a read-only path.
         verify: >-
           A write to production storage from a branch's identity is refused.
+        example: >-
+          A developer's branch can read production's scanned documents to test a change, but an upload attempted from the branch is refused.
       - id: CAP-ENVIRONMENTS.4
         level: MUST
         text: >-
@@ -1564,6 +1668,8 @@ capabilities:
           A backfill declares its range and writes by replacing exactly that range or merging on a natural key, so running it twice gives the same result.
         verify: >-
           Run the backfill twice; content hashes of the range match and rows outside it are unchanged.
+        example: >-
+          Reloading 2019 attendance replaces exactly the 2019 partitions; running it twice leaves identical hashes, and 2020 is untouched.
       - id: CAP-BACKFILL.2
         level: MUST
         text: >-
@@ -1594,6 +1700,8 @@ capabilities:
           A backfill never overwrites fresher data or a human decision.
         verify: >-
           Test with a row updated after the backfill's snapshot and a human-ruled row; both survive.
+        example: >-
+          A backfill from a 2024 extract would mark a learner active, but a reviewer recorded a transfer in 2025; the later human decision stays.
       - id: CAP-BACKFILL.7
         level: MUST
         text: >-
@@ -1606,6 +1714,8 @@ capabilities:
           Incremental extraction tolerates late commits and clock skew, with an overlap window into an idempotent sink or a cursor in commit order.
         verify: >-
           Commit a row whose timestamp is behind the watermark; it is still loaded.
+        example: >-
+          A record updated by a long transaction that started before the last extract but committed after it is still picked up, because each run reads an overlap window into an idempotent load.
 
   - id: CAP-MIGRATION
     name: Migration and decommission
@@ -1627,6 +1737,8 @@ capabilities:
           An operational database moves by a rehearsed sequence: freeze writes, snapshot, dump, restore in one transaction, verify (row counts, per-table content hashes, sequences, policies, grants, migration ledger), repoint, unfreeze.
         verify: >-
           The rehearsal and the production run each leave a verification report that matches.
+        example: >-
+          Before cutover, a rehearsal restore matches row counts and per-table hashes for every table; the production run must produce the same report.
       - id: CAP-MIGRATION.3
         level: MUST
         text: >-
@@ -1661,6 +1773,8 @@ capabilities:
           An input's identity is the hash of its bytes; duplicates and re-deliveries converge on one record.
         verify: >-
           Submit the same file twice under different names; one record results.
+        example: >-
+          The same scanned page uploaded as scan1.pdf and as register-final.pdf has the same hash, so only one record results.
       - id: CAP-PIPELINE.2
         level: MUST
         text: >-
@@ -1712,12 +1826,16 @@ capabilities:
           Each collection is a versioned instrument declaring its items, validation rules, reference date, collection window and expected respondents drawn from the registry; a committed version is immutable.
         verify: >-
           Instruments are versioned files; a change after commit creates a new version.
+        example: >-
+          The 2026 census fixes the reference date at 1 October, opens for the month of October, and expects a return from every institution active in the registry on 1 October.
       - id: CAP-COLLECTION.2
         level: MUST
         text: >-
           Validation runs at entry and again on submission; blocking errors prevent submission, warnings need a reason, and results go back to the respondent in machine-readable form with their severity.
         verify: >-
           A fixture with a blocking error cannot be submitted; one with a warning requires a reason.
+        example: >-
+          An enrolment more than half as large again as the institution's recorded capacity is a warning that needs a reason; a negative count blocks submission.
       - id: CAP-COLLECTION.3
         level: MUST
         text: >-
@@ -1730,6 +1848,8 @@ capabilities:
           Figures for an area are released only when its expected respondents balance against accepted returns; otherwise the area reads BLOCKED.
         verify: >-
           An area with a missing return reads BLOCKED.
+        example: >-
+          District A has 98 of its 100 returns accepted, so it reads BLOCKED and its figures wait; District B is complete and releases.
       - id: CAP-COLLECTION.5
         level: MUST
         text: >-
@@ -1742,6 +1862,8 @@ capabilities:
           Imputed values are flagged per cell and never mixed silently with reported ones.
         verify: >-
           Every imputed cell carries a flag in silver and gold.
+        example: >-
+          For an institution that did not respond, last year's enrolment is carried forward, and every carried-forward cell is flagged as imputed in the published table.
       - id: CAP-COLLECTION.7
         level: SHOULD
         text: >-
@@ -1787,6 +1909,8 @@ capabilities:
           A reviewer claims an item with a lease held as a database key; claim is one statement, expiry is judged at read time, and a commit requires a live lease checked before its first write.
         verify: >-
           A race test with concurrent sessions yields exactly one holder.
+        example: >-
+          Two reviewers open the same item; the first claim inserts the lease, and the second finds a live lease and is refused.
       - id: CAP-REVIEW.3
         level: MUST
         text: >-
@@ -1832,6 +1956,8 @@ capabilities:
           Performance and error rates are reported by sex, area, disability and other declared equity dimensions before release and on a schedule; a model whose disparity exceeds its declared bound is not released.
         verify: >-
           The release record holds the disaggregated evaluation and the bound.
+        example: >-
+          An early-warning model flags boys three times as often as girls with the same actual dropout rate; the disparity exceeds its declared bound, so it is not released.
       - id: CAP-MODELS.4
         level: SHOULD
         text: >-
@@ -1859,6 +1985,8 @@ capabilities:
           For each release unit, expected subjects (from an external register) balance against confirmed results; any duplicate, orphan, missing subject, pending identity or absent register reads BLOCKED.
         verify: >-
           Fixtures for each blocking condition read BLOCKED; a balanced unit reads CLEAR.
+        example: >-
+          A school's register lists 30 learners; 29 have confirmed results and one has none, so the school reads BLOCKED until the missing one is found or recorded as absent.
       - id: CAP-RELEASE.2
         level: MUST
         text: >-

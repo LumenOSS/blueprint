@@ -50,6 +50,7 @@ class Clause(TypedDict):
     level: str
     text: str
     verify: str
+    example: NotRequired[str]
     retired: NotRequired[str]
 
 
@@ -490,7 +491,11 @@ def cell(text: str) -> str:
 
 
 def contract_table(cap: Capability) -> str:
-    """Renders a capability's clauses as a Markdown table."""
+    """Renders a capability's clauses as a Markdown table.
+
+    A clause's example sits in its requirement cell, marked as an example:
+    it illustrates the requirement and is not part of it.
+    """
     rows = [
         "| Clause | Level | Requirement | How conformance is shown |",
         separator(4),
@@ -499,6 +504,8 @@ def contract_table(cap: Capability) -> str:
         text = cell(cl["text"])
         if "retired" in cl:
             text = f"~~{text}~~ Retired: {cell(cl['retired'])}"
+        if "example" in cl:
+            text += f"<br><br>*Example:* {cell(cl['example'])}"
         verify = cell(cl["verify"])
         rows.append(f"| {cl['id']} | {cl['level']} | {text} | {verify} |")
     return "\n".join(rows)

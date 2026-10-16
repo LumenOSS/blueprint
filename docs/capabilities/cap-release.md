@@ -24,7 +24,7 @@ A release is the point of no return; reconciliation against an external register
 <!-- BEGIN GENERATED: contract (just render) -->
 | Clause | Level | Requirement | How conformance is shown |
 | --- | --- | --- | --- |
-| CAP-RELEASE.1 | MUST | For each release unit, expected subjects (from an external register) balance against confirmed results; any duplicate, orphan, missing subject, pending identity or absent register reads BLOCKED. | Fixtures for each blocking condition read BLOCKED; a balanced unit reads CLEAR. |
+| CAP-RELEASE.1 | MUST | For each release unit, expected subjects (from an external register) balance against confirmed results; any duplicate, orphan, missing subject, pending identity or absent register reads BLOCKED.<br><br>*Example:* A school's register lists 30 learners; 29 have confirmed results and one has none, so the school reads BLOCKED until the missing one is found or recorded as absent. | Fixtures for each blocking condition read BLOCKED; a balanced unit reads CLEAR. |
 | CAP-RELEASE.2 | MUST | Results release only on CLEAR, and a release is recorded as the point after which changes are new versions. | A change after release creates a new version and leaves the released one intact. |
 | CAP-RELEASE.3 | MUST | The register is read through an adapter and frozen as an immutable snapshot per sitting; corrections are deterministic, evented operations, never ad-hoc edits. | Each sitting references one snapshot; register corrections appear as events. |
 <!-- END GENERATED: contract -->

@@ -28,7 +28,7 @@ A stage that keeps an index in memory must run with concurrency one, or concurre
 <!-- BEGIN GENERATED: contract (just render) -->
 | Clause | Level | Requirement | How conformance is shown |
 | --- | --- | --- | --- |
-| CAP-PIPELINE.1 | MUST | An input's identity is the hash of its bytes; duplicates and re-deliveries converge on one record. | Submit the same file twice under different names; one record results. |
+| CAP-PIPELINE.1 | MUST | An input's identity is the hash of its bytes; duplicates and re-deliveries converge on one record.<br><br>*Example:* The same scanned page uploaded as scan1.pdf and as register-final.pdf has the same hash, so only one record results. | Submit the same file twice under different names; one record results. |
 | CAP-PIPELINE.2 | MUST | The same input produces byte-identical output; any randomness is seeded per item from a hash of stable keys. | Process a fixed corpus twice; outputs are byte-identical. |
 | CAP-PIPELINE.3 | MUST | Each stage is its own job, triggered by the output of the stage before it, so no stage can outrun its predecessor. | The job graph has one job per stage with storage-arrival triggers. |
 | CAP-PIPELINE.4 | MUST | Pending work is recomputed from what exists, never consumed from a queue on read, so a failed run strands nothing. | Kill a run mid-way; the next run processes the remainder. |

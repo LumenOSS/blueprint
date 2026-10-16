@@ -23,14 +23,14 @@ Backfills run rarely, under pressure, over more data than anything else; they ar
 <!-- BEGIN GENERATED: contract (just render) -->
 | Clause | Level | Requirement | How conformance is shown |
 | --- | --- | --- | --- |
-| CAP-BACKFILL.1 | MUST | A backfill declares its range and writes by replacing exactly that range or merging on a natural key, so running it twice gives the same result. | Run the backfill twice; content hashes of the range match and rows outside it are unchanged. |
+| CAP-BACKFILL.1 | MUST | A backfill declares its range and writes by replacing exactly that range or merging on a natural key, so running it twice gives the same result.<br><br>*Example:* Reloading 2019 attendance replaces exactly the 2019 partitions; running it twice leaves identical hashes, and 2020 is untouched. | Run the backfill twice; content hashes of the range match and rows outside it are unchanged. |
 | CAP-BACKFILL.2 | MUST | Every output row records the logic version and run that produced it, and event time separately from load time. | Restated rows show the new logic version; event and load time columns are both present. |
 | CAP-BACKFILL.3 | MUST | A backfill runs first on a branch or an unpublished copy, is audited there, and is published only after it passes. | The run log shows write, audit and publish steps in that order. |
 | CAP-BACKFILL.4 | MUST | A backfill is reconciled against its source by row counts, sums and content hashes per partition. | The reconciliation report exists and matches for every partition. |
 | CAP-BACKFILL.5 | MUST | A backfill is bounded and throttled so that production work and the source system keep their service levels. | Production latency and source load stay within objectives during the backfill. |
-| CAP-BACKFILL.6 | MUST | A backfill never overwrites fresher data or a human decision. | Test with a row updated after the backfill's snapshot and a human-ruled row; both survive. |
+| CAP-BACKFILL.6 | MUST | A backfill never overwrites fresher data or a human decision.<br><br>*Example:* A backfill from a 2024 extract would mark a learner active, but a reviewer recorded a transfer in 2025; the later human decision stays. | Test with a row updated after the backfill's snapshot and a human-ruled row; both survive. |
 | CAP-BACKFILL.7 | MUST | Source rows that fail quality checks are quarantined with a reason, never dropped. | Counts reconcile as loaded plus quarantined equals extracted. |
-| CAP-BACKFILL.8 | MUST | Incremental extraction tolerates late commits and clock skew, with an overlap window into an idempotent sink or a cursor in commit order. | Commit a row whose timestamp is behind the watermark; it is still loaded. |
+| CAP-BACKFILL.8 | MUST | Incremental extraction tolerates late commits and clock skew, with an overlap window into an idempotent sink or a cursor in commit order.<br><br>*Example:* A record updated by a long transaction that started before the last extract but committed after it is still picked up, because each run reads an overlap window into an idempotent load. | Commit a row whose timestamp is behind the watermark; it is still loaded. |
 <!-- END GENERATED: contract -->
 
 ## Standards

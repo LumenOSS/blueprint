@@ -1,0 +1,5 @@
+/* On narrow screens a wide table scrolls sideways instead of clipping. */
+.article-content table {
+  display: block;
+  overflow-x: auto;
+}

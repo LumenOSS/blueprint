@@ -19,9 +19,16 @@
         "required": ["id", "name", "summary"],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^L[0-9]$" },
-          "name": { "type": "string" },
-          "summary": { "type": "string" }
+          "id": {
+            "type": "string",
+            "pattern": "^L[0-9]$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
         }
       }
     },
@@ -32,16 +39,25 @@
         "required": ["id", "name", "summary"],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z][a-z-]*$" },
-          "name": { "type": "string" },
-          "summary": { "type": "string" }
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z-]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
         }
       }
     },
     "capabilities": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/capability" }
+      "items": {
+        "$ref": "#/$defs/capability"
+      }
     }
   },
   "$defs": {
@@ -50,20 +66,37 @@
       "required": ["id", "name", "domain", "layer", "summary", "clauses"],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string", "pattern": "^CAP-[A-Z]+$" },
-        "name": { "type": "string" },
-        "domain": { "type": "string" },
-        "layer": { "type": "string", "pattern": "^L[0-9]$" },
-        "summary": { "type": "string" },
+        "id": {
+          "type": "string",
+          "pattern": "^CAP-[A-Z]+$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "layer": {
+          "type": "string",
+          "pattern": "^L[0-9]$"
+        },
+        "summary": {
+          "type": "string"
+        },
         "depends_on": {
           "type": "array",
-          "items": { "type": "string", "pattern": "^CAP-[A-Z]+$" },
+          "items": {
+            "type": "string",
+            "pattern": "^CAP-[A-Z]+$"
+          },
           "uniqueItems": true
         },
         "clauses": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/clause" }
+          "items": {
+            "$ref": "#/$defs/clause"
+          }
         }
       }
     },
@@ -72,15 +105,26 @@
       "required": ["id", "level", "text", "verify"],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string", "pattern": "^CAP-[A-Z]+\\.[0-9]+$" },
-        "level": { "enum": ["MUST", "SHOULD", "MAY"] },
-        "text": { "type": "string" },
+        "id": {
+          "type": "string",
+          "pattern": "^CAP-[A-Z]+\\.[0-9]+$"
+        },
+        "level": {
+          "enum": ["MUST", "SHOULD", "MAY"]
+        },
+        "text": {
+          "type": "string"
+        },
         "verify": {
           "description": "How an implementation shows it meets the clause: the test, query or inspection.",
           "type": "string"
         },
         "retired": {
           "description": "Set when the clause no longer applies. The ID is never reused.",
+          "type": "string"
+        },
+        "example": {
+          "description": "A brief, non-normative illustration of the clause in an education setting.",
           "type": "string"
         }
       }

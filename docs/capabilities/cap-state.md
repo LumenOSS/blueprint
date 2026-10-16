@@ -34,7 +34,7 @@ Keep state apart from lake storage: object versioning protects state but can bre
 | CAP-STATE.3 | MUST | State is encrypted at rest with a key under the platform's control and is reached by identity, never by a shared access key. | Shared-key access to the store is disabled; the encryption key is in the platform's key store. |
 | CAP-STATE.4 | MUST | A product's identity cannot read platform or bootstrap state. | Negative test: a read of platform state with a product identity is denied. |
 | CAP-STATE.5 | MUST | The state store can be created from an empty account by the bootstrap layer, and its reachability is proven by write, read, compare and delete before first use. | The bootstrap recipe runs against an empty account and its probe reports success. |
-| CAP-STATE.6 | MUST | Stacks find each other's resources by deterministic name, not by reading each other's state. | No stack declares a remote-state data source. |
+| CAP-STATE.6 | MUST | Stacks find each other's resources by deterministic name, not by reading each other's state.<br><br>*Example:* The platform stack finds the state store by the name the naming module derives for it, instead of reading the bootstrap stack's state to learn it. | No stack declares a remote-state data source. |
 | CAP-STATE.7 | MUST | A stack that moves between repositories keeps its state key, and its first plan in the new place shows no changes. | The move's review includes a no-change plan. |
 | CAP-STATE.8 | SHOULD | State lives apart from lake storage, because the protections each needs (object versioning, lifecycle rules) conflict. | The state store is a separate account or bucket from every lake store. |
 <!-- END GENERATED: contract -->

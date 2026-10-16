@@ -29,7 +29,7 @@ An unsalted hash of an identifier can be reversed by trying every plausible iden
 | Clause | Level | Requirement | How conformance is shown |
 | --- | --- | --- | --- |
 | CAP-SHARING.1 | MUST | Data leaves the platform only from a publication catalog of de-identified or aggregated materialised tables. | Every share's objects are in the publication catalog. |
-| CAP-SHARING.2 | MUST | Published tables enforce a minimum cell size by test, and replace identifiers with keyed hashes or surrogate keys, never unsalted hashes. | Publication models carry cell-size tests; no identifier column is an unkeyed hash. |
+| CAP-SHARING.2 | MUST | Published tables enforce a minimum cell size by test, and replace identifiers with keyed hashes or surrogate keys, never unsalted hashes.<br><br>*Example:* A published identifier is a keyed hash, so someone holding a list of learner numbers cannot hash the list and match it; an unsalted hash would allow exactly that. | Publication models carry cell-size tests; no identifier column is an unkeyed hash. |
 | CAP-SHARING.3 | MUST | Sharing uses an open protocol, with recipients authenticated by federation where possible and otherwise by tokens rotated within a year. | The recipient register lists each recipient's method and token expiry. |
 | CAP-SHARING.4 | MUST | Each share is a reviewed change sponsored by a steward, approved by a sharing panel, and listed in a published register. | Every live share traces to an approved change and a register entry. |
 | CAP-SHARING.5 | MUST | Shares name explicit tables, never whole schemas, and share no table history. | No share includes a schema; shared tables have history sharing off. |
