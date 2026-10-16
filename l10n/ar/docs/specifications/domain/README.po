@@ -1,0 +1,324 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/domain/README.md
+msgid "The EMIS domain model"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "What an education management information system holds, how it is divided into domains, and the rules every implementation follows when it models them. The capabilities describe the platform; this page describes the data the platform exists for. Code lists and local terms vary by country; the resources and rules below do not. Every term here is defined in the language of its bounded context, listed in the [context map]{1}; how the contexts are designed is in [domain design]{2}."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Domains"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Each domain is a catalog per environment (`<domain>_<env>`, [CAP-CATALOG.2]{1}) with one owning steward. A resource lives in exactly one domain and is referenced, never copied, by the others. Each domain belongs to one bounded context ([domain design]{2}); a context may own several."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Domain"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Core resources"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Typical sensitivity"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`people`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Person registry, external identifiers"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T3"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`institutions`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Institution and site registries, occupancy, facility status, licence and accreditation, inspection"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T1, with T0 aggregates"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`learners`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Enrolment, class membership, guardian relationship, attendance session, progression decision, completion and credential, support plan"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T3; support and child-protection records T4"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`workforce`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Post registry, posting, assignment, qualification, licence or registration, leave, professional development, separation"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T3; special-category data T4"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`assessment`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Assessment instrument, administration, candidate, result, accommodation"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T3, with T0 aggregates"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`curriculum`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Programme, grade, subject, class, academic period, timetable"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T1"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`finance`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Budget, income, expenditure by function, fee and payment, grant and aid"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T1; individual payments T3"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`resources`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Asset, inventory, issue of an item to a person, distribution from the centre"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`entitlements`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Entitlement schemes and their beneficiaries"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`safety`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Incident, risk assessment, emergency plan"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T3; health T4"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`statistics`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Collections, instruments, returns, attestations, snapshots"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T1; returns naming individuals T3"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`records`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Record classes, disposals, correction requests, disclosures, purposes"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`reference`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Code lists, crosswalks, administrative geography, calendars, external denominators"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T0"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "`publication`"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "De-identified and aggregate outputs only"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T0 or T2"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "The registries of [CAP-MASTERDATA]{1} are split by what they identify: persons in `people`, institutions and sites in `institutions`, posts in `workforce`. A learner, a staff member and a guardian are not separate registries: they are roles a person holds through relationships ([ADR-0010]{2}). `reference` holds the code lists and dictionary of [CAP-REFERENCE]{3}."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Core resources and relationships"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Every relationship and fact also belongs to an academic period and uses governed code lists; those links are left out of the drawing for clarity."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Why it is drawn this way"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**One person, many roles.** A person is recorded once whether they are a learner, a guardian or a staff member, and may be all three over a life; the roles are relationships, not separate registries ([ADR-0010]{1})."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Institutions occupy sites.** Two institutions can share one site on different shifts, and one institution can operate on several sites, so the link between them is a relationship with dates. Facilities belong to the site; an institution's services are read through its occupancy."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Enrolment and class membership are separate.** A learner is enrolled in one programme and grade, but may be taught in a class that spans grades or take a subject with a higher grade."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**A post is not a person.** Shortages and vacancies are differences between posts and the people posted to them. A posting carries its share of full time, so a teacher shared between two institutions is counted correctly either by heads or by full-time equivalents."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Facts hang off relationships,** so an attendance session or a result is always attributable to an enrolment in a specific period."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Modelling rules"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Identifiers are opaque and permanent.** They carry no meaning, and a learner keeps one for life ([CAP-MASTERDATA]{1})."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Every changing relationship is effective-dated**, with valid-from, valid-to and recorded-at. A correction adds a version; it never edits history ([P18]{1})."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Store events and counts; derive every rate.** Attendance rates, ratios and percentages are computed in the semantic layer from counts, never stored on records, because a stored rate cannot be re-aggregated to a different level ([CAP-TRANSFORMATION.5]{1})."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Multi-valued attributes are rows.** A list of languages or subjects is a child table with a code-list reference, not a delimited string or an embedded document. Bronze may hold data as received; silver normalises it."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Every coded attribute names its code list and version** ([CAP-REFERENCE.1]{1})."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Status and reason are separate.** An enrolment has a state (active, suspended, ended) and, when it ends, an exit reason (completed, transferred, left the education system, deceased). Mixing the two makes transfer and dropout indistinguishable."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Repetition and promotion are derived.** They follow from the progression decision and the next period's enrolment, never from a stored flag, so a correction to either is reflected everywhere."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Formats are fixed once,** in the data dictionary, never per system ([CAP-REFERENCE.6]{1})."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "**Documents are records.** A certificate, plan or medical note attached to a record is stored by content hash, classified at least as high as the record, and follows the record's retention class ([CAP-RECORDS]{1})."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Default classification"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "The starting point for [CAP-CLASSIFICATION.6]{1}. An implementation may classify higher; classifying lower needs a recorded reason."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Kind of attribute"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Default"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Published aggregates"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Institution facts (type, location, facilities, programmes)"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Pseudonymised learner-level analytical tables"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T2"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Data that identifies or locates a person: names, birth dates, contact details, addresses, photographs, identifiers"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Special-category data under the applicable data-protection law, and child-protection and wellbeing records"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "T4"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "Building order"
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "A resource can be built once everything it references exists, so reference data and the registries come first and derived outputs last. The [building guide]{1} generates the order of capabilities from their dependencies."
+msgstr ""
+
+#: docs/specifications/domain/README.md
+msgid "See also: [indicators]{1}."
+msgstr ""

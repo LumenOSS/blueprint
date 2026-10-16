@@ -1,0 +1,192 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "CAP-ORCHESTRATION Orchestration"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Declared jobs with bounded runs, safe retries and range re-runs."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Layer L3 · domain: data · depends on: [CAP-COMPUTE]{1}, [CAP-DELIVERY]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Run declared jobs on schedules and arrivals, with bounded runs that drain backlogs on their own."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Unbounded runs either finish early or are killed mid-flight, and neither predicts the next. A budget plus a finishing step that re-queues remaining work keeps throughput without manual triggers."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Job declarations in the product repository."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Schedule, file-arrival and upstream-completion triggers."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Range re-runs with a concurrency limit."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Size the per-run cap from a measured median item time, not a configured one, and treat a missing cap as uncapped rather than stopped."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "CAP-ORCHESTRATION.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Jobs are declared in the product's repository and deployed by CI."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "No job exists in an environment without a declaration in a repository."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "CAP-ORCHESTRATION.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Jobs can be triggered by schedule, by file arrival and by the completion of upstream work."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Each trigger type is exercised by a test job."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "CAP-ORCHESTRATION.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Each run has a budget. Work beyond the budget is re-triggered by a finishing step that re-queues only if work remains and the run made progress, and a run with nothing to do exits within seconds on the cheapest compute.{1}*Example:* A run may process 400 pages in its time budget; with 1,000 waiting, it processes 400 and re-queues itself, and the backlog drains without anyone triggering it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Feed more work than one budget allows; the backlog drains without manual triggers, and an empty run costs seconds."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "CAP-ORCHESTRATION.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Retries are safe because every task is idempotent; the orchestrator also rejects a duplicate run identifier."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Re-run a completed task; outputs are byte-identical."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "CAP-ORCHESTRATION.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "A job can be re-run for a declared range of partitions, with a limit on concurrent runs."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Run a range backfill; only the declared partitions change."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "CAP-ORCHESTRATION.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Alerts fire on data freshness, not only on job failure."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Stop an upstream source; a freshness alert fires within its window."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Lakeflow Jobs"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-orchestration.md
+msgid "Apache Airflow 3"
+msgstr ""

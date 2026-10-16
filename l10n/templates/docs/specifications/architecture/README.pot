@@ -1,0 +1,142 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/architecture/README.md
+msgid "Architecture"
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "The architecture at three C4 levels: the system in its context (C1), the containers inside it (C2), and the components of the containers where most of the design lives (C3). Every box is a capability or a group of capabilities from the [catalogue]{1}; no box names a product, because products are an implementation's choice ([implementations]{2})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "Colours follow C4: people dark blue, the system and its containers blue, external systems grey."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "C1 System context"
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "Why it is drawn this way"
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Changes reach the platform only through CI.** Engineers and leads act on the CI host, never on the platform directly ([P1]{1}). The edge from people to the platform is for using it, not changing it."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**CI hosts are plural.** A repository can live on more than one host; the architecture depends on federation, which every mainstream host offers, not on any one host ([CAP-REPOSITORIES.5]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Recipients are outside the boundary.** Data leaves only as de-identified publication ([P15]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**The identity provider is the organisation's,** not the platform's ([CAP-IDENTITY.1]{1}). Learners, guardians and the public sign in separately and never join platform groups ([CAP-IDENTITY.6]{2})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Exchanges with other government systems run both ways** and are each declared and reconciled ([CAP-INTEROPERABILITY]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "C2 Containers: trust and delivery"
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "Each row is a layer and a repository. Every arrow from a repository to an identity is a CI run that exchanges the CI host's per-run token for that identity (federation); no arrow starts on a workstation."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Rows are trust levels, and each row is a repository** ([P2]{1}). A row's identity cannot act in another row, because its federated credential trusts one repository only."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**The bootstrap row alone is dispatched by people.** It declares who CI is, so a merge alone must never change it ([P4]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**The platform reaches products only through what it generates from the tenant registry:** grants, schemas and published outputs. The product never reads platform state ([CAP-ONBOARDING.3]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Modules and trust are dashed:** modules are source code and credentials are declarations, neither is a runtime call."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "C2 Containers: the data platform"
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**The catalog sits in the middle** because every read and write of analytical data goes through it, which is what makes one set of policies enough ([CAP-CATALOG]{1}, [CAP-COMPUTE.3]{2})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Landing feeds the pipeline, and the pipeline feeds archive and quarantine:** landing is a queue, not a store ([CAP-INGESTION.2]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**The product app talks only to its operational database.** Analytics reach that database through the catalog, never by a direct connection ([CAP-OPERATIONALDB.7]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Dashboards read the semantic layer, not tables,** so a measure has one definition ([P11]{1}). The [semantic layer]{2} page shows how one definition is served to every consumer."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Publication is a separate store fed only by models,** so nothing reaches a recipient without passing through de-identification ([CAP-SHARING.1]{1}). Open statistics leave through the portal after disclosure control ([CAP-PUBLICATION]{2})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Registries and collection sit with the products** because they are operational: they hold the authoritative records and returns that everything downstream counts ([CAP-MASTERDATA]{1}, [CAP-COLLECTION]{2})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "C3 Components: access decision"
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "How the catalog decides what one query returns."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Three inputs, three owners** ([P14]{1}): the platform team owns groups, a loader owns entitlements, stewards own classification. No one change widens all three ([CAP-ACCESS.6]{2})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**The decision is a chain that only narrows.** Reach admits the table; the row filter and masks can only remove from it ([CAP-ACCESS.3]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**The exemption list is dashed and short.** Every entry is a path to raw data ([CAP-ACCESS.4]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "C3 Components: product pipeline"
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "The example product's processing, from file to released result. The [document-review product]{1} describes it in full."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Stages are separate jobs joined by storage,** so a stage cannot outrun the one before it, and each can be retried alone ([CAP-PIPELINE.3]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Only publish touches the database.** The three stages before it keep working while the database is unavailable ([CAP-PIPELINE.6]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**Review sits beside the pipeline, not in it.** People decide at their own pace, and their decisions outrank any re-run ([CAP-REVIEW.3]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/README.md
+msgid "**The gate reads both the database and the register snapshot,** because release needs the expected subjects as well as the results ([CAP-RELEASE.1]{1})."
+msgstr ""

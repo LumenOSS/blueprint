@@ -10,3 +10,4 @@ know the [core concepts](../concepts/README.md) and points to the
 | [Example products](products/README.md) | See a workload run through every layer, and check a new product against the checklist |
 | [Backfill](backfill.md) | Load history and reprocess data safely |
 | [Lessons](lessons.md) | Avoid the failures that shaped the design |
+| [Translating](translating.md) | Translate the documentation, or edit a page that has translations |

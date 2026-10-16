@@ -1,0 +1,408 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/domain/design.md
+msgid "Domain design"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "How the EMIS domain is designed, using domain-driven design: which parts matter most, where the boundaries between models lie, what each model guarantees, and how the parts talk. The language of each context is in its `CONTEXT.md`, listed in the [context map]{1}; the resources and modelling rules are in the [domain model]{2}."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Subdomains"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Kind"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Contexts"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Core"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Learning, Statistics"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "What an education authority uses an EMIS for: knowing who is learning where, and producing official figures about it. Built and modelled with the most care."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Supporting"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "People, Institutions, Workforce, Curriculum, Assessment, Records"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Needed by the core and specific to education, but each is a well-understood pattern (a registry, an establishment, a classification)."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Generic"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Operations, Reference"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Finance, assets, entitlement schemes, safety, codes and calendars: often provided by existing systems or standards, integrated rather than invented."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Context map"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Why it is drawn this way"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**Core contexts are darkest.** Learning and Statistics carry the decisions the authority answers for; everything else serves them."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**People and Institutions feed others as open host services:** they publish identifiers and a stable interface, so every context refers to the same person and institution without copying them."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**External systems sit behind anti-corruption layers,** so a civil register's or a finance system's model never becomes the EMIS's model."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**Statistics reads published counts only.** That keeps official figures independent of how each context stores its operational records ([CAP-INTEROPERABILITY.8]{1})."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**Reference and Records have no edges** because they shape every context (shared codes, shared retention policy); drawing all their edges would hide the rest. The [context map]{1} lists them."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**ACL** is an anti-corruption layer; **OHS** an open host service; **counts** are the gold tables each context publishes."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Aggregates and invariants"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "An aggregate is a cluster of records changed together as one unit, with a root that every change goes through. The invariants below hold after every change; a change that would break one is refused."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Context"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Aggregate (root)"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Invariants"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "People"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Person"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "One person per human: a suspected duplicate goes to review, never auto-merged. The identifier never changes or is reused; a merge leaves a redirect from the retired identifier. External identifiers are attributes, each with an issuer and validity."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Institutions"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Institution"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "An active institution occupies at least one site. Closing it ends every occupancy on the closure date. A merger is an effective-dated event on both institutions; neither history is lost."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Site"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Facility status is recorded as at a date; a new status supersedes, never overwrites, the previous one."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Learning"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Enrolment"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "It refers to one person, institution, programme, grade and academic period. A learner has at most one main enrolment at any moment; others are secondary. An ended enrolment has an exit reason; an active one has none."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Guardian relationship"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "It refers to a learner and a guardian (a person or an organisation) with legal authority, from a start date to an end date. Access through it ends when the authority ends."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Attendance session"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "It belongs to an enrolment, and its date lies inside the enrolment's validity."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Progression decision"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "At most one per enrolment per academic period; a revision is a new version that keeps the previous one."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Workforce"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Post"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "A post belongs to one institution. The shares of full time of the postings to it at any moment add up to at most one."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Posting"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "It refers to a person and a post. A person's postings at any moment add up to at most their contracted share of full time."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Curriculum"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Programme"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "It maps to exactly one level in the current education-level crosswalk. Its grades are ordered without gaps."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Assessment"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Administration"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Its instrument version is fixed. A released result is never edited; a correction is a new version."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Statistics"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Instrument"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Once committed it never changes; next period's collection is a new version."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Return"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "It moves only through its declared states. Only an attested return can be accepted, and a locked return never changes."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Snapshot"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "It is locked as at its reference date. A revision is a new snapshot version, with the reason, and both remain readable."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Records"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Disclosure"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "It records who received what, why, on what basis and how; it is never deleted before its own retention ends."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Correction request"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "It produces a new version of the corrected record, approved by the steward; the original value stays readable."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Rules that span aggregates are kept eventually consistent through events, not by changing two aggregates at once. A transfer, for example, ends one enrolment and starts another: two changes linked by the event between them."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Domain events"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Events are named in the past tense, in the context's language, and published as CloudEvents ([CAP-INTEROPERABILITY.9]{1}). Other contexts react to them instead of reading each other's records."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Events"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "PersonRegistered, PersonVerified, PersonsMerged, PersonsUnmerged, PersonDeceasedRecorded"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "InstitutionRegistered, InstitutionsMerged, InstitutionClosed, OccupancyStarted, OccupancyEnded, FacilityStatusRecorded"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "LearnerEnrolled, EnrolmentEnded, ClassMembershipChanged, AttendanceRecorded, ProgressionDecided, GuardianAuthorityStarted, GuardianAuthorityEnded"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "PostEstablished, PostAbolished, PostingStarted, PostingEnded"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "ResultRecorded, ResultsReleased"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "InstrumentCommitted, ReturnSubmitted, ReturnAttested, ReturnQueried, ReturnAccepted, AreaCleared, SnapshotLocked, SnapshotRevised, DatasetPublished"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "RecordArchived, RecordClassDisposed, DisclosureMade, CorrectionApplied"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Reference"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "CodeListVersionPublished, BoundaryVersionPublished"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "For example, when **EnrolmentEnded** carries the exit reason \"transferred\", Statistics counts the learner at the receiving institution from the next **LearnerEnrolled**, and Records starts the retention clock of the ended enrolment."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Contexts and catalogs"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Catalogs it owns"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`reference`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`people`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`institutions`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`learners`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`workforce`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`curriculum`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`assessment`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`statistics`, `publication`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`records`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "Operations"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "`finance`, `resources`, `entitlements`, `safety`"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "How contexts map onto the platform"
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**One steward per context.** Each context owns the catalogs of its resources (below) and is stewarded by one role."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**A product sits inside one context.** Its repository, operational database and tenant entry belong to that context. A product that needs another context's data uses that context's published interfaces."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**Contexts integrate only through published interfaces:** registry interfaces, domain events, and gold tables with their semantic-layer definitions. No product reads another context's operational database ([CAP-INTEROPERABILITY.8]{1})."
+msgstr ""
+
+#: docs/specifications/domain/design.md
+msgid "**The language follows the boundary.** A term means what its context's `CONTEXT.md` says; where two contexts use one word differently, each defines it, and translation happens at the interface between them."
+msgstr ""

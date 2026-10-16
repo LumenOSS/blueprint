@@ -31,6 +31,11 @@ for each clause; implementations live in their own repositories. Start at
 
 ## Writing
 
+- **The docs are translated through PO files** (`l10n/`, guide in
+  `docs/guides/translating.md`). After editing any page under `docs/`, the
+  root README, CONTEXT-MAP.md, CONTRIBUTING.md or `site/home.md`, run
+  `just l10n-update`; `just check` fails until you do. Never edit a PO
+  file's English strings, and never copy a page to translate it.
 - **Use the domain language.** The domain is split into bounded contexts,
   listed in `CONTEXT-MAP.md`; each has a `CONTEXT.md` under
   `docs/specifications/domain/contexts/` with one canonical term per concept. The words

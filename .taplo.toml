@@ -1,0 +1,10 @@
+# taplo formats and lints the TOML files: Hugo's configuration, the menus,
+# the interface strings and the language list.
+include = ["site/*.toml", "site/i18n/*.toml", "l10n/*.toml", ".taplo.toml"]
+
+[formatting]
+  indent_tables = true
+  indent_entries = true
+  reorder_keys = false
+  array_auto_collapse = true
+  column_width = 80

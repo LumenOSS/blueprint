@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/concepts/emis.md
+msgid "What is an EMIS"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "An education management information system (EMIS) is how an education authority knows what is happening in its education system: how many learners there are and where, whether they attend and learn, who teaches them, and what it all costs."
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "UNESCO defines it as:"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "a system for the collection, integration, processing, maintenance and dissemination of data and information to support decision-making, policy-analysis and formulation, planning, monitoring and management at all levels of an education system."
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "— UNESCO, [*Education for All by 2015: Will we make it?*]{1}, EFA Global Monitoring Report 2008, p. 101"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "The same definition goes on to say that an EMIS is \"a system of people, technology, models, methods, processes, procedures, rules and regulations\". That matters: an EMIS is not one piece of software. It is the arrangement by which data about education is collected, trusted and used."
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Who relies on it"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Who"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "What they need from it"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Ministry planners and leaders"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "How many places, teachers and how much money are needed, and where"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "District and regional officers"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Which institutions need support, and whether returns are complete"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Institution leaders and teachers"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Their own learners: enrolment, attendance, results, support needs"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Learners and guardians"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Their own records, and correct ones"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Statisticians and researchers"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Consistent figures over time and between places"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "The public and international bodies"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Published statistics, such as the indicators for the Sustainable Development Goal on education"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Two kinds of work"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "An EMIS does two different jobs, and much of this blueprint follows from keeping them apart."
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "**Recording.** Day to day, it keeps records about individual people and institutions: this learner is enrolled here, attended today, sat this examination. These records change all the time and must be correct for each person."
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "**Counting.** Periodically, it produces official figures: enrolment by grade and district on census day, the pupil–teacher ratio, the completion rate. These are counted *as at a reference date*, published, and then not changed silently, because policy and funding depend on them."
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "A good EMIS lets the second be derived from the first, so the figures can be traced back to the records they count."
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "What this blueprint covers"
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "This blueprint describes the **data platform** behind an EMIS: where the data lives, how it moves, how it is governed, who may see it, and how figures are defined and published. It does not prescribe the applications people type into, such as a school management system or a census form. Those are *products* that run on the platform."
+msgstr ""
+
+#: docs/concepts/emis.md
+msgid "Next: [the EMIS domain]{1}."
+msgstr ""

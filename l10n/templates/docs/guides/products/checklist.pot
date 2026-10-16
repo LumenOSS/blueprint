@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/guides/products/checklist.md
+msgid "Product checklist"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "A product inherits most of its obligations from the platform; this checklist names the capabilities whose clauses a product must satisfy itself. Copy it into the product repository and record, for each row, how the product meets the clauses and where the evidence is. Rows that do not apply are marked not applicable with a reason, exactly as in a [binding]{1}."
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Capability"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "What the product records"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-ONBOARDING]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Its tenant entry: owner role, domain, catalogs, highest classification"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-MASTERDATA]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Which registries it reads; it never mints identifiers of its own for core resources"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-REFERENCE]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "The code lists and dictionary entries for every element it owns"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-CLASSIFICATION]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Classification, provenance, purpose and legal basis for every element it owns"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-ACCESS]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Its row scopes and any subject-facing views"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-RECORDS]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "The record class of each table and file it owns"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-QUALITY]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Its checks, with dimension and severity"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-INTEROPERABILITY]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "A feed contract for every exchange with another system"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-PIPELINE]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "How its processing stays idempotent and deterministic"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-REVIEW]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Where people decide, and how their decisions are protected"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-COLLECTION]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Its instruments, if it collects returns"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-SEMANTICS]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "The indicators it defines, with their metadata"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-PUBLICATION]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "What it publishes, and the disclosure tests"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-MODELS]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Any model it uses, with its equity evaluation"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "[CAP-APPS]{1}"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Accessibility and language evidence for its interfaces"
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "The example products show the checklist filled in by their conformance steps: [document review]{1} and [annual census]{2}."
+msgstr ""

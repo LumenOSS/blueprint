@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/concepts/README.md
+msgid "Core concepts"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "What you need in your head before the specifications make sense. These four pages explain; they require nothing. Read them in order. Each takes about ten minutes."
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "#"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "Read"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "You will know"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "1"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "[What is an EMIS]{1}"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "What an education management information system is, who relies on it, and the part this blueprint covers"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "2"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "[The EMIS domain]{1}"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "What a domain model is, why this blueprint uses one, and the main things an EMIS records"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "3"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "[Data in an EMIS]{1}"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "The kinds of data an EMIS holds, and five ideas about handling it that the rest of the blueprint builds on"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "4"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "[Terminology]{1}"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "The few classifications and terms you need to read the specifications: sensitivity tiers, layers, clauses and roles"
+msgstr ""
+
+#: docs/concepts/README.md
+msgid "Then go on to the [specifications]{1}, starting with the principles."
+msgstr ""

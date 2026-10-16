@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "CAP-ONBOARDING Tenant onboarding registry"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "One reviewed declaration per product or source generates its identities, grants, schemas and reviewers."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Layer L1 · domain: delivery · depends on: [CAP-DELIVERY]{1}, [CAP-CATALOG]{2}, [CAP-CIIDENTITY]{3}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Turn adding a product or a data source into one reviewed file, from which everything it needs is generated."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Hand-made identities and grants drift and are never removed. One declaration per tenant gives one place to review access and one place to revoke it ([P5]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "`tenants/<name>.yaml` in the platform repository: owner role, domain, ingestion method, highest classification, catalogs written and read, operational database, trusted repository."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Generated: identities, federated credentials, grants, schemas, required reviewers."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Published outputs per product and environment, consumed by the product's pipeline."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "The boundary between platform and product: the platform owns anything that crosses a permission boundary; the product owns what is inside its grant."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "CAP-ONBOARDING.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Each product or source has one tenant entry declaring its owner role, domain, ingestion method, highest classification, the catalogs it writes and reads, its operational database, and the repository the platform trusts for it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Every product's resources trace back to exactly one tenant entry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "CAP-ONBOARDING.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Identities, grants, schemas and required reviewers are generated from the entry and never created by hand."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "A reconciliation diff between generated and live grants is empty."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "CAP-ONBOARDING.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "The platform publishes each product's outputs per environment (endpoints, catalog names, identities, compute IDs) to the product, and a product never reads platform state."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "The product's configuration takes these values from published outputs; it has no access to platform state."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "CAP-ONBOARDING.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Removing a tenant entry removes the access it generated."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Off-boarding test: remove an entry; its identities and grants are gone after apply."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Tenant YAML + OpenTofu (azurerm, databricks providers)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-onboarding.md
+msgid "Tenant YAML + OpenTofu"
+msgstr ""

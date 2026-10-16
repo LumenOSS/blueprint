@@ -13,4 +13,5 @@ the starting point for a new one. Accepted LIPs are recorded as
 | --- | --- | --- | --- |
 | [LIP-1](lip-0001.md) | LIP purpose and process | Process | Living |
 | [LIP-2](lip-0002.md) | Bounded contexts for the EMIS domain | Standards (Domain) | Accepted |
+| [LIP-3](lip-0003.md) | Internationalisation and localisation | Standards (Contract) | Accepted |
 <!-- END GENERATED: lips -->

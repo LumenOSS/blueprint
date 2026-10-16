@@ -1,0 +1,7 @@
+{{- /* A note at the top of a translated page that no native speaker has
+  reviewed yet. The text comes from the page's language
+  (site/i18n/<lang>.toml), styled like the theme's alert. */ -}}
+<div class="flex px-4 py-3 mb-6 rounded-md shadow bg-primary-100 dark:bg-primary-900" role="note">
+  <span class="text-primary-400 pe-3 flex items-center">{{ partial "icon.html" "language" }}</span>
+  <span class="dark:text-neutral-300">{{ i18n "l10n-unreviewed" }}</span>
+</div>

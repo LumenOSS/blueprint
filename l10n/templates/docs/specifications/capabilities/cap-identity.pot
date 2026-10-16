@@ -1,0 +1,242 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "CAP-IDENTITY Identity and groups"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "One identity provider for people and groups, synchronised automatically, with break-glass access held apart."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Layer L1 · domain: governance"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Make the organisation's identity provider the one source of people and groups."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Local users and groups drift from the organisation. Renamed groups do not propagate reliably, so names are frozen."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Automatic user and group provisioning (for example SCIM) into every service."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Group declarations in the platform repository."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Two break-glass accounts."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Membership refresh can lag by minutes in browsers and longer in jobs. Indirect administrator paths exist on most clouds; list them."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "CAP-IDENTITY.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "The organisation's identity provider is the only source of users, groups and membership, synchronised to every platform service automatically."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "No platform service has a locally created user or group except break-glass accounts."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "CAP-IDENTITY.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Group names are frozen once created, because renames do not propagate reliably."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "The group declarations forbid renames (a rename is a new group plus migration)."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "CAP-IDENTITY.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Two break-glass accounts exist, outside the identity provider's normal sign-in, protected by hardware keys, monitored on every use."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Sign-in by either account raises an alert."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "CAP-IDENTITY.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Indirect administrator paths (a directory role that becomes a platform administrator, a resource role that grants workspace administration) are closed or monitored."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "The access review lists each such path and its control."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "CAP-IDENTITY.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Administrators and every role that can read identifiable or special-category data (T3, T4) authenticate at NIST SP 800-63-4 authentication assurance level 2 or higher with a phishing-resistant authenticator, such as a WebAuthn passkey; platform administrators and holders of the root of trust authenticate at level 3.{1}*Example:* A support officer who can read special-category records signs in with a passkey; a password with a text-message code is refused for that role."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Sign-in policy for those roles requires it; a sign-in without it is refused."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "CAP-IDENTITY.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Learners, guardians and members of the public authenticate through a separate external identity tenant or portal, and are never members of platform groups."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "No platform group contains an external identity."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "[NIST SP 800-63-4 Digital Identity Guidelines]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "SP 800-63-4, final (July 2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "[Web Authentication]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Level 2 or later (Level 3, W3C Recommendation, August 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "[OpenID Connect Core 1.0]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Core 1.0 incorporating errata set 2; also ISO/IEC 26131:2024"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "[OAuth 2.0 Security Best Current Practice]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "RFC 9700 / BCP 240 (January 2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "[SCIM 2.0]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "RFC 7643 and RFC 7644 (2015), with later extensions"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Entra ID{1}Automatic identity management / SCIM"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-identity.md
+msgid "Keycloak"
+msgstr ""

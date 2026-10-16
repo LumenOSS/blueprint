@@ -5,7 +5,7 @@
 # text; the capability pages render their contract tables from it
 # (`just render`). IDs are never renumbered or reused.
 
-version: 0.4.0
+version: 0.5.0
 
 layers:
   - id: L0
@@ -1289,6 +1289,14 @@ capabilities:
           Code lists maintained by outside agencies (countries, currencies, languages) are loaded on a schedule, versioned, and recorded with their source and retrieval date.
         verify: >-
           Each external code list has a load job and a recorded source and retrieval date.
+      - id: CAP-REFERENCE.9
+        level: MUST
+        text: >-
+          Every code in a code list has a label in each official language the authority declares, tagged with a BCP 47 language tag; where a label is missing, interfaces show the label in a declared default language, never the bare code.
+        verify: >-
+          A check lists every code that lacks a label in a declared language, and runs before a code-list version is published.
+        example: >-
+          The exit reason TRF has labels 'Transferred to another institution' (en), 'Transféré dans un autre établissement' (fr) and 'منقول إلى مؤسسة أخرى' (ar). A new code added without its Arabic label is reported before the list's new version is published.
 
   - id: CAP-ACCESS
     name: Access model

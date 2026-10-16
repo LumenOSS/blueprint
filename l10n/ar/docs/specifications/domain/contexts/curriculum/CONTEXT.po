@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/domain/contexts/curriculum/CONTEXT.md
+msgid "Curriculum"
+msgstr ""
+
+#: docs/specifications/domain/contexts/curriculum/CONTEXT.md
+msgid "What is taught: programmes, grades, subjects and the classes they are taught in."
+msgstr ""
+
+#: docs/specifications/domain/contexts/curriculum/CONTEXT.md
+msgid "Language"
+msgstr ""
+
+#: docs/specifications/domain/contexts/curriculum/CONTEXT.md
+msgid "**Programme**: A coherent course of education at an institution, mapped to a level of the international classification of education. _Avoid_: Course, track, stream"
+msgstr ""
+
+#: docs/specifications/domain/contexts/curriculum/CONTEXT.md
+msgid "**Grade**: A stage within a programme that a learner normally completes in one academic year. _Avoid_: Year group, standard, class"
+msgstr ""
+
+#: docs/specifications/domain/contexts/curriculum/CONTEXT.md
+msgid "**Subject**: A field of study taught as a unit within a programme. _Avoid_: Course (unless it is a course offering)"
+msgstr ""
+
+#: docs/specifications/domain/contexts/curriculum/CONTEXT.md
+msgid "**Class**: A group of learners taught together in an academic period, which may span grades. _Avoid_: Section, homeroom"
+msgstr ""

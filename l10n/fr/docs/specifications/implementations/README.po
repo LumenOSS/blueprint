@@ -1,0 +1,712 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/implementations/README.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "An implementation binds each capability to components and shows, clause by clause, how it meets the contract. Two reference implementations are planned, each in its own repository:"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Runtime"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Binding"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Open source"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Any Kubernetes cluster, through OpenTofu and Helm; kind or k3d on a laptop"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[`oss.yaml`]{1}"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Databricks"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Azure Databricks and Azure, through OpenTofu and Declarative Automation Bundles"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[`databricks.yaml`]{1}"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "The files here are the reference bindings each implementation starts from. Every clause is `planned` until the implementation shows evidence and moves it to `met`. A clause that cannot be met is a `deviation` with its consequence, so a gap is always written down. Check a binding with `just binding <file>`."
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Components by capability"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Capability"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "databricks"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "oss"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-REPOSITORIES]{1} Repositories by trust"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Git with two remotes{1}Azure Pipelines{2}Nix flake + just"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Git with two remotes{1}Forgejo Actions{2}Nix flake + just"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-STATE]{1} Infrastructure state"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OpenTofu{1}azurerm backend{2}Azure Key Vault"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OpenTofu{1}S3 backend on Ceph RGW{2}OpenBao transit"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-CIIDENTITY]{1} CI workload identity"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Entra workload identity federation{1}Databricks OAuth federation policies"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "CI OIDC token{1}OpenBao JWT auth{2}Kubernetes projected service-account tokens"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-DELIVERY]{1} Change delivery"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Azure Pipelines{1}Declarative Automation Bundles"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Forgejo Actions{1}Argo CD"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-MODULES]{1} Versioned modules"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OpenTofu modules in a tagged repository"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-ONBOARDING]{1} Tenant onboarding registry"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Tenant YAML + OpenTofu (azurerm, databricks providers)"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Tenant YAML + OpenTofu"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-SECRETS]{1} Secrets and keys"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Azure Key Vault{1}Key Vault-backed secret scopes"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OpenBao{1}External Secrets Operator"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-NETWORK]{1} Network isolation"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "VNet injection + secure cluster connectivity{1}Private Link (front end and back end){2}Network connectivity configurations{3}NAT gateway"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Cilium{1}Gateway API + oauth2-proxy"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-GUARDRAILS]{1} Guardrails and fitness functions"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Azure Policy{1}Conftest on tofu plans{2}Lakeflow Jobs"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OPA Gatekeeper{1}Conftest{2}Airflow"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-STORAGE]{1} Object storage"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "ADLS Gen2"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Ceph RGW via Rook"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-TABLES]{1} Open table format"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Delta Lake with UniForm"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Apache Iceberg"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-CATALOG]{1} Catalog and governance plane"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Unity Catalog"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Lakekeeper{1}Trino + OPA"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-COMPUTE]{1} Compute"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Serverless jobs compute{1}Serverless SQL warehouse"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Apache Spark 4 via Kubeflow spark-operator{1}Trino{2}DuckDB"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-OPERATIONALDB]{1} Operational database with branching"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Lakebase Postgres"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "CloudNativePG{1}CSI volume snapshots on Ceph RBD{2}pgroll"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-INGESTION]{1} Ingestion"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Auto Loader{1}Lakehouse Federation{2}Lakeflow Connect"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Debezium on Kafka via Strimzi{1}Trino connectors{2}Landing bucket + pipeline"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-INTEROPERABILITY]{1} Exchange with other systems"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Azure API Management{1}Schema validation at the landing edge"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Envoy Gateway{1}Schema validation at the landing edge"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-ORCHESTRATION]{1} Orchestration"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Lakeflow Jobs"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Apache Airflow 3"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-TRANSFORMATION]{1} Transformation layer"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "dbt (v1, Python) with dbt-databricks{1}dbt task in Lakeflow Jobs"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "dbt (v1, Python){1}dbt-trino adapter"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-SEMANTICS]{1} Semantic layer"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "dbt semantic layer (dbt 1.12 or later, latest YAML spec){1}MetricFlow{2}Unity Catalog metric views via the dbt-databricks metric_view materialisation"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "dbt semantic layer (dbt 1.12 or later, latest YAML spec){1}MetricFlow{2}Generated saved-query models"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-REPORTING]{1} Reporting"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "AI/BI dashboards{1}Genie"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Apache Superset"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-APPS]{1} Application hosting"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Azure Container Apps"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Kubernetes Deployment + Gateway API"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-QUALITY]{1} Data quality"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "dbt tests and contracts{1}Lakeflow pipeline expectations{2}Data Quality Monitoring"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "dbt tests and contracts{1}Great Expectations (GX Core)"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-LINEAGE]{1} Lineage"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Unity Catalog lineage"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OpenLineage"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-OBSERVABILITY]{1} Operational telemetry"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "System tables{1}Azure Monitor / Log Analytics"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OpenTelemetry Collector{1}Prometheus{2}Grafana + Loki"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-MASTERDATA]{1} Master data and identifiers"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Registry services on Lakebase{1}Splink on Spark"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Registry services on PostgreSQL (CloudNativePG){1}Splink"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-IDENTITY]{1} Identity and groups"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Entra ID{1}Automatic identity management / SCIM"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Keycloak"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-REFERENCE]{1} Reference data and data dictionary"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Unity Catalog comments, tags and a reference catalog{1}Versioned code-list tables (dbt seeds)"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OpenMetadata{1}Versioned code-list tables (dbt seeds)"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-ACCESS]{1} Access model"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Unity Catalog ABAC policies{1}Entitlement table in a reference catalog"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Entitlement table in Iceberg{1}OPA policies for Trino"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-CLASSIFICATION]{1} Classification and provenance"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Governed tags{1}Data classification"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Lakekeeper table properties + OPA"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-AUDIT]{1} Audit"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "system.access.audit{1}Diagnostic settings to Log Analytics"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Audit sources{1}Iceberg audit tables on object-locked storage"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-RECORDS]{1} Records lifecycle and data-subject rights"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Governed retention tags + Lakeflow Jobs{1}Delta VACUUM with bounded retention"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Retention policies in table properties + Airflow lifecycle jobs{1}OpenBao transit keys per partition"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-SHARING]{1} Publication and sharing"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Delta Sharing{1}Publication catalog"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Delta Sharing reference server"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-PUBLICATION]{1} Open statistical publication"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "CKAN on Azure Container Apps{1}Publication catalog"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "CKAN{1}Parquet and CSV renderings from publication tables"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-ENVIRONMENTS]{1} Environments by branching"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OpenTofu values files{1}Lakebase branches{2}Development schemas in production catalogs"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "OpenTofu values files{1}CloudNativePG branch clusters{2}Iceberg branches or dev namespaces"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-BACKFILL]{1} Backfill and reprocessing"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Lakeflow Jobs backfill runs{1}Delta replaceWhere / MERGE{2}Shallow clones"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Airflow 3 backfills{1}Iceberg branches{2}dbt microbatch"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-MIGRATION]{1} Migration and decommission"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Unity Catalog storage re-binding{1}pg_dump / pg_restore"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "pg_dump / pg_restore{1}Iceberg register-table"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-PIPELINE]{1} Retryable pipeline"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "The example product's stages on Lakeflow Jobs"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "The example product's stages on Airflow + Spark/Python"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-COLLECTION]{1} Periodic data collection"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "ODK Central on Azure Container Apps{1}The census product's return workflow on Lakebase"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "ODK Central{1}The census product's return workflow on PostgreSQL"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-REVIEW]{1} Human review"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "The example product's review service on Lakebase"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "The example product's review service on Postgres"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-MODELS]{1} Governed analytical models"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Managed MLflow with Unity Catalog model registry"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "MLflow{1}scikit-learn"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "[CAP-RELEASE]{1} Reconciliation and release"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "The example product's release gate"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "How components are chosen"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "A component is acceptable when it meets its capability's contract and the principles; beyond that the choice belongs to the implementation. Two principles weigh most: data stays in open formats and portable ([P16]{1}), and it stays where the education authority controls it ([P21]{2}). For the health of an open-source component, use a public assessment rather than judgement alone; see [standards]{3}."
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "How the open-source build differs"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Most capabilities have an open-source equivalent. Where the open-source stack cannot provide a property Databricks provides, the binding says so and the blueprint names the control that stands in for it. Checked on 2026-10-15:"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Property"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Control in the open-source binding"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Row filters and masks in every engine"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Unity Catalog enforces them across SQL, serverless and shared Spark"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Only Trino enforces them, through OPA; OSS Spark, DuckDB and PyIceberg do not"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Protected tables are served only through Trino; other engines are denied them ([CAP-CATALOG.5]{1})"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "One governance plane"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Grants, policies, lineage and audit in one catalog"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Grants in the catalog, row policy in OPA, BI policy in Superset, audit in several sources"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Policy as code in one repository, tested in CI; audit collected centrally"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Instant database branches"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Lakebase copy-on-write branches at any point in time"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "A new Postgres instance from a copy-on-write volume snapshot; point in time needs WAL replay"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Branches take minutes, not seconds ([CAP-OPERATIONALDB.2]{1})"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Automatic lineage"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Captured for all governed compute"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Only where an OpenLineage integration exists"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "A job without lineage is a defect ([CAP-LINEAGE.1]{1})"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Managed table maintenance"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Predictive optimisation"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Compaction and snapshot expiry are scheduled jobs"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "A maintenance job per warehouse, with alerts"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Scale to zero"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Serverless compute"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Spark jobs scale per run; the Trino coordinator stays up"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Recorded as a deviation from [CAP-COMPUTE.1]{1}"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Push provisioning of groups"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "SCIM or automatic identity management"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Keycloak passes groups in sign-in tokens"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Short token lifetimes and session revocation on leaving"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Attested private endpoints"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Private Link and network connectivity configurations"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "NetworkPolicy and flow logs"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Connectivity tests in CI; flow logs kept as audit"
+msgstr ""
+
+#: docs/specifications/implementations/README.md
+msgid "Open-source licences moved a lot in 2025 and 2026. MinIO's community edition is archived, Soda Core moved to ELv2, and HashiCorp Vault and Redpanda are source-available. Every component in a binding carries its SPDX licence, and the licence is checked again at each upgrade."
+msgstr ""

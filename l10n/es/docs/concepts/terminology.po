@@ -1,0 +1,392 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/concepts/terminology.md
+msgid "Terminology"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "The specifications use a handful of classifications over and over. Learn these and the rest of the blueprint reads easily. Every other term is in the [glossary]{1} or in the vocabulary of its bounded context, listed in the [context map]{2}."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Sensitivity tiers"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Every table is tagged with one tier. The tier decides who may see it, where it is stored and whether it may be published."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Tier"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Name"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "EMIS example"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "In short"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "T0"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Public aggregate"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Enrolment by district, published"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Anyone may see it"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "T1"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Internal"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "The list of institutions and their facilities"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Staff of the authority"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "T2"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "De-identified"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Learner records with names removed and identifiers replaced"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Approved analysts and partners"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "T3"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Identifiable"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "A learner's name, birth date and enrolment"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Only those with a need and the right scope"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "T4"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Special category"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Health, disability, child-protection records"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Named people, each grant approved by a steward, in separate storage"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Defined in [CAP-CLASSIFICATION]{1}."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Provenance"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Every table also says where its data came from: **real** (about real people and institutions), **simulated** (made up, for testing) or **derived** (computed from other tables). Nothing is deleted until its provenance is proven."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Bronze, silver and gold"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Data passes through three stages on its way to being used:"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Stage"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Holds"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Example"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Bronze"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Data exactly as received"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "A census return file, unchanged"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Silver"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Data checked and made consistent"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Returns with codes validated and institutions matched to the registry"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Gold"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Data ready to use"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Enrolment counts by grade and district, as at census day"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Reports and indicators read only from gold."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Reference date and academic period"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "An **academic period** is a school year or term."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "A **reference date** is the single day a statistic describes, such as census day. Counting \"as at\" one date is what makes figures comparable."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Layers"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "The platform is built in four layers, each trusted less than the one below and each in its own repository."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Layer"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "L0"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Bootstrap"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "The root of trust, made once by a person"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "L1"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Platform"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Shared storage, compute, catalog, identity and governance"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "L2"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Modules"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Reusable building blocks"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "L3"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Products"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Workloads such as a census or document review"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Capabilities, clauses and bindings"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "A **capability** is something the platform must be able to do, such as `CAP-ACCESS`."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Its **contract** is a list of numbered **clauses**, such as `CAP-ACCESS.7`. Each clause has a level: **MUST** (required), **SHOULD** (required unless there is a recorded reason) or **MAY** (optional), in the sense of [BCP 14]{1}. Each says how conformance is shown."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "An **implementation** is a real platform that meets the contracts. Its **binding** gives every clause a status:"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Status"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Means"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "planned"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Not yet shown"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "met"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Shown, with evidence"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "deviation"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Will not be met; the consequence is recorded"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "not-applicable"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Does not apply, with the reason"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Roles"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Documents name roles, never people."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Role"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Responsible for"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Data Lead"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "What data is held and released; shares sign-off with the Technical Lead"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Technical Lead"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "How the platform is built and run; shares sign-off with the Data Lead"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Steward"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "One domain's data, and who may see it"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Platform team"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Identity groups, shared infrastructure and the delivery pipeline"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Operator"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Whoever carries out a procedure"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "Domains and environments"
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "A **domain** is an area of data with one steward, such as `learners` or `workforce`. Each is a catalog."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "An **environment** is a separate world for a change to run in, such as production or a developer's branch. Catalogs are named `<domain>_<environment>`, for example `learners_prod`."
+msgstr ""
+
+#: docs/concepts/terminology.md
+msgid "You are ready for the [specifications]{1}."
+msgstr ""

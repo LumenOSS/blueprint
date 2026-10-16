@@ -1,0 +1,218 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "CAP-STATE Infrastructure state"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Remote, locked, versioned and encrypted state for every stack, readable only by the identities that own it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Layer L0 · domain: delivery · depends on: [CAP-MODULES]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Keep the record of what infrastructure exists safe, locked and recoverable, and readable only by the layer that owns it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Lost or overwritten state turns the next apply into a recreation. Reading another stack's state exposes its whole snapshot, so stacks find each other by deterministic name instead ([P2]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Backend: an object store with locking, versioning and identity-based access."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "One key per stack and environment; product state in a location product identities alone can reach."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "A bootstrap recipe that creates the store from nothing and proves it with a write, read, compare, delete probe."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Keep state apart from lake storage: object versioning protects state but can break table maintenance on a lake store. The two need different protections, so they live in different accounts or buckets."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "CAP-STATE.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "State is remote, one state per stack per environment, with a lock that blocks a concurrent apply."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Start two plans against one stack; the second waits or fails on the lock."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "CAP-STATE.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Every state version is recoverable after an overwrite or deletion."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Restore drill: overwrite a test stack's state, recover the prior version, and plan shows no changes."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "CAP-STATE.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "State is encrypted at rest with a key under the platform's control and is reached by identity, never by a shared access key."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Shared-key access to the store is disabled; the encryption key is in the platform's key store."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "CAP-STATE.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "A product's identity cannot read platform or bootstrap state."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Negative test: a read of platform state with a product identity is denied."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "CAP-STATE.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "The state store can be created from an empty account by the bootstrap layer, and its reachability is proven by write, read, compare and delete before first use."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "The bootstrap recipe runs against an empty account and its probe reports success."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "CAP-STATE.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Stacks find each other's resources by deterministic name, not by reading each other's state.{1}*Example:* The platform stack finds the state store by the name the naming module derives for it, instead of reading the bootstrap stack's state to learn it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "No stack declares a remote-state data source."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "CAP-STATE.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "A stack that moves between repositories keeps its state key, and its first plan in the new place shows no changes."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "The move's review includes a no-change plan."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "CAP-STATE.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "State lives apart from lake storage, because the protections each needs (object versioning, lifecycle rules) conflict."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "The state store is a separate account or bucket from every lake store."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "OpenTofu{1}azurerm backend{2}Azure Key Vault"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-state.md
+msgid "OpenTofu{1}S3 backend on Ceph RGW{2}OpenBao transit"
+msgstr ""

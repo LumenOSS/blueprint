@@ -1,0 +1,192 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: site/home.md
+msgid "Data platform blueprint"
+msgstr ""
+
+#: site/home.md
+msgid "A reference architecture for the governed data platform behind an education management information system. The architecture stays fixed; the implementation is yours to choose."
+msgstr ""
+
+#: site/home.md
+msgid "[Get started]{1} · [View on GitHub]{2}"
+msgstr ""
+
+#: site/home.md
+msgid "Start with the concepts"
+msgstr ""
+
+#: site/home.md
+msgid "What is an EMIS"
+msgstr ""
+
+#: site/home.md
+msgid "The system an education authority uses to know how many learners there are, where, and how they are doing, and the part this blueprint covers."
+msgstr ""
+
+#: site/home.md
+msgid "[Read the definition]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "The EMIS domain"
+msgstr ""
+
+#: site/home.md
+msgid "What a domain model is, why it is used here, and the main things an EMIS records, in one diagram."
+msgstr ""
+
+#: site/home.md
+msgid "[Meet the model]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Data in an EMIS"
+msgstr ""
+
+#: site/home.md
+msgid "Sensitive data, masking, access by role and attribute, sharing, and lineage: five ideas to keep in mind."
+msgstr ""
+
+#: site/home.md
+msgid "[Read the primer]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Terminology"
+msgstr ""
+
+#: site/home.md
+msgid "Sensitivity tiers, layers, clauses and roles: what you need to read the specifications."
+msgstr ""
+
+#: site/home.md
+msgid "[Learn the terms]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Specifications"
+msgstr ""
+
+#: site/home.md
+msgid "Principles"
+msgstr ""
+
+#: site/home.md
+msgid "The ideas every decision rests on, each with its reason, from CI as the only deployer to collecting data only for a declared purpose."
+msgstr ""
+
+#: site/home.md
+msgid "[Read the principles]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Architecture"
+msgstr ""
+
+#: site/home.md
+msgid "C4 diagrams from system context to components, each followed by why it is drawn that way."
+msgstr ""
+
+#: site/home.md
+msgid "[See the diagrams]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Capabilities"
+msgstr ""
+
+#: site/home.md
+msgid "Forty-one capabilities, each a contract of testable clauses that name no vendor."
+msgstr ""
+
+#: site/home.md
+msgid "[Browse the contracts]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Domain model"
+msgstr ""
+
+#: site/home.md
+msgid "Institutions, learners, staff and their relationships, modelled so that every indicator can be counted at a reference date."
+msgstr ""
+
+#: site/home.md
+msgid "[Explore the domain]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Semantic layer"
+msgstr ""
+
+#: site/home.md
+msgid "Every indicator defined once and served to every dashboard, agent and publication, with dbt in both reference implementations."
+msgstr ""
+
+#: site/home.md
+msgid "[How indicators are defined]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Standards"
+msgstr ""
+
+#: site/home.md
+msgid "The international standards relied on, each linked to its publisher with the edition and the date it was checked."
+msgstr ""
+
+#: site/home.md
+msgid "[See the register]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Guides and implementations"
+msgstr ""
+
+#: site/home.md
+msgid "Building an implementation"
+msgstr ""
+
+#: site/home.md
+msgid "The steps in dependency order, each with a clear point at which it is done."
+msgstr ""
+
+#: site/home.md
+msgid "[Follow the steps]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Implementations"
+msgstr ""
+
+#: site/home.md
+msgid "Open source on Kubernetes, or Databricks on Azure, and exactly where the two differ."
+msgstr ""
+
+#: site/home.md
+msgid "[Compare the stacks]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Example products"
+msgstr ""
+
+#: site/home.md
+msgid "Document review and an annual census, each running through every layer of the platform."
+msgstr ""
+
+#: site/home.md
+msgid "[See them work]{1}"
+msgstr ""
+
+#: site/home.md
+msgid "Open source under the Apache License 2.0."
+msgstr ""

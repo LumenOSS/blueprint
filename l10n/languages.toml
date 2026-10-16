@@ -1,0 +1,19 @@
+# The languages the documentation is translated into. English is the
+# source: every other language is translated from it through the PO files
+# in this directory (see docs/guides/translating.md). Codes are BCP 47
+# language tags; `direction` is "rtl" for right-to-left scripts.
+
+source = "en"
+
+[languages.en]
+  name = "English"
+
+[languages.fr]
+  name = "Français"
+
+[languages.es]
+  name = "Español"
+
+[languages.ar]
+  name = "العربية"
+  direction = "rtl"

@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "CAP-AUDIT Audit"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Every access and administrative action recorded, retained beyond the platform default, readable by auditors only."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Layer L1 · domain: governance · depends on: [CAP-IDENTITY]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Keep a durable record of who accessed or changed what."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Platform audit retention is usually shorter than legal retention, so audit is copied out. Query text can itself contain personal data."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Platform audit records, copied to a separate store readable by auditors."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "CAP-AUDIT.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Every data access and every administrative action is recorded with principal, object, action and time."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "A test read and a test grant both appear in audit."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "CAP-AUDIT.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Audit is copied to a separate store with retention set by policy, beyond the platform's own retention, and is readable only by auditors."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "The copy holds records older than the platform's retention; a non-auditor read is refused."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "CAP-AUDIT.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Query text is recorded only when a case needs it, because query text can contain personal data."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Verbose audit is off by default; turning it on is a reviewed change."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "CAP-AUDIT.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Access to identifiable or special-category records (T3, T4) records a purpose chosen from a declared list, as well as principal, object, action and time.{1}*Example:* An officer opens a learner's support plan and chooses the purpose 'case review'; the audit row records the purpose with the officer, the record and the time."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Audit rows for T3 and T4 reads carry a purpose."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "CAP-AUDIT.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Anomalous access to T3 and T4 data (unusual volume, time or scope outside the entitlement) raises an alert."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "A simulated out-of-scope read raises an alert."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "[ISO/IEC 27001 Information security management systems]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "ISO/IEC 27001:2022 with Amd 1:2024, and ISO/IEC 27002:2022"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "system.access.audit{1}Diagnostic settings to Log Analytics"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-audit.md
+msgid "Audit sources{1}Iceberg audit tables on object-locked storage"
+msgstr ""

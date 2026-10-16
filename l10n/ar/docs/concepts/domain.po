@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/concepts/domain.md
+msgid "The EMIS domain"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Before anyone can build an EMIS, everyone involved has to mean the same thing by the same words. This page explains what a domain model is, why this blueprint uses one, and the main things an EMIS records."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "What a domain model is"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "The idea comes from Eric Evans's book *Domain-Driven Design* (2003). His own summary, the [DDD Reference]{1} (2015, Creative Commons Attribution 4.0), defines the two key words:"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "**domain:** A sphere of knowledge, influence, or activity. The subject area to which the user applies a program is the domain of the software."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "**model:** A system of abstractions that describes selected aspects of a domain and can be used to solve problems related to that domain."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Here the domain is education administration, and the model is the set of things an EMIS records and the rules between them: a learner is enrolled at an institution, a teacher is posted to a post, a census counts enrolments on a reference date."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Martin Fowler describes the approach as one that \"centers the development on programming a domain model that has a rich understanding of the processes and rules of a domain\", and notes it is \"particularly suited to complex domains, where a lot of often-messy logic needs to be organized\" ([Domain Driven Design]{1}, 2020)."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Why this blueprint uses one"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "**The words are contested.** Planners, school staff, examination boards and statisticians all say \"student\", \"class\" or \"programme\", and often mean different things. A shared, written vocabulary removes the guesswork. Evans calls it the *ubiquitous language*: \"a language structured around the domain model and used by all team members\"."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "**Figures depend on definitions.** An enrolment rate is only comparable year on year if \"enrolled\" means the same thing each year."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "**The data outlives the software.** Records about a learner matter for decades; the systems that hold them will be replaced several times. The model is what survives."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "**Many teams build it.** This blueprint is implemented on different technology by different people. The model is what keeps their results compatible."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "One model for everything does not work for a system this size. Fowler again: \"total unification of the domain model for a large system will not be feasible or cost-effective\" ([Bounded Context]{1}, 2014). So the EMIS domain is split into **bounded contexts** (learning, workforce, statistics and others), each with its own vocabulary. The [context map]{2} lists them."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "The model at a glance"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Why it is drawn this way"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "**Dark boxes are things that exist on their own:** a person, an institution, a site, a post, a programme."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "**Middle boxes are relationships with dates:** a person *is* a learner only through an enrolment, a teacher only through a posting, a guardian only through a guardian relationship. Each starts and ends."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "**Light boxes are statistics:** counted from the relationships, as at a reference date, and published as indicators."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "The main concepts"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Each concept below is defined precisely in its context's vocabulary, linked at the end of each section."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Person"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Every human the system knows about is recorded once, as a person, with an identifier that never changes. Being a learner, a teacher or a guardian is a *role* someone holds, not a separate record, so a teacher who is also a parent is still one person. [People context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Institution and site"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "An institution is the organisation that provides education, such as a school or college. A site is a physical place. They are separate because one institution can use several sites, and one building can house several institutions. [Institutions context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Learner and enrolment"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "An enrolment says that a person is registered at an institution, in a programme and grade, for an academic period, from one date to another. Being a learner is having an enrolment. A transfer ends one enrolment and starts another; nothing is overwritten. [Learning context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Guardian"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "A guardian is a person, or sometimes a body such as an agency, with legal authority for a learner. The relationship has dates, and when the authority ends, so does the guardian's access to the learner's records. [Learning context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Staff, post and posting"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "A post is a position at an institution, such as a mathematics teacher post. A posting puts a person in a post for a period, possibly part time. Counting posts and postings separately shows vacancies as well as staff. [Workforce context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Programme, grade and class"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "A programme is a course of education, such as lower secondary; a grade is a year within it. A class is a group taught together, which may mix grades, so being in a class is recorded separately from being enrolled. [Curriculum context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Assessment"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Tests and examinations, who sat them, and their results. Once a result is released it is never edited; a correction is a new version. [Assessment context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Collection, return and snapshot"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "A collection, such as the annual census, asks every institution for a return about a fixed reference date. Returns are checked, attested and accepted; the accepted figures are locked as a snapshot, which is what gets published. [Statistics context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Indicator"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "An indicator is a defined calculation over the snapshot, such as the gross enrolment ratio. It is defined once and used everywhere: on dashboards, in publications and in international returns. [Statistics context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Reference data"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Shared lists that give codes their meaning: types of institution, exit reasons, administrative areas, academic periods. A code keeps its meaning for ever; a new meaning gets a new code. [Reference context]{1}."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Where to go deeper"
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "The [domain specification]{1}: the resources, the modelling rules and the default sensitivity of each."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "The [domain design]{1}: the bounded contexts, the rules each record must always keep, and the events they publish."
+msgstr ""
+
+#: docs/concepts/domain.md
+msgid "Next: [data in an EMIS]{1}."
+msgstr ""

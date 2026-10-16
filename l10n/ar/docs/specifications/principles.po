@@ -1,0 +1,304 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/principles.md
+msgid "Principles"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "The capability contracts in [`capabilities/`]{1} are these principles made testable. When a contract and a principle seem to disagree, the principle states the intent and the contract is the bug."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Each principle is followed by why the architecture holds it. The reasons come from running the architecture with real data; where a reason is a failure that happened, the [lessons]{1} record its general form."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P1. CI is the only deployer"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Every change to infrastructure or to a shared environment, including a grant, a deletion or a migration against a shared database, is a reviewed change whose plan the reviewer sees, applied by CI after merge. A workstation formats, validates, plans, tests and builds; it never applies. A deletion is two changes: adopt the object into code, then remove it."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** An apply from a workstation is a second writer. One writer gives one audit trail and real state locking. When CI lacks a right, the fix is to give CI's identity that right in one documented bootstrap step, never to apply by hand."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P2. Repositories are split by trust; state is split by blast radius"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "The platform has four layers, each its own repository: a small **bootstrap** repository holding the trust anchors, a **platform** repository holding shared infrastructure and the onboarding registry, a **modules** repository of versioned building blocks, and one **product** repository per product. Inside a repository, each stack has one state per environment."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** With workload identity federation the repository is the unit of trust: a federated credential names one repository, so in a monorepo anyone who can edit a workflow reaches every identity. Repository boundaries answer \"who may change what, with which identity\"; state boundaries answer blast radius and change frequency."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P3. Federation, not secrets"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "CI authenticates by exchanging the short-lived token its host issues for a short-lived platform token. No client secret exists in any repository or CI variable. Each federated credential trusts one repository and one protected environment."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** A workflow on an unreviewed branch matches no credential and cannot obtain a token, so editing a workflow file cannot escalate. Binding to an environment rather than a branch moves the restriction to a place a pull request cannot edit. Federation exists on every mainstream CI host, so the design survives a change of host."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P4. The root of trust is made once, by a person, and cannot widen itself"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "The identity that creates CI identities is created once by a person and recorded in the bootstrap repository with its rights and its creator's role. No identity applies the code that declares its own credentials. Bootstrap applies are dispatched by hand, from the main branch, by an allow-listed role, and apply the exact plan that was reviewed."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** An identity able to apply its own trust could add a credential trusting any repository, handing its access to anyone who can merge."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P5. Least privilege, enumerated"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Identities hold the narrowest rights on named scopes. A right to assign roles is conditioned to a listed set of roles; adding one is a reviewed edit. Grants go to groups, never to people. Production objects are owned by groups. Every exemption from a data policy is named with its reason."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** An unconditioned right to assign roles can assign itself owner. Each policy exemption is a path to raw data."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P6. Branch, never copy"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Data reaches a development or test context by copy-on-write branching, not by copying tables. Development, change testing, point-in-time inspection and sandboxes are branches of production with a time to live. Production is a protected branch."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** A branch gives every change a full, current copy of production in seconds at no storage cost until it diverges. A copied dataset drifts the day it is made, and every copy is one more place personal data lives."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P7. Isolation without a second environment"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "The architecture works with production as the only funded environment. Development is isolated inside it: database branches, development schemas inside production catalogs with no consumer grants, and a protected production branch. An environment is one template plus one values file, so adding a funded development environment later is one file and one run."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Many public bodies fund production only. The isolation that matters (no development write reaches production data, no consumer reads development output) can be enforced inside one environment."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P8. Every write is idempotent"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Delivery is at-least-once everywhere, so every consumer and every write is idempotent. A document's identity is the hash of its bytes. Work that is pending is recomputed from what exists rather than tracked in a cursor, so a retried or overlapping run sees the same work and produces the same result."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Retries, redeliveries and overlapping runs are normal operation. Idempotence makes them wasteful at worst, never wrong."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P9. Determinism"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "The same input yields byte-identical output. Randomness, where needed, is seeded explicitly per item from a hash of stable keys, never from time or global state. Unordered collections are sorted before order can affect output. Tests assert byte equality."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Results that can be appealed must be reproducible. Determinism is also what makes a backfill verifiable: re-running old input must reproduce old output, or the difference must be attributable to a versioned change."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P10. Low confidence goes to a person, never guessed"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "A machine verdict below its confidence threshold is routed to human review. Thresholds live in one place. Removing a weak automated reader is better than shipping its guesses."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** A low-confidence read presented as a read is worse than no read. The same rule at platform level is the quality gate: data that fails its checks is never used."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P11. Reporting goes through a governed transformation layer"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "No report or measure is computed in an application. Operational data is read by versioned, tested transformation models (bronze, silver, gold), and each measure is defined once in a semantic layer that every dashboard, natural-language query and agent reads."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Conformance happens once, so every consumer shares one identifier per entity and one definition per measure. Operational tables carry bookkeeping no outside reader should depend on."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P12. Provenance before any drop"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Every table carries a governed provenance tag: `real`, `simulated` or `derived`. Simulated data lives only in sandbox catalogs. Before anything is dropped, each object's provenance is proved one by one from first-hand evidence: its comment, the change that created it, its loader. A schema, a repository or a summary is not evidence. Recoverable drops are preferred to cascading ones."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Real personal data is removed only one way: by scheduled disposal at the end of its retention period, reviewed and audited ([CAP-RECORDS]{1})."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** A schema believed to be simulated can hold real records beside simulated ones, and nothing on a table says which is which unless a tag does. Disposal on schedule is the opposite case: keeping data about children past its purpose is itself a harm, so it has its own sanctioned path rather than an exception to this one."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P13. Roles, not names"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Documents, diagrams and configuration name roles, never people. Authority belongs to roles: the **Data Lead** and the **Technical Lead** share sign-off of cutover, rollback and decommission; either may halt; a decommission needs both."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Knowledge and authority held by named individuals leave with them. A role can be reassigned without editing the system."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P14. Access is role × scope × sensitivity"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Identity-provider groups decide reach (which catalogs and actions). An entitlement table derived from an authoritative feed decides row scope. A governed classification tag decides column visibility. Each of the three is changed by a different owner."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** No single change can widen access across all three."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P15. Publish, never export"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Aggregate statistics are published openly, with disclosure control and permanent identifiers, for anyone to read. Partners who need row-level data receive only de-identified tables from a separate publication catalog, over an open sharing protocol, each share approved and registered. Researchers who need finer data work inside the platform, per project and time-boxed. A person's own records reach that person or their guardian through a logged, purpose-bound disclosure. Nothing leaves as an ad-hoc file attachment."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Sharing does not carry access policies to the recipient, so protection must be in the published data itself. An emailed extract has no record, no revocation and no way to tell whether two analyses used the same data."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Grounded in** the [UN Fundamental Principles of Official Statistics]{1} and the [International Open Data Charter]{2}."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P16. Open formats, storage separate from compute, federate before copying"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Data at rest is in open formats. Compute scales to zero. A source that cannot move is queried in place before anything is copied; change data capture is used only where a copy is worth its cost; a custom extract is the last resort. A periodic exit test proves the data can be read without the current vendor."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Portability is a property that decays unless it is tested."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P17. Measure; do not reconstruct from memory"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Claims about a live system are measured, with the command and result recorded. A green status is not evidence; read the rows. Every error and its mitigation is appended to an append-only error log."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** The costliest mistakes are confident reconstructions. A policy that silently returns zero rows looks exactly like a working read that found nothing."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P18. Append-only records, expand-then-contract change"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Published artefacts, policy versions, decisions and events are append-only; rollback is re-pointing. Schemas evolve by expand, then contract; one migration is one phase. Interfaces evolve additively; a changed shape is a new route."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Anything rewritten in place loses the evidence of what was true before, and a contract change that is not additive breaks a running reader."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P19. Every task is a pinned, host-independent recipe"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Every repository pins its toolchain and has a task runner. Every task, locally and in CI, is one recipe invoked the same way, and CI definitions only call recipes."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** The same commit produces the same tools and the same result on any machine, and changing CI host rewrites only a thin wrapper."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P20. Collect for a declared purpose"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Every personal-data element has a declared purpose and legal basis, an owner, and at least one process or measure that uses it. An element that nothing uses is proposed for removal at its periodic review. Special-category data is collected only where its purpose requires it."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** An education system can ask for almost anything about a child and their family, and every element collected is one more to protect, retain and eventually dispose of. Declaring the purpose up front is what makes minimisation, retention and access decisions answerable."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Grounded in** the purpose-legitimacy and data-minimisation principles of [ISO/IEC 29100]{1} and the people-first data practices of the [Principles for Digital Development]{2}."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P21. The education authority runs its own platform"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "Each platform instance is operated by the education authority whose data it holds, on infrastructure the authority controls or contracts directly."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Responsibility for learners' data cannot be delegated away, and an authority that does not control where its data lives cannot answer for it."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Grounded in** the [Principles for Digital Development]{1}, and aiming to meet the [Digital Public Goods Standard]{2}."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "P22. Every language is a first language"
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "The platform and its documentation work in more than one language. Text is written once, in a source language, and translated through translation files, never by copying pages. Every coded value has a label in each official language. Right-to-left scripts are laid out right to left. A translation that has fallen behind its source is not shown; the source is shown instead, and says so."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Why.** Many education authorities work in more than one official language, and the people an EMIS serves (guardians, teachers, the public) should not need a second language to read their own data or the rules that govern it. Translations kept as copies drift silently; translations kept as files of strings show exactly what changed."
+msgstr ""
+
+#: docs/specifications/principles.md
+msgid "**Grounded in** [BCP 47]{1} language tags, [Unicode CLDR]{2} locale data and the [GNU gettext PO]{3} translation format."
+msgstr ""

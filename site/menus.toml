@@ -1,0 +1,140 @@
+# The website menus, written once. The build gives each language its own
+# copy, taking each label from that language's interface strings
+# (site/i18n/<lang>.toml, key "menu-<identifier>") and falling back to
+# the English name here. The header holds the reading path; the footer
+# holds the project's own pages.
+
+[[main]]
+  identifier = "getting-started"
+  name = "Getting started"
+  pageRef = "/getting-started"
+  weight = 10
+[[main]]
+  identifier = "concepts"
+  name = "Concepts"
+  pageRef = "/concepts"
+  weight = 20
+[[main]]
+  identifier = "what-is-an-emis"
+  name = "What is an EMIS"
+  parent = "concepts"
+  pageRef = "/concepts/emis"
+  weight = 21
+[[main]]
+  identifier = "the-emis-domain"
+  name = "The EMIS domain"
+  parent = "concepts"
+  pageRef = "/concepts/domain"
+  weight = 22
+[[main]]
+  identifier = "data-in-an-emis"
+  name = "Data in an EMIS"
+  parent = "concepts"
+  pageRef = "/concepts/data"
+  weight = 23
+[[main]]
+  identifier = "terminology"
+  name = "Terminology"
+  parent = "concepts"
+  pageRef = "/concepts/terminology"
+  weight = 24
+[[main]]
+  identifier = "specifications"
+  name = "Specifications"
+  pageRef = "/specifications"
+  weight = 30
+[[main]]
+  identifier = "principles"
+  name = "Principles"
+  parent = "specifications"
+  pageRef = "/specifications/principles"
+  weight = 31
+[[main]]
+  identifier = "capabilities"
+  name = "Capabilities"
+  parent = "specifications"
+  pageRef = "/specifications/capabilities"
+  weight = 32
+[[main]]
+  identifier = "domain"
+  name = "Domain"
+  parent = "specifications"
+  pageRef = "/specifications/domain"
+  weight = 33
+[[main]]
+  identifier = "architecture"
+  name = "Architecture"
+  parent = "specifications"
+  pageRef = "/specifications/architecture"
+  weight = 34
+[[main]]
+  identifier = "standards"
+  name = "Standards"
+  parent = "specifications"
+  pageRef = "/specifications/standards"
+  weight = 35
+[[main]]
+  identifier = "implementations"
+  name = "Implementations"
+  parent = "specifications"
+  pageRef = "/specifications/implementations"
+  weight = 36
+[[main]]
+  identifier = "guides"
+  name = "Guides"
+  pageRef = "/guides"
+  weight = 40
+[[main]]
+  identifier = "building-an-implementation"
+  name = "Building an implementation"
+  parent = "guides"
+  pageRef = "/guides/building"
+  weight = 41
+[[main]]
+  identifier = "example-products"
+  name = "Example products"
+  parent = "guides"
+  pageRef = "/guides/products"
+  weight = 42
+[[main]]
+  identifier = "backfill"
+  name = "Backfill"
+  parent = "guides"
+  pageRef = "/guides/backfill"
+  weight = 43
+[[main]]
+  identifier = "lessons"
+  name = "Lessons"
+  parent = "guides"
+  pageRef = "/guides/lessons"
+  weight = 44
+[[main]]
+  identifier = "proposals"
+  name = "Proposals"
+  pageRef = "/lips"
+  weight = 60
+[[main]]
+  identifier = "decisions"
+  name = "Decisions"
+  pageRef = "/adr"
+  weight = 70
+[[main]]
+  identifier = "github"
+  name = "GitHub"
+  url = "https://github.com/LumenOSS/data-platform-blueprint"
+  weight = 80
+[[footer]]
+  identifier = "contributing"
+  name = "Contributing"
+  pageRef = "/contributing"
+  weight = 10
+[[footer]]
+  identifier = "proposals"
+  name = "Proposals"
+  pageRef = "/lips"
+  weight = 20
+[[footer]]
+  identifier = "licence"
+  name = "Licence"
+  url = "https://github.com/LumenOSS/data-platform-blueprint/blob/main/LICENSE"
+  weight = 30

@@ -17,6 +17,8 @@ path a change takes, how to set up, and what a reviewer will look for.
 | A change to a schema the bindings or the catalogue use | A LIP of type Standards (Interface) | A new required field in `binding.schema.json` |
 | A change to how the project works | A LIP of type Process | Changing the length of Last Call |
 | A pattern, a guide or research that changes no requirement | A LIP of type Informational, or an ordinary change to `docs/guides/` | A pattern for reconciling two systems |
+| A translation, or a correction to one | An ordinary reviewed change; see [translating](docs/guides/translating.md) | French for a concept page |
+| A new language for the documentation | An ordinary reviewed change; see [translating](docs/guides/translating.md#add-a-language) | Adding Portuguese |
 | Evidence that an implementation meets a clause | A change to that implementation's repository, moving the clause to `met` | Linking the test that proves CAP-ACCESS.7 |
 
 If you are unsure, open a discussion and ask; it costs nothing to start
@@ -75,6 +77,10 @@ With [direnv](https://direnv.net/), `direnv allow` enters the shell for you.
 - **Cite standards where they are published.** Link the publisher's own
   page for the edition you rely on, and add it to the standards register,
   rather than citing a summary of it.
+- **Write English that translates well.** Short sentences, plain words,
+  no text in images. After editing a page that has translations, run
+  `just l10n-update` in the same change; see
+  [translating](docs/guides/translating.md).
 - **Name roles, not people.** Write "the Data Lead", "the steward of the
   learners domain", never a person's name, and no real learners, staff or
   institutions in examples.

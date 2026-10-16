@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/domain/contexts/people/CONTEXT.md
+msgid "People"
+msgstr ""
+
+#: docs/specifications/domain/contexts/people/CONTEXT.md
+msgid "Who a person is, recorded once, whatever roles they hold."
+msgstr ""
+
+#: docs/specifications/domain/contexts/people/CONTEXT.md
+msgid "Language"
+msgstr ""
+
+#: docs/specifications/domain/contexts/people/CONTEXT.md
+msgid "**Person**: A human being recorded once in the person registry, whatever roles they hold. _Avoid_: Individual, user, record"
+msgstr ""
+
+#: docs/specifications/domain/contexts/people/CONTEXT.md
+msgid "**Organisation**: A body that is not a person, such as an agency, that can hold a role such as guardian. _Avoid_: Entity, party"
+msgstr ""
+
+#: docs/specifications/domain/contexts/people/CONTEXT.md
+msgid "**External identifier**: An identifier issued by another authority and held as an attribute of a person or institution. _Avoid_: National ID as a key, reference number"
+msgstr ""

@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: CONTEXT-MAP.md
+msgid "Context map"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "The EMIS domain is divided into bounded contexts. Each has its own language, one owning steward and its own catalogs, and talks to the others only through published interfaces. How the contexts are designed (subdomains, aggregates, invariants and events) is in [domain design]{1}. Terms about the blueprint and the platform itself are in [glossary]{2}."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "Contexts"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[Reference]{1}: the shared kernel of time, codes, geography and registries"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[People]{1}: each person recorded once, whatever roles they hold"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[Institutions]{1}: institutions, the sites they occupy and the state of those sites"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[Learning]{1}: enrolment, class membership, attendance, progression and guardianship"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[Workforce]{1}: posts and the staff posted to them"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[Curriculum]{1}: programmes, grades, subjects and classes"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[Assessment]{1}: tests and examinations, candidates and results"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[Statistics]{1}: collections, returns, snapshots, indicators and publication"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[Records]{1}: retention, disposal, correction and individual disclosure"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "[Operations]{1}: budgets, assets, entitlement schemes and safety"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "Relationships"
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**Reference → every context**: shared kernel. Code lists, academic periods, reference dates and administrative areas are used unchanged by all contexts; a change to them is reviewed by every steward."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**External registers → People**: anti-corruption layer. Civil and other registers are read through an adapter that translates their identifiers and outcomes into People's language; their model never leaks in."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**People → Learning, Workforce, Records**: open host service with a published language. People publishes a registry interface keyed by the person identifier; the other contexts hold only that identifier, never a copy of the person."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**Institutions → Learning, Workforce, Statistics, Operations**: open host service. The institution registry is read by identifier; occupancy tells other contexts which sites an institution uses."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**Curriculum → Learning, Assessment**: customer and supplier. Learning and Assessment need programmes, grades and subjects; Curriculum agrees changes with them before releasing them."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**Learning ↔ Workforce**: partnership through assignments. A class is taught by a teacher; each context owns its own side (class membership, assignment) and they change together."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**Learning, Workforce, Institutions, Assessment → Statistics**: published language. Statistics reads only the counts each context publishes to gold, as at a reference date, and the semantic layer's definitions over them; it never reads their operational records."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**Statistics → international bodies**: published language, in the formats those bodies define (for example SDMX and the UIS questionnaires)."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**Records → every context**: conformist policies. Retention, disposal and disclosure rules are set once by Records and applied unchanged by every context to the records it owns."
+msgstr ""
+
+#: CONTEXT-MAP.md
+msgid "**Other government systems ↔ Workforce, Operations**: anti-corruption layer. Exchanges run through declared feeds that translate both ways."
+msgstr ""

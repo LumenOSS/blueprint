@@ -1,0 +1,212 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CAP-OPERATIONALDB Operational database with branching"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Each product's transactional Postgres store, with copy-on-write branches of production."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Layer L1 · domain: data · depends on: [CAP-IDENTITY]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Give each product a transactional Postgres store that can be branched for development and testing."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Branching gives every change a full copy of production at no copy cost ([P6]{1}, [P7]{2}). Two gatekeepers, catalog policies and database policies, must agree, so each is paired with the other."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Postgres wire protocol and SQL."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Branches with a time to live; a protected production branch."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Per-identity roles and row-level security."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "A migration ledger and an application-side schema gate."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "A database role that row-level security does not admit reads zero rows, silently. When the catalog reads an operational database, test that its identity is admitted before relying on it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CAP-OPERATIONALDB.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "The operational database speaks the Postgres protocol and SQL dialect."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "The product's migrations and tests run unchanged against it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CAP-OPERATIONALDB.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "A branch of production, or of a point in time, is created without copying data first, and carries a time to live.{1}*Example:* A developer branches production as it was at 09:00 to test a migration; the branch costs nothing until it diverges and is deleted automatically after seven days."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Create a branch of the production database and time it; it expires on schedule."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CAP-OPERATIONALDB.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "The production branch is protected from deletion and from writes by development identities."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Negative tests: delete and write as a development identity both fail."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CAP-OPERATIONALDB.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Connections authenticate per identity; an application's access is governed by database roles and row-level security, and each catalog policy names its database counterpart or states there is none."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "No shared password role is in use; the policy register pairs each catalog policy with its database policy."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CAP-OPERATIONALDB.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Migrations are idempotent twice over: a ledger records what ran, and every statement can be run again safely. Schemas change by expand then contract, one phase per migration, and the application refuses to write to a database behind its code.{1}*Example:* A migration that adds a column is run twice on a branch in CI; the second run changes nothing, and the application refuses to write to a database still on the previous schema."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CI applies every migration twice to a branch; the application's schema gate is tested against an older database."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CAP-OPERATIONALDB.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Committed records survive loss of a node (recovery point zero), and the database can be restored to a point in time."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Restore drill to a point in time, comparing per-table content hashes."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CAP-OPERATIONALDB.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Analytics read operational data through the catalog or a governed extract, never through a direct connection."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "No analytics identity holds a database login."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "Lakebase Postgres"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-operationaldb.md
+msgid "CloudNativePG{1}CSI volume snapshots on Ceph RBD{2}pgroll"
+msgstr ""

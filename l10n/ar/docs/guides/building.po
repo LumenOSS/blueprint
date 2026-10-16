@@ -1,0 +1,592 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/guides/building.md
+msgid "Building an implementation"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "How to turn the blueprint into a running platform on a stack of your choice. The steps are the same for a person and for an agent. Each step ends on a completion criterion; move on only when it holds."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "1. Choose the stack and write the binding"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Copy the reference binding closest to your stack from [`implementations/`]{1}, or start from [`schema/binding.schema.json`]{2}. For each capability, name the components and their SPDX licences. For each clause, set a status:"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "`planned`: you intend to meet it; say `how` if it is not obvious."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "`deviation`: you will not meet it; write the `consequence` and the control that stands in for it."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "`not-applicable`: its precondition does not hold; write why."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "**Done when** `just binding <your-binding.yaml>` reports no problems and every deviation names a compensating control."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "2. Lay out the repositories"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Create one repository per layer, following [CAP-REPOSITORIES]{1}: bootstrap, platform, modules, and one per product. Each has a pinned toolchain and a task runner, and its CI definitions only call tasks. If the repositories will live on more than one CI host, put each host's CI definition beside the others now."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "**Done when** each repository's check task passes on a clean clone, on a workstation and in CI."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "3. Build in dependency order"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Build capabilities in the order below, which is generated from the dependencies in the catalogue. A capability can be built once everything it depends on is built. Work within the bootstrap layer comes first because every later apply needs its state store and identities."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "For each capability:"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Build it through the CI pipeline, never by hand ([P1]{1})."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Run each clause's verification as written in its contract."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Record the evidence (a test, a query and its output, a CI run) in the binding and change the clause's status to `met`."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "**Done when** every `MUST` clause of the capability is `met`, or is a recorded deviation."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Step"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Capability"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Layer"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Depends on"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "1"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-REPOSITORIES]{1} Repositories by trust"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "L0"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "—"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "2"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-CIIDENTITY]{1} CI workload identity"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "3"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-MODULES]{1} Versioned modules"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "L2"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "4"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-STATE]{1} Infrastructure state"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-MODULES"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "5"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-DELIVERY]{1} Change delivery"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "L1"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-CIIDENTITY, CAP-STATE"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "6"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-SECRETS]{1} Secrets and keys"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "7"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-NETWORK]{1} Network isolation"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "8"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-GUARDRAILS]{1} Guardrails and fitness functions"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-DELIVERY"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "9"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-STORAGE]{1} Object storage"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "10"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-TABLES]{1} Open table format"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-STORAGE"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "11"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-OBSERVABILITY]{1} Operational telemetry"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "12"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-IDENTITY]{1} Identity and groups"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "13"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-CATALOG]{1} Catalog and governance plane"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-TABLES, CAP-IDENTITY"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "14"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-ONBOARDING]{1} Tenant onboarding registry"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-DELIVERY, CAP-CATALOG, CAP-CIIDENTITY"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "15"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-COMPUTE]{1} Compute"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-CATALOG"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "16"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-OPERATIONALDB]{1} Operational database with branching"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-IDENTITY"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "17"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-INGESTION]{1} Ingestion"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-ONBOARDING, CAP-CATALOG"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "18"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-INTEROPERABILITY]{1} Exchange with other systems"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "19"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-LINEAGE]{1} Lineage"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "20"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-MASTERDATA]{1} Master data and identifiers"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-CATALOG, CAP-OPERATIONALDB"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "21"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-REFERENCE]{1} Reference data and data dictionary"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "22"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-CLASSIFICATION]{1} Classification and provenance"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "23"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-ACCESS]{1} Access model"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-IDENTITY, CAP-CATALOG, CAP-CLASSIFICATION"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "24"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-AUDIT]{1} Audit"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "25"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-RECORDS]{1} Records lifecycle and data-subject rights"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-CLASSIFICATION, CAP-MASTERDATA, CAP-AUDIT"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "26"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-ENVIRONMENTS]{1} Environments by branching"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-OPERATIONALDB, CAP-CATALOG"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "27"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-MIGRATION]{1} Migration and decommission"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-OPERATIONALDB, CAP-CLASSIFICATION"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "28"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-ORCHESTRATION]{1} Orchestration"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "L3"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-COMPUTE, CAP-DELIVERY"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "29"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-TRANSFORMATION]{1} Transformation layer"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-COMPUTE, CAP-CATALOG"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "30"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-SEMANTICS]{1} Semantic layer"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-TRANSFORMATION"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "31"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-SHARING]{1} Publication and sharing"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-CATALOG, CAP-CLASSIFICATION, CAP-TRANSFORMATION"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "32"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-PUBLICATION]{1} Open statistical publication"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-SEMANTICS, CAP-CLASSIFICATION, CAP-REFERENCE"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "33"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-REPORTING]{1} Reporting"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-SEMANTICS"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "34"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-APPS]{1} Application hosting"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-NETWORK, CAP-DELIVERY"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "35"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-QUALITY]{1} Data quality"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "36"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-BACKFILL]{1} Backfill and reprocessing"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-ORCHESTRATION, CAP-ENVIRONMENTS, CAP-QUALITY"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "37"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-PIPELINE]{1} Retryable pipeline"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-ORCHESTRATION, CAP-STORAGE"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "38"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-COLLECTION]{1} Periodic data collection"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-MASTERDATA, CAP-QUALITY, CAP-REFERENCE"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "39"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-REVIEW]{1} Human review"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-OPERATIONALDB, CAP-AUDIT"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "40"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-MODELS]{1} Governed analytical models"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-TRANSFORMATION, CAP-REVIEW"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "41"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "[CAP-RELEASE]{1} Reconciliation and release"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "CAP-REVIEW"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "4. Run the example products"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Deploy the [example products]{1} and run their conformance steps. Document review exercises the pipeline, review and release capabilities; the annual census exercises master data, collection, indicators and publication. Between them they reach most of the platform."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "**Done when** the conformance steps of both products pass and their evidence is in the binding."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "5. Keep it conforming"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Scheduled fitness functions keep checking what was proved once ([CAP-GUARDRAILS.2]{1})."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "When the blueprint's version changes, read its changelog, update the binding's `blueprint.version`, and set the status of every new or changed clause."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Re-check component licences at each upgrade."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "**Done when** the binding validates against the current catalogue and no fitness function is failing."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "Changing the blueprint itself"
+msgstr ""
+
+#: docs/guides/building.md
+msgid "An implementation that finds a clause wrong, untestable or missing proposes a change to the blueprint through an [ADR]{1}. It never edits the contract to fit itself."
+msgstr ""

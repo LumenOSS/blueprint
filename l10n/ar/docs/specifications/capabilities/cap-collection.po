@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION Periodic data collection"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Returns collected from institutions on a cycle, validated at entry, attested, gated on completeness and frozen at a reference date."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Layer L3 · domain: product · depends on: [CAP-MASTERDATA]{1}, [CAP-QUALITY]{2}, [CAP-REFERENCE]{3}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Collect periodic returns, such as an annual census, from every institution, and turn them into official figures that can be trusted and revised openly."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Most system-level indicators are stocks at a reference date. They are only comparable across institutions and years if every institution reports against the same date, the same instrument and the same rules, and if the figures are frozen before they are used ([P18]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Versioned instruments; returns with states and attestation."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "A completeness gate per area."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Locked snapshots at the reference date."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Connectivity varies widely between institutions; plan for capture that works offline and synchronises later. The [census product]{1} is the worked example."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Each collection is a versioned instrument declaring its items, validation rules, reference date, collection window and expected respondents drawn from the registry; a committed version is immutable.{1}*Example:* The 2026 census fixes the reference date at 1 October, opens for the month of October, and expects a return from every institution active in the registry on 1 October."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Instruments are versioned files; a change after commit creates a new version."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Validation runs at entry and again on submission; blocking errors prevent submission, warnings need a reason, and results go back to the respondent in machine-readable form with their severity.{1}*Example:* An enrolment more than half as large again as the institution's recorded capacity is a warning that needs a reason; a negative count blocks submission."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "A fixture with a blocking error cannot be submitted; one with a warning requires a reason."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "A return moves through declared states (not started, in progress, submitted, attested by the head of the institution, queried, accepted, locked), and each transition is an event recording the role that made it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "The event log of a fixture return shows every transition with its role."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Figures for an area are released only when its expected respondents balance against accepted returns; otherwise the area reads BLOCKED.{1}*Example:* District A has 98 of its 100 returns accepted, so it reads BLOCKED and its figures wait; District B is complete and releases."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "An area with a missing return reads BLOCKED."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Official figures are computed from a locked snapshot as at the reference date and carry its version; a revision is a new version with a reason, and both remain readable."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "A revised figure shows both versions and the reason."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Imputed values are flagged per cell and never mixed silently with reported ones.{1}*Example:* For an institution that did not respond, last year's enrolment is carried forward, and every carried-forward cell is flagged as imputed in the published table."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Every imputed cell carries a flag in silver and gold."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Forms are prefilled from the registry and the previous period, so respondents confirm rather than retype."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "A second-period fixture opens prefilled."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Capture works offline and synchronises later; a re-sent return converges on one record."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Submitting the same return twice yields one record."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.9"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Completeness and timeliness per submitting unit are themselves reported measures."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "A gold model reports them per unit and period."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "CAP-COLLECTION.10"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Each stage of a collection names the GSBPM v5.2 sub-process it performs, so the statistical production process can be described in a shared vocabulary."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Collection stages are tagged with GSBPM sub-process codes."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "[Education Data Quality Assessment Framework (Ed-DQAF)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "2017 manual, instruments and matrix"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "[UN Fundamental Principles of Official Statistics]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Adopted 1994; endorsed by UN General Assembly resolution 68/261 (2014)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "[UN National Quality Assurance Frameworks Manual for Official Statistics]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "2019 (ST/ESA/STAT/SER.M/100)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "[Generic Statistical Business Process Model]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "GSBPM v5.2 (May 2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "ODK Central on Azure Container Apps{1}The census product's return workflow on Lakebase"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-collection.md
+msgid "ODK Central{1}The census product's return workflow on PostgreSQL"
+msgstr ""

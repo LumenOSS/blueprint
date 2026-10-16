@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "CAP-OBSERVABILITY Operational telemetry"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Per-item metrics, freshness and cost, reaching gold so cost can be told apart from work."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Layer L1 · domain: data"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Measure work per item, freshness and cost, so a rise in spend can be told apart from a rise in work."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "A run that crashes mid-item leaves no record unless the record is written first. Process status lies about hung work."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Per-item metrics with a default status of crashed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Heartbeats; cost per task in gold."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Cap on wall time but compare on core time, because wall time moves with topology."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "CAP-OBSERVABILITY.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Work records metrics per item, starting with a status of crashed that is overwritten on success, so a crashed item is never silently missing."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Kill a run mid-item; the item's metric reads crashed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "CAP-OBSERVABILITY.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Cost is attributable to the task that caused it, and reaches gold beside throughput."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "A gold model reports cost per task per period with item counts."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "CAP-OBSERVABILITY.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Health is judged from heartbeats and fresh output, not from process status."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "A hung process with a live status is detected by its stale heartbeat."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "System tables{1}Azure Monitor / Log Analytics"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-observability.md
+msgid "OpenTelemetry Collector{1}Prometheus{2}Grafana + Loki"
+msgstr ""

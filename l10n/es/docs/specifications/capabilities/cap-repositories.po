@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "CAP-REPOSITORIES Repositories by trust"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Each layer is its own repository and the unit of trust for its CI identities."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Layer L0 · domain: delivery"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Separate the code that defines who may change the platform from the code that changes it, so each repository can be trusted for exactly what it holds."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "With workload identity federation a credential trusts a repository, so the repository is the unit of trust ([P2]{1}). A monorepo would let anyone who can edit a pipeline reach every identity. Pinned recipes keep the result the same on any machine and any CI host ([P19]{2})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Bootstrap repository: state store and CI identities, applied by dispatch."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Platform repository: shared stacks and the tenant registry, applied on merge."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Modules repository: tagged releases consumed by the others."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Product repositories: code, jobs and their deployment unit, one per product."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Two remotes are normal: a repository can be mirrored on a second host and carry that host's CI definition beside the first. Only the wrapper differs; every step is a recipe."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "CAP-REPOSITORIES.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Bootstrap, platform, modules and each product are separate repositories."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "List the repositories; each layer and each product has exactly one."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "CAP-REPOSITORIES.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Each federated credential trusts exactly one repository, so a change in one repository cannot obtain another's identity."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Export every federated credential subject; each names one repository and one protected environment."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "CAP-REPOSITORIES.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Every task runs as a recipe in a pinned toolchain, invoked the same way on a workstation and in CI; CI definitions only call recipes."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Inspect the CI definitions: every step is a toolchain bootstrap or a recipe invocation."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "CAP-REPOSITORIES.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Published history is never rewritten; a correction is a new change on top."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "The protected branch refuses force-pushes."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "CAP-REPOSITORIES.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "A repository can be hosted on more than one CI host without code changes beyond a thin CI wrapper."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "The repository carries the CI definition of each host it targets, and each calls the same recipes."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Git with two remotes{1}Azure Pipelines{2}Nix flake + just"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-repositories.md
+msgid "Git with two remotes{1}Forgejo Actions{2}Nix flake + just"
+msgstr ""

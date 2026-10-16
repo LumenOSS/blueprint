@@ -1,0 +1,240 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "CAP-CLASSIFICATION Classification and provenance"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Every table and column is classified by sensitivity and tagged with provenance from the moment it lands."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Layer L1 · domain: governance · depends on: [CAP-CATALOG]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Label every table by sensitivity and provenance from the moment it lands."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Tags added at gold come too late to protect bronze. Provenance tags make drops provable ([P12]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Governed `classification` (T0–T4) and `provenance` (real, simulated, derived) tags."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "A default policy for unclassified data; a separate catalog for T4."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "CAP-CLASSIFICATION.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Every table carries a classification (T0 public aggregate, T1 internal, T2 de-identified, T3 identifiable, T4 special category) and a provenance (real, simulated, derived)."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "The daily fitness function finds no untagged table."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "CAP-CLASSIFICATION.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Data not yet classified is blocked by default until classification has run.{1}*Example:* A table loaded from a partner arrives unclassified; analysts cannot read it until classification has run and a steward has confirmed it as T3."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "A new unclassified table is unreadable by analysts."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "CAP-CLASSIFICATION.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "T4 data lives in its own catalog and storage, and each grant on it is approved by its steward."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "T4 tables exist only in the T4 catalog; its grants trace to approvals."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "CAP-CLASSIFICATION.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Tags are applied where data enters (landing and bronze), not added at gold."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Bronze tables carry the tags."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "CAP-CLASSIFICATION.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Simulated data lives only in sandbox catalogs, and derived data is built only from tagged tables."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "No table tagged simulated is outside a sandbox catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "CAP-CLASSIFICATION.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Attributes follow a default classification by kind: data that identifies or locates a person is at least T3; special-category data under the applicable data-protection law, and child-protection and wellbeing records, are T4. Exceptions are recorded with a reason.{1}*Example:* A column of birth dates is T3 by default and a column of health conditions T4; classifying the birth dates lower requires a recorded reason."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "A check compares column classifications with the default table and lists exceptions."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "CAP-CLASSIFICATION.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Every personal-data element declares its purpose and legal basis in the catalog; an element with no consuming process or measure at its periodic review is proposed for removal.{1}*Example:* The element 'guardian occupation' has had no consuming report or process for a year, so its review proposes removing it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "A report lists personal-data elements without a purpose or without a consumer."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "[UN CRC General Comment No. 25 on children's rights in relation to the digital environment]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "2021"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "[Guidelines on Children's Data Protection in an Education Setting]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Adopted by the Committee of Convention 108, November 2020"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "[ISO/IEC 29100 Privacy framework]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "ISO/IEC 29100:2024 (second edition)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "[NIST SP 800-162 Guide to Attribute Based Access Control (ABAC)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "January 2014, with updates as of August 2019"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Governed tags{1}Data classification"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-classification.md
+msgid "Lakekeeper table properties + OPA"
+msgstr ""

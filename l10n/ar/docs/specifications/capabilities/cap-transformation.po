@@ -1,0 +1,252 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CAP-TRANSFORMATION Transformation layer"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Versioned, tested models from bronze to silver to gold; the only place measures are computed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Layer L3 · domain: data · depends on: [CAP-COMPUTE]{1}, [CAP-CATALOG]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Compute every reported number in one versioned, tested place."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Conformance once means every consumer shares one identifier and one definition ([P11]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Versioned models in bronze, silver and gold."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Tests run in CI."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Development schemas for development runs."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CAP-TRANSFORMATION.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Models are versioned SQL (or equivalent) in bronze, silver and gold tiers, with tests that run in CI."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CI builds and tests the models on every change."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CAP-TRANSFORMATION.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Conformance happens once, in silver: each entity has one identifier shared by every consumer."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Gold models join on silver identifiers only."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CAP-TRANSFORMATION.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "No measure or report value is computed in an application; applications select and format gold."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "A test forbids the application's reporting code from opening a database connection to operational tables."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CAP-TRANSFORMATION.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Development runs write to development schemas inside the production catalog, which no consumer is granted."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Development schemas carry no consumer grants."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CAP-TRANSFORMATION.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Gold stores counts and sums, not ratios, so measures re-aggregate correctly.{1}*Example:* Gold stores 'enrolled 412' and 'population 455', not '90.5 per cent', so a district figure is the sum of counts divided once, not an average of school percentages."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Review gold columns; ratios are computed in the semantic layer."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CAP-TRANSFORMATION.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Silver keeps effective-dated history for every relationship that changes over time (enrolment, posting, guardianship, programme), with valid-from, valid-to and recorded-at, and gold is computed as at a declared reference date.{1}*Example:* An enrolment valid from 2025-09-01 to 2026-03-15 is counted by a census with reference date 2026-02-01 and not by one dated 2026-10-01."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Silver relationship tables carry the three time columns; each gold model names its reference-date rule."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CAP-TRANSFORMATION.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "A document about one record, such as a certificate, transcript or letter, may be produced by an application from operational data; any aggregate it prints (a rank, an average) comes from gold or the semantic layer.{1}*Example:* A transcript lists one learner's results straight from operational data, but the class average printed on it comes from the semantic layer."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Document templates read aggregates only through the semantic layer or gold."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CAP-TRANSFORMATION.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Credentials issued about a single record, such as certificates and transcripts, are W3C Verifiable Credentials 2.0, using Open Badges 3.0 or CLR 2.0 where they fit."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "An issued credential fixture verifies with a standard verifier."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "[1EdTech Comprehensive Learner Record 2.0 and Open Badges 3.0]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "CLR 2.0 (doc 1.1, October 2025); Open Badges 3.0 (doc 1.4.5, June 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "[European Learning Model (European Digital Credentials for Learning)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "ELM 3.3 (2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "[Verifiable Credentials Data Model]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "VC Data Model 2.0, W3C Recommendation (May 2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "dbt (v1, Python) with dbt-databricks{1}dbt task in Lakeflow Jobs"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-transformation.md
+msgid "dbt (v1, Python){1}dbt-trino adapter"
+msgstr ""

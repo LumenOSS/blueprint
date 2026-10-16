@@ -1,0 +1,288 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS Semantic layer"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Every measure defined once, beside the models that produce its counts, and served to every consumer from that one definition."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Layer L1 · domain: data · depends on: [CAP-TRANSFORMATION]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Define each measure once so it means the same on every dashboard and in every answer."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "A pass rate computed in two places will eventually differ ([P11]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Measure and dimension definitions per domain, in version control."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "See [the semantic layer]{1} for how one definition is served to every consumer, and the portable-subset rules."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Each measure and dimension is defined once, in version control, per domain.{1}*Example:* 'Gross enrolment ratio' is defined once; the dashboard, the published table and the international return all use that one definition."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "No measure name has two definitions."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Dashboards, natural-language queries and agents read measures through the semantic layer."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Dashboard and agent queries reference semantic-layer objects, not raw gold columns."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Each indicator carries metadata saying what it means and how to read it, how it is computed (numerator and denominator as separate measures, unit, reference-date rule), how it may be broken down, where its counts come from and how often, what coverage it needs before publication, and who owns which version of it.{1}*Example:* The metadata of the gross enrolment ratio names its numerator (enrolled learners) and denominator (official-age population), its unit, the census reference date, the breakdowns allowed and its owner."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "A check finds no indicator with a missing metadata field."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "An indicator with an international definition follows the UIS Official List of SDG 4 Indicators and the UIS education glossary, records the edition it follows, and documents any deviation in its metadata."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Indicators that map to international definitions name them; deviations are listed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "A denominator from outside the platform, such as a population estimate by age, is versioned reference data that names its source and vintage.{1}*Example:* The population estimate used as the denominator is stored as reference data, 'population projections, 2024 vintage', so a figure computed with it can be reproduced after the next vintage arrives."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Indicators with external denominators reference a versioned reference table."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Measure and indicator definitions live in the same versioned project as the transformation models that produce their counts, are changed in the same review, and are validated in CI."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CI runs the semantic layer's validation on every change."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Published indicators use a portable subset of definitions (simple counts and sums, ratios, and derived expressions without time offsets), each indicator a ratio of additive counts on one gold table; any other construct has a recorded, tested mapping for each serving engine.{1}*Example:* A gross enrolment ratio is a count divided by a count on one gold table, which every engine computes alike. A twelve-month rolling attendance average is cumulative, so it needs a recorded mapping for each engine."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "A CI lint lists every definition outside the portable subset with its mapping."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Every artefact a consumer reads (engine-native metric objects, saved-query tables, dashboard datasets) is generated from the definitions by CI, never written by hand."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Generated artefacts carry a marker and are reproduced byte for byte by the generator."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.9"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "A parity test runs every saved query through every serving path and requires identical results.{1}*Example:* The saved query 'enrolment by district, 2026' returns the same total through the metric view and through the generated table; any difference fails CI."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "The parity report lists each saved query and serving path with a match."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "CAP-SEMANTICS.10"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Definitions can be exported in an open semantic interchange format once a released version is supported by the producing and consuming tools."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "The export runs in CI and validates against the format's schema."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "[International Standard Classification of Education (ISCED 2011)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "ISCED 2011 (published 2012) with Operational Manual (2015); amendment due 2027"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "[Global indicator framework for the Sustainable Development Goals]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "After 2026 refinement (UN Statistical Commission 57th session, March 2026; includes the 2025 Comprehensive Review)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "[Official List of SDG 4 Indicators (global and thematic)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "October 2026 (post EDSC-12)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "[UIS Glossary - Education Metadata]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "2026 (UIS/2026/ED/IP/32)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "[Apache Ossie (Open Semantic Interchange)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Specification 0.1.1 (December 2025); 0.2 in development; Apache incubating project"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "track"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "dbt semantic layer (dbt 1.12 or later, latest YAML spec){1}MetricFlow{2}Unity Catalog metric views via the dbt-databricks metric_view materialisation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-semantics.md
+msgid "dbt semantic layer (dbt 1.12 or later, latest YAML spec){1}MetricFlow{2}Generated saved-query models"
+msgstr ""

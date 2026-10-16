@@ -1,0 +1,79 @@
+# Interface strings for the website, in English. Each other language has
+# a file of the same keys; a missing key falls back to English. Menu
+# labels use the menu identifiers in site/menus.toml; site-title is the
+# short title in the header.
+
+[menu-getting-started]
+  other = "Getting started"
+
+[menu-concepts]
+  other = "Concepts"
+
+[menu-what-is-an-emis]
+  other = "What is an EMIS"
+
+[menu-the-emis-domain]
+  other = "The EMIS domain"
+
+[menu-data-in-an-emis]
+  other = "Data in an EMIS"
+
+[menu-terminology]
+  other = "Terminology"
+
+[menu-specifications]
+  other = "Specifications"
+
+[menu-principles]
+  other = "Principles"
+
+[menu-capabilities]
+  other = "Capabilities"
+
+[menu-domain]
+  other = "Domain"
+
+[menu-architecture]
+  other = "Architecture"
+
+[menu-standards]
+  other = "Standards"
+
+[menu-implementations]
+  other = "Implementations"
+
+[menu-guides]
+  other = "Guides"
+
+[menu-building-an-implementation]
+  other = "Building an implementation"
+
+[menu-example-products]
+  other = "Example products"
+
+[menu-backfill]
+  other = "Backfill"
+
+[menu-lessons]
+  other = "Lessons"
+
+[menu-proposals]
+  other = "Proposals"
+
+[menu-decisions]
+  other = "Decisions"
+
+[menu-github]
+  other = "GitHub"
+
+[menu-contributing]
+  other = "Contributing"
+
+[menu-licence]
+  other = "Licence"
+
+[l10n-unreviewed]
+  other = "This page was translated from English and has not yet been reviewed by a native speaker. If something reads wrongly, the English page is authoritative."
+
+[site-title]
+  other = "Data platform blueprint"

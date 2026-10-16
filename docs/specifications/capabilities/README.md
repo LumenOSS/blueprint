@@ -70,7 +70,7 @@ Who may see which rows and columns, how that is recorded, and how data leaves th
 | Capability | Layer | Summary | Clauses |
 | --- | --- | --- | --- |
 | [CAP-IDENTITY Identity and groups](cap-identity.md) | L1 Platform | One identity provider for people and groups, synchronised automatically, with break-glass access held apart. | 6 (6 MUST) |
-| [CAP-REFERENCE Reference data and data dictionary](cap-reference.md) | L1 Platform | Governed code lists, a versioned data dictionary and common formats, so every value means the same thing everywhere. | 8 (6 MUST) |
+| [CAP-REFERENCE Reference data and data dictionary](cap-reference.md) | L1 Platform | Governed code lists, a versioned data dictionary and common formats, so every value means the same thing everywhere. | 9 (7 MUST) |
 | [CAP-ACCESS Access model](cap-access.md) | L1 Platform | Role decides reach, entitlements decide rows, classification decides columns. | 8 (8 MUST) |
 | [CAP-CLASSIFICATION Classification and provenance](cap-classification.md) | L1 Platform | Every table and column is classified by sensitivity and tagged with provenance from the moment it lands. | 7 (7 MUST) |
 | [CAP-AUDIT Audit](cap-audit.md) | L1 Platform | Every access and administrative action recorded, retained beyond the platform default, readable by auditors only. | 5 (3 MUST) |

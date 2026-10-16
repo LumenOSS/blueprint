@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "Reference (shared kernel)"
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "The terms every context shares: time, codes, geography and the idea of a registry. Changes here affect every context, so they are reviewed by all stewards."
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "Language"
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "**Academic period**: A school year, or a term within it, to which enrolments, postings and results belong. _Avoid_: Session, semester (unless that is the local term)"
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "**Reference date**: The date as at which stocks are counted for a collection or an indicator. _Avoid_: Census day, snapshot date, as-of date"
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "**Code list**: A governed, versioned set of allowed values for a coded attribute; a code is retired, never reused or given a new meaning. _Avoid_: Lookup, enum, dropdown"
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "**Crosswalk**: A versioned mapping from a local classification to an international one. _Avoid_: Mapping table, conversion"
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "**Administrative area**: A unit of the versioned administrative geography, such as a district. _Avoid_: Region (unless that is the local term), zone"
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "**Registry**: The single authoritative store of one kind of master record (institutions, sites, persons, posts). _Avoid_: Register, roster, directory, master list"
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "**External register**: An authoritative list held by another authority, such as a civil register, read through an adapter. _Avoid_: Registry (which is ours), source system"
+msgstr ""
+
+#: docs/specifications/domain/contexts/reference/CONTEXT.md
+msgid "**Data subject**: The person a record is about. _Avoid_: Owner, user"
+msgstr ""

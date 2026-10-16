@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/domain/contexts/assessment/CONTEXT.md
+msgid "Assessment"
+msgstr ""
+
+#: docs/specifications/domain/contexts/assessment/CONTEXT.md
+msgid "Tests and examinations, who sat them, and their results."
+msgstr ""
+
+#: docs/specifications/domain/contexts/assessment/CONTEXT.md
+msgid "Language"
+msgstr ""
+
+#: docs/specifications/domain/contexts/assessment/CONTEXT.md
+msgid "**Assessment instrument**: A versioned test or examination, with its items, scoring rules and proficiency thresholds. _Avoid_: Exam paper, test form"
+msgstr ""
+
+#: docs/specifications/domain/contexts/assessment/CONTEXT.md
+msgid "**Administration**: One sitting of an assessment instrument by a group of candidates on a date. _Avoid_: Sitting, session (unless that is the local term)"
+msgstr ""
+
+#: docs/specifications/domain/contexts/assessment/CONTEXT.md
+msgid "**Candidate**: A learner entered for an administration. _Avoid_: Examinee, test taker"
+msgstr ""
+
+#: docs/specifications/domain/contexts/assessment/CONTEXT.md
+msgid "**Result**: A candidate's recorded outcome for an administration; once released, a change is a new version. _Avoid_: Score (unless it is a raw score), mark"
+msgstr ""
+
+#: docs/specifications/domain/contexts/assessment/CONTEXT.md
+msgid "**Accommodation**: An approved adjustment to how a candidate sits an administration. _Avoid_: Special arrangement, concession"
+msgstr ""

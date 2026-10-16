@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/domain/contexts/workforce/CONTEXT.md
+msgid "Workforce"
+msgstr ""
+
+#: docs/specifications/domain/contexts/workforce/CONTEXT.md
+msgid "The establishment of posts and the staff posted to them."
+msgstr ""
+
+#: docs/specifications/domain/contexts/workforce/CONTEXT.md
+msgid "Language"
+msgstr ""
+
+#: docs/specifications/domain/contexts/workforce/CONTEXT.md
+msgid "**Staff member**: A person in the role of someone posted to a post. _Avoid_: Employee, personnel, worker"
+msgstr ""
+
+#: docs/specifications/domain/contexts/workforce/CONTEXT.md
+msgid "**Teacher**: A staff member posted to a teaching post. _Avoid_: Educator, instructor"
+msgstr ""
+
+#: docs/specifications/domain/contexts/workforce/CONTEXT.md
+msgid "**Post**: An established position at an institution, which exists whether or not anyone fills it. _Avoid_: Position, job, vacancy (a vacancy is an unfilled post)"
+msgstr ""
+
+#: docs/specifications/domain/contexts/workforce/CONTEXT.md
+msgid "**Posting**: The effective-dated placement of a staff member in a post, with the share of full time it represents. _Avoid_: Assignment (reserved for teaching), appointment, deployment"
+msgstr ""
+
+#: docs/specifications/domain/contexts/workforce/CONTEXT.md
+msgid "**Assignment**: The effective-dated record of a teacher teaching a subject to a class. _Avoid_: Allocation, timetable slot"
+msgstr ""

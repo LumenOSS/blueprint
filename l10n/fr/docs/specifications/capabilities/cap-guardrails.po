@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "CAP-GUARDRAILS Guardrails and fitness functions"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Policy as code on every plan, and scheduled checks that the architecture's properties still hold."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Layer L1 · domain: delivery · depends on: [CAP-DELIVERY]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Stop non-conforming changes at plan time and catch drift from the architecture on a schedule."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "A property that is not checked decays. Fitness functions turn the principles into alarms ([P16]{1}, [P12]{2})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Policy-as-code evaluated in the plan stage."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Scheduled checks: tags present, restore by hash, cost per task, no non-CI writer of state."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "CAP-GUARDRAILS.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Policies evaluated on every plan reject public endpoints on data services, missing required tags and names that do not follow the naming module."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "A deliberately non-conforming plan in a test change is rejected."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "CAP-GUARDRAILS.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Scheduled fitness functions check that every table carries provenance and classification tags, that a restore reproduces content hashes, and that cost per task stays within budget, each on a declared schedule."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Each check exists, has run on schedule, and alerts when it fails."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "CAP-GUARDRAILS.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "The platform's own repositories and every third-party open-source component are assessed with OpenSSF Scorecard on a schedule, and low scores are reviewed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Scorecard results are recorded per repository and component, with reviews of low scores."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "[ISO/IEC 27001 Information security management systems]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "ISO/IEC 27001:2022 with Amd 1:2024, and ISO/IEC 27002:2022"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "[NIST Cybersecurity Framework]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "CSF 2.0 (February 2024)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "[OpenSSF Scorecard]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "v5 (5.6.0, October 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "Azure Policy{1}Conftest on tofu plans{2}Lakeflow Jobs"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-guardrails.md
+msgid "OPA Gatekeeper{1}Conftest{2}Airflow"
+msgstr ""

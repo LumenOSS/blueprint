@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/guides/translating.md
+msgid "Translating"
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "The documentation is written in English and translated through translation files, never by copying pages. This guide is for translators, and for anyone who edits a page that has translations."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "How it works"
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Each English page is split into strings (paragraphs, headings, list items, table cells) in a **template**, a standard gettext [PO file]{1}."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Each language has a **PO file** per page holding the translation of every string."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "When an English string changes, its translation is marked **fuzzy**: it needs checking. A page is published in a language only when every string is translated and none is fuzzy. Until then, readers see the English page, so they never read a translation that has fallen behind."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Code blocks, diagrams and page headers are never offered for translation, so a translation cannot break them. Links become numbered placeholders such as `{1}`, which a translation keeps."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Decision records and improvement proposals stay in English, the language they were decided in."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "The languages are listed in [`l10n/languages.toml`]{1}. `just l10n-status` shows how much of each is translated."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Translate a page"
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Open the page's PO file, for example `l10n/fr/docs/concepts/emis.po`, in a PO editor such as [Poedit]{1} or [Lokalize]{2}, or in a translation platform that reads PO files, such as [Weblate]{3}."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Translate every string. Keep each placeholder (`{1}`), each pair of `**` and each pair of backticks. Leave values in backticks, such as `CAP-ACCESS` or `learners_prod`, as they are."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Clear the fuzzy flag on each string you have checked."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Run `just l10n-update`, then `just check`. The update tidies the files; the check fails if any file is stale or malformed."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Preview with `nix develop .#site --command just site-serve` and open the page under `/fr/`."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Translated pages show a note that no native speaker has reviewed them. When a native speaker has reviewed every string in a file, set its header field `X-Review-Status` to `reviewed`, and the note goes away."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Translate the website's interface"
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Menu labels and the review note come from `site/i18n/<language>.toml`, keyed as in `site/i18n/en.toml`. The theme translates its own labels, such as \"Table of contents\"."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Edit an English page that has translations"
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Edit the English page as usual, then run `just l10n-update` in the same change. The strings you changed become fuzzy in every language, and those pages fall back to English until a translator has checked them. The change says so; it does not wait for the translations."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Add a language"
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Adding a language is an ordinary reviewed change:"
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Add it to `l10n/languages.toml` with its [BCP 47]{1} tag and its name in that language, and `direction = \"rtl\"` if it is written right to left."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Run `just l10n-update` to create its PO files."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Add `site/i18n/<tag>.toml` with the interface strings."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Writing English that translates well"
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Short sentences, one idea each. Plain words over idioms."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Do not build sentences from fragments, and do not put text in images. Diagram labels are not translated yet, so keep them short."
+msgstr ""
+
+#: docs/guides/translating.md
+msgid "Use the canonical terms from the [context map]{1}. A term used consistently is translated consistently."
+msgstr ""

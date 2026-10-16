@@ -4,7 +4,7 @@
 # implementation repository shows evidence and moves it to `met`.
 
 blueprint:
-  version: 0.4.0
+  version: 0.5.0
 implementation:
   name: oss
   summary: Open-source components only, on any Kubernetes cluster.
@@ -646,6 +646,8 @@ bindings:
       - clause: CAP-REFERENCE.7
         status: planned
       - clause: CAP-REFERENCE.8
+        status: planned
+      - clause: CAP-REFERENCE.9
         status: planned
   - capability: CAP-ACCESS
     components:

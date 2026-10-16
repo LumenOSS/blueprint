@@ -1,0 +1,268 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA Master data and identifiers"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "One authoritative registry per core resource, with permanent opaque identifiers and governed duplicate resolution."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Layer L1 · domain: data · depends on: [CAP-CATALOG]{1}, [CAP-OPERATIONALDB]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Keep one authoritative record of each institution, person and post, with an identifier that never changes and never means anything."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Every EMIS indicator counts people and institutions, so a duplicated learner or a mis-keyed school is a wrong number everywhere it is used. An identifier that carries meaning breaks when the meaning changes, and copies whatever it carries into every table that references it. An opaque identifier minted once avoids both. Duplicate resolution reuses the review pattern: suspected duplicates are sets that a person decides, and a merge is reversible ([P8]{1}, [P10]{2})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Registries for institutions (and their sites), people (learners, guardians, staff) and posts."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "A separate, more sensitive table of identifiers issued by other authorities."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Adapters to external authoritative registers, recording each verification outcome."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "A duplicate-review queue whose decisions are merges with redirects."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Keep the post (an established position) apart from the person who fills it, and the enrolment apart from the learner; most workforce and participation indicators depend on those relationships, not on the people alone. See the [domain model]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Each core resource (institution, site, person, post) has one authoritative registry with one owning steward; other domains reference it by identifier and never copy it.{1}*Example:* The learners domain references a person by identifier; it never keeps its own copy of the person's name and birth date."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Every reference to a core resource is a foreign key to its registry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Identifiers are opaque, permanent surrogates minted by one authority, never reused, and carry no meaning about the thing they identify.{1}*Example:* A learner's identifier is a random value such as L-7F3K-9Q2M, not one built from the enrolment year and first school, which would stop being true the day the learner transfers."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "The identifier pattern is declared and tested; no part of an identifier can be decoded into an attribute."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Identifiers issued by other authorities are attributes in a separate identifier table with type, issuer and validity, classified at least T3, and never used as keys or carried into gold or shared tables.{1}*Example:* A national identity number is stored in the external-identifier table with its type, its issuer and the date it became valid; gold tables carry only the learner's surrogate identifier."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "No gold or shared table has an external-identifier column."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "A learner keeps one identifier across institutions, levels and years; the institution belongs to the enrolment, not to the identifier.{1}*Example:* A learner who moves from primary at one institution to secondary at another keeps the same identifier; only a new enrolment is added."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "A transfer fixture keeps the learner's identifier."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Duplicate detection is deterministic and explainable; uncertain matches go to a person; a merge keeps a surviving identifier and a redirect from each retired one, is audited, and can be reversed. Nothing is deleted.{1}*Example:* Two records share a name and birth date but have different guardians; the matcher scores them below its threshold, so a person decides. If they are merged, the retired identifier redirects to the survivor, and the merge can be undone."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "A merge and unmerge fixture round-trips; references to a retired identifier resolve to the survivor."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Verification against an external authoritative register goes through an adapter, and its outcome (verified, unverified or mismatch, with date and method) is recorded per record, never inferred.{1}*Example:* A lookup in the civil register finds no match; the record is marked 'unverified, 2026-10-16, register lookup' rather than left blank or assumed verified."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Each verified record carries an outcome, date and method."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Changes to an institution (renaming, merger, split, closure, change of ownership) are effective-dated events that keep its history.{1}*Example:* When two institutions merge, the surviving one records 'merged with' effective 2027-01-01 and the other is closed on that date; both histories remain."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "A merger fixture leaves both histories queryable."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "A status that ends a person's participation (deceased, left the system) stops outreach and relationship-based access without deleting history."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "A fixture with that status receives no notices and grants no guardian access."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "CAP-MASTERDATA.9"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Identifiers that people transcribe by hand carry a check digit."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "The identifier generator and validator implement the check digit."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "[Unicode Standard and normalization (UAX 15)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Unicode 18.0.0 (2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "[RFC 9562 Universally Unique IDentifiers]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "RFC 9562 (May 2024), obsoleting RFC 4122"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Registry services on Lakebase{1}Splink on Spark"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-masterdata.md
+msgid "Registry services on PostgreSQL (CloudNativePG){1}Splink"
+msgstr ""

@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "Learning"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "A learner's participation in education: enrolment, class membership, attendance, progression and the guardians who act for them. The core of an EMIS."
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "Language"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Learner**: A person in the role of someone enrolled, or once enrolled, in education. _Avoid_: Student, pupil (except inside an official indicator name)"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Guardian**: A person or a body with legal authority for a learner. _Avoid_: Parent (unless the authority is parental), caregiver, carer"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Guardian relationship**: The effective-dated link between a learner and their guardian, which ends when the legal authority ends. _Avoid_: Contact, next of kin"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Enrolment**: The effective-dated record of a learner registered at an institution in a programme and grade for an academic period. _Avoid_: Registration, admission"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Main enrolment**: The one enrolment that counts a learner for an institution at a given moment; any other concurrent enrolment is secondary. _Avoid_: Primary enrolment, home school"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Transfer**: The end of a learner's enrolment at one institution with exit reason 'transferred', followed by an enrolment at another. _Avoid_: Move, migration"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Class membership**: The effective-dated record of a learner belonging to a class. _Avoid_: Class enrolment"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Exit reason**: Why an enrolment ended: completed, transferred, left the education system, or deceased; distinct from the enrolment's state. _Avoid_: Dropout status"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Progression decision**: The recorded outcome for a learner at the end of an academic period: promote, repeat, complete or leave. _Avoid_: Promotion status, result"
+msgstr ""
+
+#: docs/specifications/domain/contexts/learning/CONTEXT.md
+msgid "**Attendance session**: One recorded occasion on which a learner was expected to be present, with whether they were. _Avoid_: Roll call, register mark"
+msgstr ""

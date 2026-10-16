@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "CAP-MIGRATION Migration and decommission"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Moving between platforms or accounts without loss, with a fallback window and two-role sign-off."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Layer L1 · domain: movement · depends on: [CAP-OPERATIONALDB]{1}, [CAP-CLASSIFICATION]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Move to a new platform, account or region without losing data, and retire the old one safely."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Copying loses table history; re-binding storage keeps it. A database move is only as good as its verification. A fallback window and two-role sign-off make a cutover reversible until it is proven ([P13]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "A migration plan listing each dataset as re-bound or rebuilt."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "A rehearsed database move with a verification report."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "A retirement tool that refuses untagged objects."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Database branches do not survive a dump and restore; recreate them. A deployment unit that declares managed storage takes that storage with it when destroyed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "CAP-MIGRATION.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Lake data is moved by re-binding its storage to the new platform where possible; derived tables are rebuilt by their pipelines rather than copied."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "The migration plan lists each dataset as re-bound or rebuilt."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "CAP-MIGRATION.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "An operational database moves by a rehearsed sequence: freeze writes, snapshot, dump, restore in one transaction, verify (row counts, per-table content hashes, sequences, policies, grants, migration ledger), repoint, unfreeze.{1}*Example:* Before cutover, a rehearsal restore matches row counts and per-table hashes for every table; the production run must produce the same report."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "The rehearsal and the production run each leave a verification report that matches."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "CAP-MIGRATION.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "After cutover the old platform stays read-only for a fallback window (the reference value is 60 days), with history expiry held, until a restore drill passes on the new one."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Expiry jobs on the old platform are paused for the window; the drill report exists."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "CAP-MIGRATION.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Cutover, rollback and decommission need sign-off from both the Data Lead and the Technical Lead; either may halt."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "The decommission record carries both sign-offs."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "CAP-MIGRATION.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Before any drop or decommission, each object's provenance is proved from first-hand evidence, audit is archived, and an immutable archive exists with a tested retrieval. Deletion is a plain delete, never a forced one."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "The retirement tool refuses objects not tagged simulated or derived; the archive retrieval test has passed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "Unity Catalog storage re-binding{1}pg_dump / pg_restore"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-migration.md
+msgid "pg_dump / pg_restore{1}Iceberg register-table"
+msgstr ""

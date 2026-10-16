@@ -1,0 +1,206 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "CAP-CATALOG Catalog and governance plane"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "One catalog of record for tables, files and functions, enforcing grants, tags and policies."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Layer L1 · domain: data · depends on: [CAP-TABLES]{1}, [CAP-IDENTITY]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Be the single place that knows every dataset and decides who may read which rows and columns of it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Policies enforced in one engine and not another are not policies. Group-only grants keep access reviewable ([P5]{1}); domain catalogs keep ownership clear and data in one place ([P6]{2})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Namespaces: `<domain>_<env>` catalogs; `<product>_<layer>` schemas inside the domain."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Grants, governed tags, row filters and column masks."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Credential vending to engines."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Where engines differ in what they enforce, route protected tables only through engines that enforce the policies, and deny the rest."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "CAP-CATALOG.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "One catalog of record lists every table, volume of files and function, whichever engine created it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "An inventory of storage locations has no table unknown to the catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "CAP-CATALOG.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Catalogs are named domain by environment (`<domain>_<env>`); a product is a set of schemas inside its domain, and data shared across domains is promoted to its owning domain and read from there, never copied."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Catalog and schema names match the pattern; no table is a copy of another domain's."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "CAP-CATALOG.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Grants go only to groups, and production objects are owned by groups."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "A query of grants and owners finds no individual user."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "CAP-CATALOG.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Governed tags (provenance, classification) can be set only by principals granted the right to assign them."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Negative test: an analyst cannot set a classification tag."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "CAP-CATALOG.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Row filters and column masks are enforced on every read path that serves protected data; an engine that cannot enforce them is denied those tables."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Read a protected table through each engine as a scoped user; each returns only the scoped rows or is refused."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "CAP-CATALOG.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Engines receive short-lived, scoped storage credentials from the catalog, never long-lived storage keys."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Engine configuration holds no storage key; credentials observed in use expire."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "CAP-CATALOG.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Every authenticated user may browse metadata, so data can be found without being readable."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "A user with no data grants can list catalog objects but not read them."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Unity Catalog"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-catalog.md
+msgid "Lakekeeper{1}Trino + OPA"
+msgstr ""

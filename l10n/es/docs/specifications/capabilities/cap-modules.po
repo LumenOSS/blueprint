@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "CAP-MODULES Versioned modules"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Shared building blocks consumed by immutable version, including deterministic naming."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Layer L2 · domain: delivery"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Share building blocks across repositories without sharing state or identity, and make names predictable."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Deterministic names let stacks find each other without reading state ([CAP-STATE.6]{1}). Pinning by tag means a module change reaches a stack only through that stack's own reviewed change."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Module sources pinned by tag or digest."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "A naming module: `<type>-<project>-<environment>-<region>-<instance>`, with a compact form where a resource forbids hyphens, plus the standard tag set."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Many resource names cannot change after creation. Treat any change to a name output as breaking."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "CAP-MODULES.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Modules are consumed by an immutable version reference, never a branch."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Every module source pins a tag or digest."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "CAP-MODULES.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "A naming module derives every resource name and tag set deterministically from type, project, environment, region and instance."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "The module's tests assert the same inputs give the same names."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "CAP-MODULES.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Module versions follow semantic versioning; a change to any output that alters a resource name is a major version."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "The module's changelog marks name changes as breaking."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "[OpenSSF Scorecard]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "v5 (5.6.0, October 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "OpenTofu modules in a tagged repository"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-modules.md
+msgid "[oss]{1}"
+msgstr ""

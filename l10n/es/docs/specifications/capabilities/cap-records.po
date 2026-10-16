@@ -1,0 +1,236 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "CAP-RECORDS Records lifecycle and data-subject rights"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Every record has a retention class; archiving, disposal, subject access, rectification and individual disclosure follow declared, audited paths."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Layer L1 · domain: governance · depends on: [CAP-CLASSIFICATION]{1}, [CAP-MASTERDATA]{2}, [CAP-AUDIT]{3}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Keep each record as long as it is needed and no longer, and let people see and correct what is held about them."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Personal data about children has a lifetime set by law and purpose, not by storage cost. An append-only, branched, backed-up platform keeps copies everywhere unless disposal is designed in. Scheduled disposal is also the one sanctioned exception to [P12]{1}: real data is never dropped on a guess, and it is removed when its retention ends."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "A retention schedule in code, by record class."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "A read-only archive for records whose retention trigger has occurred."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Subject-access, rectification and individual-disclosure requests, each logged."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Where history cannot be rewritten (immutable snapshots, backups), encrypt each subject's or partition's data with its own key, and destroy the key at disposal. Set table-history retention, branch lifetimes and backup windows so that none outlives the disposal deadline."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "CAP-RECORDS.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "A retention schedule in code gives each record class its retention period, trigger event, legal basis and owning role, and every table and file belongs to a record class.{1}*Example:* Record class 'attendance session': kept for a stated number of years after the academic period ends, under the education law, owned by the learners steward."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "A fitness function finds no table or file without a record class."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "CAP-RECORDS.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "When a record's retention trigger occurs, the record leaves operational use and moves to a read-only archive."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "A leaver fixture appears in the archive and is read-only."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "CAP-RECORDS.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Disposal at the end of retention is a reviewed, audited operation that reaches table history, branches and backups within a stated maximum time; where history cannot be rewritten, per-subject or per-partition keys are destroyed. This is the only path by which real personal data is deleted.{1}*Example:* When a record class reaches its disposal date, the rows are deleted from current tables, table history older than the stated maximum is expired, and the key protecting the backed-up copy is destroyed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "A disposal fixture leaves no readable copy in any store within the stated time; the audit shows the review."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "CAP-RECORDS.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Any record class kept without limit is listed as such in the schedule, with the reason."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "The schedule lists the permanent classes explicitly."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "CAP-RECORDS.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "A subject-access request is answered from the catalog by the person's identifier across all domains, and the answer is reproducible.{1}*Example:* A guardian asks what is held about their child; one query by the learner's identifier returns enrolments, attendance, results and support plans from every domain."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Two runs of a subject-access fixture return identical results."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "CAP-RECORDS.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "A rectification is an evented correction that creates a new version, and downstream tables are rebuilt from it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "After a rectification fixture, gold reflects the corrected value and the history shows both."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "CAP-RECORDS.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Releasing an individual's records to that person, a guardian with verified authority, or an authorised agency is a logged request that records who received what, why, on what basis and how; it is separate from statistical publication, which never releases individual records.{1}*Example:* A receiving institution asks for a transferring learner's records; the release is logged with the requester, the purpose 'continuity of education', the legal basis, the categories sent and the channel."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "The disclosure register has an entry for each release with all fields."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "[ISO/IEC 27701 Privacy information management systems]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "ISO/IEC 27701:2025, a standalone standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "[ISO/IEC 29100 Privacy framework]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "ISO/IEC 29100:2024 (second edition)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Governed retention tags + Lakeflow Jobs{1}Delta VACUUM with bounded retention"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-records.md
+msgid "Retention policies in table properties + Airflow lifecycle jobs{1}OpenBao transit keys per partition"
+msgstr ""

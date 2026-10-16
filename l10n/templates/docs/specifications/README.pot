@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/README.md
+msgid "Specifications"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "The reference: what the blueprint requires, stated precisely enough to build against and to test. Read these when you need to know exactly what is required; the [core concepts]{1} explain why."
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "Specification"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "What it states"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "[Principles]{1}"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "The ideas every requirement rests on; when anything else seems to disagree, these state the intent"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "[Capabilities]{1}"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "Every capability of the platform and its contract: numbered clauses, each with how conformance is shown"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "[Domain]{1}"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "What an EMIS holds: domains, resources, modelling rules, bounded contexts and indicators"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "[Architecture]{1}"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "How the parts fit together, at three levels of detail, and the semantic layer"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "[Standards]{1}"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "The international standards relied on, with current editions and publisher links"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "[Implementations]{1}"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "The reference bindings, and the status of every clause in each"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "[Glossary]{1}"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "Terms about the blueprint and the platform"
+msgstr ""
+
+#: docs/specifications/README.md
+msgid "The catalogue in `blueprint/catalogue.yaml` is the source of the capabilities; their contract tables are generated from it."
+msgstr ""

@@ -15,7 +15,7 @@ Two reference implementations are planned: one fully open source on
 Kubernetes, one on Databricks.
 
 <!-- BEGIN GENERATED: status (just render) -->
-Status: blueprint 0.4.0, with 41 capabilities and 245 clauses. Contracts are drafted; no implementation has evidence yet.
+Status: blueprint 0.5.0, with 41 capabilities and 246 clauses. Contracts are drafted; no implementation has evidence yet.
 <!-- END GENERATED: status -->
 
 **New here?** Start with [getting started](docs/getting-started.md): it
@@ -42,7 +42,7 @@ set up, and what review looks for.
 | [Core concepts](docs/concepts/README.md) | What an EMIS is, its domain, its data, and the terms used throughout |
 | [Specifications](docs/specifications/README.md) | What is required: principles, capabilities, domain, architecture, standards |
 | [Guides](docs/guides/README.md) | How to build an implementation, run products and load history |
-| [Principles](docs/specifications/principles.md) | The 21 ideas the architecture rests on, and why |
+| [Principles](docs/specifications/principles.md) | The 22 ideas the architecture rests on, and why |
 | [Architecture](docs/specifications/architecture/README.md) | C4 diagrams: context, containers, components |
 | [Capabilities](docs/specifications/capabilities/README.md) | 41 capabilities and their contracts |
 | [Implementations](docs/specifications/implementations/README.md) | Reference bindings for open source and Databricks, and where they differ |
@@ -67,6 +67,7 @@ set up, and what review looks for.
 blueprint/catalogue.yaml   capabilities and clauses: the single source of IDs and text
 blueprint/standards.yaml   the standards register: editions, publisher links, users
 schema/                    JSON Schemas for the catalogue, the register and bindings
+l10n/                      translations of the docs, as gettext PO files per language
 docs/                      everything above; contract tables are generated
 scripts/blueprint.py       checks the catalogue and bindings, renders tables
 ```

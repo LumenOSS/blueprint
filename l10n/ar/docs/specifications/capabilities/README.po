@@ -1,0 +1,536 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/README.md
+msgid "Capabilities"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Each capability is something the platform must be able to do, with a contract of numbered clauses. `MUST`, `SHOULD` and `MAY` are used as in [BCP 14]{1} (RFC 2119 and RFC 8174): only the upper-case words are requirements. Every clause says how conformance is shown, so an implementation can prove it rather than claim it."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "The clause text lives in [`blueprint/catalogue.yaml`]{1}; the tables on each page are generated from it with `just render`."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "How to read a page"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "**Purpose** says what the capability is for."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "**Why** gives the reasoning and links the [principles]{1} it rests on."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "**Interfaces** names what other capabilities and people use."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "**Notes** record traps found by running the architecture."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "**Contract** is the generated clause table."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "**Implementations** lists the components each reference implementation binds to the capability."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Index"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Trust and delivery"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Who may change what, with which identity, and how a change reaches an environment."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Capability"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Layer"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Summary"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Clauses"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-REPOSITORIES Repositories by trust]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "L0 Bootstrap"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Each layer is its own repository and the unit of trust for its CI identities."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "5 (4 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-STATE Infrastructure state]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Remote, locked, versioned and encrypted state for every stack, readable only by the identities that own it."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "8 (7 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-CIIDENTITY CI workload identity]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "CI authenticates by federation with short-lived tokens; the root of trust is created once by a person."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "6 (5 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-DELIVERY Change delivery]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "L1 Platform"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Every change is reviewed with its plan and applied by CI only, after merge."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "8 (6 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-MODULES Versioned modules]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "L2 Modules"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Shared building blocks consumed by immutable version, including deterministic naming."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "3 (2 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-ONBOARDING Tenant onboarding registry]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "One reviewed declaration per product or source generates its identities, grants, schemas and reviewers."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "4 (4 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-SECRETS Secrets and keys]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Secrets and keys live in a managed store and are fetched by identity at runtime."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-NETWORK Network isolation]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Data services are private; only applications are exposed, behind sign-in."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "4 (3 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-GUARDRAILS Guardrails and fitness functions]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Policy as code on every plan, and scheduled checks that the architecture's properties still hold."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Data platform core"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Where data lives, how it is computed on, and how it reaches the people who use it."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-STORAGE Object storage]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Durable object storage for tables and files, isolated per domain catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "5 (5 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-TABLES Open table format]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Transactional tables in an open format, readable by more than one engine."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-CATALOG Catalog and governance plane]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "One catalog of record for tables, files and functions, enforcing grants, tags and policies."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "7 (6 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-COMPUTE Compute]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Batch, streaming and interactive SQL compute that scales to zero and reads only through the catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-OPERATIONALDB Operational database with branching]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Each product's transactional Postgres store, with copy-on-write branches of production."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-INGESTION Ingestion]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Files, in-place federation and change data capture behind one onboarding step."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-INTEROPERABILITY Exchange with other systems]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Every feed to or from another system is declared, validated at the edge and reconciled."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "9 (5 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-ORCHESTRATION Orchestration]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "L3 Products"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Declared jobs with bounded runs, safe retries and range re-runs."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "6 (6 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-TRANSFORMATION Transformation layer]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Versioned, tested models from bronze to silver to gold; the only place measures are computed."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-SEMANTICS Semantic layer]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Every measure defined once, beside the models that produce its counts, and served to every consumer from that one definition."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "10 (8 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-REPORTING Reporting]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Dashboards and natural-language query over the semantic layer, deployed as code."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-APPS Application hosting]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Product interfaces deployed by CI, behind sign-in, that say which environment they are in."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "9 (7 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-QUALITY Data quality]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Checks at every tier; failing data is quarantined, never used."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "6 (4 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-LINEAGE Lineage]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Which inputs produced which outputs, captured as work runs."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "3 (1 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-OBSERVABILITY Operational telemetry]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Per-item metrics, freshness and cost, reaching gold so cost can be told apart from work."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "3 (3 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-MASTERDATA Master data and identifiers]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "One authoritative registry per core resource, with permanent opaque identifiers and governed duplicate resolution."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "9 (8 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Governance and access"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Who may see which rows and columns, how that is recorded, and how data leaves the platform."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-IDENTITY Identity and groups]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "One identity provider for people and groups, synchronised automatically, with break-glass access held apart."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-REFERENCE Reference data and data dictionary]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Governed code lists, a versioned data dictionary and common formats, so every value means the same thing everywhere."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-ACCESS Access model]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Role decides reach, entitlements decide rows, classification decides columns."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "8 (8 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-CLASSIFICATION Classification and provenance]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Every table and column is classified by sensitivity and tagged with provenance from the moment it lands."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "7 (7 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-AUDIT Audit]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Every access and administrative action recorded, retained beyond the platform default, readable by auditors only."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "5 (3 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-RECORDS Records lifecycle and data-subject rights]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Every record has a retention class; archiving, disposal, subject access, rectification and individual disclosure follow declared, audited paths."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-SHARING Publication and sharing]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "External parties receive de-identified tables from a publication catalog over an open protocol, each share approved and registered."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-PUBLICATION Open statistical publication]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Aggregate statistics published openly with disclosure control, permanent identifiers and open metadata."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Environments and data movement"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "How environments are isolated, and how data is backfilled, migrated and retired without loss."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-ENVIRONMENTS Environments by branching]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "An environment is a template plus values; development is isolated inside production by branching."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-BACKFILL Backfill and reprocessing]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Loading history, reprocessing and filling gaps are idempotent, bounded, rehearsed and reconciled."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-MIGRATION Migration and decommission]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Moving between platforms or accounts without loss, with a fallback window and two-role sign-off."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Product patterns"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "The contracts a product meets so that its pipeline is retryable, its decisions reviewable and its results releasable."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-PIPELINE Retryable pipeline]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Content-addressed, deterministic stages that hand off through storage and can retry while the database is down."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-COLLECTION Periodic data collection]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Returns collected from institutions on a cycle, validated at entry, attested, gated on completeness and frozen at a reference date."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "10 (6 MUST)"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-REVIEW Human review]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Low-confidence results go to people, whose decisions are leased, durable and never overwritten by machines."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-MODELS Governed analytical models]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Predictive models, such as early-warning flags, that advise people, are reproducible, and are checked for unequal error before release."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "[CAP-RELEASE Reconciliation and release]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Results are released per unit only when the unit reconciles against its register."
+msgstr ""

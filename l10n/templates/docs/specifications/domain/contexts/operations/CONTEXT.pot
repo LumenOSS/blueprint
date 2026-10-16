@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/domain/contexts/operations/CONTEXT.md
+msgid "Operations"
+msgstr ""
+
+#: docs/specifications/domain/contexts/operations/CONTEXT.md
+msgid "The supporting work of running institutions: money, assets, entitlement schemes and safety. Often provided by generic systems and integrated rather than built."
+msgstr ""
+
+#: docs/specifications/domain/contexts/operations/CONTEXT.md
+msgid "Language"
+msgstr ""
+
+#: docs/specifications/domain/contexts/operations/CONTEXT.md
+msgid "**Budget**: An approved allocation of money to an institution or function for a financial period. _Avoid_: Allocation (unless it is a distribution)"
+msgstr ""
+
+#: docs/specifications/domain/contexts/operations/CONTEXT.md
+msgid "**Asset**: A durable item an institution holds and accounts for. _Avoid_: Equipment, inventory item"
+msgstr ""
+
+#: docs/specifications/domain/contexts/operations/CONTEXT.md
+msgid "**Entitlement scheme**: A scheme that provides learners with a benefit under eligibility rules, such as meals, transport or a scholarship. _Avoid_: Programme (which means a course of education here), project"
+msgstr ""
+
+#: docs/specifications/domain/contexts/operations/CONTEXT.md
+msgid "**Beneficiary**: A learner receiving an entitlement scheme's benefit during a period. _Avoid_: Recipient, participant"
+msgstr ""
+
+#: docs/specifications/domain/contexts/operations/CONTEXT.md
+msgid "**Incident**: A recorded event affecting the safety of learners or staff at a site. _Avoid_: Case, report"
+msgstr ""

@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "Statistics"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "Collecting returns from institutions and turning counts into official, published figures. A core subdomain: official statistics are what an EMIS exists to produce."
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "Language"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "**Collection**: One cycle of gathering data from respondents with a given instrument. _Avoid_: Survey, data call"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "**Census**: A collection that covers every institution once a year at one reference date. _Avoid_: Annual survey, school return"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "**Instrument**: The versioned definition of a collection's items, rules, reference date, window and expected respondents. _Avoid_: Form, questionnaire, template"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "**Return**: One institution's response to an instrument. _Avoid_: Submission, survey response"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "**Attestation**: The head of an institution's confirmation that a return is complete and correct. _Avoid_: Sign-off, certification"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "**Snapshot**: A locked, versioned copy of data as at a reference date, from which official figures are computed. _Avoid_: Extract, dump"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "**Measure**: A named calculation over stored counts, defined once. _Avoid_: Metric, KPI, statistic"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "**Indicator**: A measure with published metadata, often one defined internationally. _Avoid_: KPI, metric"
+msgstr ""
+
+#: docs/specifications/domain/contexts/statistics/CONTEXT.md
+msgid "**Publication**: The open release of aggregate statistics. _Avoid_: Open data dump, report, extract"
+msgstr ""

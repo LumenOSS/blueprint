@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: CONTRIBUTING.md
+msgid "Contributing"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Thank you for helping. This blueprint is meant to be adopted by education authorities and built by many teams, so every change is made in the open and checked by machine before a person reviews it. This guide says which path a change takes, how to set up, and what a reviewer will look for."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Which path does my change take?"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Your change"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Path"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Example"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A typo, a broken link, clearer wording with the same meaning"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "An ordinary reviewed change"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "\"Guardian relationshp\" → \"Guardian relationship\""
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A new or updated example on a clause"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "An example for a clause that has none"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A newer edition of a standard already in the register"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "An ordinary reviewed change, with the publisher's link"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "ISO 639:2023 replacing ISO 639-1:2002"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A new, changed or retired clause or capability"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A [LIP]{1} of type Standards (Contract)"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A clause requiring a parity test across serving paths"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A new term, context, aggregate, invariant or event in the domain"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A LIP of type Standards (Domain)"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Splitting Statistics into Collection and Publication contexts"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A change to a schema the bindings or the catalogue use"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A LIP of type Standards (Interface)"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A new required field in `binding.schema.json`"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A change to how the project works"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A LIP of type Process"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Changing the length of Last Call"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A pattern, a guide or research that changes no requirement"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A LIP of type Informational, or an ordinary change to `docs/guides/`"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A pattern for reconciling two systems"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A translation, or a correction to one"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "An ordinary reviewed change; see [translating]{1}"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "French for a concept page"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A new language for the documentation"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Adding Portuguese"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Evidence that an implementation meets a clause"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A change to that implementation's repository, moving the clause to `met`"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Linking the test that proves CAP-ACCESS.7"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "If you are unsure, open a discussion and ask; it costs nothing to start there."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Proposing a change with a LIP"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "The process is in [LIP-1]{1}; in short:"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Describe the problem in a discussion first."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Copy the [template]{1} to `docs/lips/lip-draft-<short-name>.md`, fill in every section, and open a change. The editors assign a number."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Move it to Review when the text is complete; it then goes to a 14-day Last Call and a decision by the Data Lead and the Technical Lead."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "An accepted LIP is recorded as a [decision record]{1} and released in a catalogue version."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Every LIP has a privacy and safeguarding section. The data this blueprint governs is mostly about children; say what your change does to it."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Setting up"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Everything runs in the Nix dev shell, and every task is a `just` recipe, so your tools match everyone else's."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "With [direnv]{1}, `direnv allow` enters the shell for you."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Making the change"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "**Edit the source, not the output.** Clause text, levels, verification and examples live in [`blueprint/catalogue.yaml`]{1}; standards in [`blueprint/standards.yaml`]{2}. Anything between `BEGIN GENERATED` and `END GENERATED` markers is written by `just render`; edit the source and run it."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "**Let the tools format.** Formatting and lint rules live in the configuration files at the root. Run `just fmt` rather than fixing layout by hand; if a rule is wrong, change the rule in its config file, in its own change."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "**Use the domain language.** Each bounded context's terms are in its `CONTEXT.md`, listed in the [context map]{1}. Use the canonical term, never a word under *Avoid*. A new term goes into its context's `CONTEXT.md` in the same change."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "**Write clauses that can be checked.** A clause uses MUST, SHOULD or MAY in the sense of [BCP 14]{1}, says what is required rather than which product provides it, and has a `verify` that a test or a reviewer can apply. Add an `example` when the clause is abstract."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "**Cite standards where they are published.** Link the publisher's own page for the edition you rely on, and add it to the standards register, rather than citing a summary of it."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "**Write English that translates well.** Short sentences, plain words, no text in images. After editing a page that has translations, run `just l10n-update` in the same change; see [translating]{1}."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "**Name roles, not people.** Write \"the Data Lead\", \"the steward of the learners domain\", never a person's name, and no real learners, staff or institutions in examples."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Committing"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "The repository uses [jj]{1} colocated with Git; plain Git works too. Keep each change small and about one thing."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Commit messages follow the Angular convention: `type(scope): subject`, with a lowercase, imperative subject under 72 characters, and a body that says *why*. Types are feat, fix, docs, style, refactor, perf, test, build, ci, chore and revert. Put `BREAKING CHANGE:` in the footer when a change breaks existing bindings."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Review"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "A reviewer checks, in order:"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "`just check` passes."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "The change took the right path from the table above."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Clauses are testable, product-neutral and use the domain language."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Generated sections were regenerated, not edited."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "The effect on learners' and staff members' data is stated and acceptable."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Reviews follow Google's [engineering practices]{1}: a change is approved when it improves the blueprint, even if it is not perfect."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Reporting a security or safeguarding problem"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Do not open a public issue for a problem that could expose people's data. Use the code host's private vulnerability reporting for this repository, or contact the maintainers privately."
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Licence"
+msgstr ""
+
+#: CONTRIBUTING.md
+msgid "Contributions are made under the [Apache License 2.0]{1}, the licence of this repository."
+msgstr ""

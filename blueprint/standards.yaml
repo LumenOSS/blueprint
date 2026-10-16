@@ -119,7 +119,7 @@ standards:
     verdict: adopt
     area: representation
     purpose: Tags for languages of instruction, home languages and interface locales.
-    used_by: [CAP-REFERENCE, CAP-APPS]
+    used_by: [CAP-REFERENCE, CAP-APPS, P22]
   - id: STD-ISO639
     title: ISO 639 Language codes
     edition: ISO 639:2023, which replaced the former parts 1 to 5
@@ -142,6 +142,17 @@ standards:
     area: representation
     purpose: Text is stored as UTF-8 in Normalization Form C, so names compare reliably in duplicate detection.
     used_by: [CAP-REFERENCE, CAP-MASTERDATA]
+  - id: STD-GETTEXT-PO
+    title: GNU gettext PO files
+    edition: GNU gettext 1.0
+    publisher: GNU Project
+    url: https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html
+    checked: 2026-10-16
+    check: publisher
+    verdict: adopt
+    area: accessibility
+    purpose: The translation file format for the documentation and for interface text, so translators work on strings and see exactly what changed.
+    used_by: [CAP-APPS, P22]
   - id: STD-CLDR
     title: Unicode CLDR
     edition: CLDR 48.2 (March 2026)
@@ -152,7 +163,7 @@ standards:
     verdict: reference
     area: accessibility
     purpose: Locale data for formatting numbers, dates and currencies at display time; formatted values are never stored.
-    used_by: [CAP-APPS, CAP-REPORTING]
+    used_by: [CAP-APPS, CAP-REPORTING, P22]
   - id: STD-RFC9562
     title: RFC 9562 Universally Unique IDentifiers
     edition: RFC 9562 (May 2024), obsoleting RFC 4122

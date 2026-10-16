@@ -41,6 +41,7 @@ A half-switched environment is not partially safe: an application can write to o
 | Standard | Edition | Verdict |
 | --- | --- | --- |
 | [BCP 47 Language tags](../standards.md#data-representation) | RFC 5646 and RFC 4647, with the IANA Language Subtag Registry | adopt |
+| [GNU gettext PO files](../standards.md#accessibility-and-localisation) | GNU gettext 1.0 | adopt |
 | [Unicode CLDR](../standards.md#accessibility-and-localisation) | CLDR 48.2 (March 2026) | reference |
 | [Age appropriate design - a code of practice for online services (Children's code)](../standards.md#identity-security-and-privacy) | In force 2 September 2020 (conformance from 2 September 2021); guidance updated for the Data (Use and Access) Act 2025 | reference |
 | [OpenAPI Specification](../standards.md#open-data-and-exchange) | OpenAPI 3.1 or later (3.2.1, September 2026) | adopt |

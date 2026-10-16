@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/domain/indicators.md
+msgid "Indicators"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "How an EMIS defines, computes and publishes the indicators it reports. The rules apply to every indicator; the families below show what each kind is built from."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "What every indicator declares"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "From [CAP-SEMANTICS.3]{1}, each indicator is defined once, in the [semantic layer]{2}, with:"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Question"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "What the metadata states"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "What does it mean?"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "A stable code and name, what it measures, and how to read high and low values"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "How is it computed?"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Numerator and denominator as separate measures over stored counts, the unit, and the reference-date rule"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "How may it be broken down?"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "The dimensions it can be disaggregated by"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Where do the counts come from?"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Source tables and how often they refresh"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "When can it be published?"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "The coverage it needs, and the biases it is known to have"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Who answers for it?"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "The owning role, and the version of the definition each figure used"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "A denominator from outside the system, such as a population estimate by single year of age, is versioned reference data with its source and vintage ([CAP-SEMANTICS.5]{1})."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "International definitions"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Indicators with an international definition follow the [UIS Official List of SDG 4 Indicators]{1} (October 2026 edition) and the definitions in the [UIS Glossary: Education Metadata]{2} (2026); the codes of the twelve global indicators are those of the UN [global indicator framework]{3} after its 2026 refinement. Each indicator records the edition it follows ([CAP-SEMANTICS.4]{4}), because these lists change: the October 2026 revision, for example, removed the pupil–qualified-teacher ratio and redefined 4.c.2 as the pupil–teacher ratio. The [standards register]{5} records the editions relied on."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Families"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Family"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Examples"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "SDG 4 codes"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Built from"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Participation"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Gross enrolment ratio, total net enrolment rate, out-of-school rate, participation one year before primary"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "4.1.4, 4.2.2, 4.2.4, 4.3.2, 4.3.3"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Enrolments at the reference date; population by single year of age (external)"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Internal efficiency"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Promotion, repetition and dropout rates; gross intake ratio to the last grade; over-age for grade; completion"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "4.1.2, 4.1.3, 4.1.5"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Enrolments in two consecutive periods, repeaters and progression decisions"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Learning outcomes"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Share of learners reaching minimum proficiency"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "4.1.1, 4.1.6"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Assessment results, with the proficiency threshold as reference data"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Teachers"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Pupil–teacher ratio, share of teachers with the minimum qualification, share with the national professional qualification"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "4.c.1, 4.c.2, 4.c.3"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Postings, qualifications (classified with ISCED-T) and enrolments at the reference date"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Facilities"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Schools offering basic services; learners receiving school meals"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "4.a.1, 4.a.4"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Facility status records and programme participation"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Equity"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Adjusted parity indices by sex, location, wealth and disability"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "4.5.1"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Any of the above, disaggregated"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Finance"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Expenditure per student; expenditure by source"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "4.5.4, 4.5.6"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Expenditure by function and enrolments"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Attendance"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Attendance rate over a period"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "National"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Attendance sessions and active enrolments"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Three conventions follow from the international definitions:"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "**Parity indices are adjusted.** The ratio of one group to another is folded so it is symmetrical around 1: if the ratio is above 1 it becomes 2 minus its inverse. Publications say which form they use."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "**Completion from administrative data is a proxy.** The SDG completion rate is defined over a cohort above the intended age and is measured mainly by household surveys; an EMIS figure is labelled as a proxy."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "**Out-of-school counts need every level.** A learner enrolled at any level is in school, so the learner registry must cover all levels or the rate is overstated."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Worked example: gross enrolment ratio"
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "The gross enrolment ratio for a level is total enrolment in that level, regardless of age, as a percentage of the population of official school age for that level."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "**Gold stores counts** as at the census reference date: learners enrolled in each level, by area and sex, with levels mapped to ISCED 2011 ([CAP-TRANSFORMATION.5]{1}, [CAP-REFERENCE.4]{2})."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "**The denominator is reference data:** the population of official school age by area, sex and single year of age, with its source and vintage ([CAP-SEMANTICS.5]{1})."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "**The semantic layer defines the ratio once,** with its metadata and the edition of the definition it follows ([CAP-SEMANTICS]{1})."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "**The snapshot is locked** when the census completeness gate reads CLEAR for the area ([CAP-COLLECTION.4]{1})."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "**Publication applies disclosure control,** then the figure is published with a permanent identifier and its metadata ([CAP-PUBLICATION]{1})."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "**A revision,** whether a late correction or a new population estimate, is a new version of the snapshot and of the published table; the earlier one stays readable."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "Because the ratio is derived from counts and a versioned denominator, the same definition gives the national figure and every area's figure, and a change of population estimate is visible as a new version rather than a silent shift. The ratio can exceed 100 per cent, which is expected when learners outside the official age are enrolled."
+msgstr ""

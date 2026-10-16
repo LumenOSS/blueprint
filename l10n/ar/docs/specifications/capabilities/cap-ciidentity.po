@@ -1,0 +1,196 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "CAP-CIIDENTITY CI workload identity"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "CI authenticates by federation with short-lived tokens; the root of trust is created once by a person."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Layer L0 · domain: delivery"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Let CI act on the platform without any stored secret, and make sure no identity can widen its own access."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "A stored secret can be copied; a federated token is minted per run and only for a protected environment ([P3]{1}). The identity that defines identities is the root of trust and is created by a person once ([P4]{2}). Role assignment rights are conditioned to a list ([P5]{3})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "The CI host's OIDC token, exchanged for a cloud or platform token."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Federated credentials whose subject names a repository and a protected environment."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Separate plan (read-only) and apply identities per layer; a deploy and a run-as identity per product per environment."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Count credentials before adding them: identity providers cap federated credentials per identity. Verify the subject format of each CI host before relying on it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "CAP-CIIDENTITY.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "No long-lived credential for a cloud, data platform or registry exists in any repository or CI variable; CI exchanges its host-issued token for a short-lived one."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Inventory the CI secrets and variables; none is a credential for a platform service."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "CAP-CIIDENTITY.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "A federated credential binds a protected environment, not a branch or tag, so the binding cannot be edited by a change under review.{1}*Example:* A credential trusts 'repository data-platform, environment production'; a workflow running on an unreviewed branch is not in that environment, so it cannot obtain a token."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Every credential subject names an environment; every environment restricts which branch may deploy."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "CAP-CIIDENTITY.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Plan and apply run as different identities, and the plan identity cannot change anything."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Negative test: an apply attempted with the plan identity is denied."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "CAP-CIIDENTITY.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "The identity that creates CI identities is created once by a person, recorded in the bootstrap repository with its rights and its creator's role, and never applies the code declaring its own credentials."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "The bootstrap README records the identity; its apply refuses the stack that declares it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "CAP-CIIDENTITY.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "A right to assign roles is conditioned to an enumerated list of roles on named scopes, never organisation-wide."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Read the role assignment's condition; it lists the assignable roles."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "CAP-CIIDENTITY.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Each product has one deploy identity and one run-as identity per environment."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "The tenant registry generates exactly those two per product per environment."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "Entra workload identity federation{1}Databricks OAuth federation policies"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ciidentity.md
+msgid "CI OIDC token{1}OpenBao JWT auth{2}Kubernetes projected service-account tokens"
+msgstr ""

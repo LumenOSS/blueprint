@@ -35,7 +35,14 @@
               ps.jsonschema
               ps.types-pyyaml
               ps.types-jsonschema
+              # Translation: Translate Toolkit converts Markdown to and from
+              # gettext PO files (md2po, po2md); mistletoe is its Markdown
+              # parser.
+              ps.translate-toolkit
+              ps.mistletoe
             ]))
+            # gettext merges templates into PO files and checks them.
+            gettext
             ruff
             pyright
             # Markdown: markdownlint-cli2 lints and fixes
@@ -63,6 +70,9 @@
             actionlint
             # Nix: nixfmt formats, statix and deadnix lint, nil serves the
             # editor.
+            # TOML: taplo formats and lints (.taplo.toml) and serves the
+            # editor.
+            taplo
             nixfmt
             statix
             deadnix
@@ -71,7 +81,8 @@
         };
 
         # Website: Hugo builds the documentation site; Go fetches the theme
-        # as a Hugo module; resvg and ImageMagick render the favicons from
+        # as a Hugo module; Translate Toolkit and gettext assemble the
+        # translated pages; resvg and ImageMagick render the favicons from
         # the logo. Only the site build needs them.
         site = pkgs.mkShell {
           packages = with pkgs; [
@@ -79,7 +90,12 @@
             hugo
             go
             git
-            python3
+            # The site build turns translated PO files back into pages.
+            (python3.withPackages (ps: [
+              ps.translate-toolkit
+              ps.mistletoe
+            ]))
+            gettext
             resvg
             imagemagick
           ];

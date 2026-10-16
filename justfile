@@ -6,6 +6,9 @@
 # Formatting and linting are done by the tools below, configured in their
 # own files at the repository root; never by hand.
 
+# The site configuration plus the per-language configuration the build writes.
+hugo_config := justfile_directory() / "site/hugo.toml" + "," + justfile_directory() / "build/site/languages.toml"
+
 set shell := ["bash", "-euo", "pipefail", "-c"]
 
 # List the recipes.
@@ -22,6 +25,9 @@ fmt:
     biome format --write .
     shfmt --find . | xargs --no-run-if-empty shfmt --write
     nixfmt flake.nix
+    taplo fmt
+    # Formatting can change translated pages, so their templates follow.
+    python3 scripts/l10n.py update
 
 # Fail if anything is not formatted.
 fmt-check:
@@ -31,6 +37,7 @@ fmt-check:
     biome format .
     shfmt --find . | xargs --no-run-if-empty shfmt --diff
     nixfmt --check flake.nix
+    taplo fmt --check
 
 # Run every linter and the type checker.
 lint:
@@ -44,6 +51,7 @@ lint:
     actionlint
     statix check .
     deadnix --fail .
+    taplo lint
 
 # Check that every link inside the repository resolves (no network).
 links:
@@ -63,9 +71,14 @@ binding +files:
 
 # Build the documentation website into build/site/public.
 # Run in the site shell: nix develop .#site --command just site
-site base_url="https://lumenoss.github.io/data-platform-blueprint/": site-icons
-    python3 scripts/site.py build/site/content
-    hugo build --source site --contentDir ../build/site/content --destination ../build/site/public --baseURL "{{ base_url }}" --minify --cleanDestinationDir
+site base_url="https://lumenoss.github.io/data-platform-blueprint/": site-icons (site-content base_url)
+    hugo build --source site --config "{{ hugo_config }}" --destination ../build/site/public --baseURL "{{ base_url }}" --minify --cleanDestinationDir
+
+# Stage every language's pages and the Hugo language configuration.
+[private]
+site-content base_url:
+    python3 scripts/l10n.py build build/l10n/pages
+    python3 scripts/site.py build/site --base-url "{{ base_url }}" --translations build/l10n/pages
 
 # Render the favicons from the logo into site/static (gitignored).
 site-icons:
@@ -80,9 +93,21 @@ site-icons:
     magick "$out/favicon-16x16.png" "$out/favicon-32x32.png" "$out/favicon.ico"
 
 # Serve the documentation website locally with live reload.
-site-serve: site-icons
-    python3 scripts/site.py build/site/content
-    hugo server --source site --contentDir ../build/site/content --baseURL "http://localhost:1313/"
+site-serve: site-icons (site-content "http://localhost:1313/")
+    hugo server --source site --config "{{ hugo_config }}" --baseURL "http://localhost:1313/"
+
+# Regenerate the translation templates and merge them into every
+# language's PO files. Run after changing any translated page.
+l10n-update:
+    python3 scripts/l10n.py update
+
+# Show how much of each language is translated.
+l10n-status:
+    python3 scripts/l10n.py status
+
+# Fail if translation templates or PO files are stale or invalid.
+l10n:
+    python3 scripts/l10n.py check
 
 # Render every Mermaid diagram to build/ as PNG, to look at before committing.
 # Run in the diagrams shell: nix develop .#diagrams --command just diagrams
@@ -98,4 +123,4 @@ diagrams:
     echo "rendered into build/"
 
 # Everything a change must pass.
-check: fmt-check lint blueprint links
+check: fmt-check lint blueprint l10n links

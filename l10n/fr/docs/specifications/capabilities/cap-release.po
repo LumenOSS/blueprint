@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "CAP-RELEASE Reconciliation and release"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Results are released per unit only when the unit reconciles against its register."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Layer L3 · domain: product · depends on: [CAP-REVIEW]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Release results only when every expected subject is accounted for."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "A release is the point of no return; reconciliation against an external register is the last check before it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "A gate that reads BLOCKED or CLEAR per release unit."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Register snapshots per sitting."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "CAP-RELEASE.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "For each release unit, expected subjects (from an external register) balance against confirmed results; any duplicate, orphan, missing subject, pending identity or absent register reads BLOCKED.{1}*Example:* A school's register lists 30 learners; 29 have confirmed results and one has none, so the school reads BLOCKED until the missing one is found or recorded as absent."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Fixtures for each blocking condition read BLOCKED; a balanced unit reads CLEAR."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "CAP-RELEASE.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Results release only on CLEAR, and a release is recorded as the point after which changes are new versions."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "A change after release creates a new version and leaves the released one intact."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "CAP-RELEASE.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "The register is read through an adapter and frozen as an immutable snapshot per sitting; corrections are deterministic, evented operations, never ad-hoc edits."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Each sitting references one snapshot; register corrections appear as events."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "The example product's release gate"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-release.md
+msgid "[oss]{1}"
+msgstr ""

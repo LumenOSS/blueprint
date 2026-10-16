@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "CAP-STORAGE Object storage"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Durable object storage for tables and files, isolated per domain catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Layer L1 · domain: data"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Store tables and files durably, with each domain's data behind its own location and credential."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Separate locations per domain keep a grant on one domain from reaching another's files. Source files are the evidence behind every derived number, so they are kept as records ([P12]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "An object API reached by identity."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "One location and credential per domain catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "An archive area for source-of-record files."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Object versioning on a lake store can conflict with table maintenance: deleted data files reappear as versions and maintenance cannot reclaim them. Use the table format's history and backups for recovery, and test the combination."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "CAP-STORAGE.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Storage exposes an object API reached by identity, with encryption at rest."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Anonymous and shared-key access are refused."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "CAP-STORAGE.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Each domain catalog has its own storage location and credential, so a grant on one domain never reaches another's files."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "A credential for one domain cannot list another domain's location."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "CAP-STORAGE.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Protection against accidental deletion is configured in a way the table format supports; it never breaks table maintenance."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Maintenance (expiry, vacuum) runs clean, and a deleted table is restored in a drill."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "CAP-STORAGE.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Source-of-record files are kept in governed storage, tagged as real, with retention set by the data owner."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "The archive location carries provenance and retention metadata."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "CAP-STORAGE.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Object storage and the catalog are backed up on a declared cadence to a geographically separate location, and a scheduled drill restores from backup outside any migration."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "The backup schedule is in code; the latest restore drill report compares content hashes and is within its schedule."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "ADLS Gen2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-storage.md
+msgid "Ceph RGW via Rook"
+msgstr ""

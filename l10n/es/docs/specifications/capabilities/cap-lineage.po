@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "CAP-LINEAGE Lineage"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Which inputs produced which outputs, captured as work runs."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Layer L1 · domain: data · depends on: [CAP-CATALOG]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Record which inputs produced each output."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Lineage answers what a change will affect and where a number came from."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Lineage events emitted by jobs and transformations, collected by the catalog or a lineage service."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Lineage exists only where an integration emits it. List the jobs without it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "CAP-LINEAGE.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Table-level lineage is captured automatically for every job and transformation run."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "For a gold table, lineage lists its upstream tables without manual entry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "CAP-LINEAGE.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Column-level lineage is captured where the engine supports it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "For a masked column, lineage shows the source column."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "CAP-LINEAGE.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Lineage is emitted as OpenLineage events, so lineage from different implementations can be compared."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Job runs emit OpenLineage run events."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "[OpenLineage]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Specification 1.x (1.54.0, 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "Unity Catalog lineage"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-lineage.md
+msgid "OpenLineage"
+msgstr ""

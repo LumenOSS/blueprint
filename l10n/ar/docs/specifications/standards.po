@@ -1,0 +1,1268 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/standards.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The external standards the blueprint relies on, each linked to its publisher's own page, with the edition relied on and its verdict:"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "**adopt:** named in a contract clause;"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "**reference:** a recommended method or background;"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "**track:** watched, not yet relied on."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The register is [`blueprint/standards.yaml`]{1}; this page and the \"Standards\" section of each capability page are generated from it. Every entry was last checked on the date in the register. Entries checked as `catalogue` were confirmed from the publisher's catalogue listing because the publisher's page blocks automated reading; confirm them on the page before relying on the exact edition."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "How standards are cited"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "**Cite a dated edition with an \"or later\" rule** where newer editions stay compatible (for example \"OpenAPI 3.1 or later\"), so a patch release does not invalidate a clause."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "**Separate the standard from its code list.** Country, currency and language codes change between editions through their maintenance agencies; each code list is loaded on a schedule, versioned, and recorded with its source and retrieval date ([CAP-REFERENCE]{1})."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "**Prefer free, testable profiles in clauses** (RFC 3339 rather than the whole of ISO 8601), and cite the broader standard as background."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "**Re-check the register at least once a year.** A new edition is a reviewed change to the register and, where it changes a clause, an ADR."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Register"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Requirement language"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Use"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Used by"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[BCP 14 (RFC 2119 and RFC 8174)]{1}IETF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "RFC 2119 (1997) with RFC 8174 (2017)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The meaning of MUST, SHOULD and MAY; only the upper-case forms are normative."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "—"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Data representation"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[RFC 3339 Date and Time on the Internet]{1}IETF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "RFC 3339 (2002), as updated by RFC 9557 (2024)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The strict, testable profile of ISO 8601 used for every stored or exchanged timestamp, with an explicit offset."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-REFERENCE]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[RFC 9557 Internet Extended Date/Time Format]{1}IETF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "RFC 9557 (April 2024)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Adds the time-zone name to a timestamp where local civil time matters, such as a school day or an examination sitting."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO 8601-1 Date and time]{1}ISO"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO 8601-1:2019 with Amd 1:2022"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The underlying date and time standard that RFC 3339 profiles."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ITU-T E.164 international numbering plan]{1}ITU-T"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "E.164 (02/26), approved 2026-02-13"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The form in which telephone numbers are stored and exchanged."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO 3166-1 Country codes]{1}ISO"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO 3166-1:2020; code list as maintained by the ISO 3166 Maintenance Agency"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Country codes; the code list is loaded on a schedule with its retrieval date."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO 4217 Currency codes]{1}ISO"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO 4217:2015; code tables as maintained by the maintenance agency"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The currency of every amount of money, stored as a decimal with its code."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[BCP 47 Language tags]{1}IETF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "RFC 5646 and RFC 4647, with the IANA Language Subtag Registry"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Tags for languages of instruction, home languages and interface locales."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-REFERENCE]{1}, [CAP-APPS]{2}, P22"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO 639 Language codes]{1}ISO"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO 639:2023, which replaced the former parts 1 to 5"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The language code sets underlying BCP 47 subtags."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Unicode Standard and normalization (UAX 15)]{1}Unicode Consortium"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Unicode 18.0.0 (2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Text is stored as UTF-8 in Normalization Form C, so names compare reliably in duplicate detection."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-REFERENCE]{1}, [CAP-MASTERDATA]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[RFC 9562 Universally Unique IDentifiers]{1}IETF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "RFC 9562 (May 2024), obsoleting RFC 4122"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Opaque surrogate identifiers; version 7 keeps index locality."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-MASTERDATA]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Education classifications and indicators"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[International Standard Classification of Education (ISCED 2011)]{1}UNESCO Institute for Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISCED 2011 (published 2012) with Operational Manual (2015); amendment due 2027"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Levels of education programmes and attainment for international comparison."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-REFERENCE]{1}, [CAP-SEMANTICS]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISCED Fields of Education and Training (ISCED-F 2013)]{1}UNESCO Institute for Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISCED-F 2013 (published 2014); comprehensive revision due 2027"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Fields of study for programmes and qualifications."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[International Standard Classification of Teacher Training Programmes (ISCED-T 2021)]{1}UNESCO Institute for Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISCED-T 2021 (published 2022)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Classifying teacher-training programmes and qualifications for SDG 4.c reporting."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISCED revision (amendment of ISCED 2011, revision of ISCED-F 2013)]{1}UNESCO Institute for Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "In progress; task forces 2026; target 44th UNESCO General Conference (2027)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Future edition of the classifications the crosswalks map to."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "track"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Global indicator framework for the Sustainable Development Goals]{1}UN Statistics Division (IAEG-SDGs)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "After 2026 refinement (UN Statistical Commission 57th session, March 2026; includes the 2025 Comprehensive Review)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Official codes and wording of the 12 global SDG 4 indicators."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-SEMANTICS]{1}, [CAP-PUBLICATION]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Official List of SDG 4 Indicators (global and thematic)]{1}UNESCO Institute for Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "October 2026 (post EDSC-12)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Codes, wording and benchmark flags for SDG 4 thematic indicators."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[UIS Glossary - Education Metadata]{1}UNESCO Institute for Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "2026 (UIS/2026/ED/IP/32)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Definitions and calculation methods of education indicators."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-SEMANTICS]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[UIS Survey of Formal Education (and UIS-OECD-Eurostat UOE collection)]{1}UNESCO Institute for Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Annual cycle; documented in the February 2026 Data Refresh background document"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The international questionnaires an EMIS must be able to complete from gold."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-PUBLICATION]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[LASER national education statistical capacity assessment]{1}UNESCO Institute for Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Global report 2025 (maturity model)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Maturity model for a country's education data ecosystem."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Metadata and data quality"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Education Data Quality Assessment Framework (Ed-DQAF)]{1}UNESCO Institute for Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "2017 manual, instruments and matrix"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "External assessment of an administrative education data system."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-QUALITY]{1}, [CAP-COLLECTION]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO/IEC 11179 Metadata registries]{1}ISO/IEC"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO/IEC 11179-1:2023 and 11179-3:2023"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The model of the data dictionary: concept, value domain and data element, with registration status and steward."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO/IEC 25012 Data quality model]{1}ISO/IEC"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO/IEC 25012:2008, confirmed 2025"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The vocabulary of quality characteristics each check names."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-QUALITY]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO/IEC 25024 Measurement of data quality]{1}ISO/IEC"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO/IEC 25024:2015, confirmed 2022"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "How each quality characteristic becomes a measure."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO/IEC 5259 Data quality for analytics and machine learning]{1}ISO/IEC"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO/IEC 5259-1 to -4:2024"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Quality measures for the training and scoring data of governed models."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-MODELS]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[OpenLineage]{1}LF AI & Data Foundation"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Specification 1.x (1.54.0, 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "A vendor-neutral format for lineage events, so implementations produce comparable lineage."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-LINEAGE]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Official statistics and disclosure control"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[UN Fundamental Principles of Official Statistics]{1}United Nations Statistics Division"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Adopted 1994; endorsed by UN General Assembly resolution 68/261 (2014)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The principles official education statistics follow, including that individual data serve statistical purposes only."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-PUBLICATION]{1}, [CAP-COLLECTION]{2}, P15"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[UN National Quality Assurance Frameworks Manual for Official Statistics]{1}United Nations Statistics Division"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "2019 (ST/ESA/STAT/SER.M/100)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "A quality framework for statistics drawn from administrative sources such as an EMIS."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Generic Statistical Business Process Model]{1}UNECE"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "GSBPM v5.2 (May 2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The phase vocabulary for statistical production; each collection and release stage names its phase."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-COLLECTION]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Handbook on Statistical Disclosure Control]{1}Centre of Excellence on Statistical Disclosure Control"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Second edition (2025; online edition 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The methods for suppression, rounding and perturbation (including the Cell Key Method) applied to published tables."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[NIST SP 800-226 Guidelines for Evaluating Differential Privacy Guarantees]{1}NIST"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Final, March 2025"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "How to decide on, and document, differential privacy for query services or synthetic data."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Open data and exchange"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[RFC 7946 GeoJSON]{1}IETF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "RFC 7946 (August 2016)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Open format for published locations and boundaries, with WGS 84 as its fixed reference system."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[OGC API – Features]{1}Open Geospatial Consortium"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Parts 1 to 3 (Core 1.0.1, CRS by Reference 1.0.1, Filtering 1.0.0)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "A standard web interface for querying published institution locations."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Common Education Data Standards (CEDS)]{1}US National Center for Education Statistics"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Version 14 (official release on the CEDS GitHub, March–April 2026); the ceds.ed.gov downloads still offer Version 13"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Open vocabulary of education data elements for the data dictionary."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-REFERENCE]{1}, [CAP-INTEROPERABILITY]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[1EdTech OneRoster]{1}1EdTech"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "1.2 (September 2022)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Rosters, enrolments and results between the EMIS and learning tools."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-INTEROPERABILITY]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[1EdTech Competencies and Academic Standards Exchange (CASE)]{1}1EdTech"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "1.1 (January 2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Publishing curriculum outcomes and competency frameworks with stable identifiers."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[1EdTech Comprehensive Learner Record 2.0 and Open Badges 3.0]{1}1EdTech"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "CLR 2.0 (doc 1.1, October 2025); Open Badges 3.0 (doc 1.4.5, June 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Learner-held records and achievements as verifiable credentials."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-TRANSFORMATION]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[European Learning Model (European Digital Credentials for Learning)]{1}European Commission (Europass)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ELM 3.3 (2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "EU model for qualifications and verifiable learning credentials."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Data Catalog Vocabulary (DCAT)]{1}W3C"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "DCAT Version 3, W3C Recommendation (August 2024)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Catalogue metadata for published datasets, including dataset series and versions."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[DCAT Application Profile (DCAT-AP)]{1}SEMIC"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "DCAT-AP 3.0.1 (October 2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Which DCAT properties to fill, and with which vocabularies."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[schema.org Dataset]{1}schema.org"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "schema.org 30.1 (September 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Dataset markup on landing pages, generated from the DCAT record, so datasets are found by search."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CSV on the Web (CSVW)]{1}W3C"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "W3C Recommendations (December 2015)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Column-level metadata shipped beside every published CSV file."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[SDMX]{1}SDMX sponsors"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "SDMX 3.0 or later (3.1, May 2025); 2.1 where the receiving agency requires it"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Exchange of statistics and their structures with international bodies."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[International Open Data Charter principles]{1}Open Data Charter"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Six principles (2015)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The policy basis for publishing open by default, timely and comparable."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-PUBLICATION]{1}, P15"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[FAIR Guiding Principles]{1}GO FAIR"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Wilkinson et al., Scientific Data 3, 160018 (2016)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Findable, accessible, interoperable and reusable data, as a checklist for publication."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Apache Ossie (Open Semantic Interchange)]{1}Apache Software Foundation (incubating)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Specification 0.1.1 (December 2025); 0.2 in development; Apache incubating project"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "An open format for exchanging semantic definitions between tools, which could replace the per-engine generators."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[OpenAPI Specification]{1}OpenAPI Initiative"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "OpenAPI 3.1 or later (3.2.1, September 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Machine-readable contracts for request-response interfaces."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-INTEROPERABILITY]{1}, [CAP-APPS]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[JSON Schema]{1}JSON Schema"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Draft 2020-12"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Payload and data-contract schemas, and the blueprint's own schemas."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[AsyncAPI Specification]{1}AsyncAPI Initiative"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "AsyncAPI 3.x (3.1.0, January 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Machine-readable contracts for evented interfaces."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CloudEvents]{1}CNCF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "CloudEvents 1.0.2"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "A common envelope for events, whose id and source give the idempotency key."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-INTEROPERABILITY]{1}, [CAP-PIPELINE]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ODRL Information Model]{1}W3C"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ODRL 2.2, W3C Recommendation (2018)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Machine-readable terms of a data-sharing agreement, alongside the DCAT record."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-SHARING]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Verifiable Credentials Data Model]{1}W3C"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "VC Data Model 2.0, W3C Recommendation (May 2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Tamper-evident digital certificates and transcripts issued about a single record; Open Badges 3.0, CLR 2.0 and the European Learning Model build on it."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Identity, security and privacy"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[UNICEF Guidance on AI and Children]{1}UNICEF Innocenti"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Version 3.0 (December 2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Child-rights requirements for any model that scores or profiles learners."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Data Governance for EdTech (landscape review and policy recommendations)]{1}UNICEF Innocenti (with UNESCO and the Global Privacy Assembly)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "2025"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Terms for sharing learner data with vendors and third parties."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[UN CRC General Comment No. 25 on children's rights in relation to the digital environment]{1}UN Committee on the Rights of the Child (OHCHR)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "2021"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Rights basis for classifying and protecting learner data."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-CLASSIFICATION]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Age appropriate design - a code of practice for online services (Children's code)]{1}UK Information Commissioner's Office"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "In force 2 September 2020 (conformance from 2 September 2021); guidance updated for the Data (Use and Access) Act 2025"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Design standards for learner- and guardian-facing services."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-APPS]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Guidelines on Children's Data Protection in an Education Setting]{1}Council of Europe"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Adopted by the Committee of Convention 108, November 2020"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Intergovernmental guidelines on children's data protection specific to education."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-CLASSIFICATION]{1}, [CAP-SHARING]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[NIST SP 800-63-4 Digital Identity Guidelines]{1}NIST"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "SP 800-63-4, final (July 2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Assurance levels and the definition of a phishing-resistant authenticator."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-IDENTITY]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Web Authentication]{1}W3C"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Level 2 or later (Level 3, W3C Recommendation, August 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Passkeys and security keys as the phishing-resistant authenticator."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[OpenID Connect Core 1.0]{1}OpenID Foundation"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Core 1.0 incorporating errata set 2; also ISO/IEC 26131:2024"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Sign-in to applications through the identity provider."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-IDENTITY]{1}, [CAP-APPS]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[OAuth 2.0 Security Best Current Practice]{1}IETF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "RFC 9700 / BCP 240 (January 2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The security baseline every OAuth deployment conforms to."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[SCIM 2.0]{1}IETF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "RFC 7643 and RFC 7644 (2015), with later extensions"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Automatic provisioning of users and groups from the authoritative directory."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[OWASP Application Security Verification Standard]{1}OWASP"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ASVS 5.0.0 (May 2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Testable security requirements for applications that handle identifiable data."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO/IEC 27001 Information security management systems]{1}ISO/IEC"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO/IEC 27001:2022 with Amd 1:2024, and ISO/IEC 27002:2022"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The operator's management system, to which the capability clauses map as evidence."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-GUARDRAILS]{1}, [CAP-AUDIT]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO/IEC 27701 Privacy information management systems]{1}ISO/IEC"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO/IEC 27701:2025, a standalone standard"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The operator's privacy management system for personal data."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-RECORDS]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[ISO/IEC 29100 Privacy framework]{1}ISO/IEC"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "ISO/IEC 29100:2024 (second edition)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Privacy vocabulary and principles, including purpose legitimacy and data minimisation."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-RECORDS]{1}, [CAP-CLASSIFICATION]{2}, P20"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Role Based Access Control (ANSI/INCITS 359)]{1}NIST (project page for the ANSI/INCITS standard)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "INCITS 359-2012"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The role-based model behind reach: permissions are granted to roles, and people hold roles."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-ACCESS]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[NIST SP 800-162 Guide to Attribute Based Access Control (ABAC)]{1}NIST"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "January 2014, with updates as of August 2019"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The attribute-based model behind row scope and column visibility, decided from attributes of the person, the data and the request."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-ACCESS]{1}, [CAP-CLASSIFICATION]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[NIST SP 800-188 De-Identifying Government Datasets]{1}NIST"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Final, September 2023"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Techniques and governance for de-identifying data before it is shared or published, including masking and pseudonymisation."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-SHARING]{1}, [CAP-PUBLICATION]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[NIST Cybersecurity Framework]{1}NIST"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "CSF 2.0 (February 2024)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "An outcome-based risk framework to which the capabilities can be mapped."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-GUARDRAILS]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Software supply chain"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Supply-chain Levels for Software Artifacts (SLSA)]{1}OpenSSF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "SLSA v1.2 (November 2025)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Build provenance for every deployable artefact."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-DELIVERY]{1}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[SPDX]{1}Linux Foundation"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "SPDX 2.3 or later (3.0.1, December 2024)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Software bill of materials and licence identifiers; either SPDX or CycloneDX satisfies the clause."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CycloneDX]{1}OWASP / Ecma International"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "CycloneDX 1.5 or later (1.7, October 2025; ECMA-424)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Software bill of materials; also describes models, which suits governed models."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-DELIVERY]{1}, [CAP-MODELS]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Accessibility and localisation"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[GNU gettext PO files]{1}GNU Project"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "GNU gettext 1.0"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The translation file format for the documentation and for interface text, so translators work on strings and see exactly what changed."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-APPS]{1}, P22"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Unicode CLDR]{1}Unicode Consortium"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "CLDR 48.2 (March 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Locale data for formatting numbers, dates and currencies at display time; formatted values are never stored."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-APPS]{1}, [CAP-REPORTING]{2}, P22"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Web Content Accessibility Guidelines]{1}W3C"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "WCAG 2.2 Level AA (W3C Recommendation, December 2024 version); also ISO/IEC 40500:2025"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The accessibility level every interface used by staff, learners, guardians or the public meets."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[EN 301 549 Accessibility requirements for ICT products and services]{1}ETSI / CEN / CENELEC"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "V4.1.1 (September 2026), aligned with WCAG 2.2; V3.2.1 where a procurement rule cites it"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Accessibility of documents and software as well as web pages, for procurement and published files."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-APPS]{1}, [CAP-PUBLICATION]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[WCAG 3.0]{1}W3C"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "W3C Working Draft (September 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "The next accessibility guidelines; not yet stable enough for a clause."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Open-source health and digital public goods"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[OpenSSF Scorecard]{1}OpenSSF"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "v5 (5.6.0, October 2026)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "An automated assessment of an open-source repository's security practices, for components and for the blueprint's own repositories."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[CAP-GUARDRAILS]{1}, [CAP-MODULES]{2}"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Digital Public Goods Standard]{1}Digital Public Goods Alliance"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "v1.1.6 (September 2024)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Criteria for open software and data recognised as digital public goods, which the blueprint aims to meet."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "P21"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "[Principles for Digital Development]{1}Principles for Digital Development"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "2024 refresh (nine principles)"
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "Endorsed principles for public digital programmes, including people-first data practices and building for sustainability."
+msgstr ""
+
+#: docs/specifications/standards.md
+msgid "P20, P21"
+msgstr ""

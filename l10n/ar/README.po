@@ -1,0 +1,248 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: README.md
+msgid "data-platform-blueprint"
+msgstr ""
+
+#: README.md
+msgid "A reference architecture for the governed data platform behind an education management information system (EMIS), written so that the architecture stays fixed while the implementation varies. It covers the resources an EMIS holds (learners, schools, teachers and staff, enrolment, attendance, assessment and the indicators reported from them) through operational databases, a lakehouse, governance and access, reporting, backfill and migration, and example products that exercise all of them."
+msgstr ""
+
+#: README.md
+msgid "Each part of the architecture is a **capability** with a **contract** of numbered, testable clauses that name no vendor. An **implementation** binds each capability to real components and shows evidence for every clause. Two reference implementations are planned: one fully open source on Kubernetes, one on Databricks."
+msgstr ""
+
+#: README.md
+msgid "Status: blueprint 0.5.0, with 41 capabilities and 246 clauses. Contracts are drafted; no implementation has evidence yet."
+msgstr ""
+
+#: README.md
+msgid "**New here?** Start with [getting started]{1}: it gives a reading order for everyone and a track for each role."
+msgstr ""
+
+#: README.md
+msgid "How the blueprint changes"
+msgstr ""
+
+#: README.md
+msgid "Anyone can propose a change as a **LumenOSS Improvement Proposal (LIP)**: a numbered document that moves in the open from Draft through Review and a 14-day Last Call to a decision, in the manner of the IETF's RFCs, Python's PEPs, Bitcoin's BIPs, Ethereum's EIPs and Cardano's CIPs. Every proposal states its effect on learners' data. Accepted LIPs are recorded as decision records and released in a catalogue version. Read [LIP-1]{1} for the process and start from the [template]{2}. [CONTRIBUTING.md]{3} says which changes need a LIP and which are ordinary reviewed changes, how to set up, and what review looks for."
+msgstr ""
+
+#: README.md
+msgid "Map"
+msgstr ""
+
+#: README.md
+msgid "Read"
+msgstr ""
+
+#: README.md
+msgid "For"
+msgstr ""
+
+#: README.md
+msgid "[Getting started]{1}"
+msgstr ""
+
+#: README.md
+msgid "The order to read everything in, by role"
+msgstr ""
+
+#: README.md
+msgid "[Core concepts]{1}"
+msgstr ""
+
+#: README.md
+msgid "What an EMIS is, its domain, its data, and the terms used throughout"
+msgstr ""
+
+#: README.md
+msgid "[Specifications]{1}"
+msgstr ""
+
+#: README.md
+msgid "What is required: principles, capabilities, domain, architecture, standards"
+msgstr ""
+
+#: README.md
+msgid "[Guides]{1}"
+msgstr ""
+
+#: README.md
+msgid "How to build an implementation, run products and load history"
+msgstr ""
+
+#: README.md
+msgid "[Principles]{1}"
+msgstr ""
+
+#: README.md
+msgid "The 22 ideas the architecture rests on, and why"
+msgstr ""
+
+#: README.md
+msgid "[Architecture]{1}"
+msgstr ""
+
+#: README.md
+msgid "C4 diagrams: context, containers, components"
+msgstr ""
+
+#: README.md
+msgid "[Capabilities]{1}"
+msgstr ""
+
+#: README.md
+msgid "41 capabilities and their contracts"
+msgstr ""
+
+#: README.md
+msgid "[Implementations]{1}"
+msgstr ""
+
+#: README.md
+msgid "Reference bindings for open source and Databricks, and where they differ"
+msgstr ""
+
+#: README.md
+msgid "[Building an implementation]{1}"
+msgstr ""
+
+#: README.md
+msgid "The steps, in dependency order, with completion criteria"
+msgstr ""
+
+#: README.md
+msgid "[Domain model]{1}"
+msgstr ""
+
+#: README.md
+msgid "What an EMIS holds: domains, resources, modelling rules, default classification"
+msgstr ""
+
+#: README.md
+msgid "[Indicators]{1}"
+msgstr ""
+
+#: README.md
+msgid "How indicators are defined, computed and published"
+msgstr ""
+
+#: README.md
+msgid "[Semantic layer]{1}"
+msgstr ""
+
+#: README.md
+msgid "Every indicator defined once and served to every consumer; dbt in both implementations"
+msgstr ""
+
+#: README.md
+msgid "[Example products]{1}"
+msgstr ""
+
+#: README.md
+msgid "Document review and an annual census, each running through every layer, and a checklist for new products"
+msgstr ""
+
+#: README.md
+msgid "[Backfill patterns]{1}"
+msgstr ""
+
+#: README.md
+msgid "Loading history and reprocessing, from published sources"
+msgstr ""
+
+#: README.md
+msgid "[Lessons]{1}"
+msgstr ""
+
+#: README.md
+msgid "Failures that shaped the design, as rules"
+msgstr ""
+
+#: README.md
+msgid "[Standards]{1}"
+msgstr ""
+
+#: README.md
+msgid "The international standards relied on, with current editions and publisher links"
+msgstr ""
+
+#: README.md
+msgid "[Contributing]{1}"
+msgstr ""
+
+#: README.md
+msgid "Which path a change takes, setting up, writing and review"
+msgstr ""
+
+#: README.md
+msgid "[Improvement proposals]{1}"
+msgstr ""
+
+#: README.md
+msgid "How to propose a change, and every LIP so far"
+msgstr ""
+
+#: README.md
+msgid "[Decision records]{1}"
+msgstr ""
+
+#: README.md
+msgid "What was decided, and why"
+msgstr ""
+
+#: README.md
+msgid "[Context map]{1}"
+msgstr ""
+
+#: README.md
+msgid "The bounded contexts of the EMIS domain and their language, with the words to avoid"
+msgstr ""
+
+#: README.md
+msgid "[Domain design]{1}"
+msgstr ""
+
+#: README.md
+msgid "Subdomains, aggregates, invariants and domain events"
+msgstr ""
+
+#: README.md
+msgid "[Glossary]{1}"
+msgstr ""
+
+#: README.md
+msgid "Terms about the blueprint and the platform"
+msgstr ""
+
+#: README.md
+msgid "Layout"
+msgstr ""
+
+#: README.md
+msgid "Develop"
+msgstr ""
+
+#: README.md
+msgid "Everything runs in the Nix dev shell; tasks are `just` recipes."
+msgstr ""
+
+#: README.md
+msgid "Formatting and linting are done by tools configured at the repository root (ruff, pyright, markdownlint, yamlfmt, yamllint, biome, shfmt, shellcheck, nixfmt, lychee). `just fmt` applies the formatters."
+msgstr ""
+
+#: README.md
+msgid "Licence"
+msgstr ""
+
+#: README.md
+msgid "Apache License 2.0. See [LICENSE]{1}."
+msgstr ""

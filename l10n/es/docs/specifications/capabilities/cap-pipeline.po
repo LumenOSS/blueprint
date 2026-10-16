@@ -1,0 +1,220 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "CAP-PIPELINE Retryable pipeline"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Content-addressed, deterministic stages that hand off through storage and can retry while the database is down."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Layer L3 · domain: product · depends on: [CAP-ORCHESTRATION]{1}, [CAP-STORAGE]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Build processing stages that can be retried, overlapped and re-run without being wrong."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Delivery is at-least-once; content addressing makes overlap wasteful instead of wrong ([P8]{1}, [P9]{2}). Keeping the database out of every stage but one lets the rest retry through a database outage."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Storage folders as hand-off points; one job per stage."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "A provenance record per item."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "A stage that keeps an index in memory must run with concurrency one, or concurrent runs miss matches across each other silently."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "CAP-PIPELINE.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "An input's identity is the hash of its bytes; duplicates and re-deliveries converge on one record.{1}*Example:* The same scanned page uploaded as scan1.pdf and as register-final.pdf has the same hash, so only one record results."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Submit the same file twice under different names; one record results."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "CAP-PIPELINE.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "The same input produces byte-identical output; any randomness is seeded per item from a hash of stable keys."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Process a fixed corpus twice; outputs are byte-identical."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "CAP-PIPELINE.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Each stage is its own job, triggered by the output of the stage before it, so no stage can outrun its predecessor."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "The job graph has one job per stage with storage-arrival triggers."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "CAP-PIPELINE.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Pending work is recomputed from what exists, never consumed from a queue on read, so a failed run strands nothing."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Kill a run mid-way; the next run processes the remainder."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "CAP-PIPELINE.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Writes are atomic (write to a temporary name, then move), so a reader never sees a partial output."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Code review and a fault-injection test find no partial files."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "CAP-PIPELINE.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Only the publishing stage connects to the operational database; every other stage can retry while it is unavailable."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "With the database unreachable, upstream stages complete."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "CAP-PIPELINE.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Each item carries a provenance record of every stage that touched it, with versions; a missing stage reads as absent, never invented."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Every published item has a provenance record with a field per stage."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "[CloudEvents]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "CloudEvents 1.0.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "The example product's stages on Lakeflow Jobs"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-pipeline.md
+msgid "The example product's stages on Airflow + Spark/Python"
+msgstr ""

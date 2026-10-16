@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "CAP-TABLES Open table format"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Transactional tables in an open format, readable by more than one engine."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Layer L1 · domain: data · depends on: [CAP-STORAGE]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Hold tabular data in an open, transactional format that more than one engine can read."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Open formats keep the data readable without the current vendor, and the exit test proves it ([P16]{1}). Retention holds make a fallback window possible."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "An open table format with atomic commits, schema evolution and time travel."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Per-table retention settings declared in code."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Each statement against a transactional table is a commit with its own metadata cost; write in batches."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "CAP-TABLES.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Tables use an open, specified format with atomic commits, schema evolution and time travel."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "The format's specification is public; a commit is atomic under concurrent writers."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "CAP-TABLES.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Every table is readable by at least two independent engines."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Exit test: read a sample of gold tables with an engine other than the one that wrote them; counts and hashes match."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "CAP-TABLES.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "History retention is configurable per table and can be held during a fallback window."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Retention settings are declared in code; a hold suspends expiry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "CAP-TABLES.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Writers batch into set-based operations, because each statement is a commit."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Pipeline code issues one write per batch, not per row."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Delta Lake with UniForm"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-tables.md
+msgid "Apache Iceberg"
+msgstr ""

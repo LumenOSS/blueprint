@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/guides/README.md
+msgid "Guides"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "How to do things with the blueprint, step by step. Each guide assumes you know the [core concepts]{1} and points to the [specifications]{2} it applies."
+msgstr ""
+
+#: docs/guides/README.md
+msgid "Guide"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "Use it to"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "[Building an implementation]{1}"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "Turn the blueprint into a running platform, in a build order generated from the dependencies"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "[Example products]{1}"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "See a workload run through every layer, and check a new product against the checklist"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "[Backfill]{1}"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "Load history and reprocess data safely"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "[Lessons]{1}"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "Avoid the failures that shaped the design"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "[Translating]{1}"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "Translate the documentation, or edit a page that has translations"
+msgstr ""

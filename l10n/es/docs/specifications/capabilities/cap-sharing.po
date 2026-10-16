@@ -1,0 +1,240 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "CAP-SHARING Publication and sharing"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "External parties receive de-identified tables from a publication catalog over an open protocol, each share approved and registered."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Layer L1 · domain: governance · depends on: [CAP-CATALOG]{1}, [CAP-CLASSIFICATION]{2}, [CAP-TRANSFORMATION]{3}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Let data leave the platform only as de-identified or aggregated tables, approved and registered. This page covers partner sharing of row-level data; open aggregate statistics are [CAP-PUBLICATION]{1}, and a person's own records are [CAP-RECORDS.7]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Sharing protocols do not carry the provider's policies to the recipient, so protection must be in the data ([P15]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "A publication catalog built by the transformation layer."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "An open sharing protocol; a recipient register; a sharing panel."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "An unsalted hash of an identifier can be reversed by trying every plausible identifier. Use a keyed hash or a surrogate key."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "CAP-SHARING.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Data leaves the platform only from a publication catalog of de-identified or aggregated materialised tables."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Every share's objects are in the publication catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "CAP-SHARING.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Published tables enforce a minimum cell size by test, and replace identifiers with keyed hashes or surrogate keys, never unsalted hashes.{1}*Example:* A published identifier is a keyed hash, so someone holding a list of learner numbers cannot hash the list and match it; an unsalted hash would allow exactly that."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Publication models carry cell-size tests; no identifier column is an unkeyed hash."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "CAP-SHARING.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Sharing uses an open protocol, with recipients authenticated by federation where possible and otherwise by tokens rotated within a year."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "The recipient register lists each recipient's method and token expiry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "CAP-SHARING.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Each share is a reviewed change sponsored by a steward, approved by a sharing panel, and listed in a published register."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Every live share traces to an approved change and a register entry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "CAP-SHARING.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Shares name explicit tables, never whole schemas, and share no table history."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "No share includes a schema; shared tables have history sharing off."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "CAP-SHARING.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Researchers who need finer data work inside the platform, on a project basis, time-boxed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Research grants carry a project and an expiry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "[Data Governance for EdTech (landscape review and policy recommendations)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "2025"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "[Guidelines on Children's Data Protection in an Education Setting]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Adopted by the Committee of Convention 108, November 2020"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "[ODRL Information Model]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "ODRL 2.2, W3C Recommendation (2018)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "[NIST SP 800-188 De-Identifying Government Datasets]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Final, September 2023"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Delta Sharing{1}Publication catalog"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-sharing.md
+msgid "Delta Sharing reference server"
+msgstr ""

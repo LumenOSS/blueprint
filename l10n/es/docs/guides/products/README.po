@@ -1,0 +1,44 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/guides/products/README.md
+msgid "Products"
+msgstr ""
+
+#: docs/guides/products/README.md
+msgid "A product is a workload built on the platform, with its own repository, its own operational database and a tenant entry. Two example products show how the capabilities combine; together they reach most of the platform, and every implementation runs both as its conformance workload."
+msgstr ""
+
+#: docs/guides/products/README.md
+msgid "Product"
+msgstr ""
+
+#: docs/guides/products/README.md
+msgid "What it exercises"
+msgstr ""
+
+#: docs/guides/products/README.md
+msgid "[Document review]{1}"
+msgstr ""
+
+#: docs/guides/products/README.md
+msgid "Scanned documents in, machine verdicts, human review of uncertain results, a release gate against an external register"
+msgstr ""
+
+#: docs/guides/products/README.md
+msgid "[Annual census]{1}"
+msgstr ""
+
+#: docs/guides/products/README.md
+msgid "Registries, periodic collection from every institution, a completeness gate, indicators as at a reference date, open publication"
+msgstr ""
+
+#: docs/guides/products/README.md
+msgid "A new product records how it meets its capabilities in the [product checklist]{1}. Like any resource, a product can be built once the registries and products it references exist."
+msgstr ""

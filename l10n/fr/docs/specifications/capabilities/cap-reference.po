@@ -1,0 +1,384 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE Reference data and data dictionary"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Governed code lists, a versioned data dictionary and common formats, so every value means the same thing everywhere."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Layer L1 · domain: governance · depends on: [CAP-CATALOG]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Make every coded value, definition and format mean the same thing across systems, years and reports."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Comparisons over time and between places only hold when codes are stable and definitions are versioned. A reused code or a silently redefined element turns a trend into an artefact. Crosswalks to international classifications let national figures be reported internationally without changing how institutions record them."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Versioned code lists with owners and validity periods."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "A data dictionary in the catalog for every published element."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Crosswalks from local classifications to international ones."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "A versioned administrative geography."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Ordinal scales are codes with documented bounds, never free text."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Every coded attribute references a governed code list with an owner, a version and a validity period; a code is retired, never reused or redefined.{1}*Example:* Version 3 of the exit-reason list has TRF for 'transferred to another institution'. Version 4 keeps TRF as it was and adds TRA for 'transferred abroad', rather than widening TRF, which would silently change what every past TRF row means."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "A check finds no coded column without a code list and no code redefined across versions."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Changes to code lists and element definitions are reviewed changes approved by the owning steward; each is versioned and announced to the people who use it before it takes effect.{1}*Example:* Adding an exit reason 'home education' is a reviewed change approved by the learners steward, published as a new version of the list, and announced before institutions can use it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Each code-list or definition change traces to an approved change and a notice."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Every published element is registered in the catalog's data dictionary following the ISO/IEC 11179 model: the concept it represents and its definition, its value domain (data type, format and code list), and its registration status, version and steward.{1}*Example:* The element 'date of birth' is registered once, with its definition, type, format, validation rule and steward; every table that carries it points to that entry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "A fitness function finds no gold column with missing dictionary fields."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Local classifications carry versioned crosswalks to the international classifications used for reporting (ISCED 2011 for levels of education, ISCED-F 2013 for fields, ISCED-T 2021 for teacher-training programmes), and each crosswalk is tested to map every local code.{1}*Example:* A local 'grade 9' maps to ISCED 2011 level 2 (lower secondary) in the 2026 crosswalk; a test fails if any local grade has no mapping."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Each crosswalk's test maps every local code."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Administrative geography is versioned: a boundary change creates a new version and keeps the old, so a time series can be restated on either.{1}*Example:* Two districts merge in 2027. Boundary version 2027 has one district and version 2026 keeps both, so a 2025 enrolment trend can be shown on either."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Two boundary versions coexist and each resolves its own codes."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Value formats are fixed in the data dictionary and enforced at entry and at load: timestamps follow RFC 3339 with an explicit offset (with RFC 9557 time-zone names where local civil time matters); amounts are fixed-point decimals with an ISO 4217 currency code; telephone numbers follow ITU-T E.164; countries use ISO 3166-1; languages use BCP 47 tags; text is UTF-8 in Unicode Normalization Form C; coordinates declare their reference system.{1}*Example:* A fee is stored as 1500.00 with its ISO 4217 currency code, a telephone number as +15551234567, and an attendance mark as 2026-10-16T08:05:00+01:00[Europe/Lisbon]."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Each format in the dictionary has a validation rule used at entry and at load."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "A value outside its code list is quarantined with a reason rather than coerced to a catch-all code.{1}*Example:* A return gives an institution type that is not on the list; the row goes to quarantine with 'unknown code' instead of being stored as 'other'."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "An unknown-code fixture lands in quarantine."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Code lists maintained by outside agencies (countries, currencies, languages) are loaded on a schedule, versioned, and recorded with their source and retrieval date."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Each external code list has a load job and a recorded source and retrieval date."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "CAP-REFERENCE.9"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Every code in a code list has a label in each official language the authority declares, tagged with a BCP 47 language tag; where a label is missing, interfaces show the label in a declared default language, never the bare code.{1}*Example:* The exit reason TRF has labels 'Transferred to another institution' (en), 'Transféré dans un autre établissement' (fr) and 'منقول إلى مؤسسة أخرى' (ar). A new code added without its Arabic label is reported before the list's new version is published."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "A check lists every code that lacks a label in a declared language, and runs before a code-list version is published."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[RFC 3339 Date and Time on the Internet]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "RFC 3339 (2002), as updated by RFC 9557 (2024)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[RFC 9557 Internet Extended Date/Time Format]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "RFC 9557 (April 2024)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[ISO 8601-1 Date and time]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "ISO 8601-1:2019 with Amd 1:2022"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[ITU-T E.164 international numbering plan]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "E.164 (02/26), approved 2026-02-13"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[ISO 3166-1 Country codes]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "ISO 3166-1:2020; code list as maintained by the ISO 3166 Maintenance Agency"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[ISO 4217 Currency codes]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "ISO 4217:2015; code tables as maintained by the maintenance agency"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[BCP 47 Language tags]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "RFC 5646 and RFC 4647, with the IANA Language Subtag Registry"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[ISO 639 Language codes]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "ISO 639:2023, which replaced the former parts 1 to 5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[Unicode Standard and normalization (UAX 15)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Unicode 18.0.0 (2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[International Standard Classification of Education (ISCED 2011)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "ISCED 2011 (published 2012) with Operational Manual (2015); amendment due 2027"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[ISCED Fields of Education and Training (ISCED-F 2013)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "ISCED-F 2013 (published 2014); comprehensive revision due 2027"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[International Standard Classification of Teacher Training Programmes (ISCED-T 2021)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "ISCED-T 2021 (published 2022)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[ISCED revision (amendment of ISCED 2011, revision of ISCED-F 2013)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "In progress; task forces 2026; target 44th UNESCO General Conference (2027)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "track"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[Common Education Data Standards (CEDS)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Version 14 (official release on the CEDS GitHub, March–April 2026); the ceds.ed.gov downloads still offer Version 13"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[1EdTech Competencies and Academic Standards Exchange (CASE)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "1.1 (January 2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[ISO/IEC 11179 Metadata registries]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "ISO/IEC 11179-1:2023 and 11179-3:2023"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "Unity Catalog comments, tags and a reference catalog{1}Versioned code-list tables (dbt seeds)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reference.md
+msgid "OpenMetadata{1}Versioned code-list tables (dbt seeds)"
+msgstr ""

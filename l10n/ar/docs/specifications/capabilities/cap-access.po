@@ -1,0 +1,240 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "CAP-ACCESS Access model"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Role decides reach, entitlements decide rows, classification decides columns."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Layer L1 · domain: governance · depends on: [CAP-IDENTITY]{1}, [CAP-CATALOG]{2}, [CAP-CLASSIFICATION]{3}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Decide access from three independent inputs: role, scope and sensitivity."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "No single change can widen access across all three ([P14]{1}). Exemptions are named because each is a path to raw data ([P5]{2})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Groups for reach; an entitlement table for rows; classification tags for columns."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "One row-filter function per class of table; masks per classification."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Anyone exempt from a policy, any holder of a manage right, and the catalog administrator effectively see raw data. Keep those lists short and reviewed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "CAP-ACCESS.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Reach (which catalogs and actions) is granted to identity-provider groups by role."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Every grant's principal is a group mapped to a role."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "CAP-ACCESS.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Row scope comes from an entitlement table derived from an authoritative feed (for example staff postings), with a validity period, never edited by hand.{1}*Example:* An officer posted to District B sees District B's learners; when the posting ends on 31 August, the rows disappear from their queries that day, with no one editing a permission."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "The entitlement table is written only by its loader; a manual write is refused."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "CAP-ACCESS.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Row and column policies only narrow access. Each user and table resolves to exactly one row filter and each column to at most one mask; an ambiguity fails the query rather than choosing.{1}*Example:* A user who is a teacher at one school and an officer for a district would match two row filters on the learner table; the query fails until one scope is chosen, rather than silently using the wider one."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Test a user matching two filters; the query fails."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "CAP-ACCESS.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Only pipeline identities are exempt from policies, each exemption listed with its reason."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "The exemption list contains only workload identities, each with a reason."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "CAP-ACCESS.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Access to identifiable columns is through a time-boxed, audited group."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Membership of the group expires; each grant appears in audit."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "CAP-ACCESS.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Reach, row scope and classification are each changed by a different owner, so no single change widens access across all three.{1}*Example:* Joining the analyst group gives a person reach but no rows until the posting feed gives them a scope, and no special-category columns unless a steward's classification allows them."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "The owners of the group declarations, the entitlement feed and the classification rules are different roles."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "CAP-ACCESS.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Row scope may also come from a relationship (the record is the person's own, or the person is a guardian with verified authority), taken from the authoritative relationship record, effective-dated, and ended when the relationship or the authority ends.{1}*Example:* A guardian sees their child's attendance; when a court order ends their authority on 1 March, the next query after that date returns nothing."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Ending a guardian relationship removes access at the next query."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "CAP-ACCESS.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "A view for a data subject or guardian exposes a declared, minimal set of columns per record class; designated special-category fields are excluded from guardian views by default, with the reason recorded.{1}*Example:* The guardian view of a learner shows enrolment, attendance and results, but not counselling notes, which are excluded by default with the reason recorded."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Subject-facing views are declared in code with their column lists and exclusions."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "[Role Based Access Control (ANSI/INCITS 359)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "INCITS 359-2012"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "[NIST SP 800-162 Guide to Attribute Based Access Control (ABAC)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "January 2014, with updates as of August 2019"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Unity Catalog ABAC policies{1}Entitlement table in a reference catalog"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-access.md
+msgid "Entitlement table in Iceberg{1}OPA policies for Trino"
+msgstr ""

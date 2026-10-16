@@ -255,3 +255,20 @@ it holds, on infrastructure the authority controls or contracts directly.
 authority that does not control where its data lives cannot answer for it.
 
 **Grounded in** the [Principles for Digital Development](standards.md#open-source-health-and-digital-public-goods), and aiming to meet the [Digital Public Goods Standard](standards.md#open-source-health-and-digital-public-goods).
+
+## P22. Every language is a first language
+
+The platform and its documentation work in more than one language. Text
+is written once, in a source language, and translated through translation
+files, never by copying pages. Every coded value has a label in each
+official language. Right-to-left scripts are laid out right to left. A
+translation that has fallen behind its source is not shown; the source is
+shown instead, and says so.
+
+**Why.** Many education authorities work in more than one official
+language, and the people an EMIS serves (guardians, teachers, the public)
+should not need a second language to read their own data or the rules that
+govern it. Translations kept as copies drift silently; translations kept
+as files of strings show exactly what changed.
+
+**Grounded in** [BCP 47](standards.md#data-representation) language tags, [Unicode CLDR](standards.md#accessibility-and-localisation) locale data and the [GNU gettext PO](standards.md#accessibility-and-localisation) translation format.

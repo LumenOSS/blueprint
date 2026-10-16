@@ -1,0 +1,236 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/concepts/data.md
+msgid "Data in an EMIS"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "An EMIS holds many kinds of data, and they are not all handled the same way. This page names the main kinds, then introduces five ideas about handling data that the rest of the blueprint builds on. It is a primer: each idea is explained properly in the specifications, linked at the end of each section."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "The main kinds of data"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Kind"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Examples"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Who it is about"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Registries"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "People, institutions, sites, posts"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Each person, institution or post, once"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Records about individuals"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Enrolments, attendance, results, support plans, postings"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "One learner or staff member"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Returns and statistics"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Census returns, snapshots, indicators"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Groups: counts and rates, not individuals"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Reference data"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Code lists, administrative areas, academic calendars, population estimates"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Nobody: shared definitions"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Operations"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Budgets, assets, entitlement schemes such as school meals, incidents"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Institutions, and sometimes individuals"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Most of the data is about children. That one fact shapes the five ideas below."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "1. Some data is sensitive"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Not all data needs the same care. A published count of schools per district harms nobody; a learner's name and address needs protection; a learner's health condition or a child-protection record needs the most protection of all, and the law usually says so."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "So every table is given a **sensitivity tier**, from public statistics to special-category personal data, and everything else (who may see it, where it is stored, whether it may leave the platform) follows from that tier. The tiers are listed in [terminology]{1}."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "In the specifications: [CAP-CLASSIFICATION]{1}."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "2. Show less than the whole"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Most people who use EMIS data do not need to know who each person is. A planner needs counts; an analyst needs patterns. So the platform shows less than the whole record wherever it can:"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "**Masking** hides a column's value from people who do not need it, such as showing a birth year instead of a birth date."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "**Pseudonymisation** replaces a name or national number with an identifier that cannot be traced back without a separately protected key."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "**Aggregation with suppression** publishes counts, and hides counts so small that they could identify someone."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "These techniques are described in NIST's [*De-Identifying Government Datasets*]{1} (SP 800-188, 2023)."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "In the specifications: [CAP-ACCESS]{1} and [CAP-PUBLICATION]{2}."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "3. Who can see what: roles and attributes"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Two well-known models decide access, and an EMIS needs both."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "**Role-based access control (RBAC)** grants permissions to roles, and people hold roles: analysts may query, stewards may approve. It answers *what kind of thing may this person do?* ([NIST, RBAC]{1})."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "**Attribute-based access control (ABAC)** decides from attributes of the person, the data and the request: where the person works, how sensitive the column is, what the request is for. It answers *which rows and columns?* ([NIST SP 800-162]{1})."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "For example, a district officer holds the analyst role (RBAC), so they may query enrolment; their posting to District B is an attribute, so they see only District B's learners (ABAC); and the health column is masked for them because of its sensitivity tier (ABAC again)."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "In the specifications: [principle P14]{1} and [CAP-ACCESS]{2}."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "4. Share by publishing, not by copying"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Data is shared with other parts of government, with researchers and with the public. Each copy that leaves the platform is a copy nobody can correct, delete on schedule or audit. So the blueprint prefers to **publish**: aggregate statistics openly, and governed access to de-identified data for named partners, under an agreement and for a declared purpose. Raw exports of personal data are the exception, and they are recorded."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "In the specifications: [principle P15]{1} and [CAP-SHARING]{2}."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "5. Know where every number came from"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "**Lineage** is the record of where data came from and what was done to it: this indicator was computed from this snapshot, which counted these returns, which were loaded from these files. Lineage is how you:"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "trust a published figure, because you can trace it to its source;"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "find everything affected when a source is corrected;"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "delete a person's data everywhere it went, when the law requires it."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Lineage is captured automatically as data moves, using the open [OpenLineage]{1} standard, rather than written down by hand afterwards."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "In the specifications: [CAP-LINEAGE]{1}."
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Keep in mind"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "As you read the specifications, these five questions recur:"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "How sensitive is this data?"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Does this person need the whole record, or less?"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Which role, and which attributes, allow this access?"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Can it be published instead of copied?"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Could we trace this number back to its source?"
+msgstr ""
+
+#: docs/concepts/data.md
+msgid "Next: [terminology]{1}."
+msgstr ""

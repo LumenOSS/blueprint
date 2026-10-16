@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "CAP-INGESTION Ingestion"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Files, in-place federation and change data capture behind one onboarding step."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Layer L1 · domain: data · depends on: [CAP-ONBOARDING]{1}, [CAP-CATALOG]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Bring data in by the cheapest method that works, without losing or duplicating any of it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Federation avoids a copy; change capture is worth its cost only for some sources ([P16]{1}). Landing as a queue keeps the source of record safe and failures visible ([P8]{2})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "A landing area with archive and quarantine."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Federated (foreign) catalogs."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Change data capture into bronze."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "An archive sweep copies, verifies size, then unlinks, and leaves alone anything it cannot account for."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "CAP-INGESTION.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Three ingestion methods are offered behind one onboarding step: files to a landing area, federation in place, and change data capture. The method is a value in the tenant entry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Each method has a tenant entry in use or a test entry that plans cleanly."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "CAP-INGESTION.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "A landing area is a queue, not a store: accepted inputs move to a content-addressed archive after verification, and refused inputs move to quarantine with a reason. Nothing is deleted without a verified archive copy.{1}*Example:* A scanned register lands, is processed, and moves to the archive under its content hash; a file that cannot be read moves to quarantine with the reason 'unreadable page 3'."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "After a run, landing holds only unprocessed files; every quarantined file has a reason sidecar."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "CAP-INGESTION.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Ingestion tolerates at-least-once delivery: a re-delivered input converges on the existing record by content hash or natural key."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Deliver the same input twice; row counts do not change."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "CAP-INGESTION.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "A source is federated in place before it is copied; change data capture is used where a copy is worth its cost; a custom extract is the last resort."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "The tenant entry records why the chosen method was chosen."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Auto Loader{1}Lakehouse Federation{2}Lakeflow Connect"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-ingestion.md
+msgid "Debezium on Kafka via Strimzi{1}Trino connectors{2}Landing bucket + pipeline"
+msgstr ""

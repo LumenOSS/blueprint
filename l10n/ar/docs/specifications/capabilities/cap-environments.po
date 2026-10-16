@@ -1,0 +1,176 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "CAP-ENVIRONMENTS Environments by branching"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "An environment is a template plus values; development is isolated inside production by branching."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Layer L1 · domain: movement · depends on: [CAP-OPERATIONALDB]{1}, [CAP-CATALOG]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Isolate development and testing from production, with or without a second funded environment."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Isolation means no development write reaches production data and no consumer reads development output; branches and ungranted schemas give that inside one environment ([P7]{1})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "A template and one values file per environment."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Per-change database branches and development schemas with a time to live."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "A database branch does not branch object storage. A branch that writes files would write them into production storage, so branches get their own storage and read production storage read-only."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "CAP-ENVIRONMENTS.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "An environment is one template plus one values file, and every axis agrees which environment it is: catalog and schema, database branch and database, application identity and configuration, and jobs."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Each application's health endpoint (CAP-APPS.2) matches its values file."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "CAP-ENVIRONMENTS.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Without a funded development environment, development is isolated inside production: database branches, and development schemas in production catalogs with no consumer grants."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Development objects exist only as branches and ungranted schemas."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "CAP-ENVIRONMENTS.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "A branch never writes to production object storage. Branches use their own storage, and may read production storage only through a read-only path.{1}*Example:* A developer's branch can read production's scanned documents to test a change, but an upload attempted from the branch is refused."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "A write to production storage from a branch's identity is refused."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "CAP-ENVIRONMENTS.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Each change under review gets its own branch and development schemas with a time to live, removed when the change merges."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "After merge, the change's branch and schemas are gone."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "CAP-ENVIRONMENTS.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Grants and identities are declared per environment; the same configuration never implies the same securable."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Each environment's grants are listed separately in its plan."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "OpenTofu values files{1}Lakebase branches{2}Development schemas in production catalogs"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-environments.md
+msgid "OpenTofu values files{1}CloudNativePG branch clusters{2}Iceberg branches or dev namespaces"
+msgstr ""

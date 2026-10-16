@@ -4,7 +4,7 @@
 # implementation repository shows evidence and moves it to `met`.
 
 blueprint:
-  version: 0.4.0
+  version: 0.5.0
 implementation:
   name: databricks
   summary: Databricks on Azure, with open formats and open-source tooling where they fit.
@@ -571,6 +571,8 @@ bindings:
       - clause: CAP-REFERENCE.7
         status: planned
       - clause: CAP-REFERENCE.8
+        status: planned
+      - clause: CAP-REFERENCE.9
         status: planned
   - capability: CAP-ACCESS
     components:

@@ -1,0 +1,200 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "CAP-BACKFILL Backfill and reprocessing"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Loading history, reprocessing and filling gaps are idempotent, bounded, rehearsed and reconciled."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Layer L3 · domain: movement · depends on: [CAP-ORCHESTRATION]{1}, [CAP-ENVIRONMENTS]{2}, [CAP-QUALITY]{3}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Load history, reprocess after a logic change, and fill gaps without duplicates, data loss or harm to production."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Backfills run rarely, under pressure, over more data than anything else; they are where idempotence, determinism and reconciliation are tested hardest ([P8]{1}, [P9]{2}). See the [backfill patterns]{3}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Range-declared jobs; write-audit-publish; a reconciliation report per partition."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "CAP-BACKFILL.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "A backfill declares its range and writes by replacing exactly that range or merging on a natural key, so running it twice gives the same result.{1}*Example:* Reloading 2019 attendance replaces exactly the 2019 partitions; running it twice leaves identical hashes, and 2020 is untouched."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Run the backfill twice; content hashes of the range match and rows outside it are unchanged."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "CAP-BACKFILL.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Every output row records the logic version and run that produced it, and event time separately from load time."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Restated rows show the new logic version; event and load time columns are both present."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "CAP-BACKFILL.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "A backfill runs first on a branch or an unpublished copy, is audited there, and is published only after it passes."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "The run log shows write, audit and publish steps in that order."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "CAP-BACKFILL.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "A backfill is reconciled against its source by row counts, sums and content hashes per partition."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "The reconciliation report exists and matches for every partition."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "CAP-BACKFILL.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "A backfill is bounded and throttled so that production work and the source system keep their service levels."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Production latency and source load stay within objectives during the backfill."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "CAP-BACKFILL.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "A backfill never overwrites fresher data or a human decision.{1}*Example:* A backfill from a 2024 extract would mark a learner active, but a reviewer recorded a transfer in 2025; the later human decision stays."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Test with a row updated after the backfill's snapshot and a human-ruled row; both survive."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "CAP-BACKFILL.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Source rows that fail quality checks are quarantined with a reason, never dropped."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Counts reconcile as loaded plus quarantined equals extracted."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "CAP-BACKFILL.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Incremental extraction tolerates late commits and clock skew, with an overlap window into an idempotent sink or a cursor in commit order.{1}*Example:* A record updated by a long transaction that started before the last extract but committed after it is still picked up, because each run reads an overlap window into an idempotent load."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Commit a row whose timestamp is behind the watermark; it is still loaded."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Lakeflow Jobs backfill runs{1}Delta replaceWhere / MERGE{2}Shallow clones"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "Airflow 3 backfills{1}Iceberg branches{2}dbt microbatch"
+msgstr ""

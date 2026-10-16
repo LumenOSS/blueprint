@@ -1,0 +1,256 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CAP-DELIVERY Change delivery"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Every change is reviewed with its plan and applied by CI only, after merge."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Layer L1 · domain: delivery · depends on: [CAP-CIIDENTITY]{1}, [CAP-STATE]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Make every change to a shared environment reviewed, visible as a plan, and applied by one writer."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "One writer gives one audit trail and real locking ([P1]{1}). Deletion through code keeps the record of what was removed and why. Migrating the database before deploying the code that needs it avoids a release that cannot run."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Change review showing the plan artefact."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Apply stage consuming that artefact after merge, or by dispatch for trust anchors."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Version tags as the only release trigger."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "When CI lacks a right, give CI's identity the right in one documented bootstrap step. A workstation apply is a second writer, not a shortcut."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CAP-DELIVERY.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Every change to infrastructure or a shared environment, including grants, migrations and deletions, is a reviewed change whose plan is shown in the review."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Sample merged changes; each carries the plan CI produced for it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CAP-DELIVERY.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Only CI applies. Apply recipes refuse to run anywhere else."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Run an apply recipe on a workstation; it refuses before contacting any API."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CAP-DELIVERY.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CI applies the saved plan that was reviewed, not a fresh one."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "The apply step consumes the plan artefact produced by the plan step."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CAP-DELIVERY.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "A trust-anchor change is dispatched by hand from the main branch by an allow-listed role, after approval by both the Data Lead and the Technical Lead."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "The bootstrap pipeline checks the actor against its allow-list before any credential is issued; its environment requires two approvals."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CAP-DELIVERY.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "A deletion is two changes: adopt the object into code, then remove it.{1}*Example:* To remove an unused storage account, one reviewed change imports it into code and the next deletes it, so the removal is planned and reviewed like any other change."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Every removal of a resource in history is preceded by a change that imported it or created it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CAP-DELIVERY.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "A database is migrated before the code that needs it is deployed; a release is a version tag, and an infrastructure change alone never changes what version runs."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Pipeline order runs migrations first; deployments take the image version from a tag."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CAP-DELIVERY.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "A scheduled fitness check fails if any state was written by an identity other than CI."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "The check reads the last writer of each state version and alerts on a non-CI principal."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CAP-DELIVERY.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Every deployable artefact carries SLSA v1.2 Build Level 3 provenance and a software bill of materials in SPDX 2.3 or later or CycloneDX 1.5 or later."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Release artefacts include a provenance attestation and an SBOM that validate."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "[Supply-chain Levels for Software Artifacts (SLSA)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "SLSA v1.2 (November 2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "[SPDX]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "SPDX 2.3 or later (3.0.1, December 2024)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "[CycloneDX]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "CycloneDX 1.5 or later (1.7, October 2025; ECMA-424)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Azure Pipelines{1}Declarative Automation Bundles"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-delivery.md
+msgid "Forgejo Actions{1}Argo CD"
+msgstr ""

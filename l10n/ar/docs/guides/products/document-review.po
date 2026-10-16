@@ -1,0 +1,240 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/guides/products/document-review.md
+msgid "Example product: document review"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "A small, complete workload that exercises every layer of the platform: scanned documents arrive, are processed by machine, uncertain results go to people, and results are released only when they reconcile against an external register. It is the pattern behind the product capabilities ([CAP-PIPELINE]{1}, [CAP-REVIEW]{2}, [CAP-RELEASE]{3}) and the reference workload every implementation should run end to end."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "The pattern fits any **document in → machine verdict → human review → governed release → reporting** product: graded answer sheets, inspection forms, claims, survey returns. The text below uses graded answer sheets as its running example; nothing in it depends on that."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Domain"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Exam.** The aggregate. It owns versioned sheet templates (a committed version is immutable), grading policies, a rubric and a pinned register snapshot. A sitting of an exam is a fork with its own identifier."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Declared, not discovered.** Structure is declared as versioned manifests (kind, name, labels; no surrogate IDs). Applying a manifest validates it, diffs it by content hash (an identical spec is a no-op), mints the next append-only version with an event, and activates it explicitly."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**The register is external.** The list of expected subjects (enrolled students) belongs to another system, read through an adapter and frozen as a snapshot per sitting. Corrections are evented operations, never edits in place."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Flow"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Why it is drawn this way"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Triage runs cheapest first:** content hash at the door, then a structural check that refuses foreign documents, then a perceptual fingerprint that flags likely rescans. Refusals go to quarantine with a reason, never silently away."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Review loops back into the same database,** because a human decision is just another write, guarded so no machine write can overwrite it."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Reports read gold through the catalog,** never the operational database directly ([CAP-TRANSFORMATION.3]{1})."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Stages"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Stage"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Does"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Reads → writes"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Database"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Normalise"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Rectifies the page to its template; a high residual goes to a person. Writes the normalised page and, last, a small manifest that triggers the next stage."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "landing → pages"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "no"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Fingerprint"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Hashes the marks on the page to flag likely rescans. It only flags; a person confirms; nothing is dropped automatically."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "pages → fingerprints"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Read"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Measures each answer area and decides a label with a confidence, from measurements only. Below threshold, or any double mark, goes to review with a reason code."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "pages → readings"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Publish"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Writes verdicts, events and a provenance record per page; renders review images; sweeps originals to the archive."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "readings → database, archive"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "yes, the only one"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Every artefact is stamped with `{stage, at, run_id}`. Publish assembles one provenance record per page that names the version of every stage; a stage that did not run reads as absent, never invented."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "What makes it retryable"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Identity is the hash of the bytes.** The same file under another name, or delivered twice, converges on one record."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Pending is recomputed from what exists.** Nothing is consumed on read, so a failed run strands nothing; the next run sees the same work."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Overlap is wasteful, not wrong.** Safety comes from idempotence and atomic writes (write then rename, copy then unlink), not from locks. A stage that holds an index in memory runs at concurrency one, because two indexes would each miss the other's matches."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Plan, fan out, finish.** A planner cuts disjoint slices; workers process them; a finishing step re-queues the job only if work remains and the run made progress. A run with nothing to do exits in seconds."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Bounded runs.** Each run takes at most `floor(timeout / (1.5 × median item time))` items, the median measured over recent runs. A missing or broken limit means uncapped, never stopped."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Review"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**One review item per document,** showing identity, flagged answers and duplicate evidence together. Confirm is enabled only when every part is complete."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Identity is entered by people.** Machine reads of handwriting below a useful confidence were worse than none, so reviewers transcribe and the system infers which reading applies."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**A lease is a primary key.** Claim is one statement (insert, or take over an expired lease); commit requires a live lease checked before the first write; expiry is judged at read time."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Duplicates are sets.** Suspicion edges are stored and their connected components are decided together. Keep, promote and revert are audited, reversible transitions; a \"not a duplicate\" ruling is stored where the detector cannot overwrite it."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "**Every action applies immediately and is reversed by a compensating action.** Both records stay."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Release"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "For each institution and exam, enrolled learners must balance against confirmed documents. A duplicate, an orphan, a missing student, a pending identity or an absent register each reads **BLOCKED**; results release only on **CLEAR**. A released group is the point after which every change is a new version."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Reporting"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "All arithmetic lives in transformation models. The application selects and formats; a test forbids its reporting code from opening a database connection. Gold stores counts, not percentages. Pipeline telemetry (item metrics, limits, cost) reaches gold too, so a rise in cost can be told apart from a rise in work."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Environments"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "The product runs in production and in development branches of it ([CAP-ENVIRONMENTS]{1}). A development branch has its own database and its own storage; it may read production's documents only through a read-only path, and uploads there are refused. Every deployment reports on its health endpoint which environment it believes it is in."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Running it as a conformance workload"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "An implementation proves the product capabilities by running a fixture corpus through the product:"
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Submit the corpus; submit it again under different names. One record per document results ([CAP-PIPELINE.1]{1})."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Process it twice; outputs are byte-identical ([CAP-PIPELINE.2]{1})."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Make the database unreachable; the three upstream stages complete ([CAP-PIPELINE.6]{1})."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Race concurrent reviewers for one item; exactly one holds the lease ([CAP-REVIEW.2]{1})."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Re-run the pipeline over reviewed items; no human decision changes ([CAP-REVIEW.3]{1})."
+msgstr ""
+
+#: docs/guides/products/document-review.md
+msgid "Load each blocking fixture; the gate reads BLOCKED, and CLEAR only for the balanced one ([CAP-RELEASE.1]{1})."
+msgstr ""

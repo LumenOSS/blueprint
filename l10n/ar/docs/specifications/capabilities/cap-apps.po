@@ -1,0 +1,316 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS Application hosting"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Product interfaces deployed by CI, behind sign-in, that say which environment they are in."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Layer L3 · domain: data · depends on: [CAP-NETWORK]{1}, [CAP-DELIVERY]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Host product interfaces that are private by default and say which environment they are in."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "A half-switched environment is not partially safe: an application can write to one environment while every label says another. Asking the application which world it believes it is in catches that."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "A health endpoint reporting target, catalog and schema, database branch and schema version, build version."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "A versioned interface with a pinned snapshot."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Applications sit behind identity-provider sign-in and reach data services privately."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "See CAP-NETWORK.1 and CAP-NETWORK.2 for each application host."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "A health endpoint reports the environment the application believes it is in: target, catalog and schema, database branch and schema version, and build version.{1}*Example:* GET /healthz returns the target, catalog and schema, database branch, schema version and build, so an operator can ask an application which environment it is in."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Query the endpoint in each environment; every field matches the environment."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Application interfaces are versioned and change additively; a changed shape is a new route."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "A pinned interface snapshot is compared in CI; removals fail."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Applications are deployed by CI from a versioned image or artefact."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Running versions match a tag; no image is pushed from a workstation."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Interfaces used by staff, learners, guardians or the public meet WCAG 2.2 Level AA (also published as ISO/IEC 40500:2025), checked automatically in CI and by a manual audit for each release."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "An automated accessibility check runs in CI; manual audit findings are tracked."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "User-facing text is externalised and translatable, so an interface can be offered in more than one language."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "No user-facing string is hard-coded outside the translation files."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Data-capture paths work over low bandwidth and tolerate intermittent connectivity."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Capture flows are tested under throttled and interrupted network conditions."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Applications that handle T3 or T4 data meet OWASP ASVS 5.0 Level 2."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "The application's verification report cites the requirement identifiers it meets."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CAP-APPS.9"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Applications sign users in with OpenID Connect through the identity provider, and every OAuth deployment follows the OAuth 2.0 Security Best Current Practice (RFC 9700)."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "The sign-in configuration is reviewed against RFC 9700; implicit and password grants are disabled."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[BCP 47 Language tags]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "RFC 5646 and RFC 4647, with the IANA Language Subtag Registry"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[GNU gettext PO files]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "GNU gettext 1.0"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[Unicode CLDR]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "CLDR 48.2 (March 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[Age appropriate design - a code of practice for online services (Children's code)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "In force 2 September 2020 (conformance from 2 September 2021); guidance updated for the Data (Use and Access) Act 2025"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[OpenAPI Specification]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "OpenAPI 3.1 or later (3.2.1, September 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[OpenID Connect Core 1.0]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Core 1.0 incorporating errata set 2; also ISO/IEC 26131:2024"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[OAuth 2.0 Security Best Current Practice]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "RFC 9700 / BCP 240 (January 2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[OWASP Application Security Verification Standard]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "ASVS 5.0.0 (May 2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[Web Content Accessibility Guidelines]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "WCAG 2.2 Level AA (W3C Recommendation, December 2024 version); also ISO/IEC 40500:2025"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[EN 301 549 Accessibility requirements for ICT products and services]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "V4.1.1 (September 2026), aligned with WCAG 2.2; V3.2.1 where a procurement rule cites it"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Azure Container Apps"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-apps.md
+msgid "Kubernetes Deployment + Gateway API"
+msgstr ""

@@ -1,0 +1,160 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "The semantic layer"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "The semantic layer is where every measure and indicator is defined, once, in version control. Dashboards, natural-language query, agents, published statistics and international returns all read from it, so an enrolment ratio means the same thing on every screen, in every file and for every release ([P11]{1}, [CAP-SEMANTICS]{2})."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "It matters more for an EMIS than for most platforms. Official indicators are compared across years, areas and countries; a definition that drifts between two tools produces two \"official\" figures, and only one of them can be right."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "How it works"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Why it is drawn this way"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "**Definitions sit on top of gold counts.** Gold stores additive counts; every ratio is computed by the semantic layer from them, so any level of aggregation gives the right answer ([CAP-TRANSFORMATION.5]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "**Everything a consumer reads is generated.** Engine-native metric objects and saved-query tables are produced from the definitions by CI, never written by hand ([CAP-SEMANTICS.8]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "**A parity test closes the loop.** Every serving path must return the same numbers for every saved query, which is what \"defined once\" means in practice ([CAP-SEMANTICS.9]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "**Published statistics come from saved-query tables,** stamped with the definition version and reference date, never from a live query."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Rules that keep one definition portable"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "**Model indicators as ratios of additive counts on one gold table.** An indicator's numerator and denominator are counts at the same grain (reference date, area, sex, age, level and so on). An external denominator, such as a population estimate, is joined in gold with its version, so every engine computes the ratio the same way."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "**Use a portable subset of metric types:** simple counts and sums, ratios, and derived expressions without time offsets. Anything else (cumulative windows, offsets, conversion funnels) needs a recorded, tested mapping for each serving engine ([CAP-SEMANTICS.7]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "**Keep indicator metadata with the definition** and check it in CI: code, the edition of the international definition followed, unit, reference-date rule, allowed disaggregations, coverage rule, owner and version ([CAP-SEMANTICS.3]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "**Version the definitions with the models** that produce their counts, in the same project and the same review ([CAP-SEMANTICS.6]{1})."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "In the reference implementations"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Both reference implementations use the **dbt semantic layer** ([ADR-0011]{1}): semantic models and metrics written in dbt's YAML specification (the latest spec, dbt 1.12 and later), validated and compiled by **MetricFlow**, which is Apache-2.0 licensed."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Open source"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Databricks"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Definitions"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "dbt semantic YAML in the transformation project"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "The same"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Engine"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "MetricFlow over Trino, through dbt-trino"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "MetricFlow over Databricks SQL, through dbt-databricks"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Engine-native objects"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "—"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Unity Catalog metric views, generated as dbt models with the `metric_view` materialisation"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Saved-query tables"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "dbt models generated from MetricFlow's compiled SQL"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Dashboards"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Superset reads the saved-query tables; Superset's semantic-layer support is tracked"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "AI/BI dashboards and Genie read the metric views"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Machine consumers"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "A thin service over MetricFlow and Trino"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "Genie and SQL over metric views"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "dbt's hosted platform adds live semantic APIs, scheduled exports, caching and ready-made BI integrations. Neither implementation depends on it: known questions are served from generated tables, and ad-hoc questions go through the engine-native objects or a MetricFlow-backed service. An open format for exchanging semantic definitions, [Apache Ossie]{1}, is tracked; once dbt and the consuming engines support the same released version, the generators can be replaced by it."
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "An indicator, as defined"
+msgstr ""
+
+#: docs/specifications/architecture/semantic-layer.md
+msgid "An illustrative definition of the gross enrolment ratio ([indicators]{1}) in dbt's latest YAML specification. Field names follow the dbt documentation as of October 2026; check the current specification before copying."
+msgstr ""

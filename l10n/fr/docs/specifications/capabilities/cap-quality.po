@@ -1,0 +1,228 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "CAP-QUALITY Data quality"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Checks at every tier; failing data is quarantined, never used."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Layer L3 · domain: data · depends on: [CAP-TRANSFORMATION]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Keep bad data from consumers and keep it visible."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Data that fails its checks is worse than no data ([P10]{1}). Counting refusals apart from failures tells a bad source from a broken system."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Checks per tier; a quarantine with reasons; source contracts."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "CAP-QUALITY.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Each tier has checks, and data that fails a blocking check does not reach consumers; it is quarantined with a reason."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Inject a failing row; it appears in quarantine and not in gold."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "CAP-QUALITY.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Refused input and system failure are counted and reported separately."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Metrics distinguish the two; each has its own alert."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "CAP-QUALITY.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Each source has a declared contract (schema, keys, freshness) checked on arrival."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Change a source's schema in a test; arrival checks fail loudly."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "CAP-QUALITY.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Every check names the ISO/IEC 25012 data-quality characteristic it measures (for example accuracy, completeness, consistency, credibility or currentness) and its severity.{1}*Example:* The check 'enrolment date not before birth date' names the characteristic consistency and the severity blocking."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "The check registry has a dimension and severity for every check."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "CAP-QUALITY.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "An error found after load is fixed by a correction request approved by the data's steward; the correction lands as a new version, never an edit in place, and the request is kept with the record.{1}*Example:* An institution reported 120 learners in grade 4 instead of 210; the correction request records the new value, the reason 'transcription error', the scanned register as evidence and the steward's approval, and the census snapshot gets a new version."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "A correction fixture produces a new version linked to its request; the old version stays readable."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "CAP-QUALITY.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Checks that compare two sources which should agree are declared as blocking or warning."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Each cross-source check states its effect."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "[Education Data Quality Assessment Framework (Ed-DQAF)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "2017 manual, instruments and matrix"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "[ISO/IEC 25012 Data quality model]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "ISO/IEC 25012:2008, confirmed 2025"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "[ISO/IEC 25024 Measurement of data quality]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "ISO/IEC 25024:2015, confirmed 2022"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "[UN National Quality Assurance Frameworks Manual for Official Statistics]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "2019 (ST/ESA/STAT/SER.M/100)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "dbt tests and contracts{1}Lakeflow pipeline expectations{2}Data Quality Monitoring"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "dbt tests and contracts{1}Great Expectations (GX Core)"
+msgstr ""

@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "CAP-REPORTING Reporting"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Dashboards and natural-language query over the semantic layer, deployed as code."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Layer L3 · domain: data · depends on: [CAP-SEMANTICS]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Show governed numbers to people, each seeing only what they may see."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Dashboards are code so they move between environments without hand edits; environment literals in a dashboard make it report another environment's numbers."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Dashboards as code, rendered per environment."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Natural-language query over the semantic layer."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "CAP-REPORTING.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Dashboards are deployed as code, rendered per environment from the deployment tool's resolved output."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Each dashboard's source is in a repository; no environment-specific literal is in it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "CAP-REPORTING.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "A dashboard shows each viewer only the rows and columns that viewer may see, or runs as a declared identity whose access is the dashboard's audience."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Open a dashboard as two scoped users; each sees their own scope."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "CAP-REPORTING.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Natural-language query is offered over the semantic layer, showing the query it ran."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Every answer displays its generated query."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "[Unicode CLDR]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "CLDR 48.2 (March 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "AI/BI dashboards{1}Genie"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-reporting.md
+msgid "Apache Superset"
+msgstr ""

@@ -1,0 +1,164 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "CAP-REVIEW Human review"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Low-confidence results go to people, whose decisions are leased, durable and never overwritten by machines."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Layer L3 · domain: product · depends on: [CAP-OPERATIONALDB]{1}, [CAP-AUDIT]{2}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Route uncertain results to people and keep their decisions safe from machines and from each other."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "A low-confidence guess is worse than no answer ([P10]{1}). Mutual exclusion belongs in the database, where one statement can claim an item."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "A review queue; leases as database keys; typed attribution of decisions."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "CAP-REVIEW.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "A result below its confidence threshold is routed to review with a reason code; thresholds live in one configuration module."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Grep finds thresholds only in the configuration module; a low-confidence fixture lands in review."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "CAP-REVIEW.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "A reviewer claims an item with a lease held as a database key; claim is one statement, expiry is judged at read time, and a commit requires a live lease checked before its first write.{1}*Example:* Two reviewers open the same item; the first claim inserts the lease, and the second finds a live lease and is refused."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "A race test with concurrent sessions yields exactly one holder."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "CAP-REVIEW.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "A human decision outranks any machine re-delivery or re-run; guards test the condition that would make a write wrong, not a status label."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Re-run the pipeline over a reviewed item; the human decision is unchanged."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "CAP-REVIEW.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Decisions are reversed by a compensating action that keeps both records; nothing is deleted."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Undo a decision; both the decision and its reversal are present."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "CAP-REVIEW.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Each decision records its kind of attribution (automatic, affirmed, corrected, backfilled) so reporting can tell who or what decided."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Reporting groups decisions by attribution."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "The example product's review service on Lakebase"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "The example product's review service on Postgres"
+msgstr ""

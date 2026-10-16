@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/domain/contexts/records/CONTEXT.md
+msgid "Records"
+msgstr ""
+
+#: docs/specifications/domain/contexts/records/CONTEXT.md
+msgid "How long records are kept, how they are corrected, and how a person's own records reach them."
+msgstr ""
+
+#: docs/specifications/domain/contexts/records/CONTEXT.md
+msgid "Language"
+msgstr ""
+
+#: docs/specifications/domain/contexts/records/CONTEXT.md
+msgid "**Record class**: A group of records sharing a retention period, trigger event and legal basis. _Avoid_: Retention category"
+msgstr ""
+
+#: docs/specifications/domain/contexts/records/CONTEXT.md
+msgid "**Disposal**: The scheduled, audited deletion of a record class at the end of its retention. _Avoid_: Purge, cleanup"
+msgstr ""
+
+#: docs/specifications/domain/contexts/records/CONTEXT.md
+msgid "**Correction request**: A request to change a recorded value, with its reason, evidence and approval; it produces a new version. _Avoid_: Edit, fix, update"
+msgstr ""
+
+#: docs/specifications/domain/contexts/records/CONTEXT.md
+msgid "**Individual disclosure**: The release of a person's own records to that person, their guardian or an authorised agency. _Avoid_: Export, data request, extract"
+msgstr ""
+
+#: docs/specifications/domain/contexts/records/CONTEXT.md
+msgid "**Purpose**: The declared reason a personal-data element is collected or a record is accessed. _Avoid_: Use case, justification"
+msgstr ""

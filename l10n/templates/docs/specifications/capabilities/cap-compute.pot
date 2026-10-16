@@ -1,0 +1,162 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "CAP-COMPUTE Compute"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Batch, streaming and interactive SQL compute that scales to zero and reads only through the catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Layer L1 · domain: data · depends on: [CAP-CATALOG]{1}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Run batch, streaming and interactive work without idle cost, and only through the catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Compute that scales to zero makes production-only budgets workable. Reading only through the catalog keeps every read governed."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Job compute for pipelines; a SQL endpoint for interactive queries."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Workload identities for every job."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "A query's timeout is its service objective. Probing with a long timeout hides the finding."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "CAP-COMPUTE.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Compute scales to zero when idle."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Billing or node metrics show no compute between scheduled work."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "CAP-COMPUTE.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Jobs run as non-human identities."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Every job's run-as principal is a workload identity."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "CAP-COMPUTE.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Engines read and write data only through the catalog."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Direct storage paths are refused to engine identities."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "CAP-COMPUTE.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Interactive queries behind an application meet a declared latency objective (the reference value is 5 seconds at p95), and the timeout is that objective, not a longer probe."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Measured p95 for the application's queries over a week."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Serverless jobs compute{1}Serverless SQL warehouse"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-compute.md
+msgid "Apache Spark 4 via Kubeflow spark-operator{1}Trino{2}DuckDB"
+msgstr ""

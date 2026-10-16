@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "CAP-NETWORK Network isolation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Data services are private; only applications are exposed, behind sign-in."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Layer L1 · domain: delivery"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Keep data services off the public network and expose only applications, behind sign-in."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Identity is the door; the private network is the floor. Either alone leaves a path open."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Private endpoints or in-cluster services for storage, catalog data paths, databases and secrets."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "A gateway with identity-provider sign-in in front of every application."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Default-deny policies between workloads; one egress point."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Record who owns private DNS and any hub network before building, because both are often outside the platform team's control."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "CAP-NETWORK.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Storage, catalog data paths, databases and secret stores are reachable only on private network paths."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "A policy check on every plan fails a public endpoint on a data service; an external probe of each endpoint fails."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "CAP-NETWORK.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Only applications are exposed, and only through a gateway that requires identity-provider sign-in."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "An unauthenticated request to each public host is redirected to sign-in or refused."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "CAP-NETWORK.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Traffic is denied by default between workloads; each allowed path is declared."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "A workload with no declared path cannot reach a data service."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "CAP-NETWORK.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Outbound traffic leaves through one controlled egress point."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Route tables send internet-bound traffic through the egress point only."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "No external standard is named for this capability."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "VNet injection + secure cluster connectivity{1}Private Link (front end and back end){2}Network connectivity configurations{3}NAT gateway"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-network.md
+msgid "Cilium{1}Gateway API + oauth2-proxy"
+msgstr ""

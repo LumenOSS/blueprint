@@ -1,0 +1,382 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION Open statistical publication"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Aggregate statistics published openly with disclosure control, permanent identifiers and open metadata."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Layer L1 · domain: governance · depends on: [CAP-SEMANTICS]{1}, [CAP-CLASSIFICATION]{2}, [CAP-REFERENCE]{3}."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Purpose"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Publish aggregate education statistics openly, safely and permanently."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Why"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Open statistics are how the public, researchers and partners hold an education system to account, and they are only trusted if they are the same figures used inside government, stable over time, and safe from re-identification ([P15]{1}). Partner sharing of row-level, de-identified data is a different channel with different controls ([CAP-SHARING]{2})."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Interfaces"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "A publication register and portal."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Publication tables with disclosure tests."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Bulk files, a query interface and readable renderings generated from the same tables."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Notes"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Suppressing a small cell is not enough on its own: if row and column totals are published, the suppressed value can be recomputed. Secondary suppression or rounding closes that gap."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Contract"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Clause"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Level"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Requirement"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "How conformance is shown"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION.1"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "MUST"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Only T0 aggregates are published openly; open datasets may be read without signing in, are rate-limited, and each is listed in a publication register."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Every open dataset is T0 and has a register entry."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION.2"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Published tables apply disclosure control using methods from the Handbook on Statistical Disclosure Control: a minimum cell size, secondary suppression so suppressed cells cannot be derived, and rounding or perturbation where declared, with small populations treated as high risk. The method is published as metadata.{1}*Example:* A table shows 3 learners with a given disability in one school. That cell is suppressed, and so is one more cell in the same row and the same column, so the 3 cannot be recovered by subtracting from the totals."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Publication models carry disclosure tests, including a test that suppressed cells cannot be recomputed from totals."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION.3"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Each published dataset has a permanent identifier and stable address; new periods are appended, and a revision is a new version with the previous one still retrievable.{1}*Example:* The 2025 enrolment table keeps its identifier after a correction; version 2 becomes current, and version 1 can still be downloaded."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "An earlier version of a revised dataset can still be fetched by its identifier."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION.4"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Published datasets carry DCAT 3 metadata, with schema.org Dataset markup on each landing page and CSV on the Web metadata beside every CSV file, all generated from the data dictionary; they use the governed code lists and attach the metadata of every indicator they contain."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "A metadata validator passes on every published dataset."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION.5"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "SHOULD"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Bulk files, a query interface and human-readable renderings are all generated from the same publication table."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Each output names the publication table it was rendered from."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION.6"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Geospatial outputs are published as GeoJSON (RFC 7946) or through OGC API – Features with a declared coordinate reference system; locations of institutions may be published, locations of people never are."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "No published dataset contains a person's location."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION.7"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Statistics exchanged with international bodies use SDMX 3.0 or later, or SDMX 2.1 where the receiving agency requires it."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "International returns are produced in the declared exchange format."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION.8"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Differential privacy is used only where it fits (query services over the same base data, or synthetic files) and is evaluated and documented following NIST SP 800-226, stating the unit of privacy and the total privacy-loss budget."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Each differentially private release records its unit, budget and evaluation."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CAP-PUBLICATION.9"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "The international education questionnaires (the UIS Survey of Formal Education) are completed from gold through the semantic layer, not assembled by hand."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Each questionnaire table traces to semantic-layer measures."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Standards"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Standard"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Edition"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Verdict"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[RFC 7946 GeoJSON]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "RFC 7946 (August 2016)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "adopt"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[OGC API – Features]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Parts 1 to 3 (Core 1.0.1, CRS by Reference 1.0.1, Filtering 1.0.0)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "reference"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[Global indicator framework for the Sustainable Development Goals]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "After 2026 refinement (UN Statistical Commission 57th session, March 2026; includes the 2025 Comprehensive Review)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[Official List of SDG 4 Indicators (global and thematic)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "October 2026 (post EDSC-12)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[UIS Survey of Formal Education (and UIS-OECD-Eurostat UOE collection)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Annual cycle; documented in the February 2026 Data Refresh background document"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[UN Fundamental Principles of Official Statistics]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Adopted 1994; endorsed by UN General Assembly resolution 68/261 (2014)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[Handbook on Statistical Disclosure Control]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Second edition (2025; online edition 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[NIST SP 800-226 Guidelines for Evaluating Differential Privacy Guarantees]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Final, March 2025"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[Data Catalog Vocabulary (DCAT)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "DCAT Version 3, W3C Recommendation (August 2024)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[DCAT Application Profile (DCAT-AP)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "DCAT-AP 3.0.1 (October 2025)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[schema.org Dataset]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "schema.org 30.1 (September 2026)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[CSV on the Web (CSVW)]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "W3C Recommendations (December 2015)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[SDMX]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "SDMX 3.0 or later (3.1, May 2025); 2.1 where the receiving agency requires it"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[International Open Data Charter principles]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Six principles (2015)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[FAIR Guiding Principles]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Wilkinson et al., Scientific Data 3, 160018 (2016)"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[NIST SP 800-188 De-Identifying Government Datasets]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Final, September 2023"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[EN 301 549 Accessibility requirements for ICT products and services]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "V4.1.1 (September 2026), aligned with WCAG 2.2; V3.2.1 where a procurement rule cites it"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Implementations"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Implementation"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "Components"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[databricks]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CKAN on Azure Container Apps{1}Publication catalog"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "[oss]{1}"
+msgstr ""
+
+#: docs/specifications/capabilities/cap-publication.md
+msgid "CKAN{1}Parquet and CSV renderings from publication tables"
+msgstr ""

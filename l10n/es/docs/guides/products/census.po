@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: data-platform-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/guides/products/census.md
+msgid "Example product: annual census"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Every institution reports, once a year, a set of counts and facts as at a single reference date: enrolment by grade and sex, staff and their qualifications, facilities and services, and the like. The census is the backbone of an education system's official statistics. As a product it exercises the registries, periodic collection, data quality, indicators, disclosure control and open publication."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Flow"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Why it is drawn this way"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "**The registry decides who must respond.** Completeness is measured against the institutions that exist, not against the returns that arrived ([CAP-COLLECTION.1]{1})."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "**The head of the institution attests** the return, so accountability for the figures sits where they are known."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "**Review can send a return back.** A query reopens the return with the reviewer's reason; every transition is an event ([CAP-COLLECTION.3]{1})."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "**Nothing is computed until the area is complete,** and then only from a locked snapshot ([CAP-COLLECTION.4]{1}, [CAP-COLLECTION.5]{2})."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "The instrument"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "An instrument is a versioned file that declares:"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "the reference date and the collection window;"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "the expected respondents, as a query over the institution registry;"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "each item, with its code list, unit and whether it is required;"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "validation rules, each with its quality dimension and severity ([CAP-QUALITY.4]{1}): blocking rules stop submission, warnings need a reason;"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "cross-item checks, such as staff counts against postings in the registry, or enrolment against the previous year's enrolment in the grade below."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "A committed instrument never changes; next year's census is a new version."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "The return"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "**Prefilled** from the registries and last year's accepted return, so respondents confirm and correct rather than retype."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "**Offline-capable:** the form can be completed without a connection and synchronised later; submitting twice converges on one return."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "**States:** not started, in progress, submitted, attested, queried, accepted, locked."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "**Imputation** for a missing return, if the methodology allows it, is flagged on every imputed cell and reported with the figure."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Outputs"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Gold counts as at the reference date, from which the semantic layer derives the participation, teacher and facilities indicators ([indicators]{1})."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Completeness and timeliness per institution and area, as reported measures."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Open tables with permanent identifiers, after disclosure control ([CAP-PUBLICATION]{1})."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "A revision after a late correction is a new snapshot version, with the reason and both versions readable."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Running it as a conformance workload"
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Open a census for a fixture registry; the expected respondents equal the registry's active institutions as at the reference date."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Submit a return with a blocking error; submission is refused with a machine-readable error ([CAP-COLLECTION.2]{1})."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Submit the same return twice from an offline client; one return results."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Leave one institution's return missing; its area reads BLOCKED, and the other areas release ([CAP-COLLECTION.4]{1})."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Publish an area with a small cell; the cell and its complement are suppressed, and the suppressed value cannot be recomputed from totals ([CAP-PUBLICATION.2]{1})."
+msgstr ""
+
+#: docs/guides/products/census.md
+msgid "Correct an accepted return; a new snapshot version is created, the published table gains a new version, and the old one stays retrievable ([CAP-PUBLICATION.3]{1})."
+msgstr ""
