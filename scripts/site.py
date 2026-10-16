@@ -50,7 +50,7 @@ MENUS = SITE / "menus.toml"
 STRINGS = SITE / "i18n"
 LANGUAGES = ROOT / "l10n" / "languages.toml"
 CATALOGUE = ROOT / "blueprint" / "catalogue.yaml"
-REPO_URL = "https://github.com/LumenOSS/data-platform-blueprint/blob/main"
+REPO_URL = "https://github.com/LumenOSS/blueprint/blob/main"
 
 # Repository files that become pages, and where they live on the site.
 EXTRA_PAGES = {

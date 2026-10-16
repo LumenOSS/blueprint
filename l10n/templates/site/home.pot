@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: data-platform-blueprint\n"
+"Project-Id-Version: lumenoss-blueprint\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: site/home.md
-msgid "Data platform blueprint"
+msgid "LumenOSS Blueprint"
 msgstr ""
 
 #: site/home.md
-msgid "A reference architecture for the governed data platform behind an education management information system. The architecture stays fixed; the implementation is yours to choose."
+msgid "A blueprint for an education management information system: the domain it records, the rules for handling its data, and the governed platform that holds it. The architecture stays fixed; the implementation is yours to choose."
 msgstr ""
 
 #: site/home.md

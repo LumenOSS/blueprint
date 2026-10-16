@@ -121,7 +121,7 @@
 [[main]]
   identifier = "github"
   name = "GitHub"
-  url = "https://github.com/LumenOSS/data-platform-blueprint"
+  url = "https://github.com/LumenOSS/blueprint"
   weight = 80
 [[footer]]
   identifier = "contributing"
@@ -136,5 +136,5 @@
 [[footer]]
   identifier = "licence"
   name = "Licence"
-  url = "https://github.com/LumenOSS/data-platform-blueprint/blob/main/LICENSE"
+  url = "https://github.com/LumenOSS/blueprint/blob/main/LICENSE"
   weight = 30

@@ -1,5 +1,5 @@
 {
-  description = "data-platform-blueprint: one toolchain for every task, on every platform";
+  description = "LumenOSS Blueprint: one toolchain for every task, on every platform";
 
   # nixpkgs-unstable, pinned by flake.lock, so a laptop and CI resolve the
   # same store paths. Bump deliberately with `nix flake update`, in its own

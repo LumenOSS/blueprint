@@ -71,7 +71,7 @@ binding +files:
 
 # Build the documentation website into build/site/public.
 # Run in the site shell: nix develop .#site --command just site
-site base_url="https://lumenoss.github.io/data-platform-blueprint/": site-icons (site-content base_url)
+site base_url="https://lumenoss.github.io/blueprint/": site-icons (site-content base_url)
     hugo build --source site --config "{{ hugo_config }}" --destination ../build/site/public --baseURL "{{ base_url }}" --minify --cleanDestinationDir
 
 # Stage every language's pages and the Hugo language configuration.

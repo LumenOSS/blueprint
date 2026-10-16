@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: data-platform-blueprint\n"
+"Project-Id-Version: lumenoss-blueprint\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8,12 +8,12 @@ msgstr ""
 "X-Review-Status: unreviewed\n"
 
 #: site/home.md
-msgid "Data platform blueprint"
-msgstr "Plano de referencia de plataforma de datos"
+msgid "LumenOSS Blueprint"
+msgstr "LumenOSS Blueprint"
 
 #: site/home.md
-msgid "A reference architecture for the governed data platform behind an education management information system. The architecture stays fixed; the implementation is yours to choose."
-msgstr "Una arquitectura de referencia para la plataforma de datos gobernada que sustenta un sistema de información para la gestión educativa. La arquitectura se mantiene fija; la implementación la elige usted."
+msgid "A blueprint for an education management information system: the domain it records, the rules for handling its data, and the governed platform that holds it. The architecture stays fixed; the implementation is yours to choose."
+msgstr "Un plano de referencia para un sistema de información para la gestión educativa: el dominio que registra, las reglas para tratar sus datos y la plataforma gobernada que los contiene. La arquitectura se mantiene fija; la implementación la elige usted."
 
 #: site/home.md
 msgid "[Get started]{1} · [View on GitHub]{2}"
@@ -190,3 +190,6 @@ msgstr "[Verlos funcionar]{1}"
 #: site/home.md
 msgid "Open source under the Apache License 2.0."
 msgstr "Código abierto bajo la licencia Apache 2.0."
+
+#~ msgid "Data platform blueprint"
+#~ msgstr "Plano de referencia de plataforma de datos"

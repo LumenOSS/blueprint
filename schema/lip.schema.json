@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/LumenOSS/data-platform-blueprint/schema/lip.schema.json",
+  "$id": "https://github.com/LumenOSS/blueprint/schema/lip.schema.json",
   "title": "LumenOSS Improvement Proposal header",
   "description": "The front matter of a LIP (see LIP-1).",
   "type": "object",

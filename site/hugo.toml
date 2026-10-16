@@ -2,8 +2,8 @@
 # here: `just site` stages it from docs/ (scripts/site.py) and passes it to
 # Hugo with --contentDir, so the Markdown in docs/ stays the single source.
 
-title = "Data platform blueprint"
-baseURL = "https://lumenoss.github.io/data-platform-blueprint/"
+title = "LumenOSS Blueprint"
+baseURL = "https://lumenoss.github.io/blueprint/"
 locale = "en"
 defaultContentLanguage = "en"
 enableRobotsTXT = true

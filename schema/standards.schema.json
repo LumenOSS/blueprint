@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/LumenOSS/data-platform-blueprint/schema/standards.schema.json",
+  "$id": "https://github.com/LumenOSS/blueprint/schema/standards.schema.json",
   "title": "Standards register",
   "description": "Every external standard the blueprint relies on, with its current edition, the publisher's page and when it was checked.",
   "type": "object",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/LumenOSS/data-platform-blueprint/schema/binding.schema.json",
+  "$id": "https://github.com/LumenOSS/blueprint/schema/binding.schema.json",
   "title": "Implementation binding",
   "description": "How one implementation meets the blueprint: the components bound to each capability, and the status and evidence of every clause.",
   "type": "object",

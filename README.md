@@ -1,12 +1,13 @@
-# data-platform-blueprint
+# LumenOSS Blueprint
 
-A reference architecture for the governed data platform behind an
-education management information system (EMIS), written so that the
-architecture stays fixed while the implementation varies. It covers the
-resources an EMIS holds (learners, schools, teachers and staff, enrolment,
-attendance, assessment and the indicators reported from them) through
-operational databases, a lakehouse, governance and access, reporting,
-backfill and migration, and example products that exercise all of them.
+A blueprint for an education management information system (EMIS): the
+domain it records, the rules for handling its data, and the governed data
+platform that holds it. The architecture stays fixed while the
+implementation varies. It covers the resources an EMIS holds (learners,
+schools, teachers and staff, enrolment, attendance, assessment and the
+indicators reported from them) through operational databases, a lakehouse,
+governance and access, reporting, backfill and migration, and example
+products that exercise all of them.
 
 Each part of the architecture is a **capability** with a **contract** of
 numbered, testable clauses that name no vendor. An **implementation** binds

@@ -9,7 +9,7 @@ implementation:
   name: oss
   summary: Open-source components only, on any Kubernetes cluster.
   runtime: Kubernetes via OpenTofu and Helm; kind or k3d on a laptop
-  repository: https://github.com/LumenOSS/data-platform-oss
+  repository: https://github.com/LumenOSS/blueprint-oss
 bindings:
   - capability: CAP-REPOSITORIES
     components:

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/LumenOSS/data-platform-blueprint/schema/catalogue.schema.json",
+  "$id": "https://github.com/LumenOSS/blueprint/schema/catalogue.schema.json",
   "title": "Blueprint catalogue",
   "description": "The capabilities of the architecture and the contract clauses each must meet. The single source of IDs and clause text.",
   "type": "object",

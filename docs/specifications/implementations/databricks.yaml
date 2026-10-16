@@ -9,7 +9,7 @@ implementation:
   name: databricks
   summary: Databricks on Azure, with open formats and open-source tooling where they fit.
   runtime: Azure Databricks and Azure, via OpenTofu and Declarative Automation Bundles
-  repository: https://github.com/LumenOSS/data-platform-databricks
+  repository: https://github.com/LumenOSS/blueprint-databricks
 bindings:
   - capability: CAP-REPOSITORIES
     components:

@@ -1,4 +1,4 @@
-module github.com/LumenOSS/data-platform-blueprint/site
+module github.com/LumenOSS/blueprint/site
 
 go 1.26.8
 

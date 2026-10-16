@@ -1,13 +1,13 @@
-# Data platform blueprint
+# LumenOSS Blueprint
 
 <!-- The landing page. The build turns each "##" section into a grid of
 cards: each "###" heading is a card, the comment under it names its icon,
 and the link in its last paragraph is its button. The first paragraph is
 the lead, and the links after it are the buttons under it. -->
 
-A reference architecture for the governed data platform behind an education management information system. The architecture stays fixed; the implementation is yours to choose.
+A blueprint for an education management information system: the domain it records, the rules for handling its data, and the governed platform that holds it. The architecture stays fixed; the implementation is yours to choose.
 
-[Get started](../docs/getting-started.md) · [View on GitHub](https://github.com/LumenOSS/data-platform-blueprint)
+[Get started](../docs/getting-started.md) · [View on GitHub](https://github.com/LumenOSS/blueprint)
 
 ## Start with the concepts
 
