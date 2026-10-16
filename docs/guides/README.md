@@ -1,7 +1,7 @@
 # Guides
 
 How to do things with the blueprint, step by step. Each guide assumes you
-have read [getting started](../getting-started.md) and points to the
+know the [core concepts](../concepts/README.md) and points to the
 [specifications](../specifications/README.md) it applies.
 
 | Guide | Use it to |

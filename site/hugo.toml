@@ -96,6 +96,30 @@ summaryLength = 0
   pageRef = "/getting-started"
   weight = 10
 [[menus.main]]
+  name = "Concepts"
+  pageRef = "/concepts"
+  weight = 20
+[[menus.main]]
+  name = "What is an EMIS"
+  parent = "Concepts"
+  pageRef = "/concepts/emis"
+  weight = 21
+[[menus.main]]
+  name = "The EMIS domain"
+  parent = "Concepts"
+  pageRef = "/concepts/domain"
+  weight = 22
+[[menus.main]]
+  name = "Data in an EMIS"
+  parent = "Concepts"
+  pageRef = "/concepts/data"
+  weight = 23
+[[menus.main]]
+  name = "Terminology"
+  parent = "Concepts"
+  pageRef = "/concepts/terminology"
+  weight = 24
+[[menus.main]]
   name = "Specifications"
   pageRef = "/specifications"
   weight = 30

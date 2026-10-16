@@ -39,6 +39,9 @@ set up, and what review looks for.
 | Read | For |
 | --- | --- |
 | [Getting started](docs/getting-started.md) | The order to read everything in, by role |
+| [Core concepts](docs/concepts/README.md) | What an EMIS is, its domain, its data, and the terms used throughout |
+| [Specifications](docs/specifications/README.md) | What is required: principles, capabilities, domain, architecture, standards |
+| [Guides](docs/guides/README.md) | How to build an implementation, run products and load history |
 | [Principles](docs/specifications/principles.md) | The 21 ideas the architecture rests on, and why |
 | [Architecture](docs/specifications/architecture/README.md) | C4 diagrams: context, containers, components |
 | [Capabilities](docs/specifications/capabilities/README.md) | 41 capabilities and their contracts |

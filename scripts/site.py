@@ -146,6 +146,23 @@ def split_header(text: str) -> tuple[dict[str, str], str]:
     return fields, body.lstrip("\n")
 
 
+def readme_order(source: pathlib.Path) -> int | None:
+    """Returns a page's position among the links of its section's README.
+
+    A section's README lists its pages in reading order, so the site
+    orders them the same way without a second list to maintain.
+    """
+    readme = source.parent / "README.md"
+    if source.name == "README.md" or not readme.exists():
+        return None
+    targets = [
+        (readme.parent / m.group(2).partition("#")[0]).resolve()
+        for m in LINK.finditer(readme.read_text(encoding="utf-8"))
+    ]
+    resolved = source.resolve()
+    return targets.index(resolved) + 1 if resolved in targets else None
+
+
 def convert(
     source: pathlib.Path, order: dict[str, tuple[int, str, str]]
 ) -> str:
@@ -181,6 +198,9 @@ def convert(
     adr = ADR_NUMBER.match(source.name)
     if source.parent.name == "adr" and adr:
         fields["weight"] = int(adr.group(1))
+    position = readme_order(source)
+    if "weight" not in fields and position is not None:
+        fields["weight"] = position
     return front_matter(fields) + text
 
 

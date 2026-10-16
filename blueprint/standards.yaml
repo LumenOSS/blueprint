@@ -780,6 +780,39 @@ standards:
     area: identity-security
     purpose: Privacy vocabulary and principles, including purpose legitimacy and data minimisation.
     used_by: [CAP-RECORDS, CAP-CLASSIFICATION, P20]
+  - id: STD-INCITS359
+    title: Role Based Access Control (ANSI/INCITS 359)
+    edition: INCITS 359-2012
+    publisher: NIST (project page for the ANSI/INCITS standard)
+    url: https://csrc.nist.gov/projects/role-based-access-control
+    checked: 2026-10-16
+    check: publisher
+    verdict: reference
+    area: identity-security
+    purpose: "The role-based model behind reach: permissions are granted to roles, and people hold roles."
+    used_by: [CAP-ACCESS]
+  - id: STD-NIST-SP800-162
+    title: NIST SP 800-162 Guide to Attribute Based Access Control (ABAC)
+    edition: January 2014, with updates as of August 2019
+    publisher: NIST
+    url: https://csrc.nist.gov/pubs/sp/800/162/upd2/final
+    checked: 2026-10-16
+    check: publisher
+    verdict: reference
+    area: identity-security
+    purpose: The attribute-based model behind row scope and column visibility, decided from attributes of the person, the data and the request.
+    used_by: [CAP-ACCESS, CAP-CLASSIFICATION]
+  - id: STD-NIST-SP800-188
+    title: NIST SP 800-188 De-Identifying Government Datasets
+    edition: Final, September 2023
+    publisher: NIST
+    url: https://csrc.nist.gov/pubs/sp/800/188/final
+    checked: 2026-10-16
+    check: publisher
+    verdict: reference
+    area: identity-security
+    purpose: Techniques and governance for de-identifying data before it is shared or published, including masking and pseudonymisation.
+    used_by: [CAP-SHARING, CAP-PUBLICATION]
   - id: STD-NIST-CSF
     title: NIST Cybersecurity Framework
     edition: CSF 2.0 (February 2024)

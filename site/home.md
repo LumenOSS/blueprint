@@ -11,6 +11,29 @@ heroButtons:
     style: "outline"
 ---
 
+## Start with the concepts
+
+{{< feature-grid columns="2" >}}
+{{< feature icon="circle-info" title="What is an EMIS" url="concepts/emis/" label="Read the definition" headingLevel="h3" >}}
+The system an education authority uses to know how many learners there
+are, where, and how they are doing, and the part this blueprint covers.
+{{< /feature >}}
+{{< feature icon="graduation-cap" title="The EMIS domain" url="concepts/domain/" label="Meet the model" headingLevel="h3" >}}
+What a domain model is, why it is used here, and the main things an EMIS
+records, in one diagram.
+{{< /feature >}}
+{{< feature icon="lock" title="Data in an EMIS" url="concepts/data/" label="Read the primer" headingLevel="h3" >}}
+Sensitive data, masking, access by role and attribute, sharing, and
+lineage: five ideas to keep in mind.
+{{< /feature >}}
+{{< feature icon="tag" title="Terminology" url="concepts/terminology/" label="Learn the terms" headingLevel="h3" >}}
+Sensitivity tiers, layers, clauses and roles: what you need to read the
+specifications.
+{{< /feature >}}
+{{< /feature-grid >}}
+
+## Specifications
+
 {{< feature-grid columns="3" >}}
 {{< feature icon="lightbulb" title="Principles" url="specifications/principles/" label="Read the principles" headingLevel="h3" >}}
 The ideas every decision rests on, each with its reason, from CI as the only
@@ -24,7 +47,7 @@ drawn that way.
 Forty-one capabilities, each a contract of testable clauses that name no
 vendor.
 {{< /feature >}}
-{{< feature icon="graduation-cap" title="Domain model" url="specifications/domain/" label="Explore the domain" headingLevel="h3" >}}
+{{< feature icon="list" title="Domain model" url="specifications/domain/" label="Explore the domain" headingLevel="h3" >}}
 Institutions, learners, staff and their relationships, modelled so that
 every indicator can be counted at a reference date.
 {{< /feature >}}
@@ -38,7 +61,7 @@ edition and the date it was checked.
 {{< /feature >}}
 {{< /feature-grid >}}
 
-## Build it your way
+## Guides and implementations
 
 {{< feature-grid columns="3" >}}
 {{< feature icon="code" title="Building an implementation" url="guides/building/" label="Follow the steps" headingLevel="h3" >}}

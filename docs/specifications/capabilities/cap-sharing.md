@@ -44,6 +44,7 @@ An unsalted hash of an identifier can be reversed by trying every plausible iden
 | [Data Governance for EdTech (landscape review and policy recommendations)](../standards.md#identity-security-and-privacy) | 2025 | adopt |
 | [Guidelines on Children's Data Protection in an Education Setting](../standards.md#identity-security-and-privacy) | Adopted by the Committee of Convention 108, November 2020 | reference |
 | [ODRL Information Model](../standards.md#open-data-and-exchange) | ODRL 2.2, W3C Recommendation (2018) | reference |
+| [NIST SP 800-188 De-Identifying Government Datasets](../standards.md#identity-security-and-privacy) | Final, September 2023 | reference |
 <!-- END GENERATED: standards -->
 
 ## Implementations

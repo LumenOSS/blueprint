@@ -6,19 +6,28 @@ after reading it, so you can stop as soon as you have what you need.
 
 ## Everyone: the first hour
 
-Read these four in order.
+The documentation has three main sections, read in this order:
+
+1. **[Core concepts](concepts/README.md)** explain what an EMIS is and
+   the ideas the rest builds on. They require nothing.
+2. **[Specifications](specifications/README.md)** state what is required,
+   precisely enough to build against and test.
+3. **[Guides](guides/README.md)** walk through doing things: building an
+   implementation, running a product, loading history.
+
+Start here:
 
 | # | Read | You will know |
 | --- | --- | --- |
-| 1 | [README](../README.md) | What the blueprint is, how it is organised, and what it is not |
-| 2 | [Principles](specifications/principles.md) | The ideas every decision rests on; when anything else seems to disagree, these state the intent |
-| 3 | [Architecture](specifications/architecture/README.md) | How the parts fit together, at three levels of detail |
-| 4 | [Domain model](specifications/domain/README.md) | What an EMIS holds: domains, resources and the rules for modelling them |
+| 1 | [What is an EMIS](concepts/emis.md) | What the system is, who relies on it, and the part this blueprint covers |
+| 2 | [The EMIS domain](concepts/domain.md) | What a domain model is, why it is used here, and the main things an EMIS records |
+| 3 | [Data in an EMIS](concepts/data.md) | The kinds of data, and five ideas about handling it: sensitivity, masking, access by role and attribute, sharing, lineage |
+| 4 | [Terminology](concepts/terminology.md) | Sensitivity tiers, layers, clauses, statuses and roles |
+| 5 | [Principles](specifications/principles.md) | The ideas every requirement rests on; when anything else seems to disagree, these state the intent |
 
-Keep the [domain language](../CONTEXT-MAP.md) and the [glossary](specifications/glossary.md)
-open beside you. Domain terms such as *learner*, *enrolment*, *post* and
-*reference date*, and blueprint terms such as *capability*, *clause*,
-*binding* and *steward*, have precise meanings here.
+The [README](../README.md) gives a one-page overview, and the
+[glossary](specifications/glossary.md) and [context map](../CONTEXT-MAP.md)
+define every other term.
 
 ## Then follow your role
 

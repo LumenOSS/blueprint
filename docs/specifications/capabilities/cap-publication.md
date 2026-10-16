@@ -60,6 +60,7 @@ Suppressing a small cell is not enough on its own: if row and column totals are 
 | [SDMX](../standards.md#open-data-and-exchange) | SDMX 3.0 or later (3.1, May 2025); 2.1 where the receiving agency requires it | adopt |
 | [International Open Data Charter principles](../standards.md#open-data-and-exchange) | Six principles (2015) | reference |
 | [FAIR Guiding Principles](../standards.md#open-data-and-exchange) | Wilkinson et al., Scientific Data 3, 160018 (2016) | reference |
+| [NIST SP 800-188 De-Identifying Government Datasets](../standards.md#identity-security-and-privacy) | Final, September 2023 | reference |
 | [EN 301 549 Accessibility requirements for ICT products and services](../standards.md#accessibility-and-localisation) | V4.1.1 (September 2026), aligned with WCAG 2.2; V3.2.1 where a procurement rule cites it | reference |
 <!-- END GENERATED: standards -->
 

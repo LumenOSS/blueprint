@@ -34,7 +34,7 @@ Terms about the blueprint and the platform. The language of the EMIS domain itse
 
 **Effective dating.** Recording when a relationship was valid (valid-from, valid-to) separately from when it was recorded.
 
-**EMIS.** Education management information system: the system an education authority uses to hold and report data about institutions, learners and staff.
+**EMIS.** Education management information system: the system an education authority uses to hold and report data about institutions, learners and staff. See [what is an EMIS](../concepts/emis.md).
 
 **Environment.** Every axis that decides which world a change runs in: catalog and schema, database branch and database, application identity and configuration, and jobs. An environment is a template plus a values file.
 

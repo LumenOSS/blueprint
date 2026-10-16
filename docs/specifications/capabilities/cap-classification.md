@@ -41,6 +41,7 @@ Tags added at gold come too late to protect bronze. Provenance tags make drops p
 | [UN CRC General Comment No. 25 on children's rights in relation to the digital environment](../standards.md#identity-security-and-privacy) | 2021 | adopt |
 | [Guidelines on Children's Data Protection in an Education Setting](../standards.md#identity-security-and-privacy) | Adopted by the Committee of Convention 108, November 2020 | reference |
 | [ISO/IEC 29100 Privacy framework](../standards.md#identity-security-and-privacy) | ISO/IEC 29100:2024 (second edition) | adopt |
+| [NIST SP 800-162 Guide to Attribute Based Access Control (ABAC)](../standards.md#identity-security-and-privacy) | January 2014, with updates as of August 2019 | reference |
 <!-- END GENERATED: standards -->
 
 ## Implementations

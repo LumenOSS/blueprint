@@ -41,7 +41,10 @@ Anyone exempt from a policy, any holder of a manage right, and the catalog admin
 ## Standards
 
 <!-- BEGIN GENERATED: standards (just render) -->
-No external standard is named for this capability.
+| Standard | Edition | Verdict |
+| --- | --- | --- |
+| [Role Based Access Control (ANSI/INCITS 359)](../standards.md#identity-security-and-privacy) | INCITS 359-2012 | reference |
+| [NIST SP 800-162 Guide to Attribute Based Access Control (ABAC)](../standards.md#identity-security-and-privacy) | January 2014, with updates as of August 2019 | reference |
 <!-- END GENERATED: standards -->
 
 ## Implementations

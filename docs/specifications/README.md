@@ -2,7 +2,7 @@
 
 The reference: what the blueprint requires, stated precisely enough to
 build against and to test. Read these when you need to know exactly what
-is required; [getting started](../getting-started.md) gives a reading order.
+is required; the [core concepts](../concepts/README.md) explain why.
 
 | Specification | What it states |
 | --- | --- |
