@@ -59,12 +59,26 @@
             shfmt
             shellcheck
             bash-language-server
+            # GitHub Actions: actionlint checks workflow files.
+            actionlint
             # Nix: nixfmt formats, statix and deadnix lint, nil serves the
             # editor.
             nixfmt
             statix
             deadnix
             nil
+          ];
+        };
+
+        # Website: Hugo builds the documentation site; Go fetches the theme
+        # as a Hugo module. Only the site build needs them.
+        site = pkgs.mkShell {
+          packages = with pkgs; [
+            just
+            hugo
+            go
+            git
+            python3
           ];
         };
 

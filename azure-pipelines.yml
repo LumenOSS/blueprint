@@ -1,6 +1,6 @@
 # Azure Pipelines: every change to main must pass `just check`, the same
 # recipe a workstation runs (ADR-0007). This pipeline is read-only and holds
-# no identity. It is the only CI definition here; other remotes run no CI.
+# no identity. GitHub Actions only publishes the website (pages.yml).
 
 trigger:
   branches:

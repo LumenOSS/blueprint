@@ -5,3 +5,5 @@ result-*
 build/
 # Python caches from the check scripts.
 __pycache__/
+# Hugo writes a lock file while building.
+site/.hugo_build.lock

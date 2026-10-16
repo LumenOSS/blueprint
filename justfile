@@ -41,6 +41,7 @@ lint:
     biome lint .
     check-jsonschema --check-metaschema schema/*.json
     shfmt --find . | xargs --no-run-if-empty shellcheck
+    actionlint
     statix check .
     deadnix --fail .
 
@@ -59,6 +60,17 @@ render:
 # Validate implementation binding files and report their coverage.
 binding +files:
     python3 scripts/blueprint.py binding {{ files }}
+
+# Build the documentation website into build/site/public.
+# Run in the site shell: nix develop .#site --command just site
+site base_url="https://lumenoss.github.io/data-platform-blueprint/":
+    python3 scripts/site.py build/site/content
+    hugo build --source site --contentDir ../build/site/content --destination ../build/site/public --baseURL "{{ base_url }}" --minify --cleanDestinationDir
+
+# Serve the documentation website locally with live reload.
+site-serve:
+    python3 scripts/site.py build/site/content
+    hugo server --source site --contentDir ../build/site/content --baseURL "http://localhost:1313/"
 
 # Render every Mermaid diagram to build/ as PNG, to look at before committing.
 # Run in the diagrams shell: nix develop .#diagrams --command just diagrams

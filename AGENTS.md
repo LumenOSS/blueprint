@@ -50,5 +50,8 @@ for each clause; implementations live in their own repositories. Start at
   Angular-style: `type(scope): subject`, imperative, lowercase, under 72
   characters, a body saying why, and `BREAKING CHANGE:` in the footer when a
   clause's meaning changes.
-- CI runs only on Azure Pipelines (`azure-pipelines.yml`); other remotes
-  carry no CI definition.
+- Checks run on Azure Pipelines (`azure-pipelines.yml`). GitHub Actions
+  only publishes the documentation website to GitHub Pages
+  (`.github/workflows/pages.yml`), using the same `just site` recipe.
+- The website is generated from `docs/` by `scripts/site.py` and Hugo
+  (`site/`); never edit generated site content, edit the docs.

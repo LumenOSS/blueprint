@@ -60,6 +60,7 @@ nix develop --command just          # list the recipes
 nix develop --command just check    # what every change must pass
 nix develop --command just render   # regenerate tables after editing the catalogue
 nix develop .#diagrams --command just diagrams   # render diagrams to build/
+nix develop .#site --command just site-serve     # preview the website
 ```
 
 Formatting and linting are done by tools configured at the repository root
