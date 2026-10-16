@@ -55,7 +55,7 @@ Where data lives, how it is computed on, and how it reaches the people who use i
 | [CAP-INTEROPERABILITY Exchange with other systems](cap-interoperability.md) | L1 Platform | Every feed to or from another system is declared, validated at the edge and reconciled. | 7 (4 MUST) |
 | [CAP-ORCHESTRATION Orchestration](cap-orchestration.md) | L3 Products | Declared jobs with bounded runs, safe retries and range re-runs. | 6 (6 MUST) |
 | [CAP-TRANSFORMATION Transformation layer](cap-transformation.md) | L3 Products | Versioned, tested models from bronze to silver to gold; the only place measures are computed. | 8 (6 MUST) |
-| [CAP-SEMANTICS Semantic layer](cap-semantics.md) | L1 Platform | Every measure defined once, versioned, and read by every consumer. | 5 (4 MUST) |
+| [CAP-SEMANTICS Semantic layer](cap-semantics.md) | L1 Platform | Every measure defined once, beside the models that produce its counts, and served to every consumer from that one definition. | 10 (8 MUST) |
 | [CAP-REPORTING Reporting](cap-reporting.md) | L3 Products | Dashboards and natural-language query over the semantic layer, deployed as code. | 3 (2 MUST) |
 | [CAP-APPS Application hosting](cap-apps.md) | L3 Products | Product interfaces deployed by CI, behind sign-in, that say which environment they are in. | 9 (7 MUST) |
 | [CAP-QUALITY Data quality](cap-quality.md) | L3 Products | Checks at every tier; failing data is quarantined, never used. | 6 (4 MUST) |

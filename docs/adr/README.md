@@ -17,5 +17,6 @@ one, and the old one stays.
 | [0008](0008-model-the-emis-domain.md) | Model the EMIS domain in the blueprint | Accepted |
 | [0009](0009-publication-and-scheduled-disposal.md) | Separate open publication from sharing, and allow scheduled disposal | Accepted |
 | [0010](0010-one-person-registry.md) | Record each person once; roles are relationships | Accepted |
+| [0011](0011-dbt-semantic-layer.md) | Use the dbt semantic layer in both reference implementations | Accepted |
 
 New records copy [`template.md`](template.md) and take the next number.

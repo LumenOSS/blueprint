@@ -56,7 +56,7 @@ Ordinal scales are codes with documented bounds, never free text.
 | [ISCED Fields of Education and Training (ISCED-F 2013)](../standards.md#education-classifications-and-indicators) | ISCED-F 2013 (published 2014); comprehensive revision due 2027 | adopt |
 | [International Standard Classification of Teacher Training Programmes (ISCED-T 2021)](../standards.md#education-classifications-and-indicators) | ISCED-T 2021 (published 2022) | adopt |
 | [ISCED revision (amendment of ISCED 2011, revision of ISCED-F 2013)](../standards.md#education-classifications-and-indicators) | In progress; task forces 2026; target 44th UNESCO General Conference (2027) | track |
-| [Common Education Data Standards (CEDS)](../standards.md#open-data-and-exchange) | Version 13 on the website; Version 14 released on the CEDS GitHub (2026-04-29) | reference |
+| [Common Education Data Standards (CEDS)](../standards.md#open-data-and-exchange) | Version 14 (official release on the CEDS GitHub, March–April 2026); the ceds.ed.gov downloads still offer Version 13 | reference |
 | [1EdTech Competencies and Academic Standards Exchange (CASE)](../standards.md#open-data-and-exchange) | 1.1 (January 2025) | adopt |
 | [ISO/IEC 11179 Metadata registries](../standards.md#metadata-and-data-quality) | ISO/IEC 11179-1:2023 and 11179-3:2023 | adopt |
 <!-- END GENERATED: standards -->

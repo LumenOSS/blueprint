@@ -4,7 +4,7 @@
 # implementation repository shows evidence and moves it to `met`.
 
 blueprint:
-  version: 0.2.0
+  version: 0.3.0
 implementation:
   name: oss
   summary: Open-source components only, on any Kubernetes cluster.
@@ -432,22 +432,38 @@ bindings:
         status: planned
   - capability: CAP-SEMANTICS
     components:
-      - name: MetricFlow
-        role: measure definitions in the dbt project
+      - name: dbt semantic layer (dbt 1.12 or later, latest YAML spec)
+        role: measure and indicator definitions beside the models
         licence: Apache-2.0
-        alternatives:
-          - Cube Core
+        source: https://docs.getdbt.com/docs/build/latest-metrics-spec
+      - name: MetricFlow
+        role: validates and compiles definitions to Trino SQL
+        licence: Apache-2.0
+        source: https://github.com/dbt-labs/metricflow
+      - name: Generated saved-query models
+        role: dbt models generated from MetricFlow's compiled SQL; read by Superset and publication
+    notes: 'Cube Core is not an alternative here: its dbt integration does not import MetricFlow metrics, so measures would be defined twice.'
     clauses:
       - clause: CAP-SEMANTICS.1
         status: planned
       - clause: CAP-SEMANTICS.2
         status: deviation
-        consequence: Superset does not read MetricFlow directly; metrics are materialised as dbt models from the MetricFlow definitions and dashboards read those. Definitions stay single-sourced; query-time semantics do not.
+        consequence: Superset 6 cannot read MetricFlow directly, so dashboards read saved-query tables generated from the definitions. Definitions stay single-sourced, but ad-hoc metric slicing in Superset is limited to those tables until Superset 7's semantic-layer support and an open MetricFlow provider are mature.
       - clause: CAP-SEMANTICS.3
         status: planned
       - clause: CAP-SEMANTICS.4
         status: planned
       - clause: CAP-SEMANTICS.5
+        status: planned
+      - clause: CAP-SEMANTICS.6
+        status: planned
+      - clause: CAP-SEMANTICS.7
+        status: planned
+      - clause: CAP-SEMANTICS.8
+        status: planned
+      - clause: CAP-SEMANTICS.9
+        status: planned
+      - clause: CAP-SEMANTICS.10
         status: planned
   - capability: CAP-REPORTING
     components:

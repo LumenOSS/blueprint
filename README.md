@@ -14,7 +14,7 @@ each capability to real components and shows evidence for every clause.
 Two reference implementations are planned: one fully open source on
 Kubernetes, one on Databricks.
 
-Status: blueprint 0.2.0. Contracts are drafted; no implementation has
+Status: blueprint 0.3.0. Contracts are drafted; no implementation has
 evidence yet.
 
 **New here?** Start with [getting started](docs/getting-started.md): it
@@ -32,6 +32,7 @@ gives a reading order for everyone and a track for each role.
 | [Building an implementation](docs/building.md) | The steps, in dependency order, with completion criteria |
 | [Domain model](docs/domain/README.md) | What an EMIS holds: domains, resources, modelling rules, default classification |
 | [Indicators](docs/domain/indicators.md) | How indicators are defined, computed and published |
+| [Semantic layer](docs/architecture/semantic-layer.md) | Every indicator defined once and served to every consumer; dbt in both implementations |
 | [Example products](docs/product/README.md) | Document review and an annual census, each running through every layer, and a checklist for new products |
 | [Backfill patterns](docs/patterns/backfill.md) | Loading history and reprocessing, from published sources |
 | [Lessons](docs/patterns/lessons.md) | Failures that shaped the design, as rules |

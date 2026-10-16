@@ -300,7 +300,7 @@ standards:
     used_by: []
   - id: STD-CEDS
     title: Common Education Data Standards (CEDS)
-    edition: "Version 13 on the website; Version 14 released on the CEDS GitHub (2026-04-29)"
+    edition: "Version 14 (official release on the CEDS GitHub, March–April 2026); the ceds.ed.gov downloads still offer Version 13"
     publisher: US National Center for Education Statistics
     url: https://ceds.ed.gov/
     checked: 2026-10-15
@@ -397,6 +397,18 @@ standards:
     area: identity-security
     purpose: Design standards for learner- and guardian-facing services.
     used_by: [CAP-APPS]
+
+  - id: STD-COE-EDU-GUIDELINES
+    title: Guidelines on Children's Data Protection in an Education Setting
+    edition: Adopted by the Committee of Convention 108, November 2020
+    publisher: Council of Europe
+    url: https://www.coe.int/web/data-protection/-/protect-children-s-personal-data-in-education-setting-
+    checked: 2026-10-15
+    check: catalogue
+    verdict: reference
+    area: identity-security
+    purpose: Intergovernmental guidelines on children's data protection specific to education.
+    used_by: [CAP-CLASSIFICATION, CAP-SHARING]
 
   # ------------------------------------------------------------ metadata and quality
   - id: STD-ISO11179
@@ -590,6 +602,17 @@ standards:
     area: exchange
     purpose: Findable, accessible, interoperable and reusable data, as a checklist for publication.
     used_by: [CAP-PUBLICATION]
+  - id: STD-OSSIE
+    title: Apache Ossie (Open Semantic Interchange)
+    edition: Specification 0.1.1 (December 2025); 0.2 in development; Apache incubating project
+    publisher: Apache Software Foundation (incubating)
+    url: https://github.com/apache/ossie
+    checked: 2026-10-15
+    check: publisher
+    verdict: track
+    area: exchange
+    purpose: An open format for exchanging semantic definitions between tools, which could replace the per-engine generators.
+    used_by: [CAP-SEMANTICS]
   - id: STD-OPENAPI
     title: OpenAPI Specification
     edition: OpenAPI 3.1 or later (3.2.1, September 2026)

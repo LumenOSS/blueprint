@@ -41,7 +41,7 @@ Any two systems that should agree can be reconciled with the release-gate patter
 <!-- BEGIN GENERATED: standards (just render) -->
 | Standard | Edition | Verdict |
 | --- | --- | --- |
-| [Common Education Data Standards (CEDS)](../standards.md#open-data-and-exchange) | Version 13 on the website; Version 14 released on the CEDS GitHub (2026-04-29) | reference |
+| [Common Education Data Standards (CEDS)](../standards.md#open-data-and-exchange) | Version 14 (official release on the CEDS GitHub, March–April 2026); the ceds.ed.gov downloads still offer Version 13 | reference |
 | [1EdTech OneRoster](../standards.md#open-data-and-exchange) | 1.2 (September 2022) | adopt |
 | [OpenAPI Specification](../standards.md#open-data-and-exchange) | OpenAPI 3.1 or later (3.2.1, September 2026) | adopt |
 | [JSON Schema](../standards.md#open-data-and-exchange) | Draft 2020-12 | adopt |

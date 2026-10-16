@@ -5,7 +5,7 @@
 # text; the capability pages render their contract tables from it
 # (`just render`). IDs are never renumbered or reused.
 
-version: 0.2.0
+version: 0.3.0
 
 layers:
   - id: L0
@@ -787,7 +787,7 @@ capabilities:
     domain: data
     layer: L1
     summary: >-
-      Every measure defined once, versioned, and read by every consumer.
+      Every measure defined once, beside the models that produce its counts, and served to every consumer from that one definition.
     depends_on: [CAP-TRANSFORMATION]
     clauses:
       - id: CAP-SEMANTICS.1
@@ -820,6 +820,36 @@ capabilities:
           A denominator from outside the platform, such as a population estimate by age, is versioned reference data that names its source and vintage.
         verify: >-
           Indicators with external denominators reference a versioned reference table.
+      - id: CAP-SEMANTICS.6
+        level: MUST
+        text: >-
+          Measure and indicator definitions live in the same versioned project as the transformation models that produce their counts, are changed in the same review, and are validated in CI.
+        verify: >-
+          CI runs the semantic layer's validation on every change.
+      - id: CAP-SEMANTICS.7
+        level: MUST
+        text: >-
+          Published indicators use a portable subset of definitions (simple counts and sums, ratios, and derived expressions without time offsets), each indicator a ratio of additive counts on one gold table; any other construct has a recorded, tested mapping for each serving engine.
+        verify: >-
+          A CI lint lists every definition outside the portable subset with its mapping.
+      - id: CAP-SEMANTICS.8
+        level: MUST
+        text: >-
+          Every artefact a consumer reads (engine-native metric objects, saved-query tables, dashboard datasets) is generated from the definitions by CI, never written by hand.
+        verify: >-
+          Generated artefacts carry a marker and are reproduced byte for byte by the generator.
+      - id: CAP-SEMANTICS.9
+        level: MUST
+        text: >-
+          A parity test runs every saved query through every serving path and requires identical results.
+        verify: >-
+          The parity report lists each saved query and serving path with a match.
+      - id: CAP-SEMANTICS.10
+        level: SHOULD
+        text: >-
+          Definitions can be exported in an open semantic interchange format once a released version is supported by the producing and consuming tools.
+        verify: >-
+          The export runs in CI and validates against the format's schema.
 
   - id: CAP-REPORTING
     name: Reporting

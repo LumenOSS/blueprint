@@ -7,7 +7,8 @@ built from.
 ## What every indicator declares
 
 From [CAP-SEMANTICS.3](../capabilities/cap-semantics.md), each indicator is
-defined once, in the semantic layer, with:
+defined once, in the [semantic layer](../architecture/semantic-layer.md),
+with:
 
 | Question | What the metadata states |
 | --- | --- |

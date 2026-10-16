@@ -38,7 +38,7 @@ consequence, so a gap is always written down. Check a binding with
 | [CAP-INTEROPERABILITY](../capabilities/cap-interoperability.md) Exchange with other systems | Azure API Management<br/>Schema validation at the landing edge | Envoy Gateway<br/>Schema validation at the landing edge |
 | [CAP-ORCHESTRATION](../capabilities/cap-orchestration.md) Orchestration | Lakeflow Jobs | Apache Airflow 3 |
 | [CAP-TRANSFORMATION](../capabilities/cap-transformation.md) Transformation layer | dbt (v1, Python) with dbt-databricks<br/>dbt task in Lakeflow Jobs | dbt (v1, Python)<br/>dbt-trino adapter |
-| [CAP-SEMANTICS](../capabilities/cap-semantics.md) Semantic layer | Unity Catalog metric views<br/>MetricFlow definitions as source | MetricFlow |
+| [CAP-SEMANTICS](../capabilities/cap-semantics.md) Semantic layer | dbt semantic layer (dbt 1.12 or later, latest YAML spec)<br/>MetricFlow<br/>Unity Catalog metric views via the dbt-databricks metric_view materialisation | dbt semantic layer (dbt 1.12 or later, latest YAML spec)<br/>MetricFlow<br/>Generated saved-query models |
 | [CAP-REPORTING](../capabilities/cap-reporting.md) Reporting | AI/BI dashboards<br/>Genie | Apache Superset |
 | [CAP-APPS](../capabilities/cap-apps.md) Application hosting | Azure Container Apps | Kubernetes Deployment + Gateway API |
 | [CAP-QUALITY](../capabilities/cap-quality.md) Data quality | dbt tests and contracts<br/>Lakeflow pipeline expectations<br/>Data Quality Monitoring | dbt tests and contracts<br/>Great Expectations (GX Core) |

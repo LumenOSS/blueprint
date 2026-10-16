@@ -251,6 +251,8 @@ flowchart LR
   ([CAP-OPERATIONALDB.7](../capabilities/cap-operationaldb.md)).
 - **Dashboards read the semantic layer, not tables,** so a measure has one
   definition ([P11](../principles.md#p11-reporting-goes-through-a-governed-transformation-layer)).
+  The [semantic layer](semantic-layer.md) page shows how one definition is
+  served to every consumer.
 - **Publication is a separate store fed only by models,** so nothing reaches
   a recipient without passing through de-identification
   ([CAP-SHARING.1](../capabilities/cap-sharing.md)). Open statistics leave

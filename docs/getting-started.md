@@ -44,19 +44,22 @@ You turn the blueprint into a running platform.
    with.
 2. [Building an implementation](building.md): the steps, with a build
    order generated from the dependencies.
-3. [Implementations](implementations/README.md) and a reference binding
+3. [Semantic layer](architecture/semantic-layer.md): how every indicator is
+   defined once and served to every consumer.
+4. [Implementations](implementations/README.md) and a reference binding
    ([open source](implementations/oss.yaml) or
    [Databricks](implementations/databricks.yaml)): the components and the
    status of every clause.
-4. [Standards](standards.md): the editions each clause names.
-5. [Lessons](patterns/lessons.md): failures that shaped the design, so you
+5. [Standards](standards.md): the editions each clause names.
+6. [Lessons](patterns/lessons.md): failures that shaped the design, so you
    do not repeat them.
 
 ### Product teams
 
 You build a workload on the platform.
 
-1. [Domain model](domain/README.md) and [indicators](domain/indicators.md).
+1. [Domain model](domain/README.md), [indicators](domain/indicators.md)
+   and the [semantic layer](architecture/semantic-layer.md).
 2. [Example products](product/README.md): document review and the annual
    census, read as worked examples.
 3. [Product checklist](product/checklist.md): what your product records
