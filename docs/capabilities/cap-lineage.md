@@ -27,7 +27,16 @@ Lineage exists only where an integration emits it. List the jobs without it.
 | --- | --- | --- | --- |
 | CAP-LINEAGE.1 | MUST | Table-level lineage is captured automatically for every job and transformation run. | For a gold table, lineage lists its upstream tables without manual entry. |
 | CAP-LINEAGE.2 | SHOULD | Column-level lineage is captured where the engine supports it. | For a masked column, lineage shows the source column. |
+| CAP-LINEAGE.3 | SHOULD | Lineage is emitted as OpenLineage events, so lineage from different implementations can be compared. | Job runs emit OpenLineage run events. |
 <!-- END GENERATED: contract -->
+
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+| Standard | Edition | Verdict |
+| --- | --- | --- |
+| [OpenLineage](../standards.md#metadata-and-data-quality) | Specification 1.x (1.54.0, 2026) | adopt |
+<!-- END GENERATED: standards -->
 
 ## Implementations
 

@@ -31,6 +31,14 @@ Many resource names cannot change after creation. Treat any change to a name out
 | CAP-MODULES.3 | SHOULD | Module versions follow semantic versioning; a change to any output that alters a resource name is a major version. | The module's changelog marks name changes as breaking. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+| Standard | Edition | Verdict |
+| --- | --- | --- |
+| [OpenSSF Scorecard](../standards.md#open-source-health-and-digital-public-goods) | v5 (5.6.0, October 2026) | adopt |
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

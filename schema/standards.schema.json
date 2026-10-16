@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/LumenOSS/data-platform-blueprint/schema/standards.schema.json",
+  "title": "Standards register",
+  "description": "Every external standard the blueprint relies on, with its current edition, the publisher's page and when it was checked.",
+  "type": "object",
+  "required": ["areas", "standards"],
+  "additionalProperties": false,
+  "properties": {
+    "areas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z-]*$" },
+          "name": { "type": "string" }
+        }
+      }
+    },
+    "standards": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/standard" }
+    }
+  },
+  "$defs": {
+    "standard": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "edition",
+        "publisher",
+        "url",
+        "checked",
+        "check",
+        "verdict",
+        "area",
+        "purpose",
+        "used_by"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^STD-[A-Z0-9-]+$" },
+        "title": { "type": "string" },
+        "edition": {
+          "description": "The edition relied on, with its date, and an 'or later' rule where one applies.",
+          "type": "string"
+        },
+        "publisher": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "checked": {
+          "description": "Date the edition was last confirmed.",
+          "type": "string",
+          "format": "date"
+        },
+        "check": {
+          "description": "publisher: confirmed on the publisher's own page. catalogue: confirmed from the publisher's catalogue entry as indexed, where the page itself blocks automated reading.",
+          "enum": ["publisher", "catalogue"]
+        },
+        "verdict": {
+          "description": "adopt: named in a contract clause. reference: background or a recommended method. track: watched, not yet relied on.",
+          "enum": ["adopt", "reference", "track"]
+        },
+        "area": { "type": "string" },
+        "purpose": { "type": "string" },
+        "used_by": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^(CAP-[A-Z]+|P[0-9]+)$" },
+          "uniqueItems": true
+        },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

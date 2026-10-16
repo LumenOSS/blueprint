@@ -1,0 +1,875 @@
+# yaml-language-server: $schema=../schema/standards.schema.json
+#
+# The standards register: every external standard the blueprint relies on,
+# with the edition relied on, the publisher's own page, and when and how it
+# was checked. docs/standards.md and each capability page's "Standards"
+# section are generated from this file (`just render`). Re-check every
+# entry at least once a year; a new edition is a reviewed change.
+
+areas:
+  - id: language
+    name: Requirement language
+  - id: representation
+    name: Data representation
+  - id: education
+    name: Education classifications and indicators
+  - id: metadata-quality
+    name: Metadata and data quality
+  - id: statistics
+    name: Official statistics and disclosure control
+  - id: exchange
+    name: Open data and exchange
+  - id: identity-security
+    name: Identity, security and privacy
+  - id: supply-chain
+    name: Software supply chain
+  - id: accessibility
+    name: Accessibility and localisation
+  - id: open-source-health
+    name: Open-source health and digital public goods
+
+standards:
+  # ------------------------------------------------------------ language
+  - id: STD-BCP14
+    title: BCP 14 (RFC 2119 and RFC 8174)
+    edition: RFC 2119 (1997) with RFC 8174 (2017)
+    publisher: IETF
+    url: https://www.rfc-editor.org/info/bcp14
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: language
+    purpose: The meaning of MUST, SHOULD and MAY; only the upper-case forms are normative.
+    used_by: []
+
+  # ------------------------------------------------------------ representation
+  - id: STD-RFC3339
+    title: RFC 3339 Date and Time on the Internet
+    edition: RFC 3339 (2002), as updated by RFC 9557 (2024)
+    publisher: IETF
+    url: https://www.rfc-editor.org/info/rfc3339
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: representation
+    purpose: The strict, testable profile of ISO 8601 used for every stored or exchanged timestamp, with an explicit offset.
+    used_by: [CAP-REFERENCE]
+  - id: STD-RFC9557
+    title: RFC 9557 Internet Extended Date/Time Format
+    edition: RFC 9557 (April 2024)
+    publisher: IETF
+    url: https://www.rfc-editor.org/info/rfc9557
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: representation
+    purpose: Adds the time-zone name to a timestamp where local civil time matters, such as a school day or an examination sitting.
+    used_by: [CAP-REFERENCE]
+  - id: STD-ISO8601
+    title: ISO 8601-1 Date and time
+    edition: ISO 8601-1:2019 with Amd 1:2022
+    publisher: ISO
+    url: https://www.iso.org/standard/70907.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: reference
+    area: representation
+    purpose: The underlying date and time standard that RFC 3339 profiles.
+    used_by: [CAP-REFERENCE]
+  - id: STD-E164
+    title: ITU-T E.164 international numbering plan
+    edition: E.164 (02/26), approved 2026-02-13
+    publisher: ITU-T
+    url: https://www.itu.int/rec/T-REC-E.164-202602-I/en
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: representation
+    purpose: The form in which telephone numbers are stored and exchanged.
+    used_by: [CAP-REFERENCE]
+  - id: STD-ISO3166
+    title: ISO 3166-1 Country codes
+    edition: ISO 3166-1:2020; code list as maintained by the ISO 3166 Maintenance Agency
+    publisher: ISO
+    url: https://www.iso.org/standard/72482.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: adopt
+    area: representation
+    purpose: Country codes; the code list is loaded on a schedule with its retrieval date.
+    used_by: [CAP-REFERENCE]
+  - id: STD-ISO4217
+    title: ISO 4217 Currency codes
+    edition: ISO 4217:2015; code tables as maintained by the maintenance agency
+    publisher: ISO
+    url: https://www.iso.org/iso-4217-currency-codes.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: adopt
+    area: representation
+    purpose: The currency of every amount of money, stored as a decimal with its code.
+    used_by: [CAP-REFERENCE]
+  - id: STD-BCP47
+    title: BCP 47 Language tags
+    edition: RFC 5646 and RFC 4647, with the IANA Language Subtag Registry
+    publisher: IETF
+    url: https://www.rfc-editor.org/info/bcp47
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: representation
+    purpose: Tags for languages of instruction, home languages and interface locales.
+    used_by: [CAP-REFERENCE, CAP-APPS]
+  - id: STD-ISO639
+    title: ISO 639 Language codes
+    edition: ISO 639:2023, which replaced the former parts 1 to 5
+    publisher: ISO
+    url: https://www.iso.org/standard/74575.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: reference
+    area: representation
+    purpose: The language code sets underlying BCP 47 subtags.
+    used_by: [CAP-REFERENCE]
+  - id: STD-UNICODE
+    title: Unicode Standard and normalization (UAX 15)
+    edition: Unicode 18.0.0 (2026)
+    publisher: Unicode Consortium
+    url: https://www.unicode.org/versions/Unicode18.0.0/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: representation
+    purpose: Text is stored as UTF-8 in Normalization Form C, so names compare reliably in duplicate detection.
+    used_by: [CAP-REFERENCE, CAP-MASTERDATA]
+  - id: STD-CLDR
+    title: Unicode CLDR
+    edition: CLDR 48.2 (March 2026)
+    publisher: Unicode Consortium
+    url: https://cldr.unicode.org/index/downloads
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: accessibility
+    purpose: Locale data for formatting numbers, dates and currencies at display time; formatted values are never stored.
+    used_by: [CAP-APPS, CAP-REPORTING]
+  - id: STD-RFC9562
+    title: RFC 9562 Universally Unique IDentifiers
+    edition: RFC 9562 (May 2024), obsoleting RFC 4122
+    publisher: IETF
+    url: https://www.rfc-editor.org/info/rfc9562
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: representation
+    purpose: Opaque surrogate identifiers; version 7 keeps index locality.
+    used_by: [CAP-MASTERDATA]
+  - id: STD-GEOJSON
+    title: RFC 7946 GeoJSON
+    edition: RFC 7946 (August 2016)
+    publisher: IETF
+    url: https://www.rfc-editor.org/info/rfc7946
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Open format for published locations and boundaries, with WGS 84 as its fixed reference system.
+    used_by: [CAP-PUBLICATION]
+  - id: STD-OGCAPI-FEATURES
+    title: OGC API – Features
+    edition: Parts 1 to 3 (Core 1.0.1, CRS by Reference 1.0.1, Filtering 1.0.0)
+    publisher: Open Geospatial Consortium
+    url: https://ogcapi.ogc.org/features/
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: exchange
+    purpose: A standard web interface for querying published institution locations.
+    used_by: [CAP-PUBLICATION]
+
+  # ------------------------------------------------------------ education
+  - id: STD-ISCED2011
+    title: International Standard Classification of Education (ISCED 2011)
+    edition: ISCED 2011 (published 2012) with Operational Manual (2015); amendment due 2027
+    publisher: UNESCO Institute for Statistics
+    url: https://www.uis.unesco.org/en/methods-and-tools/isced
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: education
+    purpose: Levels of education programmes and attainment for international comparison.
+    used_by: [CAP-REFERENCE, CAP-SEMANTICS]
+  - id: STD-ISCED-F2013
+    title: ISCED Fields of Education and Training (ISCED-F 2013)
+    edition: ISCED-F 2013 (published 2014); comprehensive revision due 2027
+    publisher: UNESCO Institute for Statistics
+    url: https://www.uis.unesco.org/en/methods-and-tools/isced
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: education
+    purpose: Fields of study for programmes and qualifications.
+    used_by: [CAP-REFERENCE]
+  - id: STD-ISCED-T2021
+    title: International Standard Classification of Teacher Training Programmes (ISCED-T 2021)
+    edition: ISCED-T 2021 (published 2022)
+    publisher: UNESCO Institute for Statistics
+    url: https://unesdoc.unesco.org/ark:/48223/pf0000383023_eng
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: education
+    purpose: Classifying teacher-training programmes and qualifications for SDG 4.c reporting.
+    used_by: [CAP-REFERENCE]
+  - id: STD-ISCED-REVISION
+    title: ISCED revision (amendment of ISCED 2011, revision of ISCED-F 2013)
+    edition: In progress; task forces 2026; target 44th UNESCO General Conference (2027)
+    publisher: UNESCO Institute for Statistics
+    url: https://www.uis.unesco.org/en/methods-and-tools/isced/revision
+    checked: 2026-10-15
+    check: publisher
+    verdict: track
+    area: education
+    purpose: Future edition of the classifications the crosswalks map to.
+    used_by: [CAP-REFERENCE]
+  - id: STD-SDG-GIF
+    title: Global indicator framework for the Sustainable Development Goals
+    edition: After 2026 refinement (UN Statistical Commission 57th session, March 2026; includes the 2025 Comprehensive Review)
+    publisher: UN Statistics Division (IAEG-SDGs)
+    url: https://unstats.un.org/sdgs/indicators/indicators-list/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: education
+    purpose: Official codes and wording of the 12 global SDG 4 indicators.
+    used_by: [CAP-SEMANTICS, CAP-PUBLICATION]
+  - id: STD-SDG4-LIST
+    title: Official List of SDG 4 Indicators (global and thematic)
+    edition: October 2026 (post EDSC-12)
+    publisher: UNESCO Institute for Statistics
+    url: https://www.uis.unesco.org/en/methods-and-tools/sdg4-indicators
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: education
+    purpose: Codes, wording and benchmark flags for SDG 4 thematic indicators.
+    used_by: [CAP-SEMANTICS, CAP-PUBLICATION]
+  - id: STD-UIS-GLOSSARY
+    title: UIS Glossary - Education Metadata
+    edition: 2026 (UIS/2026/ED/IP/32)
+    publisher: UNESCO Institute for Statistics
+    url: https://databrowser.uis.unesco.org/glossary
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: education
+    purpose: Definitions and calculation methods of education indicators.
+    used_by: [CAP-SEMANTICS]
+  - id: STD-UIS-SFE
+    title: UIS Survey of Formal Education (and UIS-OECD-Eurostat UOE collection)
+    edition: Annual cycle; documented in the February 2026 Data Refresh background document
+    publisher: UNESCO Institute for Statistics
+    url: http://uis.unesco.org/uis-questionnaires
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: education
+    purpose: The international questionnaires an EMIS must be able to complete from gold.
+    used_by: [CAP-PUBLICATION]
+  - id: STD-ED-DQAF
+    title: Education Data Quality Assessment Framework (Ed-DQAF)
+    edition: 2017 manual, instruments and matrix
+    publisher: UNESCO Institute for Statistics
+    url: https://emis.uis.unesco.org/tools-and-reports
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: metadata-quality
+    purpose: External assessment of an administrative education data system.
+    used_by: [CAP-QUALITY, CAP-COLLECTION]
+  - id: STD-UIS-LASER
+    title: LASER national education statistical capacity assessment
+    edition: Global report 2025 (maturity model)
+    publisher: UNESCO Institute for Statistics
+    url: https://www.uis.unesco.org/en/methods-and-tools/laser
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: education
+    purpose: Maturity model for a country's education data ecosystem.
+    used_by: []
+  - id: STD-CEDS
+    title: Common Education Data Standards (CEDS)
+    edition: "Version 13 on the website; Version 14 released on the CEDS GitHub (2026-04-29)"
+    publisher: US National Center for Education Statistics
+    url: https://ceds.ed.gov/
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: exchange
+    purpose: Open vocabulary of education data elements for the data dictionary.
+    used_by: [CAP-REFERENCE, CAP-INTEROPERABILITY]
+  - id: STD-ONEROSTER
+    title: 1EdTech OneRoster
+    edition: 1.2 (September 2022)
+    publisher: 1EdTech
+    url: https://www.imsglobal.org/spec/oneroster/v1p2
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Rosters, enrolments and results between the EMIS and learning tools.
+    used_by: [CAP-INTEROPERABILITY]
+  - id: STD-CASE
+    title: 1EdTech Competencies and Academic Standards Exchange (CASE)
+    edition: 1.1 (January 2025)
+    publisher: 1EdTech
+    url: https://www.imsglobal.org/spec/case/v1p1
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Publishing curriculum outcomes and competency frameworks with stable identifiers.
+    used_by: [CAP-REFERENCE]
+  - id: STD-CLR-OB
+    title: 1EdTech Comprehensive Learner Record 2.0 and Open Badges 3.0
+    edition: CLR 2.0 (doc 1.1, October 2025); Open Badges 3.0 (doc 1.4.5, June 2026)
+    publisher: 1EdTech
+    url: https://www.imsglobal.org/spec/clr/v2p0
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Learner-held records and achievements as verifiable credentials.
+    used_by: [CAP-TRANSFORMATION]
+  - id: STD-ELM
+    title: European Learning Model (European Digital Credentials for Learning)
+    edition: ELM 3.3 (2025)
+    publisher: European Commission (Europass)
+    url: https://europass.europa.eu/en/news/latest-developments-european-learning-model
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: exchange
+    purpose: EU model for qualifications and verifiable learning credentials.
+    used_by: [CAP-TRANSFORMATION]
+  - id: STD-UNICEF-AI-CHILDREN
+    title: UNICEF Guidance on AI and Children
+    edition: Version 3.0 (December 2025)
+    publisher: UNICEF Innocenti
+    url: https://www.unicef.org/innocenti/reports/policy-guidance-ai-children
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: identity-security
+    purpose: Child-rights requirements for any model that scores or profiles learners.
+    used_by: [CAP-MODELS]
+  - id: STD-UNICEF-EDTECH-DATA
+    title: Data Governance for EdTech (landscape review and policy recommendations)
+    edition: "2025"
+    publisher: UNICEF Innocenti (with UNESCO and the Global Privacy Assembly)
+    url: https://www.unicef.org/innocenti/media/11616/file/UNICEF-Innocenti-Data-Governance-Education-Technology-Summary-2025.pdf
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: identity-security
+    purpose: Terms for sharing learner data with vendors and third parties.
+    used_by: [CAP-SHARING]
+  - id: STD-CRC-GC25
+    title: UN CRC General Comment No. 25 on children's rights in relation to the digital environment
+    edition: "2021"
+    publisher: UN Committee on the Rights of the Child (OHCHR)
+    url: https://www.ohchr.org/en/documents/general-comments-and-recommendations/general-comment-no-25-2021-childrens-rights-relation
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: identity-security
+    purpose: Rights basis for classifying and protecting learner data.
+    used_by: [CAP-CLASSIFICATION]
+  - id: STD-ICO-AADC
+    title: Age appropriate design - a code of practice for online services (Children's code)
+    edition: In force 2 September 2020 (conformance from 2 September 2021); guidance updated for the Data (Use and Access) Act 2025
+    publisher: UK Information Commissioner's Office
+    url: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-code/
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: identity-security
+    purpose: Design standards for learner- and guardian-facing services.
+    used_by: [CAP-APPS]
+
+  # ------------------------------------------------------------ metadata and quality
+  - id: STD-ISO11179
+    title: ISO/IEC 11179 Metadata registries
+    edition: ISO/IEC 11179-1:2023 and 11179-3:2023
+    publisher: ISO/IEC
+    url: https://www.iso.org/standard/78914.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: adopt
+    area: metadata-quality
+    purpose: "The model of the data dictionary: concept, value domain and data element, with registration status and steward."
+    used_by: [CAP-REFERENCE]
+  - id: STD-ISO25012
+    title: ISO/IEC 25012 Data quality model
+    edition: ISO/IEC 25012:2008, confirmed 2025
+    publisher: ISO/IEC
+    url: https://www.iso.org/standard/35736.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: adopt
+    area: metadata-quality
+    purpose: The vocabulary of quality characteristics each check names.
+    used_by: [CAP-QUALITY]
+  - id: STD-ISO25024
+    title: ISO/IEC 25024 Measurement of data quality
+    edition: ISO/IEC 25024:2015, confirmed 2022
+    publisher: ISO/IEC
+    url: https://www.iso.org/standard/35749.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: reference
+    area: metadata-quality
+    purpose: How each quality characteristic becomes a measure.
+    used_by: [CAP-QUALITY]
+  - id: STD-ISO5259
+    title: ISO/IEC 5259 Data quality for analytics and machine learning
+    edition: ISO/IEC 5259-1 to -4:2024
+    publisher: ISO/IEC
+    url: https://www.iso.org/standard/81092.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: reference
+    area: metadata-quality
+    purpose: Quality measures for the training and scoring data of governed models.
+    used_by: [CAP-MODELS]
+  - id: STD-OPENLINEAGE
+    title: OpenLineage
+    edition: Specification 1.x (1.54.0, 2026)
+    publisher: LF AI & Data Foundation
+    url: https://openlineage.io/docs/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: metadata-quality
+    purpose: A vendor-neutral format for lineage events, so implementations produce comparable lineage.
+    used_by: [CAP-LINEAGE]
+
+  # ------------------------------------------------------------ statistics
+  - id: STD-UN-FPOS
+    title: UN Fundamental Principles of Official Statistics
+    edition: Adopted 1994; endorsed by UN General Assembly resolution 68/261 (2014)
+    publisher: United Nations Statistics Division
+    url: https://unstats.un.org/unsd/dnss/gp/fundprinciples.aspx
+    checked: 2026-10-15
+    check: catalogue
+    verdict: adopt
+    area: statistics
+    purpose: The principles official education statistics follow, including that individual data serve statistical purposes only.
+    used_by: [CAP-PUBLICATION, CAP-COLLECTION, P15]
+  - id: STD-UN-NQAF
+    title: UN National Quality Assurance Frameworks Manual for Official Statistics
+    edition: 2019 (ST/ESA/STAT/SER.M/100)
+    publisher: United Nations Statistics Division
+    url: https://unstats.un.org/unsd/methodology/dataquality/un-nqaf/
+    checked: 2026-10-15
+    check: catalogue
+    verdict: reference
+    area: statistics
+    purpose: A quality framework for statistics drawn from administrative sources such as an EMIS.
+    used_by: [CAP-QUALITY, CAP-COLLECTION]
+  - id: STD-GSBPM
+    title: Generic Statistical Business Process Model
+    edition: GSBPM v5.2 (May 2025)
+    publisher: UNECE
+    url: https://unece.org/statistics/modernstats/gsbpm
+    checked: 2026-10-15
+    check: catalogue
+    verdict: adopt
+    area: statistics
+    purpose: The phase vocabulary for statistical production; each collection and release stage names its phase.
+    used_by: [CAP-COLLECTION]
+  - id: STD-SDC-HANDBOOK
+    title: Handbook on Statistical Disclosure Control
+    edition: Second edition (2025; online edition 2026)
+    publisher: Centre of Excellence on Statistical Disclosure Control
+    url: https://sdctools.github.io/HandbookSDC/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: statistics
+    purpose: The methods for suppression, rounding and perturbation (including the Cell Key Method) applied to published tables.
+    used_by: [CAP-PUBLICATION]
+  - id: STD-NIST-SP800-226
+    title: NIST SP 800-226 Guidelines for Evaluating Differential Privacy Guarantees
+    edition: Final, March 2025
+    publisher: NIST
+    url: https://csrc.nist.gov/pubs/sp/800/226/final
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: statistics
+    purpose: How to decide on, and document, differential privacy for query services or synthetic data.
+    used_by: [CAP-PUBLICATION]
+
+  # ------------------------------------------------------------ exchange
+  - id: STD-DCAT
+    title: Data Catalog Vocabulary (DCAT)
+    edition: DCAT Version 3, W3C Recommendation (August 2024)
+    publisher: W3C
+    url: https://www.w3.org/TR/vocab-dcat-3/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Catalogue metadata for published datasets, including dataset series and versions.
+    used_by: [CAP-PUBLICATION]
+  - id: STD-DCAT-AP
+    title: DCAT Application Profile (DCAT-AP)
+    edition: DCAT-AP 3.0.1 (October 2025)
+    publisher: SEMIC
+    url: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: exchange
+    purpose: Which DCAT properties to fill, and with which vocabularies.
+    used_by: [CAP-PUBLICATION]
+  - id: STD-SCHEMA-DATASET
+    title: schema.org Dataset
+    edition: schema.org 30.1 (September 2026)
+    publisher: schema.org
+    url: https://schema.org/Dataset
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Dataset markup on landing pages, generated from the DCAT record, so datasets are found by search.
+    used_by: [CAP-PUBLICATION]
+  - id: STD-CSVW
+    title: CSV on the Web (CSVW)
+    edition: W3C Recommendations (December 2015)
+    publisher: W3C
+    url: https://www.w3.org/TR/tabular-data-primer/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Column-level metadata shipped beside every published CSV file.
+    used_by: [CAP-PUBLICATION]
+  - id: STD-SDMX
+    title: SDMX
+    edition: SDMX 3.0 or later (3.1, May 2025); 2.1 where the receiving agency requires it
+    publisher: SDMX sponsors
+    url: https://sdmx.org/standards-2/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Exchange of statistics and their structures with international bodies.
+    used_by: [CAP-PUBLICATION]
+  - id: STD-OPEN-DATA-CHARTER
+    title: International Open Data Charter principles
+    edition: Six principles (2015)
+    publisher: Open Data Charter
+    url: https://opendatacharter.org/principles/
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: exchange
+    purpose: The policy basis for publishing open by default, timely and comparable.
+    used_by: [CAP-PUBLICATION, P15]
+  - id: STD-FAIR
+    title: FAIR Guiding Principles
+    edition: Wilkinson et al., Scientific Data 3, 160018 (2016)
+    publisher: GO FAIR
+    url: https://www.gofair.foundation/fair-principles
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: exchange
+    purpose: Findable, accessible, interoperable and reusable data, as a checklist for publication.
+    used_by: [CAP-PUBLICATION]
+  - id: STD-OPENAPI
+    title: OpenAPI Specification
+    edition: OpenAPI 3.1 or later (3.2.1, September 2026)
+    publisher: OpenAPI Initiative
+    url: https://spec.openapis.org/oas/v3.2.1.html
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Machine-readable contracts for request-response interfaces.
+    used_by: [CAP-INTEROPERABILITY, CAP-APPS]
+  - id: STD-JSON-SCHEMA
+    title: JSON Schema
+    edition: Draft 2020-12
+    publisher: JSON Schema
+    url: https://json-schema.org/specification
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Payload and data-contract schemas, and the blueprint's own schemas.
+    used_by: [CAP-INTEROPERABILITY]
+  - id: STD-ASYNCAPI
+    title: AsyncAPI Specification
+    edition: AsyncAPI 3.x (3.1.0, January 2026)
+    publisher: AsyncAPI Initiative
+    url: https://www.asyncapi.com/docs/reference/specification/v3.1.0
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Machine-readable contracts for evented interfaces.
+    used_by: [CAP-INTEROPERABILITY]
+  - id: STD-CLOUDEVENTS
+    title: CloudEvents
+    edition: CloudEvents 1.0.2
+    publisher: CNCF
+    url: https://cloudevents.io/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: A common envelope for events, whose id and source give the idempotency key.
+    used_by: [CAP-INTEROPERABILITY, CAP-PIPELINE]
+  - id: STD-ODRL
+    title: ODRL Information Model
+    edition: ODRL 2.2, W3C Recommendation (2018)
+    publisher: W3C
+    url: https://www.w3.org/TR/odrl-model/
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: exchange
+    purpose: Machine-readable terms of a data-sharing agreement, alongside the DCAT record.
+    used_by: [CAP-SHARING]
+  - id: STD-VC
+    title: Verifiable Credentials Data Model
+    edition: VC Data Model 2.0, W3C Recommendation (May 2025)
+    publisher: W3C
+    url: https://www.w3.org/TR/vc-data-model-2.0/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: exchange
+    purpose: Tamper-evident digital certificates and transcripts issued about a single record; Open Badges 3.0, CLR 2.0 and the European Learning Model build on it.
+    used_by: [CAP-TRANSFORMATION]
+
+  # ------------------------------------------------------------ identity, security, privacy
+  - id: STD-NIST-SP800-63
+    title: NIST SP 800-63-4 Digital Identity Guidelines
+    edition: SP 800-63-4, final (July 2025)
+    publisher: NIST
+    url: https://csrc.nist.gov/pubs/sp/800/63/4/final
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: identity-security
+    purpose: Assurance levels and the definition of a phishing-resistant authenticator.
+    used_by: [CAP-IDENTITY]
+  - id: STD-WEBAUTHN
+    title: Web Authentication
+    edition: Level 2 or later (Level 3, W3C Recommendation, August 2026)
+    publisher: W3C
+    url: https://www.w3.org/TR/webauthn-3/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: identity-security
+    purpose: Passkeys and security keys as the phishing-resistant authenticator.
+    used_by: [CAP-IDENTITY]
+  - id: STD-OIDC
+    title: OpenID Connect Core 1.0
+    edition: Core 1.0 incorporating errata set 2; also ISO/IEC 26131:2024
+    publisher: OpenID Foundation
+    url: https://openid.net/specs/openid-connect-core-1_0.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: adopt
+    area: identity-security
+    purpose: Sign-in to applications through the identity provider.
+    used_by: [CAP-IDENTITY, CAP-APPS]
+  - id: STD-RFC9700
+    title: OAuth 2.0 Security Best Current Practice
+    edition: RFC 9700 / BCP 240 (January 2025)
+    publisher: IETF
+    url: https://www.rfc-editor.org/info/rfc9700
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: identity-security
+    purpose: The security baseline every OAuth deployment conforms to.
+    used_by: [CAP-IDENTITY, CAP-APPS]
+  - id: STD-SCIM
+    title: SCIM 2.0
+    edition: RFC 7643 and RFC 7644 (2015), with later extensions
+    publisher: IETF
+    url: https://datatracker.ietf.org/wg/scim/documents/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: identity-security
+    purpose: Automatic provisioning of users and groups from the authoritative directory.
+    used_by: [CAP-IDENTITY]
+  - id: STD-OWASP-ASVS
+    title: OWASP Application Security Verification Standard
+    edition: ASVS 5.0.0 (May 2025)
+    publisher: OWASP
+    url: https://owasp.org/www-project-application-security-verification-standard/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: identity-security
+    purpose: Testable security requirements for applications that handle identifiable data.
+    used_by: [CAP-APPS]
+  - id: STD-ISO27001
+    title: ISO/IEC 27001 Information security management systems
+    edition: ISO/IEC 27001:2022 with Amd 1:2024, and ISO/IEC 27002:2022
+    publisher: ISO/IEC
+    url: https://www.iso.org/standard/27001
+    checked: 2026-10-15
+    check: catalogue
+    verdict: reference
+    area: identity-security
+    purpose: The operator's management system, to which the capability clauses map as evidence.
+    used_by: [CAP-GUARDRAILS, CAP-AUDIT]
+  - id: STD-ISO27701
+    title: ISO/IEC 27701 Privacy information management systems
+    edition: ISO/IEC 27701:2025, a standalone standard
+    publisher: ISO/IEC
+    url: https://www.iso.org/standard/27701
+    checked: 2026-10-15
+    check: catalogue
+    verdict: reference
+    area: identity-security
+    purpose: The operator's privacy management system for personal data.
+    used_by: [CAP-RECORDS]
+  - id: STD-ISO29100
+    title: ISO/IEC 29100 Privacy framework
+    edition: ISO/IEC 29100:2024 (second edition)
+    publisher: ISO/IEC
+    url: https://www.iso.org/standard/85938.html
+    checked: 2026-10-15
+    check: catalogue
+    verdict: adopt
+    area: identity-security
+    purpose: Privacy vocabulary and principles, including purpose legitimacy and data minimisation.
+    used_by: [CAP-RECORDS, CAP-CLASSIFICATION, P20]
+  - id: STD-NIST-CSF
+    title: NIST Cybersecurity Framework
+    edition: CSF 2.0 (February 2024)
+    publisher: NIST
+    url: https://www.nist.gov/cyberframework
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: identity-security
+    purpose: An outcome-based risk framework to which the capabilities can be mapped.
+    used_by: [CAP-GUARDRAILS]
+
+  # ------------------------------------------------------------ supply chain
+  - id: STD-SLSA
+    title: Supply-chain Levels for Software Artifacts (SLSA)
+    edition: SLSA v1.2 (November 2025)
+    publisher: OpenSSF
+    url: https://slsa.dev/spec/v1.2/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: supply-chain
+    purpose: Build provenance for every deployable artefact.
+    used_by: [CAP-DELIVERY]
+  - id: STD-SPDX
+    title: SPDX
+    edition: SPDX 2.3 or later (3.0.1, December 2024)
+    publisher: Linux Foundation
+    url: https://spdx.github.io/spdx-spec/v3.0.1/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: supply-chain
+    purpose: Software bill of materials and licence identifiers; either SPDX or CycloneDX satisfies the clause.
+    used_by: [CAP-DELIVERY]
+  - id: STD-CYCLONEDX
+    title: CycloneDX
+    edition: CycloneDX 1.5 or later (1.7, October 2025; ECMA-424)
+    publisher: OWASP / Ecma International
+    url: https://cyclonedx.org/specification/overview/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: supply-chain
+    purpose: Software bill of materials; also describes models, which suits governed models.
+    used_by: [CAP-DELIVERY, CAP-MODELS]
+
+  # ------------------------------------------------------------ accessibility and localisation
+  - id: STD-WCAG
+    title: Web Content Accessibility Guidelines
+    edition: WCAG 2.2 Level AA (W3C Recommendation, December 2024 version); also ISO/IEC 40500:2025
+    publisher: W3C
+    url: https://www.w3.org/TR/WCAG22/
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: accessibility
+    purpose: The accessibility level every interface used by staff, learners, guardians or the public meets.
+    used_by: [CAP-APPS]
+  - id: STD-EN301549
+    title: EN 301 549 Accessibility requirements for ICT products and services
+    edition: V4.1.1 (September 2026), aligned with WCAG 2.2; V3.2.1 where a procurement rule cites it
+    publisher: ETSI / CEN / CENELEC
+    url: https://www.etsi.org/deliver/etsi_en/301500_301599/301549/
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: accessibility
+    purpose: Accessibility of documents and software as well as web pages, for procurement and published files.
+    used_by: [CAP-APPS, CAP-PUBLICATION]
+  - id: STD-WCAG3
+    title: WCAG 3.0
+    edition: W3C Working Draft (September 2026)
+    publisher: W3C
+    url: https://www.w3.org/TR/wcag-3.0/
+    checked: 2026-10-15
+    check: publisher
+    verdict: track
+    area: accessibility
+    purpose: The next accessibility guidelines; not yet stable enough for a clause.
+    used_by: []
+
+  # ------------------------------------------------------------ open-source health
+  - id: STD-OPENSSF-SCORECARD
+    title: OpenSSF Scorecard
+    edition: v5 (5.6.0, October 2026)
+    publisher: OpenSSF
+    url: https://github.com/ossf/scorecard
+    checked: 2026-10-15
+    check: publisher
+    verdict: adopt
+    area: open-source-health
+    purpose: An automated assessment of an open-source repository's security practices, for components and for the blueprint's own repositories.
+    used_by: [CAP-GUARDRAILS, CAP-MODULES]
+  - id: STD-DPG
+    title: Digital Public Goods Standard
+    edition: v1.1.6 (September 2024)
+    publisher: Digital Public Goods Alliance
+    url: https://www.digitalpublicgoods.net/standard
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: open-source-health
+    purpose: Criteria for open software and data recognised as digital public goods, which the blueprint aims to meet.
+    used_by: [P21]
+  - id: STD-DIGITAL-PRINCIPLES
+    title: Principles for Digital Development
+    edition: 2024 refresh (nine principles)
+    publisher: Principles for Digital Development
+    url: https://digitalprinciples.org/
+    checked: 2026-10-15
+    check: publisher
+    verdict: reference
+    area: open-source-health
+    purpose: Endorsed principles for public digital programmes, including people-first data practices and building for sustainability.
+    used_by: [P20, P21]

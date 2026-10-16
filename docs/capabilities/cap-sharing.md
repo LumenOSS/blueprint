@@ -6,7 +6,7 @@ Layer L1 · domain: governance · depends on: [CAP-CATALOG](cap-catalog.md), [CA
 
 ## Purpose
 
-Let data leave the platform only as de-identified or aggregated tables, approved and registered.
+Let data leave the platform only as de-identified or aggregated tables, approved and registered. This page covers partner sharing of row-level data; open aggregate statistics are [CAP-PUBLICATION](cap-publication.md), and a person's own records are [CAP-RECORDS.7](cap-records.md).
 
 ## Why
 
@@ -33,6 +33,15 @@ An unsalted hash of an identifier can be reversed by trying every plausible iden
 | CAP-SHARING.5 | MUST | Shares name explicit tables, never whole schemas, and share no table history. | No share includes a schema; shared tables have history sharing off. |
 | CAP-SHARING.6 | SHOULD | Researchers who need finer data work inside the platform, on a project basis, time-boxed. | Research grants carry a project and an expiry. |
 <!-- END GENERATED: contract -->
+
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+| Standard | Edition | Verdict |
+| --- | --- | --- |
+| [Data Governance for EdTech (landscape review and policy recommendations)](../standards.md#identity-security-and-privacy) | 2025 | adopt |
+| [ODRL Information Model](../standards.md#open-data-and-exchange) | ODRL 2.2, W3C Recommendation (2018) | reference |
+<!-- END GENERATED: standards -->
 
 ## Implementations
 

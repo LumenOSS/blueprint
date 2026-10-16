@@ -5,7 +5,7 @@
 # text; the capability pages render their contract tables from it
 # (`just render`). IDs are never renumbered or reused.
 
-version: 0.1.0
+version: 0.2.0
 
 layers:
   - id: L0
@@ -238,6 +238,12 @@ capabilities:
           A scheduled fitness check fails if any state was written by an identity other than CI.
         verify: >-
           The check reads the last writer of each state version and alerts on a non-CI principal.
+      - id: CAP-DELIVERY.8
+        level: SHOULD
+        text: >-
+          Every deployable artefact carries SLSA v1.2 Build Level 3 provenance and a software bill of materials in SPDX 2.3 or later or CycloneDX 1.5 or later.
+        verify: >-
+          Release artefacts include a provenance attestation and an SBOM that validate.
 
   - id: CAP-MODULES
     name: Versioned modules
@@ -373,9 +379,15 @@ capabilities:
       - id: CAP-GUARDRAILS.2
         level: MUST
         text: >-
-          Scheduled fitness functions check that every table carries provenance and classification tags (daily), that a restore reproduces content hashes (quarterly), and that cost per task stays within budget (monthly).
+          Scheduled fitness functions check that every table carries provenance and classification tags, that a restore reproduces content hashes, and that cost per task stays within budget, each on a declared schedule.
         verify: >-
           Each check exists, has run on schedule, and alerts when it fails.
+      - id: CAP-GUARDRAILS.3
+        level: SHOULD
+        text: >-
+          The platform's own repositories and every third-party open-source component are assessed with OpenSSF Scorecard on a schedule, and low scores are reviewed.
+        verify: >-
+          Scorecard results are recorded per repository and component, with reviews of low scores.
 
   # ---------------------------------------------------------------- data
   - id: CAP-STORAGE
@@ -409,6 +421,12 @@ capabilities:
           Source-of-record files are kept in governed storage, tagged as real, with retention set by the data owner.
         verify: >-
           The archive location carries provenance and retention metadata.
+      - id: CAP-STORAGE.5
+        level: MUST
+        text: >-
+          Object storage and the catalog are backed up on a declared cadence to a geographically separate location, and a scheduled drill restores from backup outside any migration.
+        verify: >-
+          The backup schedule is in code; the latest restore drill report compares content hashes and is within its schedule.
 
   - id: CAP-TABLES
     name: Open table format
@@ -611,6 +629,57 @@ capabilities:
         verify: >-
           The tenant entry records why the chosen method was chosen.
 
+  - id: CAP-INTEROPERABILITY
+    name: Exchange with other systems
+    domain: data
+    layer: L1
+    summary: >-
+      Every feed to or from another system is declared, validated at the edge and reconciled.
+    depends_on: [CAP-ONBOARDING, CAP-CATALOG]
+    clauses:
+      - id: CAP-INTEROPERABILITY.1
+        level: MUST
+        text: >-
+          Every exchange with another system is a feed contract in the onboarding registry, naming its counterpart, purpose, schema, schedule, owning steward and the agreement that governs it.
+        verify: >-
+          Every live feed traces to a registry entry.
+      - id: CAP-INTEROPERABILITY.2
+        level: MUST
+        text: >-
+          Inbound feeds from other systems are validated at the edge against a published schema before landing, and a reject report goes back to the sender.
+        verify: >-
+          A malformed fixture is rejected with a report and never lands.
+      - id: CAP-INTEROPERABILITY.3
+        level: MUST
+        text: >-
+          Outbound feeds are reconciled with their recipient by counts and hashes for each period.
+        verify: >-
+          Each outbound feed has a reconciliation record per period.
+      - id: CAP-INTEROPERABILITY.4
+        level: MUST
+        text: >-
+          Systems of record expose versioned interfaces that change additively, each described in OpenAPI 3.1 or later, with payload schemas in JSON Schema 2020-12.
+        verify: >-
+          A pinned contract is compared in CI; removals fail.
+      - id: CAP-INTEROPERABILITY.5
+        level: SHOULD
+        text: >-
+          Exchanged records use a recognised open education data standard where one exists: 1EdTech OneRoster 1.2 for class lists and results, 1EdTech CASE 1.1 for curriculum frameworks, and CEDS as the reference vocabulary for data elements.
+        verify: >-
+          Each feed names the standard it maps to, or why none applies.
+      - id: CAP-INTEROPERABILITY.6
+        level: SHOULD
+        text: >-
+          Feed health (arrival, lag, reject rate, latency) is measured per feed and reaches gold.
+        verify: >-
+          A gold model reports feed health per feed and period.
+      - id: CAP-INTEROPERABILITY.7
+        level: SHOULD
+        text: >-
+          Evented interfaces are described in AsyncAPI 3 and carry a CloudEvents envelope whose id and source form the idempotency key.
+        verify: >-
+          Each evented feed has an AsyncAPI document; a replayed event with the same id and source changes nothing.
+
   - id: CAP-ORCHESTRATION
     name: Orchestration
     domain: data
@@ -661,7 +730,7 @@ capabilities:
     domain: data
     layer: L3
     summary: >-
-      Versioned, tested models from bronze to silver to gold; the only place metrics are computed.
+      Versioned, tested models from bronze to silver to gold; the only place measures are computed.
     depends_on: [CAP-COMPUTE, CAP-CATALOG]
     clauses:
       - id: CAP-TRANSFORMATION.1
@@ -679,7 +748,7 @@ capabilities:
       - id: CAP-TRANSFORMATION.3
         level: MUST
         text: >-
-          No metric or report value is computed in an application; applications select and format gold.
+          No measure or report value is computed in an application; applications select and format gold.
         verify: >-
           A test forbids the application's reporting code from opening a database connection to operational tables.
       - id: CAP-TRANSFORMATION.4
@@ -694,6 +763,24 @@ capabilities:
           Gold stores counts and sums, not ratios, so measures re-aggregate correctly.
         verify: >-
           Review gold columns; ratios are computed in the semantic layer.
+      - id: CAP-TRANSFORMATION.6
+        level: MUST
+        text: >-
+          Silver keeps effective-dated history for every relationship that changes over time (enrolment, posting, guardianship, programme), with valid-from, valid-to and recorded-at, and gold is computed as at a declared reference date.
+        verify: >-
+          Silver relationship tables carry the three time columns; each gold model names its reference-date rule.
+      - id: CAP-TRANSFORMATION.7
+        level: MUST
+        text: >-
+          A document about one record, such as a certificate, transcript or letter, may be produced by an application from operational data; any aggregate it prints (a rank, an average) comes from gold or the semantic layer.
+        verify: >-
+          Document templates read aggregates only through the semantic layer or gold.
+      - id: CAP-TRANSFORMATION.8
+        level: SHOULD
+        text: >-
+          Credentials issued about a single record, such as certificates and transcripts, are W3C Verifiable Credentials 2.0, using Open Badges 3.0 or CLR 2.0 where they fit.
+        verify: >-
+          An issued credential fixture verifies with a standard verifier.
 
   - id: CAP-SEMANTICS
     name: Semantic layer
@@ -715,6 +802,24 @@ capabilities:
           Dashboards, natural-language queries and agents read measures through the semantic layer.
         verify: >-
           Dashboard and agent queries reference semantic-layer objects, not raw gold columns.
+      - id: CAP-SEMANTICS.3
+        level: MUST
+        text: >-
+          Each indicator carries metadata saying what it means and how to read it, how it is computed (numerator and denominator as separate measures, unit, reference-date rule), how it may be broken down, where its counts come from and how often, what coverage it needs before publication, and who owns which version of it.
+        verify: >-
+          A check finds no indicator with a missing metadata field.
+      - id: CAP-SEMANTICS.4
+        level: SHOULD
+        text: >-
+          An indicator with an international definition follows the UIS Official List of SDG 4 Indicators and the UIS education glossary, records the edition it follows, and documents any deviation in its metadata.
+        verify: >-
+          Indicators that map to international definitions name them; deviations are listed.
+      - id: CAP-SEMANTICS.5
+        level: MUST
+        text: >-
+          A denominator from outside the platform, such as a population estimate by age, is versioned reference data that names its source and vintage.
+        verify: >-
+          Indicators with external denominators reference a versioned reference table.
 
   - id: CAP-REPORTING
     name: Reporting
@@ -775,6 +880,36 @@ capabilities:
           Applications are deployed by CI from a versioned image or artefact.
         verify: >-
           Running versions match a tag; no image is pushed from a workstation.
+      - id: CAP-APPS.5
+        level: MUST
+        text: >-
+          Interfaces used by staff, learners, guardians or the public meet WCAG 2.2 Level AA (also published as ISO/IEC 40500:2025), checked automatically in CI and by a manual audit for each release.
+        verify: >-
+          An automated accessibility check runs in CI; manual audit findings are tracked.
+      - id: CAP-APPS.6
+        level: SHOULD
+        text: >-
+          User-facing text is externalised and translatable, so an interface can be offered in more than one language.
+        verify: >-
+          No user-facing string is hard-coded outside the translation files.
+      - id: CAP-APPS.7
+        level: SHOULD
+        text: >-
+          Data-capture paths work over low bandwidth and tolerate intermittent connectivity.
+        verify: >-
+          Capture flows are tested under throttled and interrupted network conditions.
+      - id: CAP-APPS.8
+        level: MUST
+        text: >-
+          Applications that handle T3 or T4 data meet OWASP ASVS 5.0 Level 2.
+        verify: >-
+          The application's verification report cites the requirement identifiers it meets.
+      - id: CAP-APPS.9
+        level: MUST
+        text: >-
+          Applications sign users in with OpenID Connect through the identity provider, and every OAuth deployment follows the OAuth 2.0 Security Best Current Practice (RFC 9700).
+        verify: >-
+          The sign-in configuration is reviewed against RFC 9700; implicit and password grants are disabled.
 
   - id: CAP-QUALITY
     name: Data quality
@@ -802,6 +937,24 @@ capabilities:
           Each source has a declared contract (schema, keys, freshness) checked on arrival.
         verify: >-
           Change a source's schema in a test; arrival checks fail loudly.
+      - id: CAP-QUALITY.4
+        level: MUST
+        text: >-
+          Every check names the ISO/IEC 25012 data-quality characteristic it measures (for example accuracy, completeness, consistency, credibility or currentness) and its severity.
+        verify: >-
+          The check registry has a dimension and severity for every check.
+      - id: CAP-QUALITY.5
+        level: MUST
+        text: >-
+          An error found after load is fixed by a correction request approved by the data's steward; the correction lands as a new version, never an edit in place, and the request is kept with the record.
+        verify: >-
+          A correction fixture produces a new version linked to its request; the old version stays readable.
+      - id: CAP-QUALITY.6
+        level: SHOULD
+        text: >-
+          Checks that compare two sources which should agree are declared as blocking or warning.
+        verify: >-
+          Each cross-source check states its effect.
 
   - id: CAP-LINEAGE
     name: Lineage
@@ -823,6 +976,12 @@ capabilities:
           Column-level lineage is captured where the engine supports it.
         verify: >-
           For a masked column, lineage shows the source column.
+      - id: CAP-LINEAGE.3
+        level: SHOULD
+        text: >-
+          Lineage is emitted as OpenLineage events, so lineage from different implementations can be compared.
+        verify: >-
+          Job runs emit OpenLineage run events.
 
   - id: CAP-OBSERVABILITY
     name: Operational telemetry
@@ -849,6 +1008,69 @@ capabilities:
           Health is judged from heartbeats and fresh output, not from process status.
         verify: >-
           A hung process with a live status is detected by its stale heartbeat.
+
+  - id: CAP-MASTERDATA
+    name: Master data and identifiers
+    domain: data
+    layer: L1
+    summary: >-
+      One authoritative registry per core resource, with permanent opaque identifiers and governed duplicate resolution.
+    depends_on: [CAP-CATALOG, CAP-OPERATIONALDB]
+    clauses:
+      - id: CAP-MASTERDATA.1
+        level: MUST
+        text: >-
+          Each core resource (institution, site, person, post) has one authoritative registry with one owning steward; other domains reference it by identifier and never copy it.
+        verify: >-
+          Every reference to a core resource is a foreign key to its registry.
+      - id: CAP-MASTERDATA.2
+        level: MUST
+        text: >-
+          Identifiers are opaque, permanent surrogates minted by one authority, never reused, and carry no meaning about the thing they identify.
+        verify: >-
+          The identifier pattern is declared and tested; no part of an identifier can be decoded into an attribute.
+      - id: CAP-MASTERDATA.3
+        level: MUST
+        text: >-
+          Identifiers issued by other authorities are attributes in a separate identifier table with type, issuer and validity, classified at least T3, and never used as keys or carried into gold or shared tables.
+        verify: >-
+          No gold or shared table has an external-identifier column.
+      - id: CAP-MASTERDATA.4
+        level: MUST
+        text: >-
+          A learner keeps one identifier across institutions, levels and years; the institution belongs to the enrolment, not to the identifier.
+        verify: >-
+          A transfer fixture keeps the learner's identifier.
+      - id: CAP-MASTERDATA.5
+        level: MUST
+        text: >-
+          Duplicate detection is deterministic and explainable; uncertain matches go to a person; a merge keeps a surviving identifier and a redirect from each retired one, is audited, and can be reversed. Nothing is deleted.
+        verify: >-
+          A merge and unmerge fixture round-trips; references to a retired identifier resolve to the survivor.
+      - id: CAP-MASTERDATA.6
+        level: MUST
+        text: >-
+          Verification against an external authoritative register goes through an adapter, and its outcome (verified, unverified or mismatch, with date and method) is recorded per record, never inferred.
+        verify: >-
+          Each verified record carries an outcome, date and method.
+      - id: CAP-MASTERDATA.7
+        level: MUST
+        text: >-
+          Changes to an institution (renaming, merger, split, closure, change of ownership) are effective-dated events that keep its history.
+        verify: >-
+          A merger fixture leaves both histories queryable.
+      - id: CAP-MASTERDATA.8
+        level: MUST
+        text: >-
+          A status that ends a person's participation (deceased, left the system) stops outreach and relationship-based access without deleting history.
+        verify: >-
+          A fixture with that status receives no notices and grants no guardian access.
+      - id: CAP-MASTERDATA.9
+        level: SHOULD
+        text: >-
+          Identifiers that people transcribe by hand carry a check digit.
+        verify: >-
+          The identifier generator and validator implement the check digit.
 
   # ---------------------------------------------------------------- governance
   - id: CAP-IDENTITY
@@ -882,6 +1104,75 @@ capabilities:
           Indirect administrator paths (a directory role that becomes a platform administrator, a resource role that grants workspace administration) are closed or monitored.
         verify: >-
           The access review lists each such path and its control.
+      - id: CAP-IDENTITY.5
+        level: MUST
+        text: >-
+          Administrators and every role that can read identifiable or special-category data (T3, T4) authenticate at NIST SP 800-63-4 authentication assurance level 2 or higher with a phishing-resistant authenticator, such as a WebAuthn passkey; platform administrators and holders of the root of trust authenticate at level 3.
+        verify: >-
+          Sign-in policy for those roles requires it; a sign-in without it is refused.
+      - id: CAP-IDENTITY.6
+        level: MUST
+        text: >-
+          Learners, guardians and members of the public authenticate through a separate external identity tenant or portal, and are never members of platform groups.
+        verify: >-
+          No platform group contains an external identity.
+
+  - id: CAP-REFERENCE
+    name: Reference data and data dictionary
+    domain: governance
+    layer: L1
+    summary: >-
+      Governed code lists, a versioned data dictionary and common formats, so every value means the same thing everywhere.
+    depends_on: [CAP-CATALOG]
+    clauses:
+      - id: CAP-REFERENCE.1
+        level: MUST
+        text: >-
+          Every coded attribute references a governed code list with an owner, a version and a validity period; a code is retired, never reused or redefined.
+        verify: >-
+          A check finds no coded column without a code list and no code redefined across versions.
+      - id: CAP-REFERENCE.2
+        level: MUST
+        text: >-
+          Changes to code lists and element definitions are reviewed changes approved by the owning steward; each is versioned and announced to the people who use it before it takes effect.
+        verify: >-
+          Each code-list or definition change traces to an approved change and a notice.
+      - id: CAP-REFERENCE.3
+        level: MUST
+        text: >-
+          Every published element is registered in the catalog's data dictionary following the ISO/IEC 11179 model: the concept it represents and its definition, its value domain (data type, format and code list), and its registration status, version and steward.
+        verify: >-
+          A fitness function finds no gold column with missing dictionary fields.
+      - id: CAP-REFERENCE.4
+        level: MUST
+        text: >-
+          Local classifications carry versioned crosswalks to the international classifications used for reporting (ISCED 2011 for levels of education, ISCED-F 2013 for fields, ISCED-T 2021 for teacher-training programmes), and each crosswalk is tested to map every local code.
+        verify: >-
+          Each crosswalk's test maps every local code.
+      - id: CAP-REFERENCE.5
+        level: MUST
+        text: >-
+          Administrative geography is versioned: a boundary change creates a new version and keeps the old, so a time series can be restated on either.
+        verify: >-
+          Two boundary versions coexist and each resolves its own codes.
+      - id: CAP-REFERENCE.6
+        level: MUST
+        text: >-
+          Value formats are fixed in the data dictionary and enforced at entry and at load: timestamps follow RFC 3339 with an explicit offset (with RFC 9557 time-zone names where local civil time matters); amounts are fixed-point decimals with an ISO 4217 currency code; telephone numbers follow ITU-T E.164; countries use ISO 3166-1; languages use BCP 47 tags; text is UTF-8 in Unicode Normalization Form C; coordinates declare their reference system.
+        verify: >-
+          Each format in the dictionary has a validation rule used at entry and at load.
+      - id: CAP-REFERENCE.7
+        level: SHOULD
+        text: >-
+          A value outside its code list is quarantined with a reason rather than coerced to a catch-all code.
+        verify: >-
+          An unknown-code fixture lands in quarantine.
+      - id: CAP-REFERENCE.8
+        level: SHOULD
+        text: >-
+          Code lists maintained by outside agencies (countries, currencies, languages) are loaded on a schedule, versioned, and recorded with their source and retrieval date.
+        verify: >-
+          Each external code list has a load job and a recorded source and retrieval date.
 
   - id: CAP-ACCESS
     name: Access model
@@ -927,6 +1218,18 @@ capabilities:
           Reach, row scope and classification are each changed by a different owner, so no single change widens access across all three.
         verify: >-
           The owners of the group declarations, the entitlement feed and the classification rules are different roles.
+      - id: CAP-ACCESS.7
+        level: MUST
+        text: >-
+          Row scope may also come from a relationship (the record is the person's own, or the person is a guardian with verified authority), taken from the authoritative relationship record, effective-dated, and ended when the relationship or the authority ends.
+        verify: >-
+          Ending a guardian relationship removes access at the next query.
+      - id: CAP-ACCESS.8
+        level: MUST
+        text: >-
+          A view for a data subject or guardian exposes a declared, minimal set of columns per record class; designated special-category fields are excluded from guardian views by default, with the reason recorded.
+        verify: >-
+          Subject-facing views are declared in code with their column lists and exclusions.
 
   - id: CAP-CLASSIFICATION
     name: Classification and provenance
@@ -966,6 +1269,18 @@ capabilities:
           Simulated data lives only in sandbox catalogs, and derived data is built only from tagged tables.
         verify: >-
           No table tagged simulated is outside a sandbox catalog.
+      - id: CAP-CLASSIFICATION.6
+        level: MUST
+        text: >-
+          Attributes follow a default classification by kind: data that identifies or locates a person is at least T3; special-category data under the applicable data-protection law, and child-protection and wellbeing records, are T4. Exceptions are recorded with a reason.
+        verify: >-
+          A check compares column classifications with the default table and lists exceptions.
+      - id: CAP-CLASSIFICATION.7
+        level: MUST
+        text: >-
+          Every personal-data element declares its purpose and legal basis in the catalog; an element with no consuming process or measure at its periodic review is proposed for removal.
+        verify: >-
+          A report lists personal-data elements without a purpose or without a consumer.
 
   - id: CAP-AUDIT
     name: Audit
@@ -993,6 +1308,69 @@ capabilities:
           Query text is recorded only when a case needs it, because query text can contain personal data.
         verify: >-
           Verbose audit is off by default; turning it on is a reviewed change.
+      - id: CAP-AUDIT.4
+        level: MUST
+        text: >-
+          Access to identifiable or special-category records (T3, T4) records a purpose chosen from a declared list, as well as principal, object, action and time.
+        verify: >-
+          Audit rows for T3 and T4 reads carry a purpose.
+      - id: CAP-AUDIT.5
+        level: SHOULD
+        text: >-
+          Anomalous access to T3 and T4 data (unusual volume, time or scope outside the entitlement) raises an alert.
+        verify: >-
+          A simulated out-of-scope read raises an alert.
+
+  - id: CAP-RECORDS
+    name: Records lifecycle and data-subject rights
+    domain: governance
+    layer: L1
+    summary: >-
+      Every record has a retention class; archiving, disposal, subject access, rectification and individual disclosure follow declared, audited paths.
+    depends_on: [CAP-CLASSIFICATION, CAP-MASTERDATA, CAP-AUDIT]
+    clauses:
+      - id: CAP-RECORDS.1
+        level: MUST
+        text: >-
+          A retention schedule in code gives each record class its retention period, trigger event, legal basis and owning role, and every table and file belongs to a record class.
+        verify: >-
+          A fitness function finds no table or file without a record class.
+      - id: CAP-RECORDS.2
+        level: MUST
+        text: >-
+          When a record's retention trigger occurs, the record leaves operational use and moves to a read-only archive.
+        verify: >-
+          A leaver fixture appears in the archive and is read-only.
+      - id: CAP-RECORDS.3
+        level: MUST
+        text: >-
+          Disposal at the end of retention is a reviewed, audited operation that reaches table history, branches and backups within a stated maximum time; where history cannot be rewritten, per-subject or per-partition keys are destroyed. This is the only path by which real personal data is deleted.
+        verify: >-
+          A disposal fixture leaves no readable copy in any store within the stated time; the audit shows the review.
+      - id: CAP-RECORDS.4
+        level: MUST
+        text: >-
+          Any record class kept without limit is listed as such in the schedule, with the reason.
+        verify: >-
+          The schedule lists the permanent classes explicitly.
+      - id: CAP-RECORDS.5
+        level: MUST
+        text: >-
+          A subject-access request is answered from the catalog by the person's identifier across all domains, and the answer is reproducible.
+        verify: >-
+          Two runs of a subject-access fixture return identical results.
+      - id: CAP-RECORDS.6
+        level: MUST
+        text: >-
+          A rectification is an evented correction that creates a new version, and downstream tables are rebuilt from it.
+        verify: >-
+          After a rectification fixture, gold reflects the corrected value and the history shows both.
+      - id: CAP-RECORDS.7
+        level: MUST
+        text: >-
+          Releasing an individual's records to that person, a guardian with verified authority, or an authorised agency is a logged request that records who received what, why, on what basis and how; it is separate from statistical publication, which never releases individual records.
+        verify: >-
+          The disclosure register has an entry for each release with all fields.
 
   - id: CAP-SHARING
     name: Publication and sharing
@@ -1038,6 +1416,69 @@ capabilities:
           Researchers who need finer data work inside the platform, on a project basis, time-boxed.
         verify: >-
           Research grants carry a project and an expiry.
+
+  - id: CAP-PUBLICATION
+    name: Open statistical publication
+    domain: governance
+    layer: L1
+    summary: >-
+      Aggregate statistics published openly with disclosure control, permanent identifiers and open metadata.
+    depends_on: [CAP-SEMANTICS, CAP-CLASSIFICATION, CAP-REFERENCE]
+    clauses:
+      - id: CAP-PUBLICATION.1
+        level: MUST
+        text: >-
+          Only T0 aggregates are published openly; open datasets may be read without signing in, are rate-limited, and each is listed in a publication register.
+        verify: >-
+          Every open dataset is T0 and has a register entry.
+      - id: CAP-PUBLICATION.2
+        level: MUST
+        text: >-
+          Published tables apply disclosure control using methods from the Handbook on Statistical Disclosure Control: a minimum cell size, secondary suppression so suppressed cells cannot be derived, and rounding or perturbation where declared, with small populations treated as high risk. The method is published as metadata.
+        verify: >-
+          Publication models carry disclosure tests, including a test that suppressed cells cannot be recomputed from totals.
+      - id: CAP-PUBLICATION.3
+        level: MUST
+        text: >-
+          Each published dataset has a permanent identifier and stable address; new periods are appended, and a revision is a new version with the previous one still retrievable.
+        verify: >-
+          An earlier version of a revised dataset can still be fetched by its identifier.
+      - id: CAP-PUBLICATION.4
+        level: MUST
+        text: >-
+          Published datasets carry DCAT 3 metadata, with schema.org Dataset markup on each landing page and CSV on the Web metadata beside every CSV file, all generated from the data dictionary; they use the governed code lists and attach the metadata of every indicator they contain.
+        verify: >-
+          A metadata validator passes on every published dataset.
+      - id: CAP-PUBLICATION.5
+        level: SHOULD
+        text: >-
+          Bulk files, a query interface and human-readable renderings are all generated from the same publication table.
+        verify: >-
+          Each output names the publication table it was rendered from.
+      - id: CAP-PUBLICATION.6
+        level: MUST
+        text: >-
+          Geospatial outputs are published as GeoJSON (RFC 7946) or through OGC API – Features with a declared coordinate reference system; locations of institutions may be published, locations of people never are.
+        verify: >-
+          No published dataset contains a person's location.
+      - id: CAP-PUBLICATION.7
+        level: SHOULD
+        text: >-
+          Statistics exchanged with international bodies use SDMX 3.0 or later, or SDMX 2.1 where the receiving agency requires it.
+        verify: >-
+          International returns are produced in the declared exchange format.
+      - id: CAP-PUBLICATION.8
+        level: SHOULD
+        text: >-
+          Differential privacy is used only where it fits (query services over the same base data, or synthetic files) and is evaluated and documented following NIST SP 800-226, stating the unit of privacy and the total privacy-loss budget.
+        verify: >-
+          Each differentially private release records its unit, budget and evaluation.
+      - id: CAP-PUBLICATION.9
+        level: SHOULD
+        text: >-
+          The international education questionnaires (the UIS Survey of Formal Education) are completed from gold through the semantic layer, not assembled by hand.
+        verify: >-
+          Each questionnaire table traces to semantic-layer measures.
 
   # ---------------------------------------------------------------- movement
   - id: CAP-ENVIRONMENTS
@@ -1227,6 +1668,75 @@ capabilities:
         verify: >-
           Every published item has a provenance record with a field per stage.
 
+  - id: CAP-COLLECTION
+    name: Periodic data collection
+    domain: product
+    layer: L3
+    summary: >-
+      Returns collected from institutions on a cycle, validated at entry, attested, gated on completeness and frozen at a reference date.
+    depends_on: [CAP-MASTERDATA, CAP-QUALITY, CAP-REFERENCE]
+    clauses:
+      - id: CAP-COLLECTION.1
+        level: MUST
+        text: >-
+          Each collection is a versioned instrument declaring its items, validation rules, reference date, collection window and expected respondents drawn from the registry; a committed version is immutable.
+        verify: >-
+          Instruments are versioned files; a change after commit creates a new version.
+      - id: CAP-COLLECTION.2
+        level: MUST
+        text: >-
+          Validation runs at entry and again on submission; blocking errors prevent submission, warnings need a reason, and results go back to the respondent in machine-readable form with their severity.
+        verify: >-
+          A fixture with a blocking error cannot be submitted; one with a warning requires a reason.
+      - id: CAP-COLLECTION.3
+        level: MUST
+        text: >-
+          A return moves through declared states (not started, in progress, submitted, attested by the head of the institution, queried, accepted, locked), and each transition is an event recording the role that made it.
+        verify: >-
+          The event log of a fixture return shows every transition with its role.
+      - id: CAP-COLLECTION.4
+        level: MUST
+        text: >-
+          Figures for an area are released only when its expected respondents balance against accepted returns; otherwise the area reads BLOCKED.
+        verify: >-
+          An area with a missing return reads BLOCKED.
+      - id: CAP-COLLECTION.5
+        level: MUST
+        text: >-
+          Official figures are computed from a locked snapshot as at the reference date and carry its version; a revision is a new version with a reason, and both remain readable.
+        verify: >-
+          A revised figure shows both versions and the reason.
+      - id: CAP-COLLECTION.6
+        level: MUST
+        text: >-
+          Imputed values are flagged per cell and never mixed silently with reported ones.
+        verify: >-
+          Every imputed cell carries a flag in silver and gold.
+      - id: CAP-COLLECTION.7
+        level: SHOULD
+        text: >-
+          Forms are prefilled from the registry and the previous period, so respondents confirm rather than retype.
+        verify: >-
+          A second-period fixture opens prefilled.
+      - id: CAP-COLLECTION.8
+        level: SHOULD
+        text: >-
+          Capture works offline and synchronises later; a re-sent return converges on one record.
+        verify: >-
+          Submitting the same return twice yields one record.
+      - id: CAP-COLLECTION.9
+        level: SHOULD
+        text: >-
+          Completeness and timeliness per submitting unit are themselves reported measures.
+        verify: >-
+          A gold model reports them per unit and period.
+      - id: CAP-COLLECTION.10
+        level: SHOULD
+        text: >-
+          Each stage of a collection names the GSBPM v5.2 sub-process it performs, so the statistical production process can be described in a shared vocabulary.
+        verify: >-
+          Collection stages are tagged with GSBPM sub-process codes.
+
   - id: CAP-REVIEW
     name: Human review
     domain: product
@@ -1265,6 +1775,45 @@ capabilities:
           Each decision records its kind of attribution (automatic, affirmed, corrected, backfilled) so reporting can tell who or what decided.
         verify: >-
           Reporting groups decisions by attribution.
+
+  - id: CAP-MODELS
+    name: Governed analytical models
+    domain: product
+    layer: L3
+    summary: >-
+      Predictive models, such as early-warning flags, that advise people, are reproducible, and are checked for unequal error before release.
+    depends_on: [CAP-TRANSFORMATION, CAP-REVIEW]
+    clauses:
+      - id: CAP-MODELS.1
+        level: MUST
+        text: >-
+          A model is versioned with its training data pinned, scoring is deterministic, and every score records the model version.
+        verify: >-
+          Scoring a fixed input twice gives identical scores with the version attached.
+      - id: CAP-MODELS.2
+        level: MUST
+        text: >-
+          A risk flag is advice to a person and never triggers an automatic action on a learner or staff member; the person's decision is recorded with attribution.
+        verify: >-
+          No downstream process consumes a flag except the review queue.
+      - id: CAP-MODELS.3
+        level: MUST
+        text: >-
+          Performance and error rates are reported by sex, area, disability and other declared equity dimensions before release and on a schedule; a model whose disparity exceeds its declared bound is not released.
+        verify: >-
+          The release record holds the disaggregated evaluation and the bound.
+      - id: CAP-MODELS.4
+        level: SHOULD
+        text: >-
+          Each flag shows the signals that raised it.
+        verify: >-
+          The review view lists the contributing signals for each flag.
+      - id: CAP-MODELS.5
+        level: MUST
+        text: >-
+          Before a model that scores learners is released, it is assessed against the UNICEF Guidance on AI and Children, and the assessment is kept with the release.
+        verify: >-
+          The release record holds the assessment.
 
   - id: CAP-RELEASE
     name: Reconciliation and release

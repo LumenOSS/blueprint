@@ -31,6 +31,12 @@ Cap on wall time but compare on core time, because wall time moves with topology
 | CAP-OBSERVABILITY.3 | MUST | Health is judged from heartbeats and fresh output, not from process status. | A hung process with a live status is detected by its stale heartbeat. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

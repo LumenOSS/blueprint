@@ -36,6 +36,12 @@ Where engines differ in what they enforce, route protected tables only through e
 | CAP-CATALOG.7 | SHOULD | Every authenticated user may browse metadata, so data can be found without being readable. | A user with no data grants can list catalog objects but not read them. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

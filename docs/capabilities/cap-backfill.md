@@ -31,6 +31,12 @@ Backfills run rarely, under pressure, over more data than anything else; they ar
 | CAP-BACKFILL.8 | MUST | Incremental extraction tolerates late commits and clock skew, with an overlap window into an idempotent sink or a cursor in commit order. | Commit a row whose timestamp is behind the watermark; it is still loaded. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

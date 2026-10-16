@@ -27,6 +27,14 @@ Dashboards are code so they move between environments without hand edits; enviro
 | CAP-REPORTING.3 | SHOULD | Natural-language query is offered over the semantic layer, showing the query it ran. | Every answer displays its generated query. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+| Standard | Edition | Verdict |
+| --- | --- | --- |
+| [Unicode CLDR](../standards.md#accessibility-and-localisation) | CLDR 48.2 (March 2026) | reference |
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

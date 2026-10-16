@@ -35,6 +35,7 @@ consequence, so a gap is always written down. Check a binding with
 | [CAP-COMPUTE](../capabilities/cap-compute.md) Compute | Serverless jobs compute<br/>Serverless SQL warehouse | Apache Spark 4 via Kubeflow spark-operator<br/>Trino<br/>DuckDB |
 | [CAP-OPERATIONALDB](../capabilities/cap-operationaldb.md) Operational database with branching | Lakebase Postgres | CloudNativePG<br/>CSI volume snapshots on Ceph RBD<br/>pgroll |
 | [CAP-INGESTION](../capabilities/cap-ingestion.md) Ingestion | Auto Loader<br/>Lakehouse Federation<br/>Lakeflow Connect | Debezium on Kafka via Strimzi<br/>Trino connectors<br/>Landing bucket + pipeline |
+| [CAP-INTEROPERABILITY](../capabilities/cap-interoperability.md) Exchange with other systems | Azure API Management<br/>Schema validation at the landing edge | Envoy Gateway<br/>Schema validation at the landing edge |
 | [CAP-ORCHESTRATION](../capabilities/cap-orchestration.md) Orchestration | Lakeflow Jobs | Apache Airflow 3 |
 | [CAP-TRANSFORMATION](../capabilities/cap-transformation.md) Transformation layer | dbt (v1, Python) with dbt-databricks<br/>dbt task in Lakeflow Jobs | dbt (v1, Python)<br/>dbt-trino adapter |
 | [CAP-SEMANTICS](../capabilities/cap-semantics.md) Semantic layer | Unity Catalog metric views<br/>MetricFlow definitions as source | MetricFlow |
@@ -43,18 +44,35 @@ consequence, so a gap is always written down. Check a binding with
 | [CAP-QUALITY](../capabilities/cap-quality.md) Data quality | dbt tests and contracts<br/>Lakeflow pipeline expectations<br/>Data Quality Monitoring | dbt tests and contracts<br/>Great Expectations (GX Core) |
 | [CAP-LINEAGE](../capabilities/cap-lineage.md) Lineage | Unity Catalog lineage | OpenLineage |
 | [CAP-OBSERVABILITY](../capabilities/cap-observability.md) Operational telemetry | System tables<br/>Azure Monitor / Log Analytics | OpenTelemetry Collector<br/>Prometheus<br/>Grafana + Loki |
+| [CAP-MASTERDATA](../capabilities/cap-masterdata.md) Master data and identifiers | Registry services on Lakebase<br/>Splink on Spark | Registry services on PostgreSQL (CloudNativePG)<br/>Splink |
 | [CAP-IDENTITY](../capabilities/cap-identity.md) Identity and groups | Entra ID<br/>Automatic identity management / SCIM | Keycloak |
+| [CAP-REFERENCE](../capabilities/cap-reference.md) Reference data and data dictionary | Unity Catalog comments, tags and a reference catalog<br/>Versioned code-list tables (dbt seeds) | OpenMetadata<br/>Versioned code-list tables (dbt seeds) |
 | [CAP-ACCESS](../capabilities/cap-access.md) Access model | Unity Catalog ABAC policies<br/>Entitlement table in a reference catalog | Entitlement table in Iceberg<br/>OPA policies for Trino |
 | [CAP-CLASSIFICATION](../capabilities/cap-classification.md) Classification and provenance | Governed tags<br/>Data classification | Lakekeeper table properties + OPA |
 | [CAP-AUDIT](../capabilities/cap-audit.md) Audit | system.access.audit<br/>Diagnostic settings to Log Analytics | Audit sources<br/>Iceberg audit tables on object-locked storage |
+| [CAP-RECORDS](../capabilities/cap-records.md) Records lifecycle and data-subject rights | Governed retention tags + Lakeflow Jobs<br/>Delta VACUUM with bounded retention | Retention policies in table properties + Airflow lifecycle jobs<br/>OpenBao transit keys per partition |
 | [CAP-SHARING](../capabilities/cap-sharing.md) Publication and sharing | Delta Sharing<br/>Publication catalog | Delta Sharing reference server |
+| [CAP-PUBLICATION](../capabilities/cap-publication.md) Open statistical publication | CKAN on Azure Container Apps<br/>Publication catalog | CKAN<br/>Parquet and CSV renderings from publication tables |
 | [CAP-ENVIRONMENTS](../capabilities/cap-environments.md) Environments by branching | OpenTofu values files<br/>Lakebase branches<br/>Development schemas in production catalogs | OpenTofu values files<br/>CloudNativePG branch clusters<br/>Iceberg branches or dev namespaces |
 | [CAP-BACKFILL](../capabilities/cap-backfill.md) Backfill and reprocessing | Lakeflow Jobs backfill runs<br/>Delta replaceWhere / MERGE<br/>Shallow clones | Airflow 3 backfills<br/>Iceberg branches<br/>dbt microbatch |
 | [CAP-MIGRATION](../capabilities/cap-migration.md) Migration and decommission | Unity Catalog storage re-binding<br/>pg_dump / pg_restore | pg_dump / pg_restore<br/>Iceberg register-table |
 | [CAP-PIPELINE](../capabilities/cap-pipeline.md) Retryable pipeline | The example product's stages on Lakeflow Jobs | The example product's stages on Airflow + Spark/Python |
+| [CAP-COLLECTION](../capabilities/cap-collection.md) Periodic data collection | ODK Central on Azure Container Apps<br/>The census product's return workflow on Lakebase | ODK Central<br/>The census product's return workflow on PostgreSQL |
 | [CAP-REVIEW](../capabilities/cap-review.md) Human review | The example product's review service on Lakebase | The example product's review service on Postgres |
+| [CAP-MODELS](../capabilities/cap-models.md) Governed analytical models | Managed MLflow with Unity Catalog model registry | MLflow<br/>scikit-learn |
 | [CAP-RELEASE](../capabilities/cap-release.md) Reconciliation and release | The example product's release gate | The example product's release gate |
 <!-- END GENERATED: matrix -->
+
+## How components are chosen
+
+A component is acceptable when it meets its capability's contract and the
+principles; beyond that the choice belongs to the implementation. Two
+principles weigh most: data stays in open formats and portable
+([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying)),
+and it stays where the education authority controls it
+([P21](../principles.md#p21-the-education-authority-runs-its-own-platform)).
+For the health of an open-source component, use a public assessment rather
+than judgement alone; see [standards](../standards.md#open-source-health-and-digital-public-goods).
 
 ## How the open-source build differs
 

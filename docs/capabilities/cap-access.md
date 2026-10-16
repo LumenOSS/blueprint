@@ -32,7 +32,15 @@ Anyone exempt from a policy, any holder of a manage right, and the catalog admin
 | CAP-ACCESS.4 | MUST | Only pipeline identities are exempt from policies, each exemption listed with its reason. | The exemption list contains only workload identities, each with a reason. |
 | CAP-ACCESS.5 | MUST | Access to identifiable columns is through a time-boxed, audited group. | Membership of the group expires; each grant appears in audit. |
 | CAP-ACCESS.6 | MUST | Reach, row scope and classification are each changed by a different owner, so no single change widens access across all three. | The owners of the group declarations, the entitlement feed and the classification rules are different roles. |
+| CAP-ACCESS.7 | MUST | Row scope may also come from a relationship (the record is the person's own, or the person is a guardian with verified authority), taken from the authoritative relationship record, effective-dated, and ended when the relationship or the authority ends. | Ending a guardian relationship removes access at the next query. |
+| CAP-ACCESS.8 | MUST | A view for a data subject or guardian exposes a declared, minimal set of columns per record class; designated special-category fields are excluded from guardian views by default, with the reason recorded. | Subject-facing views are declared in code with their column lists and exclusions. |
 <!-- END GENERATED: contract -->
+
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
 
 ## Implementations
 

@@ -27,6 +27,12 @@ A release is the point of no return; reconciliation against an external register
 | CAP-RELEASE.3 | MUST | The register is read through an adapter and frozen as an immutable snapshot per sitting; corrections are deterministic, evented operations, never ad-hoc edits. | Each sitting references one snapshot; register corrections appear as events. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

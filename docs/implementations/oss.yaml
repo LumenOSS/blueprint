@@ -4,7 +4,7 @@
 # implementation repository shows evidence and moves it to `met`.
 
 blueprint:
-  version: 0.1.0
+  version: 0.2.0
 implementation:
   name: oss
   summary: Open-source components only, on any Kubernetes cluster.
@@ -124,6 +124,8 @@ bindings:
         status: planned
       - clause: CAP-DELIVERY.7
         status: planned
+      - clause: CAP-DELIVERY.8
+        status: planned
   - capability: CAP-MODULES
     components:
       - name: OpenTofu modules in a tagged repository
@@ -210,6 +212,8 @@ bindings:
         status: planned
       - clause: CAP-GUARDRAILS.2
         status: planned
+      - clause: CAP-GUARDRAILS.3
+        status: planned
   - capability: CAP-STORAGE
     components:
       - name: Ceph RGW via Rook
@@ -229,6 +233,8 @@ bindings:
       - clause: CAP-STORAGE.3
         status: planned
       - clause: CAP-STORAGE.4
+        status: planned
+      - clause: CAP-STORAGE.5
         status: planned
   - capability: CAP-TABLES
     components:
@@ -351,6 +357,29 @@ bindings:
         status: planned
       - clause: CAP-INGESTION.4
         status: planned
+  - capability: CAP-INTEROPERABILITY
+    components:
+      - name: Envoy Gateway
+        role: API gateway for versioned interfaces
+        licence: Apache-2.0
+        deploy: Helm
+      - name: Schema validation at the landing edge
+        role: partner-feed contracts
+    clauses:
+      - clause: CAP-INTEROPERABILITY.1
+        status: planned
+      - clause: CAP-INTEROPERABILITY.2
+        status: planned
+      - clause: CAP-INTEROPERABILITY.3
+        status: planned
+      - clause: CAP-INTEROPERABILITY.4
+        status: planned
+      - clause: CAP-INTEROPERABILITY.5
+        status: planned
+      - clause: CAP-INTEROPERABILITY.6
+        status: planned
+      - clause: CAP-INTEROPERABILITY.7
+        status: planned
   - capability: CAP-ORCHESTRATION
     components:
       - name: Apache Airflow 3
@@ -395,6 +424,12 @@ bindings:
         status: planned
       - clause: CAP-TRANSFORMATION.5
         status: planned
+      - clause: CAP-TRANSFORMATION.6
+        status: planned
+      - clause: CAP-TRANSFORMATION.7
+        status: planned
+      - clause: CAP-TRANSFORMATION.8
+        status: planned
   - capability: CAP-SEMANTICS
     components:
       - name: MetricFlow
@@ -408,6 +443,12 @@ bindings:
       - clause: CAP-SEMANTICS.2
         status: deviation
         consequence: Superset does not read MetricFlow directly; metrics are materialised as dbt models from the MetricFlow definitions and dashboards read those. Definitions stay single-sourced; query-time semantics do not.
+      - clause: CAP-SEMANTICS.3
+        status: planned
+      - clause: CAP-SEMANTICS.4
+        status: planned
+      - clause: CAP-SEMANTICS.5
+        status: planned
   - capability: CAP-REPORTING
     components:
       - name: Apache Superset
@@ -439,6 +480,16 @@ bindings:
         status: planned
       - clause: CAP-APPS.4
         status: planned
+      - clause: CAP-APPS.5
+        status: planned
+      - clause: CAP-APPS.6
+        status: planned
+      - clause: CAP-APPS.7
+        status: planned
+      - clause: CAP-APPS.8
+        status: planned
+      - clause: CAP-APPS.9
+        status: planned
   - capability: CAP-QUALITY
     components:
       - name: dbt tests and contracts
@@ -455,6 +506,12 @@ bindings:
         status: planned
       - clause: CAP-QUALITY.3
         status: planned
+      - clause: CAP-QUALITY.4
+        status: planned
+      - clause: CAP-QUALITY.5
+        status: planned
+      - clause: CAP-QUALITY.6
+        status: planned
   - capability: CAP-LINEAGE
     components:
       - name: OpenLineage
@@ -470,6 +527,8 @@ bindings:
       - clause: CAP-LINEAGE.1
         status: planned
       - clause: CAP-LINEAGE.2
+        status: planned
+      - clause: CAP-LINEAGE.3
         status: planned
   - capability: CAP-OBSERVABILITY
     components:
@@ -492,6 +551,34 @@ bindings:
         status: planned
       - clause: CAP-OBSERVABILITY.3
         status: planned
+  - capability: CAP-MASTERDATA
+    components:
+      - name: Registry services on PostgreSQL (CloudNativePG)
+        role: authoritative registries for institutions, people and posts
+        licence: Apache-2.0
+      - name: Splink
+        role: deterministic, explainable record linkage for duplicate detection
+        licence: MIT
+        source: https://github.com/moj-analytical-services/splink
+    clauses:
+      - clause: CAP-MASTERDATA.1
+        status: planned
+      - clause: CAP-MASTERDATA.2
+        status: planned
+      - clause: CAP-MASTERDATA.3
+        status: planned
+      - clause: CAP-MASTERDATA.4
+        status: planned
+      - clause: CAP-MASTERDATA.5
+        status: planned
+      - clause: CAP-MASTERDATA.6
+        status: planned
+      - clause: CAP-MASTERDATA.7
+        status: planned
+      - clause: CAP-MASTERDATA.8
+        status: planned
+      - clause: CAP-MASTERDATA.9
+        status: planned
   - capability: CAP-IDENTITY
     components:
       - name: Keycloak
@@ -508,6 +595,37 @@ bindings:
       - clause: CAP-IDENTITY.3
         status: planned
       - clause: CAP-IDENTITY.4
+        status: planned
+      - clause: CAP-IDENTITY.5
+        status: planned
+      - clause: CAP-IDENTITY.6
+        status: planned
+  - capability: CAP-REFERENCE
+    components:
+      - name: OpenMetadata
+        role: data dictionary, glossary and code-list documentation
+        licence: Apache-2.0
+        deploy: Helm
+        source: https://open-metadata.org/
+      - name: Versioned code-list tables (dbt seeds)
+        role: governed code lists and crosswalks
+        licence: Apache-2.0
+    clauses:
+      - clause: CAP-REFERENCE.1
+        status: planned
+      - clause: CAP-REFERENCE.2
+        status: planned
+      - clause: CAP-REFERENCE.3
+        status: planned
+      - clause: CAP-REFERENCE.4
+        status: planned
+      - clause: CAP-REFERENCE.5
+        status: planned
+      - clause: CAP-REFERENCE.6
+        status: planned
+      - clause: CAP-REFERENCE.7
+        status: planned
+      - clause: CAP-REFERENCE.8
         status: planned
   - capability: CAP-ACCESS
     components:
@@ -530,6 +648,10 @@ bindings:
         status: planned
       - clause: CAP-ACCESS.6
         status: planned
+      - clause: CAP-ACCESS.7
+        status: planned
+      - clause: CAP-ACCESS.8
+        status: planned
   - capability: CAP-CLASSIFICATION
     components:
       - name: Lakekeeper table properties + OPA
@@ -546,6 +668,10 @@ bindings:
         status: planned
       - clause: CAP-CLASSIFICATION.5
         status: planned
+      - clause: CAP-CLASSIFICATION.6
+        status: planned
+      - clause: CAP-CLASSIFICATION.7
+        status: planned
   - capability: CAP-AUDIT
     components:
       - name: Audit sources
@@ -558,6 +684,34 @@ bindings:
       - clause: CAP-AUDIT.2
         status: planned
       - clause: CAP-AUDIT.3
+        status: planned
+      - clause: CAP-AUDIT.4
+        status: planned
+      - clause: CAP-AUDIT.5
+        status: planned
+  - capability: CAP-RECORDS
+    components:
+      - name: Retention policies in table properties + Airflow lifecycle jobs
+        role: retention, archiving and disposal
+        licence: Apache-2.0
+      - name: OpenBao transit keys per partition
+        role: key destruction where history cannot be rewritten
+        licence: MPL-2.0
+    notes: Iceberg snapshot expiry and per-partition keys together bound how long disposed data survives in history.
+    clauses:
+      - clause: CAP-RECORDS.1
+        status: planned
+      - clause: CAP-RECORDS.2
+        status: planned
+      - clause: CAP-RECORDS.3
+        status: planned
+      - clause: CAP-RECORDS.4
+        status: planned
+      - clause: CAP-RECORDS.5
+        status: planned
+      - clause: CAP-RECORDS.6
+        status: planned
+      - clause: CAP-RECORDS.7
         status: planned
   - capability: CAP-SHARING
     components:
@@ -580,6 +734,35 @@ bindings:
       - clause: CAP-SHARING.5
         status: planned
       - clause: CAP-SHARING.6
+        status: planned
+  - capability: CAP-PUBLICATION
+    components:
+      - name: CKAN
+        role: open data portal and publication register
+        licence: AGPL-3.0-or-later
+        deploy: Helm
+        source: https://github.com/ckan/ckan
+      - name: Parquet and CSV renderings from publication tables
+        role: bulk files
+    notes: 'CKAN is AGPL-3.0: fine to run unmodified; modifications offered to the public must be published.'
+    clauses:
+      - clause: CAP-PUBLICATION.1
+        status: planned
+      - clause: CAP-PUBLICATION.2
+        status: planned
+      - clause: CAP-PUBLICATION.3
+        status: planned
+      - clause: CAP-PUBLICATION.4
+        status: planned
+      - clause: CAP-PUBLICATION.5
+        status: planned
+      - clause: CAP-PUBLICATION.6
+        status: planned
+      - clause: CAP-PUBLICATION.7
+        status: planned
+      - clause: CAP-PUBLICATION.8
+        status: planned
+      - clause: CAP-PUBLICATION.9
         status: planned
   - capability: CAP-ENVIRONMENTS
     components:
@@ -666,6 +849,35 @@ bindings:
         status: planned
       - clause: CAP-PIPELINE.7
         status: planned
+  - capability: CAP-COLLECTION
+    components:
+      - name: ODK Central
+        role: offline-capable form collection
+        licence: Apache-2.0
+        source: https://github.com/getodk/central
+      - name: The census product's return workflow on PostgreSQL
+        role: return states, attestation and completeness gate
+    clauses:
+      - clause: CAP-COLLECTION.1
+        status: planned
+      - clause: CAP-COLLECTION.2
+        status: planned
+      - clause: CAP-COLLECTION.3
+        status: planned
+      - clause: CAP-COLLECTION.4
+        status: planned
+      - clause: CAP-COLLECTION.5
+        status: planned
+      - clause: CAP-COLLECTION.6
+        status: planned
+      - clause: CAP-COLLECTION.7
+        status: planned
+      - clause: CAP-COLLECTION.8
+        status: planned
+      - clause: CAP-COLLECTION.9
+        status: planned
+      - clause: CAP-COLLECTION.10
+        status: planned
   - capability: CAP-REVIEW
     components:
       - name: The example product's review service on Postgres
@@ -680,6 +892,27 @@ bindings:
       - clause: CAP-REVIEW.4
         status: planned
       - clause: CAP-REVIEW.5
+        status: planned
+  - capability: CAP-MODELS
+    components:
+      - name: MLflow
+        role: model registry and versioning
+        licence: Apache-2.0
+        deploy: Helm
+        source: https://mlflow.org/
+      - name: scikit-learn
+        role: interpretable scoring models
+        licence: BSD-3-Clause
+    clauses:
+      - clause: CAP-MODELS.1
+        status: planned
+      - clause: CAP-MODELS.2
+        status: planned
+      - clause: CAP-MODELS.3
+        status: planned
+      - clause: CAP-MODELS.4
+        status: planned
+      - clause: CAP-MODELS.5
         status: planned
   - capability: CAP-RELEASE
     components:

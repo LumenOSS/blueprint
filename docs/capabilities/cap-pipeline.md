@@ -35,6 +35,14 @@ A stage that keeps an index in memory must run with concurrency one, or concurre
 | CAP-PIPELINE.7 | MUST | Each item carries a provenance record of every stage that touched it, with versions; a missing stage reads as absent, never invented. | Every published item has a provenance record with a field per stage. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+| Standard | Edition | Verdict |
+| --- | --- | --- |
+| [CloudEvents](../standards.md#open-data-and-exchange) | CloudEvents 1.0.2 | adopt |
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

@@ -6,7 +6,7 @@ architecture stays fixed while the implementation varies. It covers the
 resources an EMIS holds (learners, schools, teachers and staff, enrolment,
 attendance, assessment and the indicators reported from them) through
 operational databases, a lakehouse, governance and access, reporting,
-backfill and migration, and an example product that exercises all of them.
+backfill and migration, and example products that exercise all of them.
 
 Each part of the architecture is a **capability** with a **contract** of
 numbered, testable clauses that name no vendor. An **implementation** binds
@@ -14,29 +14,34 @@ each capability to real components and shows evidence for every clause.
 Two reference implementations are planned: one fully open source on
 Kubernetes, one on Databricks.
 
-Status: blueprint 0.1.0. Contracts are drafted; no implementation has
+Status: blueprint 0.2.0. Contracts are drafted; no implementation has
 evidence yet.
 
 ## Map
 
 | Read | For |
 | --- | --- |
-| [Principles](docs/principles.md) | The 19 ideas the architecture rests on, and why |
+| [Principles](docs/principles.md) | The 21 ideas the architecture rests on, and why |
 | [Architecture](docs/architecture/README.md) | C4 diagrams: context, containers, components |
-| [Capabilities](docs/capabilities/README.md) | 34 capabilities and their contracts |
+| [Capabilities](docs/capabilities/README.md) | 41 capabilities and their contracts |
 | [Implementations](docs/implementations/README.md) | Reference bindings for open source and Databricks, and where they differ |
 | [Building an implementation](docs/building.md) | The steps, in dependency order, with completion criteria |
-| [Example product](docs/product/README.md) | A document-review workload that runs through every layer |
+| [Domain model](docs/domain/README.md) | What an EMIS holds: domains, resources, modelling rules, default classification |
+| [Indicators](docs/domain/indicators.md) | How indicators are defined, computed and published |
+| [Example products](docs/product/README.md) | Document review and an annual census, each running through every layer, and a checklist for new products |
 | [Backfill patterns](docs/patterns/backfill.md) | Loading history and reprocessing, from published sources |
 | [Lessons](docs/patterns/lessons.md) | Failures that shaped the design, as rules |
+| [Standards](docs/standards.md) | The international standards relied on, with current editions and publisher links |
 | [Decision records](docs/adr/README.md) | How and why the architecture changes |
-| [Glossary](docs/glossary.md) | The terms used throughout |
+| [Domain language](CONTEXT.md) | The EMIS terms used throughout, with the words to avoid |
+| [Glossary](docs/glossary.md) | Terms about the blueprint and the platform |
 
 ## Layout
 
 ```text
 blueprint/catalogue.yaml   capabilities and clauses: the single source of IDs and text
-schema/                    JSON Schemas for the catalogue and for bindings
+blueprint/standards.yaml   the standards register: editions, publisher links, users
+schema/                    JSON Schemas for the catalogue, the register and bindings
 docs/                      everything above; contract tables are generated
 scripts/blueprint.py       checks the catalogue and bindings, renders tables
 ```

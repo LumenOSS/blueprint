@@ -89,7 +89,7 @@ cost something.
 
 1. Prove provenance per object before any destructive drop. A schema or a
    repository is not a unit of provenance.
-2. Write exclusion rules by kind of data (spreadsheets, roster exports), not
+2. Write exclusion rules by kind of data (spreadsheets, exported learner lists), not
    by remembered file names.
 3. Normalise external identities once, at the boundary, and enforce the
    normal form with a constraint.

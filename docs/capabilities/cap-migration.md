@@ -34,6 +34,12 @@ Database branches do not survive a dump and restore; recreate them. A deployment
 | CAP-MIGRATION.5 | MUST | Before any drop or decommission, each object's provenance is proved from first-hand evidence, audit is archived, and an immutable archive exists with a tested retrieval. Deletion is a plain delete, never a forced one. | The retirement tool refuses objects not tagged simulated or derived; the archive retrieval test has passed. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

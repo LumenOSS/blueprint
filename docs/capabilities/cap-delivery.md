@@ -34,7 +34,18 @@ When CI lacks a right, give CI's identity the right in one documented bootstrap 
 | CAP-DELIVERY.5 | MUST | A deletion is two changes: adopt the object into code, then remove it. | Every removal of a resource in history is preceded by a change that imported it or created it. |
 | CAP-DELIVERY.6 | MUST | A database is migrated before the code that needs it is deployed; a release is a version tag, and an infrastructure change alone never changes what version runs. | Pipeline order runs migrations first; deployments take the image version from a tag. |
 | CAP-DELIVERY.7 | SHOULD | A scheduled fitness check fails if any state was written by an identity other than CI. | The check reads the last writer of each state version and alerts on a non-CI principal. |
+| CAP-DELIVERY.8 | SHOULD | Every deployable artefact carries SLSA v1.2 Build Level 3 provenance and a software bill of materials in SPDX 2.3 or later or CycloneDX 1.5 or later. | Release artefacts include a provenance attestation and an SBOM that validate. |
 <!-- END GENERATED: contract -->
+
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+| Standard | Edition | Verdict |
+| --- | --- | --- |
+| [Supply-chain Levels for Software Artifacts (SLSA)](../standards.md#software-supply-chain) | SLSA v1.2 (November 2025) | adopt |
+| [SPDX](../standards.md#software-supply-chain) | SPDX 2.3 or later (3.0.1, December 2024) | adopt |
+| [CycloneDX](../standards.md#software-supply-chain) | CycloneDX 1.5 or later (1.7, October 2025; ECMA-424) | adopt |
+<!-- END GENERATED: standards -->
 
 ## Implementations
 

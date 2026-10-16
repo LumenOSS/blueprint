@@ -33,6 +33,12 @@ An archive sweep copies, verifies size, then unlinks, and leaves alone anything 
 | CAP-INGESTION.4 | SHOULD | A source is federated in place before it is copied; change data capture is used where a copy is worth its cost; a custom extract is the last resort. | The tenant entry records why the chosen method was chosen. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

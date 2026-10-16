@@ -28,6 +28,10 @@ for each clause; implementations live in their own repositories. Start at
 
 ## Writing
 
+- **Use the domain language in `CONTEXT.md`.** Each concept has one
+  canonical term; the words listed under *Avoid* are not used. When a new
+  domain term is settled, add it to `CONTEXT.md` in the same change.
+
 - The repository is meant to be public: roles, never people; no
   organisation, tenant, host or account identifiers from any deployment.
 - Google style guides (Markdown, Shell, Python) and engineering practices:

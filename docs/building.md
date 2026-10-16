@@ -70,33 +70,41 @@ recorded deviation.
 | 15 | [CAP-COMPUTE](capabilities/cap-compute.md) Compute | L1 | CAP-CATALOG |
 | 16 | [CAP-OPERATIONALDB](capabilities/cap-operationaldb.md) Operational database with branching | L1 | CAP-IDENTITY |
 | 17 | [CAP-INGESTION](capabilities/cap-ingestion.md) Ingestion | L1 | CAP-ONBOARDING, CAP-CATALOG |
-| 18 | [CAP-LINEAGE](capabilities/cap-lineage.md) Lineage | L1 | CAP-CATALOG |
-| 19 | [CAP-CLASSIFICATION](capabilities/cap-classification.md) Classification and provenance | L1 | CAP-CATALOG |
-| 20 | [CAP-ACCESS](capabilities/cap-access.md) Access model | L1 | CAP-IDENTITY, CAP-CATALOG, CAP-CLASSIFICATION |
-| 21 | [CAP-AUDIT](capabilities/cap-audit.md) Audit | L1 | CAP-IDENTITY |
-| 22 | [CAP-ENVIRONMENTS](capabilities/cap-environments.md) Environments by branching | L1 | CAP-OPERATIONALDB, CAP-CATALOG |
-| 23 | [CAP-MIGRATION](capabilities/cap-migration.md) Migration and decommission | L1 | CAP-OPERATIONALDB, CAP-CLASSIFICATION |
-| 24 | [CAP-ORCHESTRATION](capabilities/cap-orchestration.md) Orchestration | L3 | CAP-COMPUTE, CAP-DELIVERY |
-| 25 | [CAP-TRANSFORMATION](capabilities/cap-transformation.md) Transformation layer | L3 | CAP-COMPUTE, CAP-CATALOG |
-| 26 | [CAP-SEMANTICS](capabilities/cap-semantics.md) Semantic layer | L1 | CAP-TRANSFORMATION |
-| 27 | [CAP-SHARING](capabilities/cap-sharing.md) Publication and sharing | L1 | CAP-CATALOG, CAP-CLASSIFICATION, CAP-TRANSFORMATION |
-| 28 | [CAP-REPORTING](capabilities/cap-reporting.md) Reporting | L3 | CAP-SEMANTICS |
-| 29 | [CAP-APPS](capabilities/cap-apps.md) Application hosting | L3 | CAP-NETWORK, CAP-DELIVERY |
-| 30 | [CAP-QUALITY](capabilities/cap-quality.md) Data quality | L3 | CAP-TRANSFORMATION |
-| 31 | [CAP-BACKFILL](capabilities/cap-backfill.md) Backfill and reprocessing | L3 | CAP-ORCHESTRATION, CAP-ENVIRONMENTS, CAP-QUALITY |
-| 32 | [CAP-PIPELINE](capabilities/cap-pipeline.md) Retryable pipeline | L3 | CAP-ORCHESTRATION, CAP-STORAGE |
-| 33 | [CAP-REVIEW](capabilities/cap-review.md) Human review | L3 | CAP-OPERATIONALDB, CAP-AUDIT |
-| 34 | [CAP-RELEASE](capabilities/cap-release.md) Reconciliation and release | L3 | CAP-REVIEW |
+| 18 | [CAP-INTEROPERABILITY](capabilities/cap-interoperability.md) Exchange with other systems | L1 | CAP-ONBOARDING, CAP-CATALOG |
+| 19 | [CAP-LINEAGE](capabilities/cap-lineage.md) Lineage | L1 | CAP-CATALOG |
+| 20 | [CAP-MASTERDATA](capabilities/cap-masterdata.md) Master data and identifiers | L1 | CAP-CATALOG, CAP-OPERATIONALDB |
+| 21 | [CAP-REFERENCE](capabilities/cap-reference.md) Reference data and data dictionary | L1 | CAP-CATALOG |
+| 22 | [CAP-CLASSIFICATION](capabilities/cap-classification.md) Classification and provenance | L1 | CAP-CATALOG |
+| 23 | [CAP-ACCESS](capabilities/cap-access.md) Access model | L1 | CAP-IDENTITY, CAP-CATALOG, CAP-CLASSIFICATION |
+| 24 | [CAP-AUDIT](capabilities/cap-audit.md) Audit | L1 | CAP-IDENTITY |
+| 25 | [CAP-RECORDS](capabilities/cap-records.md) Records lifecycle and data-subject rights | L1 | CAP-CLASSIFICATION, CAP-MASTERDATA, CAP-AUDIT |
+| 26 | [CAP-ENVIRONMENTS](capabilities/cap-environments.md) Environments by branching | L1 | CAP-OPERATIONALDB, CAP-CATALOG |
+| 27 | [CAP-MIGRATION](capabilities/cap-migration.md) Migration and decommission | L1 | CAP-OPERATIONALDB, CAP-CLASSIFICATION |
+| 28 | [CAP-ORCHESTRATION](capabilities/cap-orchestration.md) Orchestration | L3 | CAP-COMPUTE, CAP-DELIVERY |
+| 29 | [CAP-TRANSFORMATION](capabilities/cap-transformation.md) Transformation layer | L3 | CAP-COMPUTE, CAP-CATALOG |
+| 30 | [CAP-SEMANTICS](capabilities/cap-semantics.md) Semantic layer | L1 | CAP-TRANSFORMATION |
+| 31 | [CAP-SHARING](capabilities/cap-sharing.md) Publication and sharing | L1 | CAP-CATALOG, CAP-CLASSIFICATION, CAP-TRANSFORMATION |
+| 32 | [CAP-PUBLICATION](capabilities/cap-publication.md) Open statistical publication | L1 | CAP-SEMANTICS, CAP-CLASSIFICATION, CAP-REFERENCE |
+| 33 | [CAP-REPORTING](capabilities/cap-reporting.md) Reporting | L3 | CAP-SEMANTICS |
+| 34 | [CAP-APPS](capabilities/cap-apps.md) Application hosting | L3 | CAP-NETWORK, CAP-DELIVERY |
+| 35 | [CAP-QUALITY](capabilities/cap-quality.md) Data quality | L3 | CAP-TRANSFORMATION |
+| 36 | [CAP-BACKFILL](capabilities/cap-backfill.md) Backfill and reprocessing | L3 | CAP-ORCHESTRATION, CAP-ENVIRONMENTS, CAP-QUALITY |
+| 37 | [CAP-PIPELINE](capabilities/cap-pipeline.md) Retryable pipeline | L3 | CAP-ORCHESTRATION, CAP-STORAGE |
+| 38 | [CAP-COLLECTION](capabilities/cap-collection.md) Periodic data collection | L3 | CAP-MASTERDATA, CAP-QUALITY, CAP-REFERENCE |
+| 39 | [CAP-REVIEW](capabilities/cap-review.md) Human review | L3 | CAP-OPERATIONALDB, CAP-AUDIT |
+| 40 | [CAP-MODELS](capabilities/cap-models.md) Governed analytical models | L3 | CAP-TRANSFORMATION, CAP-REVIEW |
+| 41 | [CAP-RELEASE](capabilities/cap-release.md) Reconciliation and release | L3 | CAP-REVIEW |
 <!-- END GENERATED: order -->
 
-## 4. Run the example product
+## 4. Run the example products
 
-Deploy the [example product](product/README.md) and run its conformance
-steps. It exercises the product capabilities and, through them, most of the
-platform.
+Deploy the [example products](product/README.md) and run their
+conformance steps. Document review exercises the pipeline, review and
+release capabilities; the annual census exercises master data, collection,
+indicators and publication. Between them they reach most of the platform.
 
-**Done when** all six conformance steps pass and their evidence is in the
-binding.
+**Done when** the conformance steps of both products pass and their
+evidence is in the binding.
 
 ## 5. Keep it conforming
 

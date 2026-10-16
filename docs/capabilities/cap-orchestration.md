@@ -35,6 +35,12 @@ Size the per-run cap from a measured median item time, not a configured one, and
 | CAP-ORCHESTRATION.6 | MUST | Alerts fire on data freshness, not only on job failure. | Stop an upstream source; a freshness alert fires within its window. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

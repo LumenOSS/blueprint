@@ -6,7 +6,7 @@
 
 Public-sector data, such as education data, is read by people whose reach
 depends on their role (analyst, steward, school leader) and whose scope
-depends on where they work (one school, one district, the whole system). A
+depends on where they work (one institution, one district, the whole system). A
 single list of grants cannot express both without one grant per person and
 place, and it cannot express that some columns are more sensitive than
 others.

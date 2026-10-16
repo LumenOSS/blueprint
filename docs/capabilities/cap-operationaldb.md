@@ -37,6 +37,12 @@ A database role that row-level security does not admit reads zero rows, silently
 | CAP-OPERATIONALDB.7 | SHOULD | Analytics read operational data through the catalog or a governed extract, never through a direct connection. | No analytics identity holds a database login. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

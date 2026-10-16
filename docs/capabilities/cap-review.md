@@ -28,6 +28,12 @@ A low-confidence guess is worse than no answer ([P10](../principles.md#p10-low-c
 | CAP-REVIEW.5 | MUST | Each decision records its kind of attribution (automatic, affirmed, corrected, backfilled) so reporting can tell who or what decided. | Reporting groups decisions by attribution. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

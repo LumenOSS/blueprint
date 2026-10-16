@@ -35,6 +35,12 @@ Count credentials before adding them: identity providers cap federated credentia
 | CAP-CIIDENTITY.6 | SHOULD | Each product has one deploy identity and one run-as identity per environment. | The tenant registry generates exactly those two per product per environment. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

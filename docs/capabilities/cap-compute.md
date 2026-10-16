@@ -32,6 +32,12 @@ A query's timeout is its service objective. Probing with a long timeout hides th
 | CAP-COMPUTE.4 | MUST | Interactive queries behind an application meet a declared latency objective (the reference value is 5 seconds at p95), and the timeout is that objective, not a longer probe. | Measured p95 for the application's queries over a week. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

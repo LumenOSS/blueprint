@@ -33,6 +33,12 @@ Record who owns private DNS and any hub network before building, because both ar
 | CAP-NETWORK.4 | SHOULD | Outbound traffic leaves through one controlled egress point. | Route tables send internet-bound traffic through the egress point only. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

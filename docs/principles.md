@@ -128,7 +128,7 @@ checks is never used.
 
 ## P11. Reporting goes through a governed transformation layer
 
-No report or metric is computed in an application. Operational data is read
+No report or measure is computed in an application. Operational data is read
 by versioned, tested transformation models (bronze, silver, gold), and each
 measure is defined once in a semantic layer that every dashboard,
 natural-language query and agent reads.
@@ -146,9 +146,15 @@ evidence: its comment, the change that created it, its loader. A schema, a
 repository or a summary is not evidence. Recoverable drops are preferred to
 cascading ones.
 
+Real personal data is removed only one way: by scheduled disposal at the
+end of its retention period, reviewed and audited
+([CAP-RECORDS](capabilities/cap-records.md)).
+
 **Why.** A schema believed to be simulated can hold real records beside
 simulated ones, and nothing on a table says which is which unless a tag
-does.
+does. Disposal on schedule is the opposite case: keeping data about
+children past its purpose is itself a harm, so it has its own sanctioned
+path rather than an exception to this one.
 
 ## P13. Roles, not names
 
@@ -171,15 +177,21 @@ changed by a different owner.
 
 ## P15. Publish, never export
 
-External parties receive only de-identified or aggregated tables from a
-separate publication catalog, over an open sharing protocol, each share
-approved and registered. Researchers who need finer data work inside the
-platform, per project and time-boxed. Nothing leaves as a file attachment.
+Aggregate statistics are published openly, with disclosure control and
+permanent identifiers, for anyone to read. Partners who need row-level data
+receive only de-identified tables from a separate publication catalog, over
+an open sharing protocol, each share approved and registered. Researchers
+who need finer data work inside the platform, per project and time-boxed.
+A person's own records reach that person or their guardian through a
+logged, purpose-bound disclosure. Nothing leaves as an ad-hoc file
+attachment.
 
 **Why.** Sharing does not carry access policies to the recipient, so
 protection must be in the published data itself. An emailed extract has no
 record, no revocation and no way to tell whether two analyses used the same
 data.
+
+**Grounded in** the [UN Fundamental Principles of Official Statistics](standards.md#official-statistics-and-disclosure-control) and the [International Open Data Charter](standards.md#open-data-and-exchange).
 
 ## P16. Open formats, storage separate from compute, federate before copying
 
@@ -219,3 +231,27 @@ only call recipes.
 
 **Why.** The same commit produces the same tools and the same result on any
 machine, and changing CI host rewrites only a thin wrapper.
+
+## P20. Collect for a declared purpose
+
+Every personal-data element has a declared purpose and legal basis, an
+owner, and at least one process or measure that uses it. An element that
+nothing uses is proposed for removal at its periodic review.
+Special-category data is collected only where its purpose requires it.
+
+**Why.** An education system can ask for almost anything about a child and
+their family, and every element collected is one more to protect, retain
+and eventually dispose of. Declaring the purpose up front is what makes
+minimisation, retention and access decisions answerable.
+
+**Grounded in** the purpose-legitimacy and data-minimisation principles of [ISO/IEC 29100](standards.md#identity-security-and-privacy) and the people-first data practices of the [Principles for Digital Development](standards.md#open-source-health-and-digital-public-goods).
+
+## P21. The education authority runs its own platform
+
+Each platform instance is operated by the education authority whose data
+it holds, on infrastructure the authority controls or contracts directly.
+
+**Why.** Responsibility for learners' data cannot be delegated away, and an
+authority that does not control where its data lives cannot answer for it.
+
+**Grounded in** the [Principles for Digital Development](standards.md#open-source-health-and-digital-public-goods), and aiming to meet the [Digital Public Goods Standard](standards.md#open-source-health-and-digital-public-goods).

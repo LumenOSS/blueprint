@@ -33,6 +33,12 @@ The boundary between platform and product: the platform owns anything that cross
 | CAP-ONBOARDING.4 | MUST | Removing a tenant entry removes the access it generated. | Off-boarding test: remove an entry; its identities and grants are gone after apply. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

@@ -35,6 +35,12 @@ Two remotes are normal: a repository can be mirrored on a second host and carry 
 | CAP-REPOSITORIES.5 | SHOULD | A repository can be hosted on more than one CI host without code changes beyond a thin CI wrapper. | The repository carries the CI definition of each host it targets, and each calls the same recipes. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

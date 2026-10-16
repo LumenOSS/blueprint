@@ -32,6 +32,12 @@ Each statement against a transactional table is a commit with its own metadata c
 | CAP-TABLES.4 | SHOULD | Writers batch into set-based operations, because each statement is a commit. | Pipeline code issues one write per batch, not per row. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

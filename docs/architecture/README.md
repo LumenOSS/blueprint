@@ -30,7 +30,8 @@ flowchart LR
     leads["Data Lead ·<br/>Technical Lead"]:::person
     eng["Engineers"]:::person
     stew["Stewards"]:::person
-    users["Analysts · reviewers ·<br/>operational staff"]:::person
+    users["Analysts · reviewers ·<br/>school and district staff"]:::person
+    subjects["Learners · guardians ·<br/>the public"]:::person
   end
 
   platform["<b>Governed data platform</b><br/>operational databases, lakehouse,<br/>governance, reporting, products"]:::system
@@ -39,6 +40,7 @@ flowchart LR
     direction TB
     idp["Identity provider"]:::ext
     src["Source systems<br/>legacy and operational"]:::ext
+    gov["Other government<br/>systems"]:::ext
     ci["CI hosts<br/>one or more remotes"]:::ext
     infra["Cloud or cluster<br/>provider"]:::ext
     recip["External recipients<br/>researchers, other bodies"]:::ext
@@ -48,9 +50,11 @@ flowchart LR
   eng -->|propose changes| ci
   ci -->|plan and apply<br/>by federation| platform
   stew -->|own domains,<br/>approve access| platform
-  users -->|read, review,<br/>decide| platform
+  users -->|collect, review,<br/>decide| platform
+  subjects -->|own records,<br/>open statistics| platform
   idp -->|people and groups| platform
   src -->|files, federation,<br/>change capture| platform
+  gov <-->|declared, reconciled<br/>feeds| platform
   platform -->|runs on| infra
   platform -->|de-identified shares| recip
 ```
@@ -67,7 +71,11 @@ flowchart LR
 - **Recipients are outside the boundary.** Data leaves only as
   de-identified publication ([P15](../principles.md#p15-publish-never-export)).
 - **The identity provider is the organisation's,** not the platform's
-  ([CAP-IDENTITY.1](../capabilities/cap-identity.md)).
+  ([CAP-IDENTITY.1](../capabilities/cap-identity.md)). Learners, guardians
+  and the public sign in separately and never join platform groups
+  ([CAP-IDENTITY.6](../capabilities/cap-identity.md)).
+- **Exchanges with other government systems run both ways** and are each
+  declared and reconciled ([CAP-INTEROPERABILITY](../capabilities/cap-interoperability.md)).
 
 ## C2 Containers: trust and delivery
 
@@ -174,6 +182,8 @@ flowchart LR
 
   subgraph product["Product"]
     direction TB
+    reg[("Registries<br/>institutions, people,<br/>posts")]:::box
+    collect["Collection<br/>returns and<br/>attestation"]:::box
     app["Product app<br/>behind sign-in"]:::box
     pipe["Pipeline jobs"]:::box
     oltp[("Operational DB<br/>Postgres, branched")]:::box
@@ -192,6 +202,7 @@ flowchart LR
     sem["Semantic layer"]:::box
     bi["Dashboards ·<br/>NL query"]:::box
     pub[("Publication<br/>catalog")]:::box
+    portal["Open data<br/>portal"]:::box
   end
 
   subgraph gov["Governance"]
@@ -217,6 +228,10 @@ flowchart LR
   users --> bi
   models -->|de-identified| pub
   pub -->|open sharing protocol| recip
+  pub --> portal
+  collect --> oltp
+  reg --> oltp
+  users --> collect
   idp --> catalog
   ent --> catalog
   catalog --> audit
@@ -238,7 +253,13 @@ flowchart LR
   definition ([P11](../principles.md#p11-reporting-goes-through-a-governed-transformation-layer)).
 - **Publication is a separate store fed only by models,** so nothing reaches
   a recipient without passing through de-identification
-  ([CAP-SHARING.1](../capabilities/cap-sharing.md)).
+  ([CAP-SHARING.1](../capabilities/cap-sharing.md)). Open statistics leave
+  through the portal after disclosure control
+  ([CAP-PUBLICATION](../capabilities/cap-publication.md)).
+- **Registries and collection sit with the products** because they are
+  operational: they hold the authoritative records and returns that
+  everything downstream counts ([CAP-MASTERDATA](../capabilities/cap-masterdata.md),
+  [CAP-COLLECTION](../capabilities/cap-collection.md)).
 
 ## C3 Components: access decision
 
@@ -308,7 +329,7 @@ flowchart LR
 ## C3 Components: product pipeline
 
 The example product's processing, from file to released result. The
-[example product](../product/README.md) describes it in full.
+[document-review product](../product/document-review.md) describes it in full.
 
 ```mermaid
 ---

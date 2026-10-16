@@ -33,6 +33,12 @@ A database branch does not branch object storage. A branch that writes files wou
 | CAP-ENVIRONMENTS.5 | MUST | Grants and identities are declared per environment; the same configuration never implies the same securable. | Each environment's grants are listed separately in its plan. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

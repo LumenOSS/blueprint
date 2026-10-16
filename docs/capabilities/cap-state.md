@@ -37,6 +37,12 @@ Keep state apart from lake storage: object versioning protects state but can bre
 | CAP-STATE.8 | SHOULD | State lives apart from lake storage, because the protections each needs (object versioning, lifecycle rules) conflict. | The state store is a separate account or bucket from every lake store. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

@@ -39,7 +39,7 @@ taken offline.
   *bitemporal*. [10][11]
 - *Slice*: the unit a backfill writes atomically: a partition, a date range,
   a key range, a batch.
-- *Natural key*: an identifier that comes from the domain (student ID, sheet
+- *Natural key*: an identifier that comes from the domain (learner identifier, sheet
   hash), not a surrogate generated at load time.
 - *Logic version*: the identifier of the code and configuration that
   produced a row.
@@ -253,8 +253,8 @@ twice and assert identical outputs.
 
 ### 4.2 Keyed upsert with recency guard
 
-**Problem.** Loading or correcting entities identified by a key (students,
-schools, sheets), where the backfill may carry older versions than what is
+**Problem.** Loading or correcting entities identified by a key (learners,
+institutions, sheets), where the backfill may carry older versions than what is
 already there.
 
 **Forces.** MERGE is idempotent only if keys are deterministic. A backfill

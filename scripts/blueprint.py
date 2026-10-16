@@ -23,6 +23,8 @@ import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CATALOGUE = ROOT / "blueprint" / "catalogue.yaml"
+STANDARDS = ROOT / "blueprint" / "standards.yaml"
+STANDARDS_PAGE = ROOT / "docs" / "standards.md"
 CAPABILITY_DOCS = ROOT / "docs" / "capabilities"
 IMPLEMENTATION_DOCS = ROOT / "docs" / "implementations"
 BUILDING_GUIDE = ROOT / "docs" / "building.md"
@@ -121,10 +123,58 @@ class BindingFile(TypedDict):
     bindings: list[Binding]
 
 
+class Standard(TypedDict):
+    """One external standard in the register."""
+
+    id: str
+    title: str
+    edition: str
+    publisher: str
+    url: str
+    checked: str
+    check: str
+    verdict: str
+    area: str
+    purpose: str
+    used_by: list[str]
+
+
+class Area(TypedDict):
+    """A group of standards."""
+
+    id: str
+    name: str
+
+
+class Register(TypedDict):
+    """The whole standards register."""
+
+    areas: list[Area]
+    standards: list[Standard]
+
+
+class _TextDateLoader(yaml.SafeLoader):
+    """A safe loader that keeps dates as written.
+
+    The schemas validate dates as strings in ISO 8601 form; letting YAML
+    turn them into date objects would hide a malformed date from them.
+    """
+
+
+_TextDateLoader.yaml_implicit_resolvers = {
+    first: [
+        (tag, regexp)
+        for tag, regexp in resolvers
+        if not tag.endswith(":timestamp")
+    ]
+    for first, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
+}
+
+
 def load_yaml(path: pathlib.Path) -> Any:
-    """Parses one YAML file."""
+    """Parses one YAML file, keeping dates as strings."""
     with path.open(encoding="utf-8") as f:
-        return yaml.safe_load(f)
+        return yaml.load(f, Loader=_TextDateLoader)
 
 
 def schema_errors(document: Any, schema_name: str) -> list[str]:
@@ -318,6 +368,89 @@ def unbound(
     return problems
 
 
+def load_register() -> tuple[Register | None, list[str]]:
+    """Loads the standards register, or returns its schema violations."""
+    doc = load_yaml(STANDARDS)
+    errors = schema_errors(doc, "standards.schema.json")
+    if errors:
+        return None, [f"standards: {e}" for e in errors]
+    return cast("Register", doc), []
+
+
+def check_register(reg: Register, cat: Catalogue) -> list[str]:
+    """Every standard has a unique id, a known area and known users."""
+    problems: list[str] = []
+    ids = [s["id"] for s in reg["standards"]]
+    problems += [
+        f"standards: duplicate id {d}"
+        for d in sorted({i for i in ids if ids.count(i) > 1})
+    ]
+    areas = {a["id"] for a in reg["areas"]}
+    caps = {c["id"] for c in cat["capabilities"]}
+    principles = set(
+        re.findall(
+            r"^## (P[0-9]+)\.",
+            (ROOT / "docs" / "principles.md").read_text(encoding="utf-8"),
+            re.M,
+        )
+    )
+    for std in reg["standards"]:
+        if std["area"] not in areas:
+            problems.append(f"{std['id']}: unknown area {std['area']}")
+        problems += [
+            f"{std['id']}: used by unknown {u}"
+            for u in std["used_by"]
+            if u not in caps | principles
+        ]
+    return problems
+
+
+def register_tables(reg: Register) -> str:
+    """Renders the register as one table per area."""
+    out: list[str] = []
+    for area in reg["areas"]:
+        rows = [s for s in reg["standards"] if s["area"] == area["id"]]
+        if not rows:
+            continue
+        out += [
+            f"### {area['name']}",
+            "",
+            "| Standard | Edition | Use | Verdict | Used by |",
+            separator(5),
+        ]
+        for std in rows:
+            title = f"[{cell(std['title'])}]({std['url']})"
+            users = ", ".join(
+                f"[{u}](capabilities/{u.lower()}.md)"
+                if u.startswith("CAP-")
+                else u
+                for u in std["used_by"]
+            )
+            out.append(
+                f"| {title}<br/>{cell(std['publisher'])} "
+                f"| {cell(std['edition'])} | {cell(std['purpose'])} "
+                f"| {std['verdict']} | {users or '—'} |"
+            )
+        out.append("")
+    return "\n".join(out).rstrip()
+
+
+def page_standards(cap: Capability, reg: Register | None) -> str:
+    """Renders, for one capability page, the standards it relies on."""
+    if reg is None:
+        return "The standards register could not be read."
+    rows = [s for s in reg["standards"] if cap["id"] in s["used_by"]]
+    if not rows:
+        return "No external standard is named for this capability."
+    anchors = {a["id"]: anchor(a["name"]) for a in reg["areas"]}
+    out = ["| Standard | Edition | Verdict |", separator(3)]
+    for std in rows:
+        target = f"../standards.md#{anchors[std['area']]}"
+        link = f"[{cell(std['title'])}]({target})"
+        out.append(f"| {link} | {cell(std['edition'])} | {std['verdict']} |")
+    return "\n".join(out)
+
+
 # Rendering ------------------------------------------------------------------
 
 
@@ -333,6 +466,12 @@ def replace_generated(text: str, name: str, body: str) -> str:
 def separator(columns: int) -> str:
     """Returns a table's header separator in the form the formatter keeps."""
     return "|" + " --- |" * columns
+
+
+def anchor(heading: str) -> str:
+    """Returns the fragment a Markdown renderer gives a heading."""
+    slug = re.sub(r"[^\w\- ]", "", heading.lower())
+    return slug.replace(" ", "-")
 
 
 def cell(text: str) -> str:
@@ -483,11 +622,15 @@ def render(cat: Catalogue, *, write: bool) -> list[pathlib.Path]:
                 path.write_text(new, encoding="utf-8")
 
     files = reference_bindings()
+    reg, _ = load_register()
     for cap in cat["capabilities"]:
         page = page_path(cap["id"])
         if page.exists():
             update(page, "contract", contract_table(cap))
+            update(page, "standards", page_standards(cap, reg))
             update(page, "implementations", page_implementations(cap, files))
+    if reg is not None:
+        update(STANDARDS_PAGE, "register", register_tables(reg))
     update(CAPABILITY_DOCS / "README.md", "index", capability_index(cat))
     update(BUILDING_GUIDE, "order", build_order_table(cat))
     if files:
@@ -533,6 +676,10 @@ def main() -> int:
         return 1 if problems else 0
 
     problems = check_catalogue(cat) + check_references(cat)
+    reg, reg_problems = load_register()
+    problems += reg_problems
+    if reg is not None:
+        problems += check_register(reg, cat)
     for path in sorted(IMPLEMENTATION_DOCS.glob("*.yaml")):
         problems += binding_problems(path, cat)[0]
     problems += [

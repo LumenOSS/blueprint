@@ -28,6 +28,12 @@ Federation removes most secrets ([P3](../principles.md#p3-federation-not-secrets
 | CAP-SECRETS.3 | SHOULD | Workloads read secrets at runtime using their own identity, so no secret is copied into deployment configuration. | Deployment manifests reference secrets by name, not value. |
 <!-- END GENERATED: contract -->
 
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
+
 ## Implementations
 
 <!-- BEGIN GENERATED: implementations (just render) -->

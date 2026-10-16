@@ -14,5 +14,8 @@ one, and the old one stays.
 | [0005](0005-access-by-role-scope-sensitivity.md) | Decide access by role, scope and sensitivity | Accepted |
 | [0006](0006-open-tables-with-an-exit-test.md) | Keep tables in open formats and prove it with an exit test | Accepted |
 | [0007](0007-ci-host-independence.md) | Keep delivery independent of the CI host | Accepted |
+| [0008](0008-model-the-emis-domain.md) | Model the EMIS domain in the blueprint | Accepted |
+| [0009](0009-publication-and-scheduled-disposal.md) | Separate open publication from sharing, and allow scheduled disposal | Accepted |
+| [0010](0010-one-person-registry.md) | Record each person once; roles are relationships | Accepted |
 
 New records copy [`template.md`](template.md) and take the next number.

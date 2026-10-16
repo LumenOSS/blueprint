@@ -31,7 +31,14 @@ Object versioning on a lake store can conflict with table maintenance: deleted d
 | CAP-STORAGE.2 | MUST | Each domain catalog has its own storage location and credential, so a grant on one domain never reaches another's files. | A credential for one domain cannot list another domain's location. |
 | CAP-STORAGE.3 | MUST | Protection against accidental deletion is configured in a way the table format supports; it never breaks table maintenance. | Maintenance (expiry, vacuum) runs clean, and a deleted table is restored in a drill. |
 | CAP-STORAGE.4 | MUST | Source-of-record files are kept in governed storage, tagged as real, with retention set by the data owner. | The archive location carries provenance and retention metadata. |
+| CAP-STORAGE.5 | MUST | Object storage and the catalog are backed up on a declared cadence to a geographically separate location, and a scheduled drill restores from backup outside any migration. | The backup schedule is in code; the latest restore drill report compares content hashes and is within its schedule. |
 <!-- END GENERATED: contract -->
+
+## Standards
+
+<!-- BEGIN GENERATED: standards (just render) -->
+No external standard is named for this capability.
+<!-- END GENERATED: standards -->
 
 ## Implementations
 
