@@ -12,7 +12,7 @@ msgid "Operations"
 msgstr ""
 
 #: docs/specifications/domain/contexts/operations/CONTEXT.md
-msgid "The supporting work of running institutions: money, assets, entitlement schemes and safety. Often provided by generic systems and integrated rather than built."
+msgid "This context covers the supporting work of running institutions: money, assets, entitlement schemes and safety. Existing generic systems often provide it, so it's usually integrated rather than built."
 msgstr ""
 
 #: docs/specifications/domain/contexts/operations/CONTEXT.md

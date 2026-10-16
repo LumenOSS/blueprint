@@ -1,6 +1,6 @@
 # People
 
-Who a person is, recorded once, whatever roles they hold.
+This context records who a person is, once, whatever roles they hold.
 
 ## Language
 

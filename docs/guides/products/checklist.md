@@ -1,16 +1,20 @@
 # Product checklist
 
-A product inherits most of its obligations from the platform; this
-checklist names the capabilities whose clauses a product must satisfy
-itself. Copy it into the product repository and record, for each row, how
-the product meets the clauses and where the evidence is. Rows that do not
-apply are marked not applicable with a reason, exactly as in a
-[binding](../../specifications/implementations/README.md).
+A product inherits most of its obligations from the platform. This
+checklist names the capabilities whose clauses the product has to satisfy
+itself.
+
+1. Copy the checklist into the product's repository.
+2. For each row, record how the product meets the clauses, and where the
+   evidence is.
+3. If a row doesn't apply, mark it not applicable and give the reason,
+   just as you would in a
+   [binding](../../specifications/implementations/README.md).
 
 | Capability | What the product records |
 | --- | --- |
 | [CAP-ONBOARDING](../../specifications/capabilities/cap-onboarding.md) | Its tenant entry: owner role, domain, catalogs, highest classification |
-| [CAP-MASTERDATA](../../specifications/capabilities/cap-masterdata.md) | Which registries it reads; it never mints identifiers of its own for core resources |
+| [CAP-MASTERDATA](../../specifications/capabilities/cap-masterdata.md) | Which registries it reads. It never creates its own identifiers for core resources |
 | [CAP-REFERENCE](../../specifications/capabilities/cap-reference.md) | The code lists and dictionary entries for every element it owns |
 | [CAP-CLASSIFICATION](../../specifications/capabilities/cap-classification.md) | Classification, provenance, purpose and legal basis for every element it owns |
 | [CAP-ACCESS](../../specifications/capabilities/cap-access.md) | Its row scopes and any subject-facing views |
@@ -25,5 +29,6 @@ apply are marked not applicable with a reason, exactly as in a
 | [CAP-MODELS](../../specifications/capabilities/cap-models.md) | Any model it uses, with its equity evaluation |
 | [CAP-APPS](../../specifications/capabilities/cap-apps.md) | Accessibility and language evidence for its interfaces |
 
-The example products show the checklist filled in by their conformance
-steps: [document review](document-review.md) and [annual census](census.md).
+To see the checklist filled in, look at the conformance steps of the two
+example products, [document review](document-review.md) and the
+[annual census](census.md).

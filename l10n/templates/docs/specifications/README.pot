@@ -10,7 +10,7 @@ msgid "Specifications"
 msgstr ""
 
 #: docs/specifications/README.md
-msgid "The reference: what the blueprint requires, stated precisely enough to build against and to test. Read these when you need to know exactly what is required; the [core concepts]{1} explain why."
+msgid "This is the reference part of the blueprint. It says what the blueprint requires, precisely enough for you to build against it and test what you've built. Turn to it when you need to know exactly what's required. If you want to know why, the [core concepts]{1} explain."
 msgstr ""
 
 #: docs/specifications/README.md
@@ -26,7 +26,7 @@ msgid "[Principles]{1}"
 msgstr ""
 
 #: docs/specifications/README.md
-msgid "The ideas every requirement rests on; when anything else seems to disagree, these state the intent"
+msgid "The ideas every requirement rests on. If anything else seems to disagree with them, the principles state the intent."
 msgstr ""
 
 #: docs/specifications/README.md
@@ -34,7 +34,7 @@ msgid "[Capabilities]{1}"
 msgstr ""
 
 #: docs/specifications/README.md
-msgid "Every capability of the platform and its contract: numbered clauses, each with how conformance is shown"
+msgid "Everything the platform must be able to do, each with a contract of numbered clauses that say how you show you meet them"
 msgstr ""
 
 #: docs/specifications/README.md
@@ -42,7 +42,7 @@ msgid "[Domain]{1}"
 msgstr ""
 
 #: docs/specifications/README.md
-msgid "What an EMIS holds: domains, resources, modelling rules, bounded contexts and indicators"
+msgid "What an EMIS holds: its domains, resources and modelling rules, its bounded contexts and its indicators"
 msgstr ""
 
 #: docs/specifications/README.md
@@ -50,7 +50,7 @@ msgid "[Architecture]{1}"
 msgstr ""
 
 #: docs/specifications/README.md
-msgid "How the parts fit together, at three levels of detail, and the semantic layer"
+msgid "How the parts fit together, at three levels of detail, and how the semantic layer works"
 msgstr ""
 
 #: docs/specifications/README.md
@@ -58,7 +58,7 @@ msgid "[Standards]{1}"
 msgstr ""
 
 #: docs/specifications/README.md
-msgid "The international standards relied on, with current editions and publisher links"
+msgid "The international standards the blueprint relies on, with their current editions and links to their publishers"
 msgstr ""
 
 #: docs/specifications/README.md
@@ -66,7 +66,7 @@ msgid "[Implementations]{1}"
 msgstr ""
 
 #: docs/specifications/README.md
-msgid "The reference bindings, and the status of every clause in each"
+msgid "The reference bindings, and where each one stands on every clause"
 msgstr ""
 
 #: docs/specifications/README.md
@@ -74,9 +74,9 @@ msgid "[Glossary]{1}"
 msgstr ""
 
 #: docs/specifications/README.md
-msgid "Terms about the blueprint and the platform"
+msgid "The terms the blueprint uses for itself and for the platform"
 msgstr ""
 
 #: docs/specifications/README.md
-msgid "The catalogue in `blueprint/catalogue.yaml` is the source of the capabilities; their contract tables are generated from it."
+msgid "The capabilities come from one file, the catalogue in `blueprint/catalogue.yaml`. Their contract tables are generated from it, so that's the place to change them."
 msgstr ""

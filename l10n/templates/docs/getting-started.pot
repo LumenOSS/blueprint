@@ -10,7 +10,7 @@ msgid "Getting started"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "The blueprint is meant to be read in layers: first what it is and why, then the part that matches your role. Each step says what you will know after reading it, so you can stop as soon as you have what you need."
+msgid "You don't need to read the whole blueprint, and we don't recommend it. Read the first part, which explains what the blueprint is and why it exists, and then the part that matches your role. Each step below tells you what you'll know once you've read it, so you can stop as soon as you have what you need."
 msgstr ""
 
 #: docs/getting-started.md
@@ -18,19 +18,19 @@ msgid "Everyone: the first hour"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "The documentation has three main sections, read in this order:"
+msgid "The documentation has three main sections, and they're meant to be read in this order:"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "**[Core concepts]{1}** explain what an EMIS is and the ideas the rest builds on. They require nothing."
+msgid "The **[core concepts]{1}** explain what an EMIS is and the ideas the rest of the blueprint builds on. You don't need to know anything before you read them."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "**[Specifications]{1}** state what is required, precisely enough to build against and test."
+msgid "The **[specifications]{1}** state what's required, precisely enough for you to build against them and test what you've built."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "**[Guides]{1}** walk through doing things: building an implementation, running a product, loading history."
+msgid "The **[guides]{1}** walk you through doing things, such as building an implementation, running a product or loading history."
 msgstr ""
 
 #: docs/getting-started.md
@@ -58,7 +58,7 @@ msgid "[What is an EMIS]{1}"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "What the system is, who relies on it, and the part this blueprint covers"
+msgid "What the system is, who relies on it, and which part of it this blueprint covers"
 msgstr ""
 
 #: docs/getting-started.md
@@ -70,7 +70,7 @@ msgid "[The EMIS domain]{1}"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "What a domain model is, why it is used here, and the main things an EMIS records"
+msgid "What a domain model is, why we use one, and the main things an EMIS records"
 msgstr ""
 
 #: docs/getting-started.md
@@ -82,7 +82,7 @@ msgid "[Data in an EMIS]{1}"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "The kinds of data, and five ideas about handling it: sensitivity, masking, access by role and attribute, sharing, lineage"
+msgid "The kinds of data an EMIS holds, and five ideas about handling them: sensitivity, masking, access by role and by attribute, sharing, and lineage"
 msgstr ""
 
 #: docs/getting-started.md
@@ -94,7 +94,7 @@ msgid "[Terminology]{1}"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "Sensitivity tiers, layers, clauses, statuses and roles"
+msgid "The sensitivity tiers, layers, clauses, statuses and roles you'll meet everywhere"
 msgstr ""
 
 #: docs/getting-started.md
@@ -106,11 +106,11 @@ msgid "[Principles]{1}"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "The ideas every requirement rests on; when anything else seems to disagree, these state the intent"
+msgid "The ideas every requirement rests on. If anything else seems to disagree with them, the principles say what was intended"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "The [README]{1} gives a one-page overview, and the [glossary]{2} and [context map]{3} define every other term."
+msgid "The [README]{1} gives you an overview on a single page. The [glossary]{2} and the [context map]{3} define every other term."
 msgstr ""
 
 #: docs/getting-started.md
@@ -122,23 +122,23 @@ msgid "Leads and decision-makers"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "You approve what is built and answer for it."
+msgid "You approve what gets built, and you answer for it."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Decision records]{1}: what was decided, and why, in the order it was decided."
+msgid "The [decision records]{1} tell you what was decided and why, in the order the decisions were made."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Implementations]{1}: the two reference stacks and where open source differs from a managed platform."
+msgid "The [implementations]{1} describe the two reference stacks, and where open source differs from a managed platform."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Standards]{1}: the international standards the blueprint relies on, with their current editions."
+msgid "The [standards]{1} list the international standards the blueprint relies on, with their current editions."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Indicators]{1}: how official figures are defined and kept comparable."
+msgid "The [indicators]{1} page explains how official figures are defined and how they stay comparable."
 msgstr ""
 
 #: docs/getting-started.md
@@ -146,31 +146,31 @@ msgid "Architects and engineers building an implementation"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "You turn the blueprint into a running platform."
+msgid "You turn the blueprint into a platform that runs."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Capabilities]{1}: every capability and its contract. Skim the index, then read the pages for the layer you start with."
+msgid "Start with the [capabilities]{1}, which list every capability and its contract. Skim the index, then read the pages for the layer you're starting with."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Building an implementation]{1}: the steps, with a build order generated from the dependencies."
+msgid "[Building an implementation]{1} gives you the steps, in a build order generated from the dependencies."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Semantic layer]{1}: how every indicator is defined once and served to every consumer."
+msgid "The [semantic layer]{1} explains how each indicator is defined once and served to every consumer."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Implementations]{1} and a reference binding ([open source]{2} or [Databricks]{3}): the components and the status of every clause."
+msgid "The [implementations]{1} page and a reference binding ([open source]{2} or [Databricks]{3}) show the components and the status of every clause."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Standards]{1}: the editions each clause names."
+msgid "The [standards]{1} give the editions each clause names."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Lessons]{1}: failures that shaped the design, so you do not repeat them."
+msgid "The [lessons]{1} describe failures that shaped the design, so that you don't repeat them."
 msgstr ""
 
 #: docs/getting-started.md
@@ -182,19 +182,19 @@ msgid "You build a workload on the platform."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Domain model]{1}, [indicators]{2} and the [semantic layer]{3}."
+msgid "Read the [domain model]{1}, the [indicators]{2} and the [semantic layer]{3}."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Example products]{1}: document review and the annual census, read as worked examples."
+msgid "Read the [example products]{1}, document review and the annual census, as worked examples."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Product checklist]{1}: what your product records about each capability it relies on."
+msgid "The [product checklist]{1} tells you what your product needs to record about each capability it relies on."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Backfill patterns]{1}: before you load any history."
+msgid "Read the [backfill patterns]{1} before you load any history."
 msgstr ""
 
 #: docs/getting-started.md
@@ -206,19 +206,19 @@ msgid "You decide who may see what, and what leaves the platform."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "Principles [P12]{1}, [P14]{2}, [P15]{3} and [P20]{4}."
+msgid "Read principles [P12]{1}, [P14]{2}, [P15]{3} and [P20]{4}."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[CAP-ACCESS]{1}, [CAP-CLASSIFICATION]{2} and [CAP-RECORDS]{3}: who sees which rows and columns, and how long records are kept."
+msgid "[CAP-ACCESS]{1}, [CAP-CLASSIFICATION]{2} and [CAP-RECORDS]{3} cover who sees which rows and columns, and how long records are kept."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[CAP-PUBLICATION]{1} and [CAP-SHARING]{2}: open statistics, partner sharing, and their controls."
+msgid "[CAP-PUBLICATION]{1} and [CAP-SHARING]{2} cover open statistics, sharing with partners, and the controls on both."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[CAP-QUALITY]{1} and [CAP-REFERENCE]{2}: checks, corrections, code lists and the data dictionary."
+msgid "[CAP-QUALITY]{1} and [CAP-REFERENCE]{2} cover checks, corrections, code lists and the data dictionary."
 msgstr ""
 
 #: docs/getting-started.md
@@ -230,23 +230,23 @@ msgid "You want to change the blueprint."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Contributing]{1}: which path your change takes, setting up, and what review looks for."
+msgid "[Contributing]{1} tells you which path your change takes, how to set up, and what reviewers look for."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[LIP-1]{1}: how a change is proposed, reviewed and decided."
+msgid "[LIP-1]{1} explains how a change is proposed, reviewed and decided."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Decision records]{1}: what has been decided so far, so a proposal builds on it rather than repeating it."
+msgid "The [decision records]{1} show what has been decided so far, so that your proposal can build on it instead of repeating it."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "[Capabilities]{1} and the [domain language]{2}: the text a proposal changes, and the words it uses."
+msgid "The [capabilities]{1} and the [domain language]{2} are the text a proposal changes, and the words it should use."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "The [LIP template]{1}."
+msgid "When you're ready, start from the [LIP template]{1}."
 msgstr ""
 
 #: docs/getting-started.md
@@ -254,7 +254,7 @@ msgid "Agents"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "Start with [AGENTS.md]{1}, then [`blueprint/catalogue.yaml`]{2} for the clauses and [building.md]{3} for the order of work. Every claim the blueprint makes is either a clause with a verification or a principle with its reason; treat anything else as commentary."
+msgid "Start with [AGENTS.md]{1}. Then read [`blueprint/catalogue.yaml`]{2} for the clauses and [building.md]{3} for the order of work. Everything the blueprint claims is either a clause, with a way to verify it, or a principle, with its reason. Treat anything else as commentary."
 msgstr ""
 
 #: docs/getting-started.md
@@ -266,13 +266,13 @@ msgid "Why it is drawn this way"
 msgstr ""
 
 #: docs/getting-started.md
-msgid "**The catalogue is the centre.** Clauses are written once there; the capability pages, the build order and the implementation tables are generated from it, so they cannot drift apart."
+msgid "The catalogue sits at the centre. We write each clause there once, and generate the capability pages, the build order and the implementation tables from it, so they can't drift apart."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "**Principles and decision records sit upstream.** A clause exists because a principle requires it, and it changes only through a decision record."
+msgid "The principles and decision records sit upstream of it. A clause exists because a principle requires it, and it changes only through a decision record."
 msgstr ""
 
 #: docs/getting-started.md
-msgid "**Bindings and the standards register feed the pages** so each capability shows what implements it and which standards it names."
+msgid "The bindings and the standards register feed the capability pages, so each capability shows what implements it and which standards it names."
 msgstr ""

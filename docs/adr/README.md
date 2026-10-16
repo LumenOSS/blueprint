@@ -1,10 +1,11 @@
 # Architecture decision records
 
 Each record says what was decided, why, and what follows from it. Changes
-are proposed and debated as [LumenOSS Improvement Proposals](../lips/README.md);
-when one is accepted, its outcome is recorded here and cites the LIP.
-Records are append-only: a decision is changed by a new record that
-supersedes the old one, and the old one stays.
+are proposed and discussed as
+[LumenOSS Improvement Proposals](../lips/README.md), and when one is
+accepted, its outcome is recorded here, citing the LIP. Records are never
+edited after the fact. To change a decision, you write a new record that
+supersedes the old one, and the old one stays where it is.
 
 | ADR | Decision | Status |
 | --- | --- | --- |
@@ -23,4 +24,4 @@ supersedes the old one, and the old one stays.
 | [0013](0013-bounded-contexts.md) | Divide the EMIS domain into bounded contexts | Accepted |
 | [0014](0014-internationalisation-and-localisation.md) | Translate through PO files, and label codes in every official language | Accepted |
 
-New records copy [`template.md`](template.md) and take the next number.
+To write a new record, copy [`template.md`](template.md) and give it the next number.

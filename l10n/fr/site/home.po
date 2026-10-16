@@ -12,7 +12,8 @@ msgid "LumenOSS Blueprint"
 msgstr "LumenOSS Blueprint"
 
 #: site/home.md
-msgid "A blueprint for an education management information system: the domain it records, the rules for handling its data, and the governed platform that holds it. The architecture stays fixed; the implementation is yours to choose."
+#, fuzzy
+msgid "A blueprint for an education management information system. It describes the domain the system records, the rules for handling its data, and the governed platform that holds it. The architecture stays the same, and you choose how to implement it."
 msgstr "Un plan de référence pour un système d'information pour la gestion de l'éducation : le domaine qu'il enregistre, les règles de traitement de ses données et la plateforme gouvernée qui les détient. L'architecture reste fixe ; l'implémentation est à votre choix."
 
 #: site/home.md
@@ -28,7 +29,8 @@ msgid "What is an EMIS"
 msgstr "Qu'est-ce qu'un SIGE"
 
 #: site/home.md
-msgid "The system an education authority uses to know how many learners there are, where, and how they are doing, and the part this blueprint covers."
+#, fuzzy
+msgid "An education authority uses an EMIS to know how many learners it has, where they are and how they're doing. Find out what that involves, and which part of it this blueprint covers."
 msgstr "Le système qu'une autorité éducative utilise pour savoir combien d'apprenants elle compte, où ils se trouvent et comment ils progressent, et la partie que couvre ce plan de référence."
 
 #: site/home.md
@@ -40,7 +42,8 @@ msgid "The EMIS domain"
 msgstr "Le domaine du SIGE"
 
 #: site/home.md
-msgid "What a domain model is, why it is used here, and the main things an EMIS records, in one diagram."
+#, fuzzy
+msgid "Learn what a domain model is and why we use one, then see the main things an EMIS records in a single diagram."
 msgstr "Ce qu'est un modèle de domaine, pourquoi il est utilisé ici, et les principales choses qu'un SIGE enregistre, en un seul schéma."
 
 #: site/home.md
@@ -52,7 +55,8 @@ msgid "Data in an EMIS"
 msgstr "Les données d'un SIGE"
 
 #: site/home.md
-msgid "Sensitive data, masking, access by role and attribute, sharing, and lineage: five ideas to keep in mind."
+#, fuzzy
+msgid "Five ideas to keep in mind as you read on: sensitive data, masking, access by role and by attribute, sharing, and lineage."
 msgstr "Données sensibles, masquage, accès par rôle et par attribut, partage et traçabilité : cinq idées à garder en tête."
 
 #: site/home.md
@@ -64,7 +68,8 @@ msgid "Terminology"
 msgstr "Terminologie"
 
 #: site/home.md
-msgid "Sensitivity tiers, layers, clauses and roles: what you need to read the specifications."
+#, fuzzy
+msgid "The sensitivity tiers, layers, clauses and roles you'll need to know before you read the specifications."
 msgstr "Niveaux de sensibilité, couches, clauses et rôles : ce qu'il faut savoir pour lire les spécifications."
 
 #: site/home.md
@@ -80,7 +85,8 @@ msgid "Principles"
 msgstr "Principes"
 
 #: site/home.md
-msgid "The ideas every decision rests on, each with its reason, from CI as the only deployer to collecting data only for a declared purpose."
+#, fuzzy
+msgid "The ideas that every decision rests on, each with its reason. They range from CI being the only deployer to collecting data only for a declared purpose."
 msgstr "Les idées sur lesquelles repose chaque décision, chacune avec sa raison, de la CI comme seul moyen de déploiement à la collecte de données uniquement pour une finalité déclarée."
 
 #: site/home.md
@@ -92,7 +98,8 @@ msgid "Architecture"
 msgstr "Architecture"
 
 #: site/home.md
-msgid "C4 diagrams from system context to components, each followed by why it is drawn that way."
+#, fuzzy
+msgid "C4 diagrams that go from the system's context down to its components, each followed by an explanation of why it's drawn that way."
 msgstr "Des schémas C4, du contexte du système jusqu'aux composants, chacun suivi de la raison pour laquelle il est dessiné ainsi."
 
 #: site/home.md
@@ -104,7 +111,8 @@ msgid "Capabilities"
 msgstr "Capacités"
 
 #: site/home.md
-msgid "Forty-one capabilities, each a contract of testable clauses that name no vendor."
+#, fuzzy
+msgid "Forty-one capabilities. Each one is a contract made of clauses that you can test and that name no vendor."
 msgstr "Quarante et une capacités, chacune un contrat de clauses vérifiables qui ne nomment aucun fournisseur."
 
 #: site/home.md
@@ -116,7 +124,8 @@ msgid "Domain model"
 msgstr "Modèle de domaine"
 
 #: site/home.md
-msgid "Institutions, learners, staff and their relationships, modelled so that every indicator can be counted at a reference date."
+#, fuzzy
+msgid "How we model institutions, learners, staff and the relationships between them, so that you can count every indicator at a reference date."
 msgstr "Établissements, apprenants, personnels et leurs relations, modélisés pour que chaque indicateur puisse être compté à une date de référence."
 
 #: site/home.md
@@ -128,7 +137,8 @@ msgid "Semantic layer"
 msgstr "Couche sémantique"
 
 #: site/home.md
-msgid "Every indicator defined once and served to every dashboard, agent and publication, with dbt in both reference implementations."
+#, fuzzy
+msgid "We define each indicator once and serve it to every dashboard, agent and publication. Both reference implementations use dbt for this."
 msgstr "Chaque indicateur défini une seule fois et servi à chaque tableau de bord, agent et publication, avec dbt dans les deux implémentations de référence."
 
 #: site/home.md
@@ -140,7 +150,8 @@ msgid "Standards"
 msgstr "Normes"
 
 #: site/home.md
-msgid "The international standards relied on, each linked to its publisher with the edition and the date it was checked."
+#, fuzzy
+msgid "The international standards the blueprint relies on. Each one links to its publisher, with the edition we use and the date we last checked it."
 msgstr "Les normes internationales sur lesquelles le plan s'appuie, chacune liée à son éditeur, avec l'édition et la date de vérification."
 
 #: site/home.md
@@ -156,8 +167,8 @@ msgid "Building an implementation"
 msgstr "Construire une implémentation"
 
 #: site/home.md
-msgid "The steps in dependency order, each with a clear point at which it is done."
-msgstr "Les étapes dans l'ordre des dépendances, chacune avec un point clair où elle est terminée."
+msgid "The steps to build an implementation, in the order their dependencies require. Each step tells you clearly when it's done."
+msgstr ""
 
 #: site/home.md
 msgid "[Follow the steps]{1}"
@@ -168,7 +179,8 @@ msgid "Implementations"
 msgstr "Implémentations"
 
 #: site/home.md
-msgid "Open source on Kubernetes, or Databricks on Azure, and exactly where the two differ."
+#, fuzzy
+msgid "Build it from open-source components on Kubernetes, or on Databricks in Azure, and see exactly where the two differ."
 msgstr "Logiciel libre sur Kubernetes, ou Databricks sur Azure, et exactement où les deux diffèrent."
 
 #: site/home.md
@@ -180,7 +192,8 @@ msgid "Example products"
 msgstr "Produits d'exemple"
 
 #: site/home.md
-msgid "Document review and an annual census, each running through every layer of the platform."
+#, fuzzy
+msgid "Document review and an annual census, two products that each run through every layer of the platform."
 msgstr "L'examen de documents et un recensement annuel, chacun traversant toutes les couches de la plateforme."
 
 #: site/home.md
@@ -188,8 +201,12 @@ msgid "[See them work]{1}"
 msgstr "[Les voir fonctionner]{1}"
 
 #: site/home.md
-msgid "Open source under the Apache License 2.0."
+#, fuzzy
+msgid "The blueprint is open source, under the Apache License 2.0."
 msgstr "Logiciel libre sous licence Apache 2.0."
+
+#~ msgid "The steps in dependency order, each with a clear point at which it is done."
+#~ msgstr "Les étapes dans l'ordre des dépendances, chacune avec un point clair où elle est terminée."
 
 #~ msgid "Data platform blueprint"
 #~ msgstr "Plan de référence de plateforme de données"

@@ -1,6 +1,7 @@
 # Assessment
 
-Tests and examinations, who sat them, and their results.
+This context covers tests and examinations: who sat them, and the
+results they got.
 
 ## Language
 

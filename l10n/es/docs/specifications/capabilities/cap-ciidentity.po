@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ciidentity.md
-msgid "Let CI act on the platform without any stored secret, and make sure no identity can widen its own access."
+msgid "CI can act on the platform without any stored secret, and no identity can widen its own access."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ciidentity.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ciidentity.md
-msgid "A stored secret can be copied; a federated token is minted per run and only for a protected environment ([P3]{1}). The identity that defines identities is the root of trust and is created by a person once ([P4]{2}). Role assignment rights are conditioned to a list ([P5]{3})."
+msgid "A stored secret can be copied. A federated token, by contrast, is minted for each run and only for a protected environment ([P3]{1}). The identity that defines all the other identities is the root of trust, so a person creates it once ([P4]{2}). The right to assign roles is limited to a listed set of roles ([P5]{3})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ciidentity.md
@@ -48,7 +48,7 @@ msgid "Federated credentials whose subject names a repository and a protected en
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ciidentity.md
-msgid "Separate plan (read-only) and apply identities per layer; a deploy and a run-as identity per product per environment."
+msgid "Separate identities for plan (read-only) and apply in each layer, and a deploy identity and a run-as identity for each product in each environment."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ciidentity.md
@@ -56,7 +56,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ciidentity.md
-msgid "Count credentials before adding them: identity providers cap federated credentials per identity. Verify the subject format of each CI host before relying on it."
+msgid "Identity providers limit how many federated credentials one identity can have, so count them before you add more. Check the subject format each CI host uses before you rely on it."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ciidentity.md

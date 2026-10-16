@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-lineage.md
-msgid "Record which inputs produced each output."
+msgid "The platform records which inputs produced each output."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-lineage.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-lineage.md
-msgid "Lineage answers what a change will affect and where a number came from."
+msgid "Lineage tells you what a change will affect, and where a number came from."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-lineage.md
@@ -38,7 +38,7 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-lineage.md
-msgid "Lineage events emitted by jobs and transformations, collected by the catalog or a lineage service."
+msgid "Lineage events emitted by jobs and transformations, and collected by the catalog or by a lineage service."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-lineage.md
@@ -46,7 +46,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-lineage.md
-msgid "Lineage exists only where an integration emits it. List the jobs without it."
+msgid "You only get lineage where an integration emits it, so keep a list of the jobs that don't."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-lineage.md

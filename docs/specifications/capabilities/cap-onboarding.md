@@ -8,21 +8,21 @@ Layer L1 · domain: delivery · depends on: [CAP-DELIVERY](cap-delivery.md), [CA
 
 ## Purpose
 
-Turn adding a product or a data source into one reviewed file, from which everything it needs is generated.
+Adding a product or a data source comes down to one reviewed file, and everything it needs is generated from that file.
 
 ## Why
 
-Hand-made identities and grants drift and are never removed. One declaration per tenant gives one place to review access and one place to revoke it ([P5](../principles.md#p5-least-privilege-enumerated)).
+Identities and grants made by hand drift, and nobody removes them. With one declaration for each tenant, there's one place to review its access and one place to revoke it ([P5](../principles.md#p5-least-privilege-enumerated)).
 
 ## Interfaces
 
-- `tenants/<name>.yaml` in the platform repository: owner role, domain, ingestion method, highest classification, catalogs written and read, operational database, trusted repository.
-- Generated: identities, federated credentials, grants, schemas, required reviewers.
-- Published outputs per product and environment, consumed by the product's pipeline.
+- A `tenants/<name>.yaml` file in the platform repository, giving the owner role, domain, ingestion method, highest classification, the catalogs written and read, the operational database and the trusted repository.
+- What is generated from it: identities, federated credentials, grants, schemas and required reviewers.
+- Outputs published for each product and environment, which the product's pipeline uses.
 
 ## Notes
 
-The boundary between platform and product: the platform owns anything that crosses a permission boundary; the product owns what is inside its grant.
+This is where the platform and a product divide. The platform owns anything that crosses a permission boundary, and the product owns whatever is inside its grant.
 
 ## Contract
 

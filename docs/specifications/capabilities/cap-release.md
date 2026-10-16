@@ -8,16 +8,16 @@ Layer L3 · domain: product · depends on: [CAP-REVIEW](cap-review.md).
 
 ## Purpose
 
-Release results only when every expected subject is accounted for.
+Results are released only when every expected subject is accounted for.
 
 ## Why
 
-A release is the point of no return; reconciliation against an external register is the last check before it.
+Once results are released, they can't be taken back. Reconciling them against an external register is the last check before that point.
 
 ## Interfaces
 
-- A gate that reads BLOCKED or CLEAR per release unit.
-- Register snapshots per sitting.
+- A gate that reads BLOCKED or CLEAR for each release unit.
+- A snapshot of the register for each sitting.
 
 ## Contract
 

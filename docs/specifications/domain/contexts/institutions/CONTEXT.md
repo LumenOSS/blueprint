@@ -1,6 +1,7 @@
 # Institutions
 
-The institutions that provide education, the sites they operate from, and the state of those sites.
+This context covers the institutions that provide education, the sites
+they work from, and the state of those sites.
 
 ## Language
 

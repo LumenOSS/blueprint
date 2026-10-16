@@ -8,20 +8,20 @@ Layer L2 · domain: delivery
 
 ## Purpose
 
-Share building blocks across repositories without sharing state or identity, and make names predictable.
+Repositories share building blocks without sharing state or identity, and names are predictable.
 
 ## Why
 
-Deterministic names let stacks find each other without reading state ([CAP-STATE.6](cap-state.md)). Pinning by tag means a module change reaches a stack only through that stack's own reviewed change.
+Because names are deterministic, stacks can find each other without reading each other's state ([CAP-STATE.6](cap-state.md)). Because modules are pinned by tag, a change to a module only reaches a stack through that stack's own reviewed change.
 
 ## Interfaces
 
 - Module sources pinned by tag or digest.
-- A naming module: `<type>-<project>-<environment>-<region>-<instance>`, with a compact form where a resource forbids hyphens, plus the standard tag set.
+- A naming module that produces `<type>-<project>-<environment>-<region>-<instance>`, with a compact form for resources that don't allow hyphens, along with the standard set of tags.
 
 ## Notes
 
-Many resource names cannot change after creation. Treat any change to a name output as breaking.
+Many resource names can't be changed once the resource exists, so treat any change to a name the module produces as a breaking change.
 
 ## Contract
 

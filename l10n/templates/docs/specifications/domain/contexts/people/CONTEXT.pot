@@ -10,7 +10,7 @@ msgid "People"
 msgstr ""
 
 #: docs/specifications/domain/contexts/people/CONTEXT.md
-msgid "Who a person is, recorded once, whatever roles they hold."
+msgid "This context records who a person is, once, whatever roles they hold."
 msgstr ""
 
 #: docs/specifications/domain/contexts/people/CONTEXT.md

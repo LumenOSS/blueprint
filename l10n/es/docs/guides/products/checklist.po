@@ -12,7 +12,19 @@ msgid "Product checklist"
 msgstr ""
 
 #: docs/guides/products/checklist.md
-msgid "A product inherits most of its obligations from the platform; this checklist names the capabilities whose clauses a product must satisfy itself. Copy it into the product repository and record, for each row, how the product meets the clauses and where the evidence is. Rows that do not apply are marked not applicable with a reason, exactly as in a [binding]{1}."
+msgid "A product inherits most of its obligations from the platform. This checklist names the capabilities whose clauses the product has to satisfy itself."
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "Copy the checklist into the product's repository."
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "For each row, record how the product meets the clauses, and where the evidence is."
+msgstr ""
+
+#: docs/guides/products/checklist.md
+msgid "If a row doesn't apply, mark it not applicable and give the reason, just as you would in a [binding]{1}."
 msgstr ""
 
 #: docs/guides/products/checklist.md
@@ -36,7 +48,7 @@ msgid "[CAP-MASTERDATA]{1}"
 msgstr ""
 
 #: docs/guides/products/checklist.md
-msgid "Which registries it reads; it never mints identifiers of its own for core resources"
+msgid "Which registries it reads. It never creates its own identifiers for core resources"
 msgstr ""
 
 #: docs/guides/products/checklist.md
@@ -144,5 +156,5 @@ msgid "Accessibility and language evidence for its interfaces"
 msgstr ""
 
 #: docs/guides/products/checklist.md
-msgid "The example products show the checklist filled in by their conformance steps: [document review]{1} and [annual census]{2}."
+msgid "To see the checklist filled in, look at the conformance steps of the two example products, [document review]{1} and the [annual census]{2}."
 msgstr ""

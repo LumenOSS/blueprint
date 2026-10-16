@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md
-msgid "Collect periodic returns, such as an annual census, from every institution, and turn them into official figures that can be trusted and revised openly."
+msgid "The platform collects periodic returns from every institution, such as an annual census, and turns them into official figures that people can trust and that are revised in the open."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md
-msgid "Most system-level indicators are stocks at a reference date. They are only comparable across institutions and years if every institution reports against the same date, the same instrument and the same rules, and if the figures are frozen before they are used ([P18]{1})."
+msgid "Most system-level indicators count something as it stood on a reference date. You can only compare them across institutions and years if every institution reports for the same date, on the same instrument and under the same rules, and if the figures are frozen before anyone uses them ([P18]{1})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md
@@ -40,15 +40,15 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md
-msgid "Versioned instruments; returns with states and attestation."
+msgid "Versioned instruments, and returns that move through states and are attested."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md
-msgid "A completeness gate per area."
+msgid "A completeness gate for each area."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md
-msgid "Locked snapshots at the reference date."
+msgid "Snapshots locked at the reference date."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md
@@ -56,7 +56,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md
-msgid "Connectivity varies widely between institutions; plan for capture that works offline and synchronises later. The [census product]{1} is the worked example."
+msgid "Connectivity varies a great deal between institutions, so plan for data capture that works offline and synchronises later. The [census product]{1} is the worked example."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-collection.md

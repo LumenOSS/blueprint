@@ -8,20 +8,20 @@ Layer L1 · domain: governance · depends on: [CAP-CATALOG](cap-catalog.md), [CA
 
 ## Purpose
 
-Let data leave the platform only as de-identified or aggregated tables, approved and registered. This page covers partner sharing of row-level data; open aggregate statistics are [CAP-PUBLICATION](cap-publication.md), and a person's own records are [CAP-RECORDS.7](cap-records.md).
+Data leaves the platform only as de-identified or aggregated tables, each approved and registered. This page covers sharing row-level data with partners. Open aggregate statistics are covered by [CAP-PUBLICATION](cap-publication.md), and a person's own records by [CAP-RECORDS.7](cap-records.md).
 
 ## Why
 
-Sharing protocols do not carry the provider's policies to the recipient, so protection must be in the data ([P15](../principles.md#p15-publish-never-export)).
+Sharing protocols don't carry the provider's policies over to the recipient, so the protection has to be in the data itself ([P15](../principles.md#p15-publish-never-export)).
 
 ## Interfaces
 
-- A publication catalog built by the transformation layer.
-- An open sharing protocol; a recipient register; a sharing panel.
+- A publication catalog, built by the transformation layer.
+- An open sharing protocol, a register of recipients, and a sharing panel.
 
 ## Notes
 
-An unsalted hash of an identifier can be reversed by trying every plausible identifier. Use a keyed hash or a surrogate key.
+An identifier hashed without a salt can be reversed by trying every plausible identifier. Use a keyed hash or a surrogate key instead.
 
 ## Contract
 

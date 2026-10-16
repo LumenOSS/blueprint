@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md
-msgid "Be the single place that knows every dataset and decides who may read which rows and columns of it."
+msgid "The catalog is the one place that knows about every dataset, and it decides who may read which rows and columns."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md
-msgid "Policies enforced in one engine and not another are not policies. Group-only grants keep access reviewable ([P5]{1}); domain catalogs keep ownership clear and data in one place ([P6]{2})."
+msgid "A policy that one engine enforces and another ignores isn't really a policy. Granting access only to groups keeps it reviewable ([P5]{1}), and having one catalog per domain keeps ownership clear and each dataset in one place ([P6]{2})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md
@@ -40,7 +40,7 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md
-msgid "Namespaces: `<domain>_<env>` catalogs; `<product>_<layer>` schemas inside the domain."
+msgid "Namespaces, with `<domain>_<env>` catalogs and `<product>_<layer>` schemas inside each domain."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md
@@ -48,7 +48,7 @@ msgid "Grants, governed tags, row filters and column masks."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md
-msgid "Credential vending to engines."
+msgid "Credentials vended to engines."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md
@@ -56,7 +56,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md
-msgid "Where engines differ in what they enforce, route protected tables only through engines that enforce the policies, and deny the rest."
+msgid "Engines differ in what they enforce. Route protected tables only through the engines that enforce the policies, and deny access to the rest."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-catalog.md

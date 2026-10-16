@@ -10,7 +10,7 @@ msgid "Translating"
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "The documentation is written in English and translated through translation files, never by copying pages. This guide is for translators, and for anyone who edits a page that has translations."
+msgid "We write the documentation in English and translate it through translation files, never by copying pages. This guide is for translators, and for anyone who edits a page that has been translated."
 msgstr ""
 
 #: docs/guides/translating.md
@@ -18,27 +18,19 @@ msgid "How it works"
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Each English page is split into strings (paragraphs, headings, list items, table cells) in a **template**, a standard gettext [PO file]{1}."
+msgid "Each English page is split into strings, meaning its paragraphs, headings, list items and table cells. The strings go into a **template**, which is a standard gettext [PO file]{1}. Each language then has its own **PO file** for each page, holding a translation of every string."
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Each language has a **PO file** per page holding the translation of every string."
+msgid "When an English string changes, its translation is marked **fuzzy**, which means someone needs to check it. A page is only published in a language when every string is translated and none is fuzzy. Until then, readers see the English page instead, so nobody reads a translation that has fallen behind."
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "When an English string changes, its translation is marked **fuzzy**: it needs checking. A page is published in a language only when every string is translated and none is fuzzy. Until then, readers see the English page, so they never read a translation that has fallen behind."
+msgid "Code blocks, diagrams and page headers are never offered for translation, so a translation can't break them. Links become numbered placeholders, such as `{1}`, which the translation keeps. Decision records and improvement proposals stay in English, the language they were decided in."
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Code blocks, diagrams and page headers are never offered for translation, so a translation cannot break them. Links become numbered placeholders such as `{1}`, which a translation keeps."
-msgstr ""
-
-#: docs/guides/translating.md
-msgid "Decision records and improvement proposals stay in English, the language they were decided in."
-msgstr ""
-
-#: docs/guides/translating.md
-msgid "The languages are listed in [`l10n/languages.toml`]{1}. `just l10n-status` shows how much of each is translated."
+msgid "The languages are listed in [`l10n/languages.toml`]{1}, and `just l10n-status` shows how much of each one is translated."
 msgstr ""
 
 #: docs/guides/translating.md
@@ -50,23 +42,23 @@ msgid "Open the page's PO file, for example `l10n/fr/docs/concepts/emis.po`, in 
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Translate every string. Keep each placeholder (`{1}`), each pair of `**` and each pair of backticks. Leave values in backticks, such as `CAP-ACCESS` or `learners_prod`, as they are."
+msgid "Translate every string. Keep each placeholder (`{1}`), each pair of `**` and each pair of backticks. Leave values in backticks, such as `CAP-ACCESS` or `learners_prod`, exactly as they are."
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Clear the fuzzy flag on each string you have checked."
+msgid "Clear the fuzzy flag on each string once you've checked it."
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Run `just l10n-update`, then `just check`. The update tidies the files; the check fails if any file is stale or malformed."
+msgid "Run `just l10n-update`, then `just check`. The update tidies the files, and the check fails if any file is stale or malformed."
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Preview with `nix develop .#site --command just site-serve` and open the page under `/fr/`."
+msgid "Preview the site with `nix develop .#site --command just site-serve`, and open the page under `/fr/`."
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Translated pages show a note that no native speaker has reviewed them. When a native speaker has reviewed every string in a file, set its header field `X-Review-Status` to `reviewed`, and the note goes away."
+msgid "Translated pages carry a note saying that no native speaker has reviewed them yet. Once a native speaker has reviewed every string in a file, set the file's `X-Review-Status` header field to `reviewed`, and the note disappears."
 msgstr ""
 
 #: docs/guides/translating.md
@@ -74,7 +66,7 @@ msgid "Translate the website's interface"
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Menu labels and the review note come from `site/i18n/<language>.toml`, keyed as in `site/i18n/en.toml`. The theme translates its own labels, such as \"Table of contents\"."
+msgid "The menu labels and the review note come from `site/i18n/<language>.toml`, which uses the same keys as `site/i18n/en.toml`. The theme translates its own labels, such as \"Table of contents\", so you don't need to."
 msgstr ""
 
 #: docs/guides/translating.md
@@ -82,7 +74,7 @@ msgid "Edit an English page that has translations"
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Edit the English page as usual, then run `just l10n-update` in the same change. The strings you changed become fuzzy in every language, and those pages fall back to English until a translator has checked them. The change says so; it does not wait for the translations."
+msgid "Edit the English page as usual, then run `just l10n-update` in the same change. The strings you changed become fuzzy in every language, so those pages show in English until a translator has checked them. Say so in your change, but don't wait for the translations before making it."
 msgstr ""
 
 #: docs/guides/translating.md
@@ -94,7 +86,7 @@ msgid "Adding a language is an ordinary reviewed change:"
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Add it to `l10n/languages.toml` with its [BCP 47]{1} tag and its name in that language, and `direction = \"rtl\"` if it is written right to left."
+msgid "Add it to `l10n/languages.toml`, with its [BCP 47]{1} tag and its name in that language. If it's written right to left, add `direction = \"rtl\"` as well."
 msgstr ""
 
 #: docs/guides/translating.md
@@ -110,13 +102,9 @@ msgid "Writing English that translates well"
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Short sentences, one idea each. Plain words over idioms."
+msgid "Translators work one string at a time, so English that's clear on its own translates best. Keep sentences short, with one idea in each, and choose plain words over idioms. Write whole sentences rather than fragments, and don't put text in images. Diagram labels aren't translated yet, so keep them short."
 msgstr ""
 
 #: docs/guides/translating.md
-msgid "Do not build sentences from fragments, and do not put text in images. Diagram labels are not translated yet, so keep them short."
-msgstr ""
-
-#: docs/guides/translating.md
-msgid "Use the canonical terms from the [context map]{1}. A term used consistently is translated consistently."
+msgid "Use the canonical terms from the [context map]{1}, because a term you use consistently gets translated consistently."
 msgstr ""

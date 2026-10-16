@@ -12,7 +12,7 @@ msgid "Indicators"
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "How an EMIS defines, computes and publishes the indicators it reports. The rules apply to every indicator; the families below show what each kind is built from."
+msgid "This page describes how an EMIS defines, computes and publishes the indicators it reports. The rules apply to every indicator, and the families further down show what each kind of indicator is built from."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
@@ -20,7 +20,7 @@ msgid "What every indicator declares"
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "From [CAP-SEMANTICS.3]{1}, each indicator is defined once, in the [semantic layer]{2}, with:"
+msgid "Under [CAP-SEMANTICS.3]{1}, each indicator is defined once, in the [semantic layer]{2}, and its definition answers these questions:"
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
@@ -80,7 +80,7 @@ msgid "The owning role, and the version of the definition each figure used"
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "A denominator from outside the system, such as a population estimate by single year of age, is versioned reference data with its source and vintage ([CAP-SEMANTICS.5]{1})."
+msgid "Some denominators come from outside the system, such as a population estimate by single year of age. They're kept as versioned reference data, with their source and vintage ([CAP-SEMANTICS.5]{1})."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
@@ -88,7 +88,11 @@ msgid "International definitions"
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "Indicators with an international definition follow the [UIS Official List of SDG 4 Indicators]{1} (October 2026 edition) and the definitions in the [UIS Glossary: Education Metadata]{2} (2026); the codes of the twelve global indicators are those of the UN [global indicator framework]{3} after its 2026 refinement. Each indicator records the edition it follows ([CAP-SEMANTICS.4]{4}), because these lists change: the October 2026 revision, for example, removed the pupil–qualified-teacher ratio and redefined 4.c.2 as the pupil–teacher ratio. The [standards register]{5} records the editions relied on."
+msgid "When an indicator has an international definition, it follows the [UIS Official List of SDG 4 Indicators]{1} (October 2026 edition) and the definitions in the [UIS Glossary: Education Metadata]{2} (2026). The codes of the twelve global indicators are those of the UN [global indicator framework]{3} after its 2026 refinement."
+msgstr ""
+
+#: docs/specifications/domain/indicators.md
+msgid "These lists change, so each indicator records the edition it follows ([CAP-SEMANTICS.4]{1}). The October 2026 revision, for example, removed the pupil–qualified-teacher ratio and redefined 4.c.2 as the pupil–teacher ratio. The [standards register]{2} records the editions we rely on."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
@@ -244,15 +248,15 @@ msgid "Three conventions follow from the international definitions:"
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "**Parity indices are adjusted.** The ratio of one group to another is folded so it is symmetrical around 1: if the ratio is above 1 it becomes 2 minus its inverse. Publications say which form they use."
+msgid "**Parity indices are adjusted.** The ratio of one group to another is folded so that it's symmetrical around 1. If the ratio is above 1, it becomes 2 minus its inverse. Publications say which form they use."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "**Completion from administrative data is a proxy.** The SDG completion rate is defined over a cohort above the intended age and is measured mainly by household surveys; an EMIS figure is labelled as a proxy."
+msgid "**Completion from administrative data is a proxy.** The SDG completion rate is defined over a cohort above the intended age, and it's measured mainly through household surveys. So a completion figure from an EMIS is labelled as a proxy."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "**Out-of-school counts need every level.** A learner enrolled at any level is in school, so the learner registry must cover all levels or the rate is overstated."
+msgid "**Out-of-school counts need every level.** A learner enrolled at any level is in school. If the learner registry doesn't cover all levels, the out-of-school rate comes out too high."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
@@ -260,15 +264,15 @@ msgid "Worked example: gross enrolment ratio"
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "The gross enrolment ratio for a level is total enrolment in that level, regardless of age, as a percentage of the population of official school age for that level."
+msgid "The gross enrolment ratio for a level is the total enrolment in that level, whatever the learners' ages, as a percentage of the population of official school age for that level. Here's how it moves through the platform."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "**Gold stores counts** as at the census reference date: learners enrolled in each level, by area and sex, with levels mapped to ISCED 2011 ([CAP-TRANSFORMATION.5]{1}, [CAP-REFERENCE.4]{2})."
+msgid "**Gold stores counts** as at the census reference date. It holds the number of learners enrolled in each level, by area and sex, with levels mapped to ISCED 2011 ([CAP-TRANSFORMATION.5]{1}, [CAP-REFERENCE.4]{2})."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "**The denominator is reference data:** the population of official school age by area, sex and single year of age, with its source and vintage ([CAP-SEMANTICS.5]{1})."
+msgid "**The denominator is reference data.** It's the population of official school age by area, sex and single year of age, with its source and vintage ([CAP-SEMANTICS.5]{1})."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
@@ -280,13 +284,13 @@ msgid "**The snapshot is locked** when the census completeness gate reads CLEAR 
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "**Publication applies disclosure control,** then the figure is published with a permanent identifier and its metadata ([CAP-PUBLICATION]{1})."
+msgid "**Disclosure control is applied,** and then the figure is published with a permanent identifier and its metadata ([CAP-PUBLICATION]{1})."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "**A revision,** whether a late correction or a new population estimate, is a new version of the snapshot and of the published table; the earlier one stays readable."
+msgid "**A revision is a new version.** Whether it's a late correction or a new population estimate, it creates a new version of the snapshot and of the published table, and the earlier version stays readable."
 msgstr ""
 
 #: docs/specifications/domain/indicators.md
-msgid "Because the ratio is derived from counts and a versioned denominator, the same definition gives the national figure and every area's figure, and a change of population estimate is visible as a new version rather than a silent shift. The ratio can exceed 100 per cent, which is expected when learners outside the official age are enrolled."
+msgid "Because the ratio is derived from counts and a versioned denominator, one definition gives you both the national figure and every area's figure. And when the population estimate changes, you see it as a new version, not as a silent shift. Don't be surprised if the ratio goes above 100 per cent: that's expected when learners outside the official age are enrolled."
 msgstr ""

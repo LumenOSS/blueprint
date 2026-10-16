@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-review.md
-msgid "Route uncertain results to people and keep their decisions safe from machines and from each other."
+msgid "Uncertain results go to people, and their decisions are protected from machines and from each other."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-review.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-review.md
-msgid "A low-confidence guess is worse than no answer ([P10]{1}). Mutual exclusion belongs in the database, where one statement can claim an item."
+msgid "A low-confidence guess is worse than no answer ([P10]{1}). The database is where mutual exclusion belongs, because there a single statement can claim an item."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-review.md
@@ -40,7 +40,15 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-review.md
-msgid "A review queue; leases as database keys; typed attribution of decisions."
+msgid "A review queue."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "Leases held as database keys."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-review.md
+msgid "A record of who or what made each decision, by type."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-review.md

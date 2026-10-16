@@ -8,17 +8,17 @@ Layer L1 · domain: delivery
 
 ## Purpose
 
-Hold the few secrets that remain, and the keys that protect data and state, under the platform's control.
+The few secrets that remain, and the keys that protect data and state, are held under the platform's control.
 
 ## Why
 
-Federation removes most secrets ([P3](../principles.md#p3-federation-not-secrets)); what remains must never depend on one person's key. Creation-only settings cannot be fixed later, so they are decided before the first apply.
+Federation removes most secrets ([P3](../principles.md#p3-federation-not-secrets)), and whatever is left must never depend on one person's key. Some settings can only be chosen when a resource is created and can't be fixed afterwards, so they're decided before the first apply.
 
 ## Interfaces
 
-- A managed secret store per environment, reached by workload identity.
-- Encrypted files in repositories only with a recipient set of roles or CI.
-- A values file that states each creation-only option.
+- A managed secret store for each environment, reached through workload identity.
+- Encrypted files in repositories, only when their recipients are roles or CI.
+- A values file that states each option that can only be set at creation.
 
 ## Contract
 

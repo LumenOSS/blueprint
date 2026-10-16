@@ -12,7 +12,7 @@ msgid "Contributing"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Thank you for helping. This blueprint is meant to be adopted by education authorities and built by many teams, so every change is made in the open and checked by machine before a person reviews it. This guide says which path a change takes, how to set up, and what a reviewer will look for."
+msgid "Thank you for helping. We want education authorities to adopt this blueprint and many teams to build it, so we make every change in the open, and the tools check it before a person reviews it. This guide tells you which path your change takes, how to set up, and what a reviewer will look for."
 msgstr ""
 
 #: CONTRIBUTING.md
@@ -156,7 +156,7 @@ msgid "Linking the test that proves CAP-ACCESS.7"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "If you are unsure, open a discussion and ask; it costs nothing to start there."
+msgid "If you're not sure which path applies, open a discussion and ask. It costs nothing to start there."
 msgstr ""
 
 #: CONTRIBUTING.md
@@ -164,7 +164,7 @@ msgid "Proposing a change with a LIP"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "The process is in [LIP-1]{1}; in short:"
+msgid "[LIP-1]{1} describes the process in full. In short:"
 msgstr ""
 
 #: CONTRIBUTING.md
@@ -176,15 +176,15 @@ msgid "Copy the [template]{1} to `docs/lips/lip-draft-<short-name>.md`, fill in 
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Move it to Review when the text is complete; it then goes to a 14-day Last Call and a decision by the Data Lead and the Technical Lead."
+msgid "Move it to Review when the text is complete. After that it goes to a 14-day Last Call, and then the Data Lead and the Technical Lead decide."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "An accepted LIP is recorded as a [decision record]{1} and released in a catalogue version."
+msgid "If it's accepted, we record it as a [decision record]{1} and release it in a catalogue version."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Every LIP has a privacy and safeguarding section. The data this blueprint governs is mostly about children; say what your change does to it."
+msgid "Every LIP has a privacy and safeguarding section. Most of the data this blueprint governs is about children, so tell us what your change does to it."
 msgstr ""
 
 #: CONTRIBUTING.md
@@ -192,11 +192,11 @@ msgid "Setting up"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Everything runs in the Nix dev shell, and every task is a `just` recipe, so your tools match everyone else's."
+msgid "Everything runs in the Nix dev shell, and every task is a `just` recipe. That way your tools are the same as everyone else's."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "With [direnv]{1}, `direnv allow` enters the shell for you."
+msgid "If you use [direnv]{1}, run `direnv allow` once and it will enter the shell for you."
 msgstr ""
 
 #: CONTRIBUTING.md
@@ -204,31 +204,31 @@ msgid "Making the change"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "**Edit the source, not the output.** Clause text, levels, verification and examples live in [`blueprint/catalogue.yaml`]{1}; standards in [`blueprint/standards.yaml`]{2}. Anything between `BEGIN GENERATED` and `END GENERATED` markers is written by `just render`; edit the source and run it."
+msgid "**Edit the source, not the output.** Clause text, levels, verification and examples live in [`blueprint/catalogue.yaml`]{1}, and standards live in [`blueprint/standards.yaml`]{2}. `just render` writes everything between `BEGIN GENERATED` and `END GENERATED` markers, so edit the source and then run it."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "**Let the tools format.** Formatting and lint rules live in the configuration files at the root. Run `just fmt` rather than fixing layout by hand; if a rule is wrong, change the rule in its config file, in its own change."
+msgid "**Let the tools format.** The formatting and lint rules live in the configuration files at the root. Run `just fmt` rather than fixing the layout by hand. If you think a rule is wrong, change it in its config file, in a change of its own."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "**Use the domain language.** Each bounded context's terms are in its `CONTEXT.md`, listed in the [context map]{1}. Use the canonical term, never a word under *Avoid*. A new term goes into its context's `CONTEXT.md` in the same change."
+msgid "**Use the domain language.** Each bounded context keeps its terms in its `CONTEXT.md`, and the [context map]{1} lists them all. Use the canonical term, and never a word listed under *Avoid*. If you settle a new term, add it to its context's `CONTEXT.md` in the same change."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "**Write clauses that can be checked.** A clause uses MUST, SHOULD or MAY in the sense of [BCP 14]{1}, says what is required rather than which product provides it, and has a `verify` that a test or a reviewer can apply. Add an `example` when the clause is abstract."
+msgid "**Write clauses that can be checked.** A clause uses MUST, SHOULD or MAY in the sense of [BCP 14]{1}. It says what is required, not which product provides it, and its `verify` says how a test or a reviewer can check it. If the clause is abstract, add an `example`."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "**Cite standards where they are published.** Link the publisher's own page for the edition you rely on, and add it to the standards register, rather than citing a summary of it."
+msgid "**Cite standards where they're published.** Link to the publisher's own page for the edition you rely on, and add it to the standards register. Don't cite someone else's summary of it."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "**Write English that translates well.** Short sentences, plain words, no text in images. After editing a page that has translations, run `just l10n-update` in the same change; see [translating]{1}."
+msgid "**Write English that translates well.** Use short sentences and plain words, and don't put text in images. If you edit a page that has translations, run `just l10n-update` in the same change. The [translating]{1} guide explains why."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "**Name roles, not people.** Write \"the Data Lead\", \"the steward of the learners domain\", never a person's name, and no real learners, staff or institutions in examples."
+msgid "**Name roles, not people.** Write \"the Data Lead\" or \"the steward of the learners domain\", never a person's name. Don't use real learners, staff or institutions in examples either."
 msgstr ""
 
 #: CONTRIBUTING.md
@@ -236,11 +236,11 @@ msgid "Committing"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "The repository uses [jj]{1} colocated with Git; plain Git works too. Keep each change small and about one thing."
+msgid "The repository uses [jj]{1}, colocated with Git, but plain Git works too. Keep each change small and about one thing."
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Commit messages follow the Angular convention: `type(scope): subject`, with a lowercase, imperative subject under 72 characters, and a body that says *why*. Types are feat, fix, docs, style, refactor, perf, test, build, ci, chore and revert. Put `BREAKING CHANGE:` in the footer when a change breaks existing bindings."
+msgid "Commit messages follow the Angular convention, `type(scope): subject`. Write the subject in lowercase, in the imperative, in under 72 characters, and use the body to say *why* you made the change. The types are feat, fix, docs, style, refactor, perf, test, build, ci, chore and revert. If your change breaks existing bindings, put `BREAKING CHANGE:` in the footer."
 msgstr ""
 
 #: CONTRIBUTING.md
@@ -248,31 +248,31 @@ msgid "Review"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "A reviewer checks, in order:"
+msgid "A reviewer checks these things, in this order:"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "`just check` passes."
+msgid "Does `just check` pass?"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "The change took the right path from the table above."
+msgid "Did the change take the right path from the table above?"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Clauses are testable, product-neutral and use the domain language."
+msgid "Are the clauses testable and product-neutral, and do they use the domain language?"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Generated sections were regenerated, not edited."
+msgid "Were generated sections regenerated rather than edited by hand?"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "The effect on learners' and staff members' data is stated and acceptable."
+msgid "Does the change say what it does to learners' and staff members' data, and is that acceptable?"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Reviews follow Google's [engineering practices]{1}: a change is approved when it improves the blueprint, even if it is not perfect."
+msgid "Reviews follow Google's [engineering practices]{1}. In particular, a reviewer approves a change when it makes the blueprint better, even if it isn't perfect."
 msgstr ""
 
 #: CONTRIBUTING.md
@@ -280,7 +280,7 @@ msgid "Reporting a security or safeguarding problem"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Do not open a public issue for a problem that could expose people's data. Use the code host's private vulnerability reporting for this repository, or contact the maintainers privately."
+msgid "If a problem could expose people's data, please don't open a public issue about it. Use the code host's private vulnerability reporting for this repository, or contact the maintainers privately."
 msgstr ""
 
 #: CONTRIBUTING.md
@@ -288,5 +288,5 @@ msgid "Licence"
 msgstr ""
 
 #: CONTRIBUTING.md
-msgid "Contributions are made under the [Apache License 2.0]{1}, the licence of this repository."
+msgid "You make your contribution under the [Apache License 2.0]{1}, the licence of this repository."
 msgstr ""

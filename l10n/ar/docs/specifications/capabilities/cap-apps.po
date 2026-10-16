@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-apps.md
-msgid "Host product interfaces that are private by default and say which environment they are in."
+msgid "Product interfaces are hosted so that they're private by default and can say which environment they're running in."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-apps.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-apps.md
-msgid "A half-switched environment is not partially safe: an application can write to one environment while every label says another. Asking the application which world it believes it is in catches that."
+msgid "An environment that has only been half switched isn't half safe. An application can write to one environment while every label on it says another. If you ask the application which environment it believes it's in, you catch that."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-apps.md
@@ -40,11 +40,11 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-apps.md
-msgid "A health endpoint reporting target, catalog and schema, database branch and schema version, build version."
+msgid "A health endpoint that reports the target, the catalog and schema, the database branch and schema version, and the build version."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-apps.md
-msgid "A versioned interface with a pinned snapshot."
+msgid "A versioned interface, with a pinned snapshot of it."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-apps.md

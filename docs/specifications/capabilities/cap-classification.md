@@ -8,16 +8,16 @@ Layer L1 · domain: governance · depends on: [CAP-CATALOG](cap-catalog.md).
 
 ## Purpose
 
-Label every table by sensitivity and provenance from the moment it lands.
+Every table is labelled with its sensitivity and its provenance from the moment it lands.
 
 ## Why
 
-Tags added at gold come too late to protect bronze. Provenance tags make drops provable ([P12](../principles.md#p12-provenance-before-any-drop)).
+Tags added at gold come too late to protect the data in bronze. Provenance tags are what let you prove a table is safe to drop ([P12](../principles.md#p12-provenance-before-any-drop)).
 
 ## Interfaces
 
 - Governed `classification` (T0–T4) and `provenance` (real, simulated, derived) tags.
-- A default policy for unclassified data; a separate catalog for T4.
+- A default policy for data that hasn't been classified yet, and a separate catalog for T4.
 
 ## Contract
 

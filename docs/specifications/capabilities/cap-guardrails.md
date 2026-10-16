@@ -8,16 +8,16 @@ Layer L1 · domain: delivery · depends on: [CAP-DELIVERY](cap-delivery.md).
 
 ## Purpose
 
-Stop non-conforming changes at plan time and catch drift from the architecture on a schedule.
+Changes that don't conform are stopped when they're planned, and drift away from the architecture is caught by regular checks.
 
 ## Why
 
-A property that is not checked decays. Fitness functions turn the principles into alarms ([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying), [P12](../principles.md#p12-provenance-before-any-drop)).
+A property that nobody checks decays over time. Fitness functions turn the principles into alarms that go off when something drifts ([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying), [P12](../principles.md#p12-provenance-before-any-drop)).
 
 ## Interfaces
 
-- Policy-as-code evaluated in the plan stage.
-- Scheduled checks: tags present, restore by hash, cost per task, no non-CI writer of state.
+- Policy as code, evaluated in the plan stage.
+- Scheduled checks, for example that tags are present, that a restore matches by hash, the cost of each task, and that nothing but CI writes state.
 
 ## Contract
 

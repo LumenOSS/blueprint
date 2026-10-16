@@ -8,20 +8,20 @@ Layer L1 · domain: data · depends on: [CAP-CATALOG](cap-catalog.md).
 
 ## Purpose
 
-Run batch, streaming and interactive work without idle cost, and only through the catalog.
+The platform runs batch, streaming and interactive work without paying for idle time, and it reads data only through the catalog.
 
 ## Why
 
-Compute that scales to zero makes production-only budgets workable. Reading only through the catalog keeps every read governed.
+Compute that scales to zero is what makes a production-only budget workable. Reading only through the catalog means every read is governed.
 
 ## Interfaces
 
-- Job compute for pipelines; a SQL endpoint for interactive queries.
-- Workload identities for every job.
+- Job compute for pipelines, and a SQL endpoint for interactive queries.
+- A workload identity for every job.
 
 ## Notes
 
-A query's timeout is its service objective. Probing with a long timeout hides the finding.
+A query's timeout is its service objective. If you probe with a long timeout, you hide the very thing you were trying to find.
 
 ## Contract
 

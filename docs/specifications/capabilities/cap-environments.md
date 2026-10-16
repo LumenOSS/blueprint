@@ -8,20 +8,20 @@ Layer L1 · domain: movement · depends on: [CAP-OPERATIONALDB](cap-operationald
 
 ## Purpose
 
-Isolate development and testing from production, with or without a second funded environment.
+Development and testing are isolated from production, whether or not you can fund a second environment.
 
 ## Why
 
-Isolation means no development write reaches production data and no consumer reads development output; branches and ungranted schemas give that inside one environment ([P7](../principles.md#p7-isolation-without-a-second-environment)).
+Isolation means that no development write reaches production data, and no consumer reads development output. Database branches and schemas without grants give you that inside a single environment ([P7](../principles.md#p7-isolation-without-a-second-environment)).
 
 ## Interfaces
 
-- A template and one values file per environment.
-- Per-change database branches and development schemas with a time to live.
+- A template, and one values file for each environment.
+- A database branch for each change, and development schemas that expire after a set time.
 
 ## Notes
 
-A database branch does not branch object storage. A branch that writes files would write them into production storage, so branches get their own storage and read production storage read-only.
+A database branch doesn't branch object storage. A branch that wrote files would write them into production storage, so each branch gets its own storage and reads production storage read-only.
 
 ## Contract
 

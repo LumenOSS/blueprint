@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-reporting.md
-msgid "Show governed numbers to people, each seeing only what they may see."
+msgid "Governed numbers are shown to people, and each person sees only what they're allowed to see."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-reporting.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-reporting.md
-msgid "Dashboards are code so they move between environments without hand edits; environment literals in a dashboard make it report another environment's numbers."
+msgid "Dashboards are kept as code, so they move between environments without anyone editing them by hand. If a dashboard contains literal environment names, it ends up reporting another environment's numbers."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-reporting.md
@@ -38,7 +38,7 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-reporting.md
-msgid "Dashboards as code, rendered per environment."
+msgid "Dashboards as code, rendered for each environment."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-reporting.md

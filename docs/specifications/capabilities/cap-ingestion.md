@@ -8,21 +8,21 @@ Layer L1 · domain: data · depends on: [CAP-ONBOARDING](cap-onboarding.md), [CA
 
 ## Purpose
 
-Bring data in by the cheapest method that works, without losing or duplicating any of it.
+Data comes into the platform by the cheapest method that works, and none of it is lost or duplicated on the way.
 
 ## Why
 
-Federation avoids a copy; change capture is worth its cost only for some sources ([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying)). Landing as a queue keeps the source of record safe and failures visible ([P8](../principles.md#p8-every-write-is-idempotent)).
+Federation avoids making a copy at all, and change capture is only worth its cost for some sources ([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying)). Treating the landing area as a queue keeps the source of record safe and makes failures visible ([P8](../principles.md#p8-every-write-is-idempotent)).
 
 ## Interfaces
 
-- A landing area with archive and quarantine.
+- A landing area, with an archive and a quarantine.
 - Federated (foreign) catalogs.
 - Change data capture into bronze.
 
 ## Notes
 
-An archive sweep copies, verifies size, then unlinks, and leaves alone anything it cannot account for.
+An archive sweep copies each file, checks its size, and only then removes the original. It leaves alone anything it can't account for.
 
 ## Contract
 

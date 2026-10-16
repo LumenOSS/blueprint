@@ -1,6 +1,8 @@
 # Reference (shared kernel)
 
-The terms every context shares: time, codes, geography and the idea of a registry. Changes here affect every context, so they are reviewed by all stewards.
+This context holds the terms every other context shares: time, codes,
+geography and the idea of a registry. A change here affects every
+context, so every steward reviews it.
 
 ## Language
 

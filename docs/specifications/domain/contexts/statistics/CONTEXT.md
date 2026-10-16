@@ -1,6 +1,8 @@
 # Statistics
 
-Collecting returns from institutions and turning counts into official, published figures. A core subdomain: official statistics are what an EMIS exists to produce.
+This context covers collecting returns from institutions and turning the
+counts into official, published figures. It's a core subdomain, because
+official statistics are what an EMIS exists to produce.
 
 ## Language
 

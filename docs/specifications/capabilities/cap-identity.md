@@ -8,21 +8,21 @@ Layer L1 · domain: governance
 
 ## Purpose
 
-Make the organisation's identity provider the one source of people and groups.
+The organisation's identity provider is the one source of people and groups.
 
 ## Why
 
-Local users and groups drift from the organisation. Renamed groups do not propagate reliably, so names are frozen.
+Users and groups created locally drift away from the organisation's real ones. Group renames don't propagate reliably, so group names are fixed once they're created.
 
 ## Interfaces
 
-- Automatic user and group provisioning (for example SCIM) into every service.
+- Automatic provisioning of users and groups into every service, for example with SCIM.
 - Group declarations in the platform repository.
 - Two break-glass accounts.
 
 ## Notes
 
-Membership refresh can lag by minutes in browsers and longer in jobs. Indirect administrator paths exist on most clouds; list them.
+A change of membership can take minutes to show up in a browser, and longer in jobs. Most clouds also have indirect ways to become an administrator, so list them.
 
 ## Contract
 

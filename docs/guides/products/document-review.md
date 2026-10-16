@@ -1,33 +1,39 @@
 # Example product: document review
 
-A small, complete workload that exercises every layer of the platform:
-scanned documents arrive, are processed by machine, uncertain results go to
-people, and results are released only when they reconcile against an
-external register. It is the pattern behind the product capabilities
+Document review is a small but complete workload that exercises every
+layer of the platform. Scanned documents arrive and a machine processes
+them. Any result the machine is unsure about goes to a person, and results
+are only released once they reconcile against an external register. It's
+the pattern behind the product capabilities
 ([CAP-PIPELINE](../../specifications/capabilities/cap-pipeline.md),
-[CAP-REVIEW](../../specifications/capabilities/cap-review.md),
-[CAP-RELEASE](../../specifications/capabilities/cap-release.md)) and the reference workload
-every implementation should run end to end.
+[CAP-REVIEW](../../specifications/capabilities/cap-review.md) and
+[CAP-RELEASE](../../specifications/capabilities/cap-release.md)), and it's
+the reference workload that every implementation should run from end to
+end.
 
-The pattern fits any **document in → machine verdict → human review →
-governed release → reporting** product: graded answer sheets, inspection
-forms, claims, survey returns. The text below uses graded answer sheets as
-its running example; nothing in it depends on that.
+The same pattern fits any product where a document comes in, a machine
+gives a verdict, people review it, the result is released under
+governance, and then it's reported. Graded answer sheets, inspection
+forms, claims and survey returns all work this way. We use graded answer
+sheets as the running example below, but nothing depends on that choice.
 
 ## Domain
 
-- **Exam.** The aggregate. It owns versioned sheet templates (a committed
-  version is immutable), grading policies, a rubric and a pinned register
-  snapshot. A sitting of an exam is a fork with its own identifier.
-- **Declared, not discovered.** Structure is declared as versioned
-  manifests (kind, name, labels; no surrogate IDs). Applying a manifest
-  validates it, diffs it by content hash (an identical spec is a no-op),
-  mints the next append-only version with an event, and activates it
-  explicitly.
-- **The register is external.** The list of expected subjects (enrolled
-  students) belongs to another system, read through an adapter and frozen
-  as a snapshot per sitting. Corrections are evented operations, never
-  edits in place.
+- **The exam is the aggregate.** It owns versioned sheet templates, and
+  once a template version is committed it can't change. It also owns the
+  grading policies, a rubric and a pinned snapshot of the register. Each
+  sitting of an exam is a fork with its own identifier.
+- **Structure is declared, not discovered.** It's written as versioned
+  manifests, which give a kind, a name and labels but no surrogate IDs.
+  When you apply a manifest, the product validates it and compares it by
+  content hash with what's already there, so applying an identical spec
+  does nothing. Otherwise it creates the next append-only version, records
+  an event, and you activate that version explicitly.
+- **The register is external.** The list of expected subjects, the
+  enrolled students, belongs to another system. The product reads it
+  through an adapter and freezes it as a snapshot for each sitting.
+  Corrections are recorded as operations with events, never as edits in
+  place.
 
 ## Flow
 
@@ -67,103 +73,119 @@ flowchart LR
 
 ### Why it is drawn this way
 
-- **Triage runs cheapest first:** content hash at the door, then a
-  structural check that refuses foreign documents, then a perceptual
-  fingerprint that flags likely rescans. Refusals go to quarantine with a
-  reason, never silently away.
-- **Review loops back into the same database,** because a human decision is
-  just another write, guarded so no machine write can overwrite it.
-- **Reports read gold through the catalog,** never the operational database
-  directly ([CAP-TRANSFORMATION.3](../../specifications/capabilities/cap-transformation.md)).
+- **Triage runs the cheapest checks first.** The content hash is checked
+  at the door. Then a structural check refuses documents that don't
+  belong, and a perceptual fingerprint flags likely rescans. Anything
+  refused goes to quarantine with a reason; nothing quietly disappears.
+- **Review loops back into the same database.** A human decision is just
+  another write, but it's guarded so that no machine write can overwrite
+  it.
+- **Reports read gold through the catalog,** and never read the
+  operational database directly
+  ([CAP-TRANSFORMATION.3](../../specifications/capabilities/cap-transformation.md)).
 
 ## Stages
 
 | Stage | Does | Reads → writes | Database |
 | --- | --- | --- | --- |
-| Normalise | Rectifies the page to its template; a high residual goes to a person. Writes the normalised page and, last, a small manifest that triggers the next stage. | landing → pages | no |
-| Fingerprint | Hashes the marks on the page to flag likely rescans. It only flags; a person confirms; nothing is dropped automatically. | pages → fingerprints | no |
-| Read | Measures each answer area and decides a label with a confidence, from measurements only. Below threshold, or any double mark, goes to review with a reason code. | pages → readings | no |
-| Publish | Writes verdicts, events and a provenance record per page; renders review images; sweeps originals to the archive. | readings → database, archive | yes, the only one |
+| Normalise | Rectifies the page to match its template, and sends it to a person if the residual is high. It writes the normalised page and then, last of all, a small manifest that triggers the next stage. | landing → pages | no |
+| Fingerprint | Hashes the marks on the page to flag likely rescans. It only flags them: a person confirms, and nothing is dropped automatically. | pages → fingerprints | no |
+| Read | Measures each answer area and decides a label with a confidence, using measurements only. Anything below the threshold, or with a double mark, goes to review with a reason code. | pages → readings | no |
+| Publish | Writes the verdicts, the events and a provenance record for each page, renders the review images, and moves the originals to the archive. | readings → database, archive | yes, and it's the only one |
 
-Every artefact is stamped with `{stage, at, run_id}`. Publish assembles one
-provenance record per page that names the version of every stage; a stage
-that did not run reads as absent, never invented.
+Every artefact is stamped with `{stage, at, run_id}`. Publish puts
+together one provenance record for each page, naming the version of every
+stage. If a stage didn't run, the record shows it as absent rather than
+inventing a value.
 
 ## What makes it retryable
 
-- **Identity is the hash of the bytes.** The same file under another name,
-  or delivered twice, converges on one record.
-- **Pending is recomputed from what exists.** Nothing is consumed on read,
-  so a failed run strands nothing; the next run sees the same work.
-- **Overlap is wasteful, not wrong.** Safety comes from idempotence and
-  atomic writes (write then rename, copy then unlink), not from locks.
-  A stage that holds an index in memory runs at concurrency one, because
-  two indexes would each miss the other's matches.
-- **Plan, fan out, finish.** A planner cuts disjoint slices; workers
-  process them; a finishing step re-queues the job only if work remains
-  and the run made progress. A run with nothing to do exits in seconds.
-- **Bounded runs.** Each run takes at most
-  `floor(timeout / (1.5 × median item time))` items, the median measured
-  over recent runs. A missing or broken limit means uncapped, never
-  stopped.
+- **A document's identity is the hash of its bytes.** So if the same file
+  arrives under another name, or arrives twice, it still ends up as one
+  record.
+- **The pending work is worked out again from what exists.** Reading an
+  item doesn't consume it, so a failed run leaves nothing stranded, and
+  the next run sees the same work.
+- **Overlapping runs waste effort, but they don't cause errors.** Safety
+  comes from idempotence and atomic writes (write then rename, or copy
+  then unlink), not from locks. The exception is a stage that holds an
+  index in memory: it runs one at a time, because two copies of the index
+  would each miss the other's matches.
+- **Each run plans, fans out and finishes.** A planner cuts the work into
+  slices that don't overlap, and workers process them. A finishing step
+  re-queues the job only if work remains and the run made progress, and a
+  run with nothing to do exits in seconds.
+- **Runs are bounded.** Each run takes at most
+  `floor(timeout / (1.5 × median item time))` items, with the median
+  measured over recent runs. If the limit is missing or broken, the run is
+  uncapped; it's never stopped.
 
 ## Review
 
-- **One review item per document,** showing identity, flagged answers and
-  duplicate evidence together. Confirm is enabled only when every part is
-  complete.
-- **Identity is entered by people.** Machine reads of handwriting below a
-  useful confidence were worse than none, so reviewers transcribe and the
-  system infers which reading applies.
-- **A lease is a primary key.** Claim is one statement (insert, or take
-  over an expired lease); commit requires a live lease checked before the
-  first write; expiry is judged at read time.
-- **Duplicates are sets.** Suspicion edges are stored and their connected
-  components are decided together. Keep, promote and revert are audited,
-  reversible transitions; a "not a duplicate" ruling is stored where the
-  detector cannot overwrite it.
-- **Every action applies immediately and is reversed by a compensating
-  action.** Both records stay.
+- **There's one review item for each document.** It shows the identity,
+  the flagged answers and any evidence of duplicates together, and the
+  reviewer can only confirm once every part is complete.
+- **People enter the identity.** When the machine read handwriting below a
+  useful confidence, its reading was worse than none at all. So reviewers
+  transcribe it, and the system works out which reading applies.
+- **A lease is a primary key.** Claiming an item is a single statement,
+  which either inserts a lease or takes over an expired one. Committing
+  needs a live lease, checked before the first write, and whether a lease
+  has expired is judged when it's read.
+- **Duplicates are handled as sets.** The links between suspected
+  duplicates are stored, and each connected group is decided together.
+  Keeping, promoting and reverting are audited and reversible. A ruling
+  that something is not a duplicate is stored where the detector can't
+  overwrite it.
+- **Every action applies immediately, and a compensating action reverses
+  it.** Both records are kept.
 
 ## Release
 
-For each institution and exam, enrolled learners must balance against
-confirmed documents. A duplicate, an orphan, a missing student, a pending
-identity or an absent register each reads **BLOCKED**; results release only
-on **CLEAR**. A released group is the point after which every change is a
-new version.
+For each institution and exam, the enrolled learners have to balance
+against the confirmed documents. A duplicate, an orphan, a missing
+student, a pending identity or a missing register each makes the gate
+read **BLOCKED**, and results are only released when it reads **CLEAR**.
+Once a group is released, every change after that is a new version.
 
 ## Reporting
 
-All arithmetic lives in transformation models. The application selects and
-formats; a test forbids its reporting code from opening a database
-connection. Gold stores counts, not percentages. Pipeline telemetry (item
-metrics, limits, cost) reaches gold too, so a rise in cost can be told
-apart from a rise in work.
+All the arithmetic lives in transformation models. The application only
+selects and formats the results, and a test stops its reporting code from
+opening a database connection. Gold stores counts, not percentages. The
+pipeline's telemetry, meaning its item metrics, limits and cost, reaches
+gold too, so you can tell a rise in cost from a rise in the amount of
+work.
 
 ## Environments
 
-The product runs in production and in development branches of it
-([CAP-ENVIRONMENTS](../../specifications/capabilities/cap-environments.md)). A development
-branch has its own database and its own storage; it may read production's
-documents only through a read-only path, and uploads there are refused.
-Every deployment reports on its health endpoint which environment it
-believes it is in.
+The product runs in production and in development branches of production
+([CAP-ENVIRONMENTS](../../specifications/capabilities/cap-environments.md)).
+A development branch has its own database and its own storage. It can
+read production's documents, but only through a read-only path, and any
+upload there is refused. Every deployment reports, on its health
+endpoint, which environment it believes it's in.
 
 ## Running it as a conformance workload
 
-An implementation proves the product capabilities by running a fixture
-corpus through the product:
+Your implementation proves the product capabilities by running a fixture
+corpus through the product. Run these steps, and check that each gives the
+result described.
 
-1. Submit the corpus; submit it again under different names. One record
-   per document results ([CAP-PIPELINE.1](../../specifications/capabilities/cap-pipeline.md)).
-2. Process it twice; outputs are byte-identical
+1. Submit the corpus, then submit it again under different names. You
+   should get one record for each document
+   ([CAP-PIPELINE.1](../../specifications/capabilities/cap-pipeline.md)).
+2. Process it twice. The outputs should be byte-identical
    ([CAP-PIPELINE.2](../../specifications/capabilities/cap-pipeline.md)).
-3. Make the database unreachable; the three upstream stages complete
+3. Make the database unreachable. The three upstream stages should still
+   complete
    ([CAP-PIPELINE.6](../../specifications/capabilities/cap-pipeline.md)).
-4. Race concurrent reviewers for one item; exactly one holds the lease
+4. Have several reviewers race for the same item. Exactly one of them
+   should hold the lease
    ([CAP-REVIEW.2](../../specifications/capabilities/cap-review.md)).
-5. Re-run the pipeline over reviewed items; no human decision changes
+5. Re-run the pipeline over items that have been reviewed. No human
+   decision should change
    ([CAP-REVIEW.3](../../specifications/capabilities/cap-review.md)).
-6. Load each blocking fixture; the gate reads BLOCKED, and CLEAR only for
-   the balanced one ([CAP-RELEASE.1](../../specifications/capabilities/cap-release.md)).
+6. Load each blocking fixture. The gate should read BLOCKED, and should
+   read CLEAR only for the balanced one
+   ([CAP-RELEASE.1](../../specifications/capabilities/cap-release.md)).

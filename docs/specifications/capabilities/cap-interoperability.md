@@ -8,21 +8,21 @@ Layer L1 · domain: data · depends on: [CAP-ONBOARDING](cap-onboarding.md), [CA
 
 ## Purpose
 
-Exchange data with the other systems an education authority depends on, without losing track of what went where.
+The platform exchanges data with the other systems an education authority depends on, and keeps track of what went where.
 
 ## Why
 
-An EMIS is one system among several, and errors cluster at the joins. Declaring every feed, validating at the edge and reconciling both directions turns those joins into checked contracts instead of informal transfers ([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying)).
+An EMIS is one system among several, and errors tend to cluster where systems meet. If every feed is declared, validated at the edge and reconciled in both directions, those meeting points become checked contracts rather than informal transfers ([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying)).
 
 ## Interfaces
 
 - Feed entries in the onboarding registry.
 - Versioned interfaces with machine-readable contracts.
-- Edge validation with reject reports; per-period reconciliation.
+- Validation at the edge with reject reports, and reconciliation for each period.
 
 ## Notes
 
-Any two systems that should agree can be reconciled with the release-gate pattern: a period reads BLOCKED until the counts on both sides balance.
+You can reconcile any two systems that should agree by using the release-gate pattern, where a period reads BLOCKED until the counts on both sides balance.
 
 ## Contract
 

@@ -10,7 +10,7 @@ msgid "Records"
 msgstr ""
 
 #: docs/specifications/domain/contexts/records/CONTEXT.md
-msgid "How long records are kept, how they are corrected, and how a person's own records reach them."
+msgid "This context covers how long records are kept, how they're corrected, and how people get to see their own records."
 msgstr ""
 
 #: docs/specifications/domain/contexts/records/CONTEXT.md

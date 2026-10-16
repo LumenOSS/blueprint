@@ -1,54 +1,58 @@
 # Building an implementation
 
-How to turn the blueprint into a running platform on a stack of your
-choice. The steps are the same for a person and for an agent. Each step ends
-on a completion criterion; move on only when it holds.
+This guide takes you from the blueprint to a running platform, on
+whatever stack you choose. The steps are the same whether you're a person
+or an agent. Each step ends with a test of whether it's done, and you
+should only move on once that test passes.
 
 ## 1. Choose the stack and write the binding
 
-Copy the reference binding closest to your stack from
-[`implementations/`](../specifications/implementations/README.md), or start from
-[`schema/binding.schema.json`](../../schema/binding.schema.json). For each
-capability, name the components and their SPDX licences. For each clause,
-set a status:
+Copy the reference binding that's closest to your stack from
+[`implementations/`](../specifications/implementations/README.md), or start
+from [`schema/binding.schema.json`](../../schema/binding.schema.json). For
+each capability, name the components and their SPDX licences. Then give
+each clause a status:
 
-- `planned`: you intend to meet it; say `how` if it is not obvious.
-- `deviation`: you will not meet it; write the `consequence` and the control
-  that stands in for it.
-- `not-applicable`: its precondition does not hold; write why.
+- `planned` means you intend to meet it. If how you'll do so isn't
+  obvious, say so in `how`.
+- `deviation` means you won't meet it. Write down the `consequence`, and
+  the control that stands in for it.
+- `not-applicable` means the clause's precondition doesn't hold. Write down
+  why.
 
-**Done when** `just binding <your-binding.yaml>` reports no problems and
-every deviation names a compensating control.
+**You're done when** `just binding <your-binding.yaml>` reports no
+problems and every deviation names a compensating control.
 
 ## 2. Lay out the repositories
 
-Create one repository per layer, following
-[CAP-REPOSITORIES](../specifications/capabilities/cap-repositories.md): bootstrap, platform,
-modules, and one per product. Each has a pinned toolchain and a task
-runner, and its CI definitions only call tasks. If the repositories will
-live on more than one CI host, put each host's CI definition beside the
-others now.
+Create one repository for each layer, as
+[CAP-REPOSITORIES](../specifications/capabilities/cap-repositories.md)
+describes. That means one each for bootstrap, platform and modules, and
+one for each product. Each repository has a pinned toolchain and a task
+runner, and its CI definitions do nothing but call tasks. If your
+repositories will live on more than one CI host, add each host's CI
+definition alongside the others now.
 
-**Done when** each repository's check task passes on a clean clone, on a
-workstation and in CI.
+**You're done when** each repository's check task passes on a clean
+clone, both on a workstation and in CI.
 
 ## 3. Build in dependency order
 
-Build capabilities in the order below, which is generated from the
-dependencies in the catalogue. A capability can be built once everything it
-depends on is built. Work within the bootstrap layer comes first because
-every later apply needs its state store and identities.
+Build the capabilities in the order below, which is generated from the
+dependencies in the catalogue. You can build a capability once everything
+it depends on is built. The bootstrap layer comes first, because every
+later apply needs its state store and identities.
 
 For each capability:
 
 1. Build it through the CI pipeline, never by hand
    ([P1](../specifications/principles.md#p1-ci-is-the-only-deployer)).
-2. Run each clause's verification as written in its contract.
-3. Record the evidence (a test, a query and its output, a CI run) in the
-   binding and change the clause's status to `met`.
+2. Run each clause's verification, exactly as its contract describes.
+3. Record the evidence in the binding, whether that's a test, a query and
+   its output, or a CI run, and change the clause's status to `met`.
 
-**Done when** every `MUST` clause of the capability is `met`, or is a
-recorded deviation.
+**You're done when** every `MUST` clause of the capability is `met`, or is
+a recorded deviation.
 
 <!-- BEGIN GENERATED: order (just render) -->
 | Step | Capability | Layer | Depends on |
@@ -100,26 +104,30 @@ recorded deviation.
 
 Deploy the [example products](products/README.md) and run their
 conformance steps. Document review exercises the pipeline, review and
-release capabilities; the annual census exercises master data, collection,
-indicators and publication. Between them they reach most of the platform.
+release capabilities, and the annual census exercises master data,
+collection, indicators and publication. Between them, they reach most of
+the platform.
 
-**Done when** the conformance steps of both products pass and their
-evidence is in the binding.
+**You're done when** the conformance steps of both products pass and
+their evidence is in the binding.
 
 ## 5. Keep it conforming
 
-- Scheduled fitness functions keep checking what was proved once
+Proving a clause once isn't enough, so keep checking:
+
+- Scheduled fitness functions keep re-checking what you've already proved
   ([CAP-GUARDRAILS.2](../specifications/capabilities/cap-guardrails.md)).
 - When the blueprint's version changes, read its changelog, update the
-  binding's `blueprint.version`, and set the status of every new or changed
+  binding's `blueprint.version`, and set a status for every new or changed
   clause.
-- Re-check component licences at each upgrade.
+- Re-check your components' licences at each upgrade.
 
-**Done when** the binding validates against the current catalogue and no
-fitness function is failing.
+**You're done when** the binding validates against the current catalogue
+and no fitness function is failing.
 
 ## Changing the blueprint itself
 
-An implementation that finds a clause wrong, untestable or missing proposes
-a change to the blueprint through an [ADR](../adr/README.md). It never edits
-the contract to fit itself.
+If you find that a clause is wrong, can't be tested, or is missing,
+propose a change to the blueprint through a [LIP](../lips/lip-0001.md),
+which is recorded as an [ADR](../adr/README.md) once accepted. Don't edit
+the contract to fit your implementation.

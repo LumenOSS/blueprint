@@ -8,20 +8,20 @@ Layer L1 · domain: data · depends on: [CAP-STORAGE](cap-storage.md).
 
 ## Purpose
 
-Hold tabular data in an open, transactional format that more than one engine can read.
+Tabular data is held in an open, transactional format that more than one engine can read.
 
 ## Why
 
-Open formats keep the data readable without the current vendor, and the exit test proves it ([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying)). Retention holds make a fallback window possible.
+Open formats keep the data readable even without the current vendor, and the exit test proves it ([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying)). Holding table history for a set time is what makes a fallback window possible.
 
 ## Interfaces
 
 - An open table format with atomic commits, schema evolution and time travel.
-- Per-table retention settings declared in code.
+- Retention settings for each table, declared in code.
 
 ## Notes
 
-Each statement against a transactional table is a commit with its own metadata cost; write in batches.
+Each statement against a transactional table is a commit, with its own metadata cost, so write in batches.
 
 ## Contract
 

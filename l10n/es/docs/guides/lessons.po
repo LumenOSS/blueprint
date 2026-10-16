@@ -12,7 +12,7 @@ msgid "Lessons as design rules"
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Each rule below comes from a failure that happened while running this architecture with real data, stated in its general form. They are the reasons behind many of the [principles]{1} and contract clauses; when a rule looks over-cautious, it is because its absence once cost something."
+msgid "Every rule on this page comes from something that went wrong while this architecture was running with real data. We've written each one in its general form. Many of the [principles]{1} and contract clauses exist because of them. So if a rule looks over-cautious, it's because not following it once cost us something."
 msgstr ""
 
 #: docs/guides/lessons.md
@@ -20,31 +20,31 @@ msgid "Measuring and verifying"
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Tuning and measurement harnesses call the real production code path. A missing required input raises; it never falls back silently."
+msgid "Tuning and measurement harnesses call the real production code path. If a required input is missing, they raise an error; they never quietly fall back to something else."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Calibrate a detector's positive class on independent real-world captures (different devices, damaged copies), not on clean re-renders of the same source."
+msgid "Calibrate a detector's positive class on independent real-world captures, such as different devices and damaged copies, not on clean re-renders of the same source."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "A processing chain encodes assumptions about its target. Re-validate every stage when re-aiming it, because deleted signal and absent signal look the same downstream."
+msgid "A processing chain carries assumptions about what it's aimed at. When you re-aim it, re-validate every stage, because downstream you can't tell a signal that was deleted from one that was never there."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "No mitigation counts as done until a measurement on representative data shows its effect."
+msgid "A mitigation isn't done until a measurement on representative data shows that it works."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "\"Deployed\" is a claim about the running process. Verify it by asking the live system for a marker only the new version emits."
+msgid "\"Deployed\" is a claim about the running process. To check it, ask the live system for a marker that only the new version emits."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Check the artefact itself (deployed state, filled tables), never a status line or a cached plan."
+msgid "Check the thing itself, such as the deployed state or the filled tables, and not a status line or a cached plan."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "A configuration the schema accepts is not proof of behaviour. Read the deployed object back to confirm it, and delete inert configuration that looks authoritative."
+msgid "Just because the schema accepts a configuration doesn't prove it does anything. Read the deployed object back to confirm it, and delete any inert configuration that looks as if it's in charge."
 msgstr ""
 
 #: docs/guides/lessons.md
@@ -52,35 +52,35 @@ msgid "Idempotency, delivery and concurrency"
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Deduplicate at two independent layers: the orchestrator rejects a duplicate run identifier, and the work short-circuits on terminal state."
+msgid "Remove duplicates at two independent layers. The orchestrator rejects a run identifier it has already seen, and the work itself stops early if it finds a terminal state."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Write to a temporary location and move into place atomically, so a replay never sees a half-finished output."
+msgid "Write to a temporary location and then move the result into place in one atomic step, so a replay never sees half-finished output."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Human decisions outrank redeliveries in upsert guards. Guards test the condition that makes an operation wrong, not a status label."
+msgid "In upsert guards, a human decision outranks a redelivery. A guard tests the condition that would make the operation wrong, not a status label."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Test every migration on a database it has already been applied to; \"idempotent\" is a claim about the second run. Never cache schema facts indefinitely."
+msgid "Test every migration on a database it has already been applied to, because \"idempotent\" is a claim about the second run. Never cache facts about the schema indefinitely."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Enforce mutual exclusion in the database: a unique key, and select and acquire in one statement. Check the lease before the first write."
+msgid "Enforce mutual exclusion in the database, with a unique key, and select and acquire in a single statement. Check the lease before the first write."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Judge health from a heartbeat, not from process statistics. Isolate per-item failures (quarantine and continue) so one poisoned input cannot wedge the pipeline."
+msgid "Judge health from a heartbeat, not from process statistics. Isolate failures item by item, by quarantining the bad item and carrying on, so one poisoned input can't jam the whole pipeline."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Chain stages by hand-off so fallback paths are unreachable. A job's timeout is at least the sum of its tasks' budgets."
+msgid "Chain stages by handing work from one to the next, so fallback paths can't be reached. A job's timeout is at least the sum of its tasks' budgets."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Each statement against a transactional table format is a commit. Batch into set-based operations and keep tail work at a constant number of round trips."
+msgid "With a transactional table format, every statement is a commit. So batch work into set-based operations, and keep the work at the end of a run to a fixed number of round trips."
 msgstr ""
 
 #: docs/guides/lessons.md
@@ -88,23 +88,23 @@ msgid "Stores and data of record"
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Before anything empties a store, establish whether it is the source of record. Archive successes, dead-letter rejects with a reason, and derive locations from content hashes."
+msgid "Before anything empties a store, find out whether it's the source of record. Archive what succeeded, send rejects to a dead-letter location with a reason, and derive locations from content hashes."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Keep one manifest of what a secondary store carries, derive sync and lag checks from it, and test that every reporting source has a writer."
+msgid "Keep one manifest of what a secondary store holds. Derive the sync and lag checks from it, and test that every reporting source has something writing to it."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Reconcile primary and secondary stores. A job's success says nothing about a write it made after its own commit."
+msgid "Reconcile primary and secondary stores. A job reporting success tells you nothing about a write it made after its own commit."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Never deploy from an uncommitted tree. Alert on data freshness, not only on job failure."
+msgid "Never deploy from a tree with uncommitted changes. Alert when data goes stale, not only when a job fails."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Validate references against the authoritative registry with a foreign key. Constrain bad history going forward rather than rewriting it."
+msgid "Validate references against the authoritative registry with a foreign key. Rather than rewriting bad history, stop new bad records from being added."
 msgstr ""
 
 #: docs/guides/lessons.md
@@ -112,31 +112,31 @@ msgid "Identity, grants and infrastructure as code"
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "A declarative permission block is the complete set: it revokes whatever it does not list. Confirm a hypothesis with read-only queries against the live system before acting on it."
+msgid "A declarative permission block is the complete set, so it revokes anything it doesn't list. Before you act on a hypothesis, confirm it with read-only queries against the live system."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "An identity is not configuration. Recreating a resource can mint a new principal, so parameterise principals and keep code that verifies every layer of grants."
+msgid "An identity isn't configuration. Recreating a resource can create a new principal, so pass principals in as parameters, and keep code that verifies every layer of grants."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Version privileges alongside the schema, including default privileges for objects that future migrations create."
+msgid "Version privileges alongside the schema, including the default privileges for objects that future migrations will create."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Size a deploy identity for what it must create, make it the owner of what it deploys, and copy deployment state rather than file trees."
+msgid "Give a deploy identity exactly the rights it needs to create what it deploys, make it the owner of what it deploys, and copy deployment state rather than trees of files."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Check privileges before the first run under a new identity. A right to manage without a right to create is a drop with no undo."
+msgid "Check privileges before the first run under a new identity. A right to manage something without the right to create it can turn into a drop you can't undo."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Declare an explicit dependency between a permission and its first use. One green apply may have been lucky ordering."
+msgid "Declare an explicit dependency between a permission and the first thing that uses it. One successful apply may just have been lucky ordering."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Plan and apply share their state and path parameters from one definition. Run the first apply where failure is cheap."
+msgid "Plan and apply take their state and path parameters from one shared definition. Run the first apply somewhere a failure is cheap."
 msgstr ""
 
 #: docs/guides/lessons.md
@@ -144,7 +144,7 @@ msgid "Scope credentials to the single step that needs them."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Render environment-specific artefacts from the deployment tool's resolved output, and expose on a health endpoint the environment each service believes it is in."
+msgid "Render environment-specific artefacts from the deployment tool's resolved output, and have each service report, on a health endpoint, which environment it believes it's in."
 msgstr ""
 
 #: docs/guides/lessons.md
@@ -152,11 +152,11 @@ msgid "Data protection and provenance"
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Prove provenance per object before any destructive drop. A schema or a repository is not a unit of provenance."
+msgid "Before any destructive drop, prove the provenance of each object separately. A schema or a repository isn't a unit of provenance."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Write exclusion rules by kind of data (spreadsheets, exported learner lists), not by remembered file names."
+msgid "Write exclusion rules by kind of data, such as spreadsheets or exported learner lists, not by file names someone remembers."
 msgstr ""
 
 #: docs/guides/lessons.md
@@ -168,21 +168,21 @@ msgid "Failure signalling"
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Make missing data loud (strict undefined) and pin the strictness with a test."
+msgid "Make missing data fail loudly, for example with strict undefined values, and pin that strictness with a test."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Keep \"refused bad input\" and \"system broken\" in separate counters and statuses."
+msgid "Keep \"refused bad input\" and \"system broken\" in separate counters and separate statuses."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "A tolerated failure matches and names the specific error it tolerates."
+msgid "A tolerated failure matches, and names, the specific error it tolerates."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Every path that produces a stored derived value calls one implementation, and fallback paths are exercised by tests."
+msgid "Every path that produces a stored derived value calls the same single implementation, and tests exercise the fallback paths."
 msgstr ""
 
 #: docs/guides/lessons.md
-msgid "Every recurring job has a seconds-long \"nothing to do\" exit on the cheapest compute. Automation never starts paid compute without consent."
+msgid "Every recurring job has a quick \"nothing to do\" exit, taking seconds on the cheapest compute. Automation never starts paid compute without consent."
 msgstr ""

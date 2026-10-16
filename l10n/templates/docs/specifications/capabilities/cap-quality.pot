@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-quality.md
-msgid "Keep bad data from consumers and keep it visible."
+msgid "Bad data is kept away from consumers, and kept visible."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-quality.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-quality.md
-msgid "Data that fails its checks is worse than no data ([P10]{1}). Counting refusals apart from failures tells a bad source from a broken system."
+msgid "Data that fails its checks is worse than no data at all ([P10]{1}). Counting refusals separately from failures lets you tell a bad source from a broken system."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-quality.md
@@ -38,7 +38,15 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-quality.md
-msgid "Checks per tier; a quarantine with reasons; source contracts."
+msgid "Checks for each tier."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "A quarantine that records the reason for each item."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-quality.md
+msgid "Contracts with sources."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-quality.md

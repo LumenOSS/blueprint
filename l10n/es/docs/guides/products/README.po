@@ -12,7 +12,7 @@ msgid "Products"
 msgstr ""
 
 #: docs/guides/products/README.md
-msgid "A product is a workload built on the platform, with its own repository, its own operational database and a tenant entry. Two example products show how the capabilities combine; together they reach most of the platform, and every implementation runs both as its conformance workload."
+msgid "A **product** is a workload built on the platform. It has its own repository, its own operational database and a tenant entry. The two example products here show how the capabilities work together. Between them they reach most of the platform, and every implementation runs both of them to show that it conforms."
 msgstr ""
 
 #: docs/guides/products/README.md
@@ -40,5 +40,5 @@ msgid "Registries, periodic collection from every institution, a completeness ga
 msgstr ""
 
 #: docs/guides/products/README.md
-msgid "A new product records how it meets its capabilities in the [product checklist]{1}. Like any resource, a product can be built once the registries and products it references exist."
+msgid "When you build a new product, record how it meets its capabilities in the [product checklist]{1}. As with any resource, you can build a product once the registries and products it refers to exist."
 msgstr ""

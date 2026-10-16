@@ -12,7 +12,8 @@ msgid "Core concepts"
 msgstr "Concepts de base"
 
 #: docs/concepts/README.md
-msgid "What you need in your head before the specifications make sense. These four pages explain; they require nothing. Read them in order. Each takes about ten minutes."
+#, fuzzy
+msgid "These four pages give you the background you need before the specifications make sense. They explain things rather than require them, and you don't need to know anything before you start. Read them in order; each one takes about ten minutes."
 msgstr "Ce qu'il faut avoir en tête avant que les spécifications prennent sens. Ces quatre pages expliquent ; elles n'exigent rien. Lisez-les dans l'ordre. Chacune prend environ dix minutes."
 
 #: docs/concepts/README.md
@@ -36,7 +37,8 @@ msgid "[What is an EMIS]{1}"
 msgstr "[Qu'est-ce qu'un SIGE]{1}"
 
 #: docs/concepts/README.md
-msgid "What an education management information system is, who relies on it, and the part this blueprint covers"
+#, fuzzy
+msgid "What an education management information system is, who relies on it, and which part of it this blueprint covers"
 msgstr "Ce qu'est un système d'information pour la gestion de l'éducation, qui en dépend, et la partie que couvre ce plan de référence"
 
 #: docs/concepts/README.md
@@ -48,7 +50,8 @@ msgid "[The EMIS domain]{1}"
 msgstr "[Le domaine du SIGE]{1}"
 
 #: docs/concepts/README.md
-msgid "What a domain model is, why this blueprint uses one, and the main things an EMIS records"
+#, fuzzy
+msgid "What a domain model is, why we use one, and the main things an EMIS records"
 msgstr "Ce qu'est un modèle de domaine, pourquoi ce plan en utilise un, et les principales choses qu'un SIGE enregistre"
 
 #: docs/concepts/README.md
@@ -60,7 +63,8 @@ msgid "[Data in an EMIS]{1}"
 msgstr "[Les données d'un SIGE]{1}"
 
 #: docs/concepts/README.md
-msgid "The kinds of data an EMIS holds, and five ideas about handling it that the rest of the blueprint builds on"
+#, fuzzy
+msgid "The kinds of data an EMIS holds, and five ideas about handling them that the rest of the blueprint builds on"
 msgstr "Les types de données qu'un SIGE détient, et cinq idées pour les traiter sur lesquelles repose le reste du plan"
 
 #: docs/concepts/README.md
@@ -72,9 +76,11 @@ msgid "[Terminology]{1}"
 msgstr "[Terminologie]{1}"
 
 #: docs/concepts/README.md
-msgid "The few classifications and terms you need to read the specifications: sensitivity tiers, layers, clauses and roles"
+#, fuzzy
+msgid "The handful of classifications and terms you need to read the specifications, such as sensitivity tiers, layers, clauses and roles"
 msgstr "Les quelques classifications et termes nécessaires pour lire les spécifications : niveaux de sensibilité, couches, clauses et rôles"
 
 #: docs/concepts/README.md
-msgid "Then go on to the [specifications]{1}, starting with the principles."
+#, fuzzy
+msgid "When you've read them, go on to the [specifications]{1}, starting with the principles."
 msgstr "Passez ensuite aux [spécifications]{1}, en commençant par les principes."

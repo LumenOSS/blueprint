@@ -1,9 +1,10 @@
 # Contributing
 
-Thank you for helping. This blueprint is meant to be adopted by education
-authorities and built by many teams, so every change is made in the open
-and checked by machine before a person reviews it. This guide says which
-path a change takes, how to set up, and what a reviewer will look for.
+Thank you for helping. We want education authorities to adopt this
+blueprint and many teams to build it, so we make every change in the open,
+and the tools check it before a person reviews it. This guide tells you
+which path your change takes, how to set up, and what a reviewer will look
+for.
 
 ## Which path does my change take?
 
@@ -21,29 +22,31 @@ path a change takes, how to set up, and what a reviewer will look for.
 | A new language for the documentation | An ordinary reviewed change; see [translating](docs/guides/translating.md#add-a-language) | Adding Portuguese |
 | Evidence that an implementation meets a clause | A change to that implementation's repository, moving the clause to `met` | Linking the test that proves CAP-ACCESS.7 |
 
-If you are unsure, open a discussion and ask; it costs nothing to start
-there.
+If you're not sure which path applies, open a discussion and ask. It
+costs nothing to start there.
 
 ## Proposing a change with a LIP
 
-The process is in [LIP-1](docs/lips/lip-0001.md); in short:
+[LIP-1](docs/lips/lip-0001.md) describes the process in full. In short:
 
 1. Describe the problem in a discussion first.
 2. Copy the [template](docs/lips/template.md) to
    `docs/lips/lip-draft-<short-name>.md`, fill in every section, and open
    a change. The editors assign a number.
-3. Move it to Review when the text is complete; it then goes to a 14-day
-   Last Call and a decision by the Data Lead and the Technical Lead.
-4. An accepted LIP is recorded as a [decision record](docs/adr/README.md)
-   and released in a catalogue version.
+3. Move it to Review when the text is complete. After that it goes to a
+   14-day Last Call, and then the Data Lead and the Technical Lead decide.
+4. If it's accepted, we record it as a
+   [decision record](docs/adr/README.md) and release it in a catalogue
+   version.
 
-Every LIP has a privacy and safeguarding section. The data this blueprint
-governs is mostly about children; say what your change does to it.
+Every LIP has a privacy and safeguarding section. Most of the data this
+blueprint governs is about children, so tell us what your change does to
+it.
 
 ## Setting up
 
-Everything runs in the Nix dev shell, and every task is a `just` recipe,
-so your tools match everyone else's.
+Everything runs in the Nix dev shell, and every task is a `just` recipe.
+That way your tools are the same as everyone else's.
 
 ```sh
 nix develop --command just check    # everything a change must pass
@@ -52,49 +55,51 @@ nix develop --command just render   # regenerate the generated sections
 nix develop .#site --command just site-serve   # preview the website
 ```
 
-With [direnv](https://direnv.net/), `direnv allow` enters the shell for you.
+If you use [direnv](https://direnv.net/), run `direnv allow` once and it
+will enter the shell for you.
 
 ## Making the change
 
 - **Edit the source, not the output.** Clause text, levels, verification
-  and examples live in [`blueprint/catalogue.yaml`](blueprint/catalogue.yaml);
-  standards in [`blueprint/standards.yaml`](blueprint/standards.yaml).
-  Anything between `BEGIN GENERATED` and `END GENERATED` markers is
-  written by `just render`; edit the source and run it.
-- **Let the tools format.** Formatting and lint rules live in the
-  configuration files at the root. Run `just fmt` rather than fixing
-  layout by hand; if a rule is wrong, change the rule in its config file,
-  in its own change.
-- **Use the domain language.** Each bounded context's terms are in its
-  `CONTEXT.md`, listed in the [context map](CONTEXT-MAP.md). Use the
-  canonical term, never a word under *Avoid*. A new term goes into its
-  context's `CONTEXT.md` in the same change.
+  and examples live in [`blueprint/catalogue.yaml`](blueprint/catalogue.yaml),
+  and standards live in [`blueprint/standards.yaml`](blueprint/standards.yaml).
+  `just render` writes everything between `BEGIN GENERATED` and
+  `END GENERATED` markers, so edit the source and then run it.
+- **Let the tools format.** The formatting and lint rules live in the
+  configuration files at the root. Run `just fmt` rather than fixing the
+  layout by hand. If you think a rule is wrong, change it in its config
+  file, in a change of its own.
+- **Use the domain language.** Each bounded context keeps its terms in its
+  `CONTEXT.md`, and the [context map](CONTEXT-MAP.md) lists them all. Use
+  the canonical term, and never a word listed under *Avoid*. If you settle
+  a new term, add it to its context's `CONTEXT.md` in the same change.
 - **Write clauses that can be checked.** A clause uses MUST, SHOULD or MAY
-  in the sense of [BCP 14](https://www.rfc-editor.org/info/bcp14), says
-  what is required rather than which product provides it, and has a
-  `verify` that a test or a reviewer can apply. Add an `example` when the
-  clause is abstract.
-- **Cite standards where they are published.** Link the publisher's own
-  page for the edition you rely on, and add it to the standards register,
-  rather than citing a summary of it.
-- **Write English that translates well.** Short sentences, plain words,
-  no text in images. After editing a page that has translations, run
-  `just l10n-update` in the same change; see
-  [translating](docs/guides/translating.md).
-- **Name roles, not people.** Write "the Data Lead", "the steward of the
-  learners domain", never a person's name, and no real learners, staff or
-  institutions in examples.
+  in the sense of [BCP 14](https://www.rfc-editor.org/info/bcp14). It says
+  what is required, not which product provides it, and its `verify` says
+  how a test or a reviewer can check it. If the clause is abstract, add an
+  `example`.
+- **Cite standards where they're published.** Link to the publisher's own
+  page for the edition you rely on, and add it to the standards register.
+  Don't cite someone else's summary of it.
+- **Write English that translates well.** Use short sentences and plain
+  words, and don't put text in images. If you edit a page that has
+  translations, run `just l10n-update` in the same change. The
+  [translating](docs/guides/translating.md) guide explains why.
+- **Name roles, not people.** Write "the Data Lead" or "the steward of the
+  learners domain", never a person's name. Don't use real learners, staff
+  or institutions in examples either.
 
 ## Committing
 
-The repository uses [jj](https://jj-vcs.github.io/jj/) colocated with Git;
-plain Git works too. Keep each change small and about one thing.
+The repository uses [jj](https://jj-vcs.github.io/jj/), colocated with
+Git, but plain Git works too. Keep each change small and about one thing.
 
-Commit messages follow the Angular convention: `type(scope): subject`,
-with a lowercase, imperative subject under 72 characters, and a body that
-says *why*. Types are feat, fix, docs, style, refactor, perf, test, build,
-ci, chore and revert. Put `BREAKING CHANGE:` in the footer when a change
-breaks existing bindings.
+Commit messages follow the Angular convention, `type(scope): subject`.
+Write the subject in lowercase, in the imperative, in under 72
+characters, and use the body to say *why* you made the change. The types
+are feat, fix, docs, style, refactor, perf, test, build, ci, chore and
+revert. If your change breaks existing bindings, put `BREAKING CHANGE:` in
+the footer.
 
 ```text
 docs(catalogue): illustrate the clauses with brief examples
@@ -105,26 +110,28 @@ optional example that is not part of the requirement.
 
 ## Review
 
-A reviewer checks, in order:
+A reviewer checks these things, in this order:
 
-1. `just check` passes.
-2. The change took the right path from the table above.
-3. Clauses are testable, product-neutral and use the domain language.
-4. Generated sections were regenerated, not edited.
-5. The effect on learners' and staff members' data is stated and
-   acceptable.
+1. Does `just check` pass?
+2. Did the change take the right path from the table above?
+3. Are the clauses testable and product-neutral, and do they use the
+   domain language?
+4. Were generated sections regenerated rather than edited by hand?
+5. Does the change say what it does to learners' and staff members' data,
+   and is that acceptable?
 
 Reviews follow Google's
-[engineering practices](https://google.github.io/eng-practices/): a change
-is approved when it improves the blueprint, even if it is not perfect.
+[engineering practices](https://google.github.io/eng-practices/). In
+particular, a reviewer approves a change when it makes the blueprint
+better, even if it isn't perfect.
 
 ## Reporting a security or safeguarding problem
 
-Do not open a public issue for a problem that could expose people's data.
-Use the code host's private vulnerability reporting for this repository,
-or contact the maintainers privately.
+If a problem could expose people's data, please don't open a public
+issue about it. Use the code host's private vulnerability reporting for
+this repository, or contact the maintainers privately.
 
 ## Licence
 
-Contributions are made under the [Apache License 2.0](LICENSE), the
+You make your contribution under the [Apache License 2.0](LICENSE), the
 licence of this repository.

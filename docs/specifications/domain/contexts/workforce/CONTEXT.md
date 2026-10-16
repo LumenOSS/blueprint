@@ -1,6 +1,7 @@
 # Workforce
 
-The establishment of posts and the staff posted to them.
+This context covers the establishment of posts and the staff posted to
+them.
 
 ## Language
 

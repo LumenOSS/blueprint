@@ -8,20 +8,20 @@ Layer L1 · domain: data
 
 ## Purpose
 
-Measure work per item, freshness and cost, so a rise in spend can be told apart from a rise in work.
+The platform measures the work done on each item, how fresh the data is, and what it costs, so you can tell a rise in spending from a rise in work.
 
 ## Why
 
-A run that crashes mid-item leaves no record unless the record is written first. Process status lies about hung work.
+If a run crashes partway through an item, nothing is recorded unless the record was written first. And a process's status can say it's running when the work has actually hung.
 
 ## Interfaces
 
-- Per-item metrics with a default status of crashed.
-- Heartbeats; cost per task in gold.
+- Metrics for each item, whose status is crashed by default.
+- Heartbeats, and the cost of each task in gold.
 
 ## Notes
 
-Cap on wall time but compare on core time, because wall time moves with topology.
+Cap runs by wall time, but compare them by core time, because wall time changes with the topology.
 
 ## Contract
 

@@ -1,18 +1,21 @@
 # Domain design
 
-How the EMIS domain is designed, using domain-driven design: which parts
-matter most, where the boundaries between models lie, what each model
-guarantees, and how the parts talk. The language of each context is in
-its `CONTEXT.md`, listed in the [context map](../../../CONTEXT-MAP.md); the
-resources and modelling rules are in the [domain model](README.md).
+This page describes how the EMIS domain is designed, using domain-driven
+design. It says which parts matter most, where the boundary between one
+model and the next lies, what each model guarantees, and how the parts
+talk to each other.
+
+Each context's vocabulary is in its own `CONTEXT.md`, and the
+[context map](../../../CONTEXT-MAP.md) lists them all. The resources and
+modelling rules are in the [domain model](README.md).
 
 ## Subdomains
 
 | Kind | Contexts | Why |
 | --- | --- | --- |
-| Core | Learning, Statistics | What an education authority uses an EMIS for: knowing who is learning where, and producing official figures about it. Built and modelled with the most care. |
-| Supporting | People, Institutions, Workforce, Curriculum, Assessment, Records | Needed by the core and specific to education, but each is a well-understood pattern (a registry, an establishment, a classification). |
-| Generic | Operations, Reference | Finance, assets, entitlement schemes, safety, codes and calendars: often provided by existing systems or standards, integrated rather than invented. |
+| Core | Learning, Statistics | They're what an education authority uses an EMIS for: knowing who is learning where, and producing official figures about it. They're built and modelled with the most care. |
+| Supporting | People, Institutions, Workforce, Curriculum, Assessment, Records | The core needs them, and they're specific to education, but each follows a well-understood pattern, such as a registry, an establishment or a classification. |
+| Generic | Operations, Reference | Finance, assets, entitlement schemes, safety, codes and calendars are often provided by existing systems or standards, so they're integrated rather than invented. |
 
 ## Context map
 
@@ -66,27 +69,32 @@ flowchart TB
 
 ### Why it is drawn this way
 
-- **Core contexts are darkest.** Learning and Statistics carry the
-  decisions the authority answers for; everything else serves them.
-- **People and Institutions feed others as open host services:** they
+- **The core contexts are the darkest.** Learning and Statistics carry the
+  decisions the authority has to answer for, and everything else serves
+  them.
+- **People and Institutions serve the others as open host services.** They
   publish identifiers and a stable interface, so every context refers to
-  the same person and institution without copying them.
-- **External systems sit behind anti-corruption layers,** so a civil
-  register's or a finance system's model never becomes the EMIS's model.
-- **Statistics reads published counts only.** That keeps official figures
+  the same person and the same institution without copying them.
+- **External systems sit behind anti-corruption layers.** That way a civil
+  register's model, or a finance system's, never becomes the EMIS's model.
+- **Statistics reads only published counts.** This keeps official figures
   independent of how each context stores its operational records
   ([CAP-INTEROPERABILITY.8](../capabilities/cap-interoperability.md)).
-- **Reference and Records have no edges** because they shape every
-  context (shared codes, shared retention policy); drawing all their edges
-  would hide the rest. The [context map](../../../CONTEXT-MAP.md) lists them.
-- **ACL** is an anti-corruption layer; **OHS** an open host service;
-  **counts** are the gold tables each context publishes.
+- **Reference and Records have no edges.** They shape every context,
+  through shared codes and a shared retention policy, so drawing all their
+  edges would hide everything else. The
+  [context map](../../../CONTEXT-MAP.md) lists those relationships.
+
+In the drawing, ACL stands for an anti-corruption layer and OHS for an
+open host service, and "counts" are the gold tables each context
+publishes.
 
 ## Aggregates and invariants
 
-An aggregate is a cluster of records changed together as one unit, with a
-root that every change goes through. The invariants below hold after
-every change; a change that would break one is refused.
+An **aggregate** is a cluster of records that change together as one
+unit, with a root record that every change goes through. The rules below,
+called invariants, hold after every change. If a change would break one,
+it's refused.
 
 | Context | Aggregate (root) | Invariants |
 | --- | --- | --- |
@@ -107,16 +115,18 @@ every change; a change that would break one is refused.
 | Records | Disclosure | It records who received what, why, on what basis and how; it is never deleted before its own retention ends. |
 | Records | Correction request | It produces a new version of the corrected record, approved by the steward; the original value stays readable. |
 
-Rules that span aggregates are kept eventually consistent through events,
-not by changing two aggregates at once. A transfer, for example, ends one
-enrolment and starts another: two changes linked by the event between
-them.
+A rule that spans two aggregates isn't enforced by changing both at once.
+Instead, the second change follows the first through an event, so the two
+become consistent shortly afterwards. A transfer, for example, ends one
+enrolment and starts another, and the event between them links the two
+changes.
 
 ## Domain events
 
-Events are named in the past tense, in the context's language, and
-published as CloudEvents ([CAP-INTEROPERABILITY.9](../capabilities/cap-interoperability.md)).
-Other contexts react to them instead of reading each other's records.
+Events are named in the past tense, in the context's own vocabulary, and
+published as CloudEvents
+([CAP-INTEROPERABILITY.9](../capabilities/cap-interoperability.md)). Other
+contexts react to these events, rather than reading each other's records.
 
 | Context | Events |
 | --- | --- |
@@ -151,15 +161,18 @@ of the ended enrolment.
 
 ## How contexts map onto the platform
 
-- **One steward per context.** Each context owns the catalogs of its
-  resources (below) and is stewarded by one role.
+- **Each context has one steward.** A context owns the catalogs of its
+  resources, listed in the table above, and one role is its steward.
 - **A product sits inside one context.** Its repository, operational
-  database and tenant entry belong to that context. A product that needs
-  another context's data uses that context's published interfaces.
-- **Contexts integrate only through published interfaces:** registry
-  interfaces, domain events, and gold tables with their semantic-layer
-  definitions. No product reads another context's operational database
+  database and tenant entry all belong to that context. If a product
+  needs another context's data, it uses that context's published
+  interfaces.
+- **Contexts connect only through published interfaces.** Those are
+  registry interfaces, domain events, and gold tables with their
+  semantic-layer definitions. No product reads another context's
+  operational database
   ([CAP-INTEROPERABILITY.8](../capabilities/cap-interoperability.md)).
-- **The language follows the boundary.** A term means what its context's
-  `CONTEXT.md` says; where two contexts use one word differently, each
-  defines it, and translation happens at the interface between them.
+- **The vocabulary follows the boundary.** A term means what its context's
+  `CONTEXT.md` says it means. Where two contexts use the same word
+  differently, each defines it for itself, and the translation happens at
+  the interface between them.

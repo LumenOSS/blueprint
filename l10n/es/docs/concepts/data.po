@@ -12,7 +12,8 @@ msgid "Data in an EMIS"
 msgstr "Los datos de un SIGE"
 
 #: docs/concepts/data.md
-msgid "An EMIS holds many kinds of data, and they are not all handled the same way. This page names the main kinds, then introduces five ideas about handling data that the rest of the blueprint builds on. It is a primer: each idea is explained properly in the specifications, linked at the end of each section."
+#, fuzzy
+msgid "An EMIS holds many kinds of data, and we don't handle them all the same way. This page names the main kinds, and then introduces five ideas about handling data that the rest of the blueprint builds on. Think of it as a primer. The specifications explain each idea properly, and you'll find a link to them at the end of each section."
 msgstr "Un SIGE contiene muchos tipos de datos, y no todos se tratan igual. Esta página nombra los tipos principales y luego presenta cinco ideas sobre el tratamiento de datos en las que se basa el resto del plano. Es una introducción: cada idea se explica a fondo en las especificaciones, enlazadas al final de cada sección."
 
 #: docs/concepts/data.md
@@ -64,7 +65,8 @@ msgid "Census returns, snapshots, indicators"
 msgstr "Declaraciones del censo, instantáneas, indicadores"
 
 #: docs/concepts/data.md
-msgid "Groups: counts and rates, not individuals"
+#, fuzzy
+msgid "Groups, as counts and rates rather than individuals"
 msgstr "Grupos: recuentos y tasas, no individuos"
 
 #: docs/concepts/data.md
@@ -76,7 +78,8 @@ msgid "Code lists, administrative areas, academic calendars, population estimate
 msgstr "Listas de códigos, divisiones administrativas, calendarios académicos, estimaciones de población"
 
 #: docs/concepts/data.md
-msgid "Nobody: shared definitions"
+#, fuzzy
+msgid "Nobody, because these are shared definitions"
 msgstr "Nadie: definiciones compartidas"
 
 #: docs/concepts/data.md
@@ -92,7 +95,8 @@ msgid "Institutions, and sometimes individuals"
 msgstr "Instituciones y, a veces, individuos"
 
 #: docs/concepts/data.md
-msgid "Most of the data is about children. That one fact shapes the five ideas below."
+#, fuzzy
+msgid "Most of this data is about children, and that one fact shapes the five ideas below."
 msgstr "La mayoría de los datos se refieren a niños y niñas. Ese solo hecho determina las cinco ideas siguientes."
 
 #: docs/concepts/data.md
@@ -100,15 +104,18 @@ msgid "1. Some data is sensitive"
 msgstr "1. Algunos datos son sensibles"
 
 #: docs/concepts/data.md
-msgid "Not all data needs the same care. A published count of schools per district harms nobody; a learner's name and address needs protection; a learner's health condition or a child-protection record needs the most protection of all, and the law usually says so."
+#, fuzzy
+msgid "Not all data needs the same care. A published count of schools in each district harms nobody. A learner's name and address need protecting. A learner's health condition, or a child-protection record, needs the most protection of all, and the law usually says so."
 msgstr "No todos los datos requieren el mismo cuidado. Un recuento publicado de escuelas por distrito no perjudica a nadie; el nombre y la dirección de un estudiante deben protegerse; el estado de salud de un estudiante o un expediente de protección de la infancia requieren la máxima protección, y normalmente la ley así lo exige."
 
 #: docs/concepts/data.md
-msgid "So every table is given a **sensitivity tier**, from public statistics to special-category personal data, and everything else (who may see it, where it is stored, whether it may leave the platform) follows from that tier. The tiers are listed in [terminology]{1}."
+#, fuzzy
+msgid "So we give every table a **sensitivity tier**, on a scale that runs from public statistics to special-category personal data. Everything else follows from that tier: who may see the table, where it's stored, and whether it may leave the platform. You'll find the tiers listed in [terminology]{1}."
 msgstr "Por eso cada tabla recibe un **nivel de sensibilidad**, desde estadísticas públicas hasta datos personales de categoría especial, y todo lo demás (quién puede verla, dónde se almacena, si puede salir de la plataforma) se deriva de ese nivel. Los niveles se enumeran en la [terminología]{1}."
 
 #: docs/concepts/data.md
-msgid "In the specifications: [CAP-CLASSIFICATION]{1}."
+#, fuzzy
+msgid "To go further, read [CAP-CLASSIFICATION]{1}."
 msgstr "En las especificaciones: [CAP-CLASSIFICATION]{1}."
 
 #: docs/concepts/data.md
@@ -116,27 +123,33 @@ msgid "2. Show less than the whole"
 msgstr "2. Mostrar menos que el todo"
 
 #: docs/concepts/data.md
-msgid "Most people who use EMIS data do not need to know who each person is. A planner needs counts; an analyst needs patterns. So the platform shows less than the whole record wherever it can:"
+#, fuzzy
+msgid "Most people who use EMIS data don't need to know who each person is. A planner needs counts, and an analyst needs patterns. So wherever it can, the platform shows less than the whole record. It has three main ways of doing that:"
 msgstr "La mayoría de quienes usan los datos de un SIGE no necesitan saber quién es cada persona. Un planificador necesita recuentos; un analista necesita patrones. Así que la plataforma muestra menos que el registro completo siempre que puede:"
 
 #: docs/concepts/data.md
-msgid "**Masking** hides a column's value from people who do not need it, such as showing a birth year instead of a birth date."
+#, fuzzy
+msgid "**Masking** hides the value in a column from people who don't need it. For example, it might show a birth year instead of a full birth date."
 msgstr "**El enmascaramiento** oculta el valor de una columna a quienes no lo necesitan, por ejemplo mostrando el año de nacimiento en lugar de la fecha de nacimiento."
 
 #: docs/concepts/data.md
-msgid "**Pseudonymisation** replaces a name or national number with an identifier that cannot be traced back without a separately protected key."
+#, fuzzy
+msgid "**Pseudonymisation** replaces a name or a national number with an identifier that nobody can trace back to the person without a key, and that key is protected separately."
 msgstr "**La seudonimización** sustituye un nombre o un número nacional por un identificador que no puede vincularse a la persona sin una clave protegida por separado."
 
 #: docs/concepts/data.md
-msgid "**Aggregation with suppression** publishes counts, and hides counts so small that they could identify someone."
+#, fuzzy
+msgid "**Aggregation with suppression** publishes counts, but hides any count so small that it could identify someone."
 msgstr "**La agregación con supresión** publica recuentos y oculta los que son tan pequeños que podrían identificar a alguien."
 
 #: docs/concepts/data.md
-msgid "These techniques are described in NIST's [*De-Identifying Government Datasets*]{1} (SP 800-188, 2023)."
+#, fuzzy
+msgid "NIST describes these techniques in [*De-Identifying Government Datasets*]{1} (SP 800-188, 2023)."
 msgstr "Estas técnicas se describen en la guía del NIST [*De-Identifying Government Datasets*]{1} (SP 800-188, 2023)."
 
 #: docs/concepts/data.md
-msgid "In the specifications: [CAP-ACCESS]{1} and [CAP-PUBLICATION]{2}."
+#, fuzzy
+msgid "To go further, read [CAP-ACCESS]{1} and [CAP-PUBLICATION]{2}."
 msgstr "En las especificaciones: [CAP-ACCESS]{1} y [CAP-PUBLICATION]{2}."
 
 #: docs/concepts/data.md
@@ -144,23 +157,28 @@ msgid "3. Who can see what: roles and attributes"
 msgstr "3. Quién puede ver qué: roles y atributos"
 
 #: docs/concepts/data.md
-msgid "Two well-known models decide access, and an EMIS needs both."
+#, fuzzy
+msgid "There are two well-known models for deciding who can access what, and an EMIS needs both of them."
 msgstr "Dos modelos bien conocidos deciden el acceso, y un SIGE necesita ambos."
 
 #: docs/concepts/data.md
-msgid "**Role-based access control (RBAC)** grants permissions to roles, and people hold roles: analysts may query, stewards may approve. It answers *what kind of thing may this person do?* ([NIST, RBAC]{1})."
+#, fuzzy
+msgid "**Role-based access control (RBAC)** grants permissions to roles, and people hold roles. Analysts may run queries, for instance, and stewards may approve access. RBAC answers the question *what kind of thing may this person do?* ([NIST, RBAC]{1})."
 msgstr "**El control de acceso basado en roles (RBAC)** concede permisos a roles, y las personas desempeñan roles: los analistas pueden consultar, las personas responsables de datos pueden aprobar. Responde a *¿qué tipo de cosas puede hacer esta persona?* ([NIST, RBAC]{1})."
 
 #: docs/concepts/data.md
-msgid "**Attribute-based access control (ABAC)** decides from attributes of the person, the data and the request: where the person works, how sensitive the column is, what the request is for. It answers *which rows and columns?* ([NIST SP 800-162]{1})."
+#, fuzzy
+msgid "**Attribute-based access control (ABAC)** decides from attributes of the person, the data and the request, such as where the person works, how sensitive a column is, and what the request is for. ABAC answers the question *which rows and columns?* ([NIST SP 800-162]{1})."
 msgstr "**El control de acceso basado en atributos (ABAC)** decide a partir de atributos de la persona, de los datos y de la solicitud: dónde trabaja la persona, qué sensibilidad tiene la columna, para qué es la solicitud. Responde a *¿qué filas y qué columnas?* ([NIST SP 800-162]{1})."
 
 #: docs/concepts/data.md
-msgid "For example, a district officer holds the analyst role (RBAC), so they may query enrolment; their posting to District B is an attribute, so they see only District B's learners (ABAC); and the health column is masked for them because of its sensitivity tier (ABAC again)."
+#, fuzzy
+msgid "Here's how they work together. A district officer holds the analyst role, so they may query enrolment; that's RBAC. They're posted to District B, and that posting is an attribute, so they see only District B's learners; that's ABAC. And the health column is masked for them because of its sensitivity tier, which is ABAC again."
 msgstr "Por ejemplo, un funcionario de distrito desempeña el rol de analista (RBAC), así que puede consultar matrículas; su destino en el distrito B es un atributo, así que solo ve los estudiantes del distrito B (ABAC); y la columna de salud está enmascarada para él por su nivel de sensibilidad (de nuevo ABAC)."
 
 #: docs/concepts/data.md
-msgid "In the specifications: [principle P14]{1} and [CAP-ACCESS]{2}."
+#, fuzzy
+msgid "To go further, read [principle P14]{1} and [CAP-ACCESS]{2}."
 msgstr "En las especificaciones: [principio P14]{1} y [CAP-ACCESS]{2}."
 
 #: docs/concepts/data.md
@@ -168,11 +186,13 @@ msgid "4. Share by publishing, not by copying"
 msgstr "4. Compartir publicando, no copiando"
 
 #: docs/concepts/data.md
-msgid "Data is shared with other parts of government, with researchers and with the public. Each copy that leaves the platform is a copy nobody can correct, delete on schedule or audit. So the blueprint prefers to **publish**: aggregate statistics openly, and governed access to de-identified data for named partners, under an agreement and for a declared purpose. Raw exports of personal data are the exception, and they are recorded."
+#, fuzzy
+msgid "An EMIS shares data with other parts of government, with researchers and with the public. But every copy that leaves the platform is a copy that nobody can correct, delete on schedule, or audit. So the blueprint prefers to **publish**. It publishes aggregate statistics openly, and it gives named partners governed access to de-identified data, under an agreement and for a declared purpose. Raw exports of personal data are the exception, and when they happen, they're recorded."
 msgstr "Los datos se comparten con otras partes de la administración, con investigadores y con el público. Cada copia que sale de la plataforma es una copia que nadie puede corregir, borrar a su debido tiempo ni auditar. Por eso el plano prefiere **publicar**: estadísticas agregadas en abierto, y acceso gobernado a datos desidentificados para socios con nombre, con un acuerdo y para una finalidad declarada. Las exportaciones en bruto de datos personales son la excepción, y quedan registradas."
 
 #: docs/concepts/data.md
-msgid "In the specifications: [principle P15]{1} and [CAP-SHARING]{2}."
+#, fuzzy
+msgid "To go further, read [principle P15]{1} and [CAP-SHARING]{2}."
 msgstr "En las especificaciones: [principio P15]{1} y [CAP-SHARING]{2}."
 
 #: docs/concepts/data.md
@@ -180,15 +200,18 @@ msgid "5. Know where every number came from"
 msgstr "5. Saber de dónde sale cada cifra"
 
 #: docs/concepts/data.md
-msgid "**Lineage** is the record of where data came from and what was done to it: this indicator was computed from this snapshot, which counted these returns, which were loaded from these files. Lineage is how you:"
+#, fuzzy
+msgid "**Lineage** is the record of where data came from and what was done to it. For example, it might tell you that an indicator was computed from a particular snapshot, which counted certain returns, which in turn were loaded from certain files. Lineage is what lets you:"
 msgstr "**La trazabilidad** (linaje) es el registro de dónde vienen los datos y qué se hizo con ellos: este indicador se calculó a partir de esta instantánea, que contó estas declaraciones, que se cargaron desde estos archivos. La trazabilidad permite:"
 
 #: docs/concepts/data.md
-msgid "trust a published figure, because you can trace it to its source;"
+#, fuzzy
+msgid "trust a published figure, because you can trace it back to its source;"
 msgstr "confiar en una cifra publicada, porque se puede rastrear hasta su fuente;"
 
 #: docs/concepts/data.md
-msgid "find everything affected when a source is corrected;"
+#, fuzzy
+msgid "find everything that's affected when a source is corrected;"
 msgstr "encontrar todo lo afectado cuando se corrige una fuente;"
 
 #: docs/concepts/data.md
@@ -196,11 +219,13 @@ msgid "delete a person's data everywhere it went, when the law requires it."
 msgstr "borrar los datos de una persona en todos los lugares a los que llegaron, cuando la ley lo exige."
 
 #: docs/concepts/data.md
-msgid "Lineage is captured automatically as data moves, using the open [OpenLineage]{1} standard, rather than written down by hand afterwards."
+#, fuzzy
+msgid "The platform captures lineage automatically as data moves, using the open [OpenLineage]{1} standard. Nobody has to write it down by hand afterwards."
 msgstr "La trazabilidad se captura automáticamente a medida que los datos se mueven, con el estándar abierto [OpenLineage]{1}, en lugar de anotarse a mano después."
 
 #: docs/concepts/data.md
-msgid "In the specifications: [CAP-LINEAGE]{1}."
+#, fuzzy
+msgid "To go further, read [CAP-LINEAGE]{1}."
 msgstr "En las especificaciones: [CAP-LINEAGE]{1}."
 
 #: docs/concepts/data.md
@@ -208,7 +233,8 @@ msgid "Keep in mind"
 msgstr "Para tener presente"
 
 #: docs/concepts/data.md
-msgid "As you read the specifications, these five questions recur:"
+#, fuzzy
+msgid "As you read the specifications, you'll find the same five questions coming up again and again:"
 msgstr "Al leer las especificaciones, estas cinco preguntas se repiten:"
 
 #: docs/concepts/data.md

@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-modules.md
-msgid "Share building blocks across repositories without sharing state or identity, and make names predictable."
+msgid "Repositories share building blocks without sharing state or identity, and names are predictable."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-modules.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-modules.md
-msgid "Deterministic names let stacks find each other without reading state ([CAP-STATE.6]{1}). Pinning by tag means a module change reaches a stack only through that stack's own reviewed change."
+msgid "Because names are deterministic, stacks can find each other without reading each other's state ([CAP-STATE.6]{1}). Because modules are pinned by tag, a change to a module only reaches a stack through that stack's own reviewed change."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-modules.md
@@ -44,7 +44,7 @@ msgid "Module sources pinned by tag or digest."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-modules.md
-msgid "A naming module: `<type>-<project>-<environment>-<region>-<instance>`, with a compact form where a resource forbids hyphens, plus the standard tag set."
+msgid "A naming module that produces `<type>-<project>-<environment>-<region>-<instance>`, with a compact form for resources that don't allow hyphens, along with the standard set of tags."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-modules.md
@@ -52,7 +52,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-modules.md
-msgid "Many resource names cannot change after creation. Treat any change to a name output as breaking."
+msgid "Many resource names can't be changed once the resource exists, so treat any change to a name the module produces as a breaking change."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-modules.md

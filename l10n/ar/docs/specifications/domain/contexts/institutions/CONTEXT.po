@@ -12,7 +12,7 @@ msgid "Institutions"
 msgstr ""
 
 #: docs/specifications/domain/contexts/institutions/CONTEXT.md
-msgid "The institutions that provide education, the sites they operate from, and the state of those sites."
+msgid "This context covers the institutions that provide education, the sites they work from, and the state of those sites."
 msgstr ""
 
 #: docs/specifications/domain/contexts/institutions/CONTEXT.md

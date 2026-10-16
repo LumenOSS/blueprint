@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-sharing.md
-msgid "Let data leave the platform only as de-identified or aggregated tables, approved and registered. This page covers partner sharing of row-level data; open aggregate statistics are [CAP-PUBLICATION]{1}, and a person's own records are [CAP-RECORDS.7]{2}."
+msgid "Data leaves the platform only as de-identified or aggregated tables, each approved and registered. This page covers sharing row-level data with partners. Open aggregate statistics are covered by [CAP-PUBLICATION]{1}, and a person's own records by [CAP-RECORDS.7]{2}."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-sharing.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-sharing.md
-msgid "Sharing protocols do not carry the provider's policies to the recipient, so protection must be in the data ([P15]{1})."
+msgid "Sharing protocols don't carry the provider's policies over to the recipient, so the protection has to be in the data itself ([P15]{1})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-sharing.md
@@ -40,11 +40,11 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-sharing.md
-msgid "A publication catalog built by the transformation layer."
+msgid "A publication catalog, built by the transformation layer."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-sharing.md
-msgid "An open sharing protocol; a recipient register; a sharing panel."
+msgid "An open sharing protocol, a register of recipients, and a sharing panel."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-sharing.md
@@ -52,7 +52,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-sharing.md
-msgid "An unsalted hash of an identifier can be reversed by trying every plausible identifier. Use a keyed hash or a surrogate key."
+msgid "An identifier hashed without a salt can be reversed by trying every plausible identifier. Use a keyed hash or a surrogate key instead."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-sharing.md

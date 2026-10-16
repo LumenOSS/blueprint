@@ -8,22 +8,22 @@ Layer L1 · domain: data · depends on: [CAP-CATALOG](cap-catalog.md), [CAP-OPER
 
 ## Purpose
 
-Keep one authoritative record of each institution, person and post, with an identifier that never changes and never means anything.
+There is one authoritative record of each institution, person and post, with an identifier that never changes and has no meaning of its own.
 
 ## Why
 
-Every EMIS indicator counts people and institutions, so a duplicated learner or a mis-keyed school is a wrong number everywhere it is used. An identifier that carries meaning breaks when the meaning changes, and copies whatever it carries into every table that references it. An opaque identifier minted once avoids both. Duplicate resolution reuses the review pattern: suspected duplicates are sets that a person decides, and a merge is reversible ([P8](../principles.md#p8-every-write-is-idempotent), [P10](../principles.md#p10-low-confidence-goes-to-a-person-never-guessed)).
+Every EMIS indicator counts people and institutions, so a duplicated learner or a mistyped school becomes a wrong number everywhere it's used. An identifier that carries meaning breaks when that meaning changes, and it copies whatever it carries into every table that refers to it. An opaque identifier, minted once, avoids both problems. Duplicates are resolved with the same review pattern used elsewhere: suspected duplicates become sets for a person to decide on, and any merge can be reversed ([P8](../principles.md#p8-every-write-is-idempotent), [P10](../principles.md#p10-low-confidence-goes-to-a-person-never-guessed)).
 
 ## Interfaces
 
-- Registries for institutions (and their sites), people (learners, guardians, staff) and posts.
+- Registries for institutions (and their sites), for people (learners, guardians, staff) and for posts.
 - A separate, more sensitive table of identifiers issued by other authorities.
-- Adapters to external authoritative registers, recording each verification outcome.
-- A duplicate-review queue whose decisions are merges with redirects.
+- Adapters to external authoritative registers, which record the outcome of each verification.
+- A queue for reviewing duplicates, where each decision is a merge with a redirect.
 
 ## Notes
 
-Keep the post (an established position) apart from the person who fills it, and the enrolment apart from the learner; most workforce and participation indicators depend on those relationships, not on the people alone. See the [domain model](../domain/README.md).
+Keep the post (an established position) separate from the person who fills it, and the enrolment separate from the learner. Most workforce and participation indicators depend on those relationships, not just on the people. The [domain model](../domain/README.md) explains them.
 
 ## Contract
 

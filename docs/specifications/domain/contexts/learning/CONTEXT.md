@@ -1,6 +1,8 @@
 # Learning
 
-A learner's participation in education: enrolment, class membership, attendance, progression and the guardians who act for them. The core of an EMIS.
+This context covers a learner's part in education: their enrolment,
+class membership, attendance and progression, and the guardians who act
+for them. It's the core of an EMIS.
 
 ## Language
 

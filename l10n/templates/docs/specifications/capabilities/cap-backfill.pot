@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-backfill.md
-msgid "Load history, reprocess after a logic change, and fill gaps without duplicates, data loss or harm to production."
+msgid "You can load history, reprocess data after a change of logic, and fill gaps, without creating duplicates, losing data or harming production."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-backfill.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-backfill.md
-msgid "Backfills run rarely, under pressure, over more data than anything else; they are where idempotence, determinism and reconciliation are tested hardest ([P8]{1}, [P9]{2}). See the [backfill patterns]{3}."
+msgid "Backfills run rarely, often under pressure, and over more data than any other job. That makes them the hardest test of idempotence, determinism and reconciliation ([P8]{1}, [P9]{2}). The [backfill patterns]{3} describe how to run them."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-backfill.md
@@ -38,7 +38,15 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-backfill.md
-msgid "Range-declared jobs; write-audit-publish; a reconciliation report per partition."
+msgid "Jobs that declare the range they cover."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "A write-audit-publish sequence."
+msgstr ""
+
+#: docs/specifications/capabilities/cap-backfill.md
+msgid "A reconciliation report for each partition."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-backfill.md

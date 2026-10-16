@@ -8,15 +8,15 @@ Layer L1 · domain: governance · depends on: [CAP-CATALOG](cap-catalog.md).
 
 ## Purpose
 
-Make every coded value, definition and format mean the same thing across systems, years and reports.
+Every coded value, definition and format means the same thing in every system, every year and every report.
 
 ## Why
 
-Comparisons over time and between places only hold when codes are stable and definitions are versioned. A reused code or a silently redefined element turns a trend into an artefact. Crosswalks to international classifications let national figures be reported internationally without changing how institutions record them.
+Comparisons over time and between places only hold if codes stay stable and definitions are versioned. If a code is reused, or an element is quietly redefined, a trend becomes an artefact of the change rather than a real one. Crosswalks to international classifications let national figures be reported internationally without changing how institutions record them.
 
 ## Interfaces
 
-- Versioned code lists with owners and validity periods.
+- Versioned code lists, each with an owner and validity periods.
 - A data dictionary in the catalog for every published element.
 - Crosswalks from local classifications to international ones.
 - A versioned administrative geography.

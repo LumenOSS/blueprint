@@ -12,7 +12,8 @@ msgid "Terminology"
 msgstr "Terminología"
 
 #: docs/concepts/terminology.md
-msgid "The specifications use a handful of classifications over and over. Learn these and the rest of the blueprint reads easily. Every other term is in the [glossary]{1} or in the vocabulary of its bounded context, listed in the [context map]{2}."
+#, fuzzy
+msgid "The specifications use a handful of classifications over and over. Once you know them, the rest of the blueprint is much easier to read. You'll find every other term either in the [glossary]{1} or in the vocabulary of its bounded context, which the [context map]{2} lists."
 msgstr "Las especificaciones usan una y otra vez un puñado de clasificaciones. Apréndalas y el resto del plano se leerá con facilidad. Todos los demás términos están en el [glosario]{1} o en el vocabulario de su contexto delimitado, enumerado en el [mapa de contextos]{2}."
 
 #: docs/concepts/terminology.md
@@ -20,7 +21,8 @@ msgid "Sensitivity tiers"
 msgstr "Niveles de sensibilidad"
 
 #: docs/concepts/terminology.md
-msgid "Every table is tagged with one tier. The tier decides who may see it, where it is stored and whether it may be published."
+#, fuzzy
+msgid "We tag every table with one tier. The tier decides who may see the table, where it's stored, and whether it may be published."
 msgstr "Cada tabla lleva un nivel. El nivel decide quién puede verla, dónde se almacena y si se puede publicar."
 
 #: docs/concepts/terminology.md
@@ -120,7 +122,8 @@ msgid "Named people, each grant approved by a steward, in separate storage"
 msgstr "Personas con nombre, cada permiso aprobado por una persona responsable de datos, en almacenamiento separado"
 
 #: docs/concepts/terminology.md
-msgid "Defined in [CAP-CLASSIFICATION]{1}."
+#, fuzzy
+msgid "The tiers are defined in [CAP-CLASSIFICATION]{1}."
 msgstr "Definido en [CAP-CLASSIFICATION]{1}."
 
 #: docs/concepts/terminology.md
@@ -128,7 +131,8 @@ msgid "Provenance"
 msgstr "Procedencia"
 
 #: docs/concepts/terminology.md
-msgid "Every table also says where its data came from: **real** (about real people and institutions), **simulated** (made up, for testing) or **derived** (computed from other tables). Nothing is deleted until its provenance is proven."
+#, fuzzy
+msgid "Every table also says where its data came from. Its provenance is **real** if the data is about real people and institutions, **simulated** if it was made up for testing, or **derived** if it was computed from other tables. We don't delete anything until its provenance is proven."
 msgstr "Cada tabla indica también de dónde vienen sus datos: **real** (sobre personas e instituciones reales), **simulated** (inventados, para pruebas) o **derived** (calculados a partir de otras tablas). No se borra nada hasta que se demuestra su procedencia."
 
 #: docs/concepts/terminology.md
@@ -136,7 +140,8 @@ msgid "Bronze, silver and gold"
 msgstr "Bronce, plata y oro"
 
 #: docs/concepts/terminology.md
-msgid "Data passes through three stages on its way to being used:"
+#, fuzzy
+msgid "Data passes through three stages on its way to being used."
 msgstr "Los datos pasan por tres etapas antes de usarse:"
 
 #: docs/concepts/terminology.md
@@ -188,7 +193,8 @@ msgid "Enrolment counts by grade and district, as at census day"
 msgstr "La matrícula por grado y distrito, en el día del censo"
 
 #: docs/concepts/terminology.md
-msgid "Reports and indicators read only from gold."
+#, fuzzy
+msgid "Reports and indicators only ever read from gold."
 msgstr "Los informes y los indicadores leen solo de la capa oro."
 
 #: docs/concepts/terminology.md
@@ -196,11 +202,13 @@ msgid "Reference date and academic period"
 msgstr "Fecha de referencia y periodo académico"
 
 #: docs/concepts/terminology.md
-msgid "An **academic period** is a school year or term."
+#, fuzzy
+msgid "An **academic period** is a school year or a term."
 msgstr "Un **periodo académico** es un curso escolar o un trimestre."
 
 #: docs/concepts/terminology.md
-msgid "A **reference date** is the single day a statistic describes, such as census day. Counting \"as at\" one date is what makes figures comparable."
+#, fuzzy
+msgid "A **reference date** is the single day that a statistic describes, such as census day. Counting everything \"as at\" one date is what makes figures comparable."
 msgstr "Una **fecha de referencia** es el único día que describe una estadística, como el día del censo. Contar «a» una sola fecha es lo que hace comparables las cifras."
 
 #: docs/concepts/terminology.md
@@ -208,7 +216,8 @@ msgid "Layers"
 msgstr "Capas"
 
 #: docs/concepts/terminology.md
-msgid "The platform is built in four layers, each trusted less than the one below and each in its own repository."
+#, fuzzy
+msgid "The platform is built in four layers. Each layer is trusted less than the one below it, and each lives in its own repository."
 msgstr "La plataforma se construye en cuatro capas, cada una con menos confianza que la de abajo y cada una en su propio repositorio."
 
 #: docs/concepts/terminology.md
@@ -272,11 +281,13 @@ msgid "A **capability** is something the platform must be able to do, such as `C
 msgstr "Una **capacidad** es algo que la plataforma debe poder hacer, como `CAP-ACCESS`."
 
 #: docs/concepts/terminology.md
-msgid "Its **contract** is a list of numbered **clauses**, such as `CAP-ACCESS.7`. Each clause has a level: **MUST** (required), **SHOULD** (required unless there is a recorded reason) or **MAY** (optional), in the sense of [BCP 14]{1}. Each says how conformance is shown."
+#, fuzzy
+msgid "Each capability has a **contract**, which is a list of numbered **clauses**, such as `CAP-ACCESS.7`. Every clause has a level, used in the sense of [BCP 14]{1}. **MUST** means it's required. **SHOULD** means it's required unless there's a recorded reason not to. **MAY** means it's optional. Every clause also says how you show that you conform to it."
 msgstr "Su **contrato** es una lista de **cláusulas** numeradas, como `CAP-ACCESS.7`. Cada cláusula tiene un nivel: **MUST** (obligatorio), **SHOULD** (obligatorio salvo razón registrada) o **MAY** (opcional), en el sentido de [BCP 14]{1}. Cada una indica cómo se demuestra la conformidad."
 
 #: docs/concepts/terminology.md
-msgid "An **implementation** is a real platform that meets the contracts. Its **binding** gives every clause a status:"
+#, fuzzy
+msgid "An **implementation** is a real platform that meets the contracts. Its **binding** gives every clause one of these statuses:"
 msgstr "Una **implementación** es una plataforma real que cumple los contratos. Su **vinculación** da un estado a cada cláusula:"
 
 #: docs/concepts/terminology.md
@@ -324,7 +335,8 @@ msgid "Roles"
 msgstr "Roles"
 
 #: docs/concepts/terminology.md
-msgid "Documents name roles, never people."
+#, fuzzy
+msgid "Our documents name roles, never people."
 msgstr "Los documentos nombran roles, nunca personas."
 
 #: docs/concepts/terminology.md
@@ -380,7 +392,8 @@ msgid "Domains and environments"
 msgstr "Dominios y entornos"
 
 #: docs/concepts/terminology.md
-msgid "A **domain** is an area of data with one steward, such as `learners` or `workforce`. Each is a catalog."
+#, fuzzy
+msgid "A **domain** is an area of data that has one steward, such as `learners` or `workforce`. Each domain is a catalog."
 msgstr "Un **dominio** es un área de datos con una sola persona responsable, como `learners` o `workforce`. Cada uno es un catálogo."
 
 #: docs/concepts/terminology.md
@@ -388,5 +401,6 @@ msgid "An **environment** is a separate world for a change to run in, such as pr
 msgstr "Un **entorno** es un mundo separado en el que se ejecuta un cambio, como producción o la rama de un desarrollador. Los catálogos se llaman `<domain>_<environment>`, por ejemplo `learners_prod`."
 
 #: docs/concepts/terminology.md
-msgid "You are ready for the [specifications]{1}."
+#, fuzzy
+msgid "You're now ready for the [specifications]{1}."
 msgstr "Ya está preparado para las [especificaciones]{1}."

@@ -8,21 +8,21 @@ Layer L0 · domain: delivery
 
 ## Purpose
 
-Let CI act on the platform without any stored secret, and make sure no identity can widen its own access.
+CI can act on the platform without any stored secret, and no identity can widen its own access.
 
 ## Why
 
-A stored secret can be copied; a federated token is minted per run and only for a protected environment ([P3](../principles.md#p3-federation-not-secrets)). The identity that defines identities is the root of trust and is created by a person once ([P4](../principles.md#p4-the-root-of-trust-is-made-once-by-a-person-and-cannot-widen-itself)). Role assignment rights are conditioned to a list ([P5](../principles.md#p5-least-privilege-enumerated)).
+A stored secret can be copied. A federated token, by contrast, is minted for each run and only for a protected environment ([P3](../principles.md#p3-federation-not-secrets)). The identity that defines all the other identities is the root of trust, so a person creates it once ([P4](../principles.md#p4-the-root-of-trust-is-made-once-by-a-person-and-cannot-widen-itself)). The right to assign roles is limited to a listed set of roles ([P5](../principles.md#p5-least-privilege-enumerated)).
 
 ## Interfaces
 
 - The CI host's OIDC token, exchanged for a cloud or platform token.
 - Federated credentials whose subject names a repository and a protected environment.
-- Separate plan (read-only) and apply identities per layer; a deploy and a run-as identity per product per environment.
+- Separate identities for plan (read-only) and apply in each layer, and a deploy identity and a run-as identity for each product in each environment.
 
 ## Notes
 
-Count credentials before adding them: identity providers cap federated credentials per identity. Verify the subject format of each CI host before relying on it.
+Identity providers limit how many federated credentials one identity can have, so count them before you add more. Check the subject format each CI host uses before you rely on it.
 
 ## Contract
 

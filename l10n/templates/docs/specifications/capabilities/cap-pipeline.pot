@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-pipeline.md
-msgid "Build processing stages that can be retried, overlapped and re-run without being wrong."
+msgid "Processing stages can be retried, run in overlap and re-run without giving wrong results."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-pipeline.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-pipeline.md
-msgid "Delivery is at-least-once; content addressing makes overlap wasteful instead of wrong ([P8]{1}, [P9]{2}). Keeping the database out of every stage but one lets the rest retry through a database outage."
+msgid "Delivery is at least once, so the same item may arrive twice. Because items are addressed by their content, overlapping runs waste some work but don't produce wrong results ([P8]{1}, [P9]{2}). Only one stage touches the database, so the others can keep retrying through a database outage."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-pipeline.md
@@ -38,11 +38,11 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-pipeline.md
-msgid "Storage folders as hand-off points; one job per stage."
+msgid "Storage folders as the hand-off points between stages, and one job for each stage."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-pipeline.md
-msgid "A provenance record per item."
+msgid "A provenance record for each item."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-pipeline.md
@@ -50,7 +50,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-pipeline.md
-msgid "A stage that keeps an index in memory must run with concurrency one, or concurrent runs miss matches across each other silently."
+msgid "A stage that keeps an index in memory has to run one at a time. Otherwise concurrent runs miss each other's matches, without any warning."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-pipeline.md

@@ -8,21 +8,21 @@ Layer L1 · domain: data
 
 ## Purpose
 
-Store tables and files durably, with each domain's data behind its own location and credential.
+Tables and files are stored durably, and each domain's data sits behind its own location and credential.
 
 ## Why
 
-Separate locations per domain keep a grant on one domain from reaching another's files. Source files are the evidence behind every derived number, so they are kept as records ([P12](../principles.md#p12-provenance-before-any-drop)).
+Giving each domain its own location means a grant on one domain can't reach another domain's files. Source files are the evidence behind every number derived from them, so they're kept as records ([P12](../principles.md#p12-provenance-before-any-drop)).
 
 ## Interfaces
 
-- An object API reached by identity.
-- One location and credential per domain catalog.
+- An object API, reached by identity.
+- One location and one credential for each domain catalog.
 - An archive area for source-of-record files.
 
 ## Notes
 
-Object versioning on a lake store can conflict with table maintenance: deleted data files reappear as versions and maintenance cannot reclaim them. Use the table format's history and backups for recovery, and test the combination.
+Object versioning on a lake store can conflict with table maintenance, because deleted data files come back as old versions and maintenance can't reclaim the space. Use the table format's history and backups for recovery instead, and test the combination.
 
 ## Contract
 

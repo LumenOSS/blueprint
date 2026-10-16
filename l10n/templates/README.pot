@@ -10,11 +10,15 @@ msgid "LumenOSS Blueprint"
 msgstr ""
 
 #: README.md
-msgid "A blueprint for an education management information system (EMIS): the domain it records, the rules for handling its data, and the governed data platform that holds it. The architecture stays fixed while the implementation varies. It covers the resources an EMIS holds (learners, schools, teachers and staff, enrolment, attendance, assessment and the indicators reported from them) through operational databases, a lakehouse, governance and access, reporting, backfill and migration, and example products that exercise all of them."
+msgid "A blueprint for an education management information system (EMIS). It describes the domain an EMIS records, the rules for handling its data, and the governed data platform that holds it. The architecture stays the same wherever you build it; only the implementation changes."
 msgstr ""
 
 #: README.md
-msgid "Each part of the architecture is a **capability** with a **contract** of numbered, testable clauses that name no vendor. An **implementation** binds each capability to real components and shows evidence for every clause. Two reference implementations are planned: one fully open source on Kubernetes, one on Databricks."
+msgid "It covers everything an EMIS holds, from learners, schools, teachers and staff to enrolment, attendance, assessment and the indicators reported from them. It follows that data through operational databases, a lakehouse, governance and access, reporting, backfill and migration, and it includes example products that use all of them."
+msgstr ""
+
+#: README.md
+msgid "We describe each part of the architecture as a **capability**. Each capability has a **contract**, which is a list of numbered clauses that you can test and that name no vendor. An **implementation** connects each capability to real components and shows evidence for every clause. We plan two reference implementations: one entirely open source on Kubernetes, and one on Databricks."
 msgstr ""
 
 #: README.md
@@ -22,7 +26,7 @@ msgid "Status: blueprint 0.5.0, with 41 capabilities and 246 clauses. Contracts 
 msgstr ""
 
 #: README.md
-msgid "**New here?** Start with [getting started]{1}: it gives a reading order for everyone and a track for each role."
+msgid "If you're new here, start with [getting started]{1}. It suggests an order to read things in, and a path for each role."
 msgstr ""
 
 #: README.md
@@ -30,7 +34,11 @@ msgid "How the blueprint changes"
 msgstr ""
 
 #: README.md
-msgid "Anyone can propose a change as a **LumenOSS Improvement Proposal (LIP)**: a numbered document that moves in the open from Draft through Review and a 14-day Last Call to a decision, in the manner of the IETF's RFCs, Python's PEPs, Bitcoin's BIPs, Ethereum's EIPs and Cardano's CIPs. Every proposal states its effect on learners' data. Accepted LIPs are recorded as decision records and released in a catalogue version. Read [LIP-1]{1} for the process and start from the [template]{2}. [CONTRIBUTING.md]{3} says which changes need a LIP and which are ordinary reviewed changes, how to set up, and what review looks for."
+msgid "Anyone can propose a change, by writing a **LumenOSS Improvement Proposal (LIP)**. A LIP is a numbered document that moves through its stages in the open: Draft, then Review, then a 14-day Last Call, and then a decision. It works the same way as the IETF's RFCs, Python's PEPs, Bitcoin's BIPs, Ethereum's EIPs and Cardano's CIPs. Because the blueprint governs data about children, every proposal says what it does to learners' data. When a LIP is accepted, we write it up as a decision record and release it in a new catalogue version."
+msgstr ""
+
+#: README.md
+msgid "[LIP-1]{1} describes the process, and you can start from the [template]{2}. Not every change needs a LIP, though. [CONTRIBUTING.md]{3} tells you which changes do and which are ordinary reviewed changes, how to set up, and what reviewers look for."
 msgstr ""
 
 #: README.md
@@ -230,11 +238,11 @@ msgid "Develop"
 msgstr ""
 
 #: README.md
-msgid "Everything runs in the Nix dev shell; tasks are `just` recipes."
+msgid "Everything runs in the Nix dev shell, and every task is a `just` recipe."
 msgstr ""
 
 #: README.md
-msgid "Formatting and linting are done by tools configured at the repository root (ruff, pyright, markdownlint, yamlfmt, yamllint, biome, shfmt, shellcheck, nixfmt, lychee). `just fmt` applies the formatters."
+msgid "Tools configured at the repository root do the formatting and linting: ruff, pyright, markdownlint, yamlfmt, yamllint, biome, shfmt, shellcheck, nixfmt and lychee. Run `just fmt` to apply the formatters."
 msgstr ""
 
 #: README.md
@@ -242,5 +250,5 @@ msgid "Licence"
 msgstr ""
 
 #: README.md
-msgid "Apache License 2.0. See [LICENSE]{1}."
+msgid "The blueprint is released under the Apache License 2.0. See [LICENSE]{1}."
 msgstr ""

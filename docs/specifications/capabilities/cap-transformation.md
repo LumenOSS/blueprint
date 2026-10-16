@@ -8,16 +8,16 @@ Layer L3 · domain: data · depends on: [CAP-COMPUTE](cap-compute.md), [CAP-CATA
 
 ## Purpose
 
-Compute every reported number in one versioned, tested place.
+Every reported number is computed in one place, which is versioned and tested.
 
 ## Why
 
-Conformance once means every consumer shares one identifier and one definition ([P11](../principles.md#p11-reporting-goes-through-a-governed-transformation-layer)).
+When data is conformed once, every consumer shares the same identifiers and the same definitions ([P11](../principles.md#p11-reporting-goes-through-a-governed-transformation-layer)).
 
 ## Interfaces
 
 - Versioned models in bronze, silver and gold.
-- Tests run in CI.
+- Tests that run in CI.
 - Development schemas for development runs.
 
 ## Contract

@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md
-msgid "Publish aggregate education statistics openly, safely and permanently."
+msgid "Aggregate education statistics are published openly, safely and permanently."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md
-msgid "Open statistics are how the public, researchers and partners hold an education system to account, and they are only trusted if they are the same figures used inside government, stable over time, and safe from re-identification ([P15]{1}). Partner sharing of row-level, de-identified data is a different channel with different controls ([CAP-SHARING]{2})."
+msgid "Open statistics are how the public, researchers and partners hold an education system to account. They're only trusted if they're the same figures used inside government, stay stable over time, and can't be used to re-identify anyone ([P15]{1}). Sharing de-identified, row-level data with partners is a different channel, with different controls ([CAP-SHARING]{2})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md
@@ -38,15 +38,15 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md
-msgid "A publication register and portal."
+msgid "A publication register and a portal."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md
-msgid "Publication tables with disclosure tests."
+msgid "Publication tables, with disclosure tests."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md
-msgid "Bulk files, a query interface and readable renderings generated from the same tables."
+msgid "Bulk files, a query interface and readable versions, all generated from the same tables."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md
@@ -54,7 +54,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md
-msgid "Suppressing a small cell is not enough on its own: if row and column totals are published, the suppressed value can be recomputed. Secondary suppression or rounding closes that gap."
+msgid "Suppressing a small cell isn't enough on its own. If the row and column totals are published, anyone can work out the suppressed value. Secondary suppression or rounding closes that gap."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-publication.md

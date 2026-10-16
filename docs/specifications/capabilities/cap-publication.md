@@ -8,21 +8,21 @@ Layer L1 · domain: governance · depends on: [CAP-SEMANTICS](cap-semantics.md),
 
 ## Purpose
 
-Publish aggregate education statistics openly, safely and permanently.
+Aggregate education statistics are published openly, safely and permanently.
 
 ## Why
 
-Open statistics are how the public, researchers and partners hold an education system to account, and they are only trusted if they are the same figures used inside government, stable over time, and safe from re-identification ([P15](../principles.md#p15-publish-never-export)). Partner sharing of row-level, de-identified data is a different channel with different controls ([CAP-SHARING](cap-sharing.md)).
+Open statistics are how the public, researchers and partners hold an education system to account. They're only trusted if they're the same figures used inside government, stay stable over time, and can't be used to re-identify anyone ([P15](../principles.md#p15-publish-never-export)). Sharing de-identified, row-level data with partners is a different channel, with different controls ([CAP-SHARING](cap-sharing.md)).
 
 ## Interfaces
 
-- A publication register and portal.
-- Publication tables with disclosure tests.
-- Bulk files, a query interface and readable renderings generated from the same tables.
+- A publication register and a portal.
+- Publication tables, with disclosure tests.
+- Bulk files, a query interface and readable versions, all generated from the same tables.
 
 ## Notes
 
-Suppressing a small cell is not enough on its own: if row and column totals are published, the suppressed value can be recomputed. Secondary suppression or rounding closes that gap.
+Suppressing a small cell isn't enough on its own. If the row and column totals are published, anyone can work out the suppressed value. Secondary suppression or rounding closes that gap.
 
 ## Contract
 

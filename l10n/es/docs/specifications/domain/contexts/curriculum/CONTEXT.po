@@ -12,7 +12,7 @@ msgid "Curriculum"
 msgstr ""
 
 #: docs/specifications/domain/contexts/curriculum/CONTEXT.md
-msgid "What is taught: programmes, grades, subjects and the classes they are taught in."
+msgid "This context covers what is taught: the programmes, the grades within them, the subjects, and the classes they're taught in."
 msgstr ""
 
 #: docs/specifications/domain/contexts/curriculum/CONTEXT.md

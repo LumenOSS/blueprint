@@ -8,15 +8,15 @@ Layer L1 · domain: governance · depends on: [CAP-IDENTITY](cap-identity.md).
 
 ## Purpose
 
-Keep a durable record of who accessed or changed what.
+The platform keeps a lasting record of who accessed or changed what.
 
 ## Why
 
-Platform audit retention is usually shorter than legal retention, so audit is copied out. Query text can itself contain personal data.
+Platforms usually keep audit records for less time than the law requires, so the records are copied out to a store of their own. Be aware that the text of a query can itself contain personal data.
 
 ## Interfaces
 
-- Platform audit records, copied to a separate store readable by auditors.
+- The platform's audit records, copied to a separate store that auditors can read.
 
 ## Contract
 

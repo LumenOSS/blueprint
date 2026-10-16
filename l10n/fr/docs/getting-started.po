@@ -12,7 +12,8 @@ msgid "Getting started"
 msgstr "Pour commencer"
 
 #: docs/getting-started.md
-msgid "The blueprint is meant to be read in layers: first what it is and why, then the part that matches your role. Each step says what you will know after reading it, so you can stop as soon as you have what you need."
+#, fuzzy
+msgid "You don't need to read the whole blueprint, and we don't recommend it. Read the first part, which explains what the blueprint is and why it exists, and then the part that matches your role. Each step below tells you what you'll know once you've read it, so you can stop as soon as you have what you need."
 msgstr "Ce plan de référence se lit par couches : d'abord ce qu'il est et pourquoi, puis la partie qui correspond à votre rôle. Chaque étape indique ce que vous saurez après l'avoir lue, pour que vous puissiez vous arrêter dès que vous avez ce qu'il vous faut."
 
 #: docs/getting-started.md
@@ -20,19 +21,23 @@ msgid "Everyone: the first hour"
 msgstr "Pour tous : la première heure"
 
 #: docs/getting-started.md
-msgid "The documentation has three main sections, read in this order:"
+#, fuzzy
+msgid "The documentation has three main sections, and they're meant to be read in this order:"
 msgstr "La documentation comporte trois grandes sections, à lire dans cet ordre :"
 
 #: docs/getting-started.md
-msgid "**[Core concepts]{1}** explain what an EMIS is and the ideas the rest builds on. They require nothing."
+#, fuzzy
+msgid "The **[core concepts]{1}** explain what an EMIS is and the ideas the rest of the blueprint builds on. You don't need to know anything before you read them."
 msgstr "**[Concepts de base]{1}** expliquent ce qu'est un SIGE et les idées sur lesquelles repose le reste. Ils ne supposent aucun prérequis."
 
 #: docs/getting-started.md
-msgid "**[Specifications]{1}** state what is required, precisely enough to build against and test."
+#, fuzzy
+msgid "The **[specifications]{1}** state what's required, precisely enough for you to build against them and test what you've built."
 msgstr "**[Spécifications]{1}** énoncent ce qui est exigé, assez précisément pour construire et tester."
 
 #: docs/getting-started.md
-msgid "**[Guides]{1}** walk through doing things: building an implementation, running a product, loading history."
+#, fuzzy
+msgid "The **[guides]{1}** walk you through doing things, such as building an implementation, running a product or loading history."
 msgstr "**[Guides]{1}** montrent comment faire : construire une implémentation, exploiter un produit, charger l'historique."
 
 #: docs/getting-started.md
@@ -60,7 +65,8 @@ msgid "[What is an EMIS]{1}"
 msgstr "[Qu'est-ce qu'un SIGE]{1}"
 
 #: docs/getting-started.md
-msgid "What the system is, who relies on it, and the part this blueprint covers"
+#, fuzzy
+msgid "What the system is, who relies on it, and which part of it this blueprint covers"
 msgstr "Ce qu'est le système, qui en dépend, et la partie que couvre ce plan de référence"
 
 #: docs/getting-started.md
@@ -72,7 +78,8 @@ msgid "[The EMIS domain]{1}"
 msgstr "[Le domaine du SIGE]{1}"
 
 #: docs/getting-started.md
-msgid "What a domain model is, why it is used here, and the main things an EMIS records"
+#, fuzzy
+msgid "What a domain model is, why we use one, and the main things an EMIS records"
 msgstr "Ce qu'est un modèle de domaine, pourquoi il est utilisé ici, et les principales choses qu'un SIGE enregistre"
 
 #: docs/getting-started.md
@@ -84,7 +91,8 @@ msgid "[Data in an EMIS]{1}"
 msgstr "[Les données d'un SIGE]{1}"
 
 #: docs/getting-started.md
-msgid "The kinds of data, and five ideas about handling it: sensitivity, masking, access by role and attribute, sharing, lineage"
+#, fuzzy
+msgid "The kinds of data an EMIS holds, and five ideas about handling them: sensitivity, masking, access by role and by attribute, sharing, and lineage"
 msgstr "Les types de données, et cinq idées pour les traiter : sensibilité, masquage, accès par rôle et par attribut, partage, traçabilité"
 
 #: docs/getting-started.md
@@ -96,7 +104,8 @@ msgid "[Terminology]{1}"
 msgstr "[Terminologie]{1}"
 
 #: docs/getting-started.md
-msgid "Sensitivity tiers, layers, clauses, statuses and roles"
+#, fuzzy
+msgid "The sensitivity tiers, layers, clauses, statuses and roles you'll meet everywhere"
 msgstr "Niveaux de sensibilité, couches, clauses, statuts et rôles"
 
 #: docs/getting-started.md
@@ -108,11 +117,13 @@ msgid "[Principles]{1}"
 msgstr "[Principes]{1}"
 
 #: docs/getting-started.md
-msgid "The ideas every requirement rests on; when anything else seems to disagree, these state the intent"
+#, fuzzy
+msgid "The ideas every requirement rests on. If anything else seems to disagree with them, the principles say what was intended"
 msgstr "Les idées sur lesquelles repose chaque exigence ; quand quelque chose semble les contredire, ce sont elles qui expriment l'intention"
 
 #: docs/getting-started.md
-msgid "The [README]{1} gives a one-page overview, and the [glossary]{2} and [context map]{3} define every other term."
+#, fuzzy
+msgid "The [README]{1} gives you an overview on a single page. The [glossary]{2} and the [context map]{3} define every other term."
 msgstr "Le [README]{1} donne une vue d'ensemble sur une page, et le [glossaire]{2} et la [carte des contextes]{3} définissent tous les autres termes."
 
 #: docs/getting-started.md
@@ -124,23 +135,28 @@ msgid "Leads and decision-makers"
 msgstr "Responsables et décideurs"
 
 #: docs/getting-started.md
-msgid "You approve what is built and answer for it."
+#, fuzzy
+msgid "You approve what gets built, and you answer for it."
 msgstr "Vous approuvez ce qui est construit et vous en répondez."
 
 #: docs/getting-started.md
-msgid "[Decision records]{1}: what was decided, and why, in the order it was decided."
+#, fuzzy
+msgid "The [decision records]{1} tell you what was decided and why, in the order the decisions were made."
 msgstr "[Registres de décisions]{1} : ce qui a été décidé, et pourquoi, dans l'ordre des décisions."
 
 #: docs/getting-started.md
-msgid "[Implementations]{1}: the two reference stacks and where open source differs from a managed platform."
+#, fuzzy
+msgid "The [implementations]{1} describe the two reference stacks, and where open source differs from a managed platform."
 msgstr "[Implémentations]{1} : les deux piles de référence et les points où le logiciel libre diffère d'une plateforme gérée."
 
 #: docs/getting-started.md
-msgid "[Standards]{1}: the international standards the blueprint relies on, with their current editions."
+#, fuzzy
+msgid "The [standards]{1} list the international standards the blueprint relies on, with their current editions."
 msgstr "[Normes]{1} : les normes internationales sur lesquelles s'appuie le plan, avec leurs éditions en vigueur."
 
 #: docs/getting-started.md
-msgid "[Indicators]{1}: how official figures are defined and kept comparable."
+#, fuzzy
+msgid "The [indicators]{1} page explains how official figures are defined and how they stay comparable."
 msgstr "[Indicateurs]{1} : comment les chiffres officiels sont définis et restent comparables."
 
 #: docs/getting-started.md
@@ -148,31 +164,38 @@ msgid "Architects and engineers building an implementation"
 msgstr "Architectes et ingénieurs qui construisent une implémentation"
 
 #: docs/getting-started.md
-msgid "You turn the blueprint into a running platform."
+#, fuzzy
+msgid "You turn the blueprint into a platform that runs."
 msgstr "Vous transformez le plan de référence en une plateforme qui fonctionne."
 
 #: docs/getting-started.md
-msgid "[Capabilities]{1}: every capability and its contract. Skim the index, then read the pages for the layer you start with."
+#, fuzzy
+msgid "Start with the [capabilities]{1}, which list every capability and its contract. Skim the index, then read the pages for the layer you're starting with."
 msgstr "[Capacités]{1} : chaque capacité et son contrat. Parcourez l'index, puis lisez les pages de la couche par laquelle vous commencez."
 
 #: docs/getting-started.md
-msgid "[Building an implementation]{1}: the steps, with a build order generated from the dependencies."
+#, fuzzy
+msgid "[Building an implementation]{1} gives you the steps, in a build order generated from the dependencies."
 msgstr "[Construire une implémentation]{1} : les étapes, avec un ordre de construction généré à partir des dépendances."
 
 #: docs/getting-started.md
-msgid "[Semantic layer]{1}: how every indicator is defined once and served to every consumer."
+#, fuzzy
+msgid "The [semantic layer]{1} explains how each indicator is defined once and served to every consumer."
 msgstr "[Couche sémantique]{1} : comment chaque indicateur est défini une seule fois et servi à chaque consommateur."
 
 #: docs/getting-started.md
-msgid "[Implementations]{1} and a reference binding ([open source]{2} or [Databricks]{3}): the components and the status of every clause."
+#, fuzzy
+msgid "The [implementations]{1} page and a reference binding ([open source]{2} or [Databricks]{3}) show the components and the status of every clause."
 msgstr "[Implémentations]{1} et une liaison de référence ([logiciel libre]{2} ou [Databricks]{3}) : les composants et le statut de chaque clause."
 
 #: docs/getting-started.md
-msgid "[Standards]{1}: the editions each clause names."
+#, fuzzy
+msgid "The [standards]{1} give the editions each clause names."
 msgstr "[Normes]{1} : les éditions que nomme chaque clause."
 
 #: docs/getting-started.md
-msgid "[Lessons]{1}: failures that shaped the design, so you do not repeat them."
+#, fuzzy
+msgid "The [lessons]{1} describe failures that shaped the design, so that you don't repeat them."
 msgstr "[Leçons]{1} : les échecs qui ont façonné la conception, pour ne pas les répéter."
 
 #: docs/getting-started.md
@@ -184,19 +207,23 @@ msgid "You build a workload on the platform."
 msgstr "Vous construisez une charge de travail sur la plateforme."
 
 #: docs/getting-started.md
-msgid "[Domain model]{1}, [indicators]{2} and the [semantic layer]{3}."
+#, fuzzy
+msgid "Read the [domain model]{1}, the [indicators]{2} and the [semantic layer]{3}."
 msgstr "[Modèle de domaine]{1}, [indicateurs]{2} et la [couche sémantique]{3}."
 
 #: docs/getting-started.md
-msgid "[Example products]{1}: document review and the annual census, read as worked examples."
+#, fuzzy
+msgid "Read the [example products]{1}, document review and the annual census, as worked examples."
 msgstr "[Produits d'exemple]{1} : l'examen de documents et le recensement annuel, à lire comme des exemples détaillés."
 
 #: docs/getting-started.md
-msgid "[Product checklist]{1}: what your product records about each capability it relies on."
+#, fuzzy
+msgid "The [product checklist]{1} tells you what your product needs to record about each capability it relies on."
 msgstr "[Liste de contrôle produit]{1} : ce que votre produit consigne sur chaque capacité dont il dépend."
 
 #: docs/getting-started.md
-msgid "[Backfill patterns]{1}: before you load any history."
+#, fuzzy
+msgid "Read the [backfill patterns]{1} before you load any history."
 msgstr "[Modèles de reprise de l'historique]{1} : avant de charger le moindre historique."
 
 #: docs/getting-started.md
@@ -208,19 +235,23 @@ msgid "You decide who may see what, and what leaves the platform."
 msgstr "Vous décidez qui peut voir quoi, et ce qui quitte la plateforme."
 
 #: docs/getting-started.md
-msgid "Principles [P12]{1}, [P14]{2}, [P15]{3} and [P20]{4}."
+#, fuzzy
+msgid "Read principles [P12]{1}, [P14]{2}, [P15]{3} and [P20]{4}."
 msgstr "Principes [P12]{1}, [P14]{2}, [P15]{3} et [P20]{4}."
 
 #: docs/getting-started.md
-msgid "[CAP-ACCESS]{1}, [CAP-CLASSIFICATION]{2} and [CAP-RECORDS]{3}: who sees which rows and columns, and how long records are kept."
+#, fuzzy
+msgid "[CAP-ACCESS]{1}, [CAP-CLASSIFICATION]{2} and [CAP-RECORDS]{3} cover who sees which rows and columns, and how long records are kept."
 msgstr "[CAP-ACCESS]{1}, [CAP-CLASSIFICATION]{2} et [CAP-RECORDS]{3} : qui voit quelles lignes et colonnes, et combien de temps les dossiers sont conservés."
 
 #: docs/getting-started.md
-msgid "[CAP-PUBLICATION]{1} and [CAP-SHARING]{2}: open statistics, partner sharing, and their controls."
+#, fuzzy
+msgid "[CAP-PUBLICATION]{1} and [CAP-SHARING]{2} cover open statistics, sharing with partners, and the controls on both."
 msgstr "[CAP-PUBLICATION]{1} et [CAP-SHARING]{2} : statistiques ouvertes, partage avec les partenaires, et leurs contrôles."
 
 #: docs/getting-started.md
-msgid "[CAP-QUALITY]{1} and [CAP-REFERENCE]{2}: checks, corrections, code lists and the data dictionary."
+#, fuzzy
+msgid "[CAP-QUALITY]{1} and [CAP-REFERENCE]{2} cover checks, corrections, code lists and the data dictionary."
 msgstr "[CAP-QUALITY]{1} et [CAP-REFERENCE]{2} : contrôles, corrections, listes de codes et dictionnaire de données."
 
 #: docs/getting-started.md
@@ -232,31 +263,36 @@ msgid "You want to change the blueprint."
 msgstr "Vous voulez modifier le plan de référence."
 
 #: docs/getting-started.md
-msgid "[Contributing]{1}: which path your change takes, setting up, and what review looks for."
+#, fuzzy
+msgid "[Contributing]{1} tells you which path your change takes, how to set up, and what reviewers look for."
 msgstr "[Contribuer]{1} : le parcours que suit votre modification, l'installation, et ce que la relecture vérifie."
 
 #: docs/getting-started.md
-msgid "[LIP-1]{1}: how a change is proposed, reviewed and decided."
+#, fuzzy
+msgid "[LIP-1]{1} explains how a change is proposed, reviewed and decided."
 msgstr "[LIP-1]{1} : comment une modification est proposée, relue et décidée."
 
 #: docs/getting-started.md
-msgid "[Decision records]{1}: what has been decided so far, so a proposal builds on it rather than repeating it."
+#, fuzzy
+msgid "The [decision records]{1} show what has been decided so far, so that your proposal can build on it instead of repeating it."
 msgstr "[Registres de décisions]{1} : ce qui a déjà été décidé, pour qu'une proposition s'appuie dessus plutôt que de le répéter."
 
 #: docs/getting-started.md
-msgid "[Capabilities]{1} and the [domain language]{2}: the text a proposal changes, and the words it uses."
+#, fuzzy
+msgid "The [capabilities]{1} and the [domain language]{2} are the text a proposal changes, and the words it should use."
 msgstr "[Capacités]{1} et le [langage du domaine]{2} : le texte qu'une proposition modifie, et les mots qu'elle emploie."
 
 #: docs/getting-started.md
-msgid "The [LIP template]{1}."
-msgstr "Le [modèle de LIP]{1}."
+msgid "When you're ready, start from the [LIP template]{1}."
+msgstr ""
 
 #: docs/getting-started.md
 msgid "Agents"
 msgstr "Agents"
 
 #: docs/getting-started.md
-msgid "Start with [AGENTS.md]{1}, then [`blueprint/catalogue.yaml`]{2} for the clauses and [building.md]{3} for the order of work. Every claim the blueprint makes is either a clause with a verification or a principle with its reason; treat anything else as commentary."
+#, fuzzy
+msgid "Start with [AGENTS.md]{1}. Then read [`blueprint/catalogue.yaml`]{2} for the clauses and [building.md]{3} for the order of work. Everything the blueprint claims is either a clause, with a way to verify it, or a principle, with its reason. Treat anything else as commentary."
 msgstr "Commencez par [AGENTS.md]{1}, puis [`blueprint/catalogue.yaml`]{2} pour les clauses et [building.md]{3} pour l'ordre du travail. Toute affirmation du plan de référence est soit une clause avec sa vérification, soit un principe avec sa raison ; considérez tout le reste comme un commentaire."
 
 #: docs/getting-started.md
@@ -268,13 +304,19 @@ msgid "Why it is drawn this way"
 msgstr "Pourquoi le schéma est dessiné ainsi"
 
 #: docs/getting-started.md
-msgid "**The catalogue is the centre.** Clauses are written once there; the capability pages, the build order and the implementation tables are generated from it, so they cannot drift apart."
+#, fuzzy
+msgid "The catalogue sits at the centre. We write each clause there once, and generate the capability pages, the build order and the implementation tables from it, so they can't drift apart."
 msgstr "**Le catalogue est au centre.** Les clauses y sont écrites une seule fois ; les pages de capacités, l'ordre de construction et les tableaux d'implémentation en sont générés, si bien qu'ils ne peuvent pas diverger."
 
 #: docs/getting-started.md
-msgid "**Principles and decision records sit upstream.** A clause exists because a principle requires it, and it changes only through a decision record."
+#, fuzzy
+msgid "The principles and decision records sit upstream of it. A clause exists because a principle requires it, and it changes only through a decision record."
 msgstr "**Les principes et les registres de décisions sont en amont.** Une clause existe parce qu'un principe l'exige, et elle ne change que par un registre de décision."
 
 #: docs/getting-started.md
-msgid "**Bindings and the standards register feed the pages** so each capability shows what implements it and which standards it names."
+#, fuzzy
+msgid "The bindings and the standards register feed the capability pages, so each capability shows what implements it and which standards it names."
 msgstr "**Les liaisons et le registre des normes alimentent les pages**, si bien que chaque capacité montre ce qui l'implémente et quelles normes elle nomme."
+
+#~ msgid "The [LIP template]{1}."
+#~ msgstr "Le [modèle de LIP]{1}."

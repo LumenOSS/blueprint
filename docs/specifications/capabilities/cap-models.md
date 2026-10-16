@@ -8,20 +8,20 @@ Layer L3 · domain: product · depends on: [CAP-TRANSFORMATION](cap-transformati
 
 ## Purpose
 
-Use predictive models, such as early-warning flags, without letting them decide about people.
+Predictive models, such as early-warning flags, can be used without letting them make decisions about people.
 
 ## Why
 
-A model that flags a child is a statement about that child; it must be reproducible, explainable, checked for unequal error across groups, and always weighed by a person ([P9](../principles.md#p9-determinism), [P10](../principles.md#p10-low-confidence-goes-to-a-person-never-guessed)).
+A model that flags a child is making a statement about that child. So the result has to be reproducible and explainable, it has to be checked for errors that fall unequally across groups, and a person always has to weigh it ([P9](../principles.md#p9-determinism), [P10](../principles.md#p10-low-confidence-goes-to-a-person-never-guessed)).
 
 ## Interfaces
 
-- A model registry; deterministic batch scoring.
-- Flags delivered into the review queue with their signals.
+- A model registry, and deterministic batch scoring.
+- Flags delivered into the review queue together with the signals behind them.
 
 ## Notes
 
-Prefer interpretable models; an early-warning signal that a teacher cannot understand will not be acted on well.
+Prefer models people can interpret. A teacher is unlikely to act well on an early-warning signal they can't understand.
 
 ## Contract
 

@@ -1,8 +1,9 @@
 # Guides
 
-How to do things with the blueprint, step by step. Each guide assumes you
-know the [core concepts](../concepts/README.md) and points to the
-[specifications](../specifications/README.md) it applies.
+These guides help you get things done with the blueprint, step by step.
+Each one assumes you already know the [core concepts](../concepts/README.md),
+and each points you to the [specifications](../specifications/README.md) it
+applies.
 
 | Guide | Use it to |
 | --- | --- |

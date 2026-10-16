@@ -10,11 +10,11 @@ msgid "Backfill patterns"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "How to load history, reprocess after a logic change, fill gaps after an outage, and onboard a source with years of history, without duplicates, loss, or harm to production. The contract these patterns serve is [CAP-BACKFILL]{1}; section 8 maps each of its clauses to the invariants that prove it."
+msgid "This guide shows you how to load history, reprocess data after a logic change, fill gaps after an outage, and bring in a source that has years of history, without creating duplicates, losing data or harming production. These patterns serve the contract in [CAP-BACKFILL]{1}, and section 8 shows which invariants prove each of its clauses."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "The chapter is vendor-neutral. Each pattern ends with a one-line mapping to (a) an open-source stack and (b) Databricks. Citations are numbered `[n]` and resolved in the references; sources were checked on 2026-10-15, and anything marked **[unverified]** was not confirmed against a primary source."
+msgid "The guide doesn't depend on any vendor. Each pattern ends with a one-line note on how it maps to (a) an open-source stack and (b) Databricks. Citations are numbered `[n]` and listed in the references. We checked the sources on 2026-10-15, and anything marked **[unverified]** wasn't confirmed against a primary source."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -22,7 +22,7 @@ msgid "1. Scope and vocabulary"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "A **backfill** is any run that writes data for a period or key range other than \"the newest slice\", or that rewrites data already published. This chapter covers four situations that look different but share mechanics:"
+msgid "A **backfill** is any run that writes data for a period or key range other than the newest slice, or that rewrites data you've already published. This guide covers four situations. They look different, but they work the same way underneath."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -106,15 +106,15 @@ msgid "Seam between the bulk copy and the live feed"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "Two systems are in scope: the **analytical platform** (lake/lakehouse tables, transformations, marts) and the **operational systems** that feed it or are fed by it (OLTP Postgres and similar). The patterns differ because an operational database serves live traffic during the backfill and cannot be taken offline."
+msgid "The guide covers two kinds of system. The first is the **analytical platform**, meaning its lake or lakehouse tables, transformations and marts. The second is the **operational systems** that feed the platform or are fed by it, such as OLTP Postgres. The patterns for the two differ, because an operational database keeps serving live traffic during a backfill, and you can't take it offline."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Terms used throughout.**"
+msgid "A few terms come up throughout:"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "*Event time*: when the thing happened in the world. *Processing time*: when the system saw it. [1]"
+msgid "**Event time** is when something happened in the world, and **processing time** is when the system saw it [1]."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -122,19 +122,19 @@ msgid "11"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "*Valid time*: when a fact is true in the modelled world. *Transaction time*: when the database recorded it. A table that keeps both is *bitemporal*. [10]{1}"
+msgid "**Valid time** is when a fact is true in the world being modelled, and **transaction time** is when the database recorded it. A table that keeps both is **bitemporal** [10]{1}."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "*Slice*: the unit a backfill writes atomically: a partition, a date range, a key range, a batch."
+msgid "A **slice** is the unit a backfill writes in one atomic step, such as a partition, a date range, a key range or a batch."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "*Natural key*: an identifier that comes from the domain (learner identifier, sheet hash), not a surrogate generated at load time."
+msgid "A **natural key** is an identifier that comes from the domain, such as a learner identifier or a sheet hash, rather than a surrogate generated at load time."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "*Logic version*: the identifier of the code and configuration that produced a row."
+msgid "A **logic version** identifies the code and configuration that produced a row."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -142,7 +142,7 @@ msgid "2. Decision guide"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "Read the left column, find your situation, and start with the named patterns. Section numbers point to the pattern catalogue (section 4)."
+msgid "Find your situation in the left-hand column and start with the patterns it names. The numbers refer to the pattern catalogues in sections 4 to 6."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -370,7 +370,7 @@ msgid "Incremental cutover limits blast radius; the old system remains the fallb
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Ordering rule of thumb.** Dimensions (and reference data) before facts; parents before children; within a table, choose oldest-first when later slices depend on earlier state (SCD type 2, running balances, cumulative metrics), and newest-first when consumers value recent data most and slices are independent (section 4.10)."
+msgid "As a rule of thumb for ordering, load dimensions and reference data before facts, and parents before children. Within a table, go oldest first when later slices depend on earlier state, as with SCD type 2, running balances and cumulative metrics. Go newest first when consumers care most about recent data and the slices don't depend on each other (section 4.10)."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -378,7 +378,7 @@ msgid "3. First principles"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "These are the ideas the patterns rest on. Each is stated as a claim, with the source it comes from."
+msgid "The patterns rest on a handful of ideas. Each one is stated below as a claim, together with the source it comes from."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -390,7 +390,7 @@ msgid "Akidau et al. separate *event time* from *processing time* and argue that
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "*Consequences for backfills.* (a) Partition by event time, not load time, or a re-run of \"yesterday\" means nothing stable. (b) A *watermark* is a heuristic statement that input for a time range is probably complete; backfills exist largely because that heuristic is sometimes wrong. (c) When a backfill changes a previously emitted result, downstream needs either a replacement of the whole result (discarding/overwrite) or an explicit retraction. Silent in-place mutation is neither."
+msgid "This has three consequences for backfills. First, partition by event time, not load time; otherwise re-running \"yesterday\" doesn't mean anything stable. Second, a *watermark* is only a heuristic statement that the input for a time range is probably complete, and backfills exist largely because that heuristic is sometimes wrong. Third, when a backfill changes a result that was already emitted, downstream needs either the whole result replaced (discarding, or overwriting) or an explicit retraction. Quietly changing the result in place is neither."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -410,7 +410,7 @@ msgid "Helland makes the general case: immutable data is what lets distributed s
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "*Consequence.* Keep raw inputs immutable and retained long enough to replay. If the raw input is gone, a logic-change backfill (S2) is impossible, and you are restating from a derived table, which carries forward its errors."
+msgid "So keep raw inputs immutable, and keep them long enough to replay. If the raw input is gone, you can't do a logic-change backfill (S2) at all. You'd be restating from a derived table instead, and that carries its errors forward."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -418,7 +418,7 @@ msgid "3.3 Functional data engineering: pure tasks over immutable partitions"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "Beauchemin (2018) applies functional programming to batch pipelines [6]: tasks are *pure* (same inputs give the same output, no side effects beyond writing their own target), *idempotent*, and write *immutable partitions* that are replaced whole, never mutated. Raw data goes in a *persistent staging area* kept indefinitely so any partition can be recomputed; slowly changing dimensions are handled by snapshotting dimensions per partition rather than mutating rows. With these rules, a backfill is just running the same task for older partitions."
+msgid "Beauchemin (2018) applies functional programming to batch pipelines [6]. In his approach, tasks are *pure*, meaning the same inputs always give the same output and the only side effect is writing their own target. They're also *idempotent*, and they write *immutable partitions*, which are replaced whole and never changed in place. Raw data goes into a *persistent staging area* that's kept indefinitely, so any partition can be recomputed. Slowly changing dimensions are handled by taking a snapshot of each dimension for each partition, rather than changing rows. With these rules in place, a backfill is simply the same task run for older partitions."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -430,19 +430,19 @@ msgid "8"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "Delivery across a network is at-least-once in practice; \"exactly once\" is achieved as an *effect* by making the write idempotent [7]{1}. Helland defines idempotence as an operation whose repetition has the same effect as doing it once, and argues it is a requirement in any system that retries messages [7]. Practical ways to get it:"
+msgid "In practice, delivery across a network is at-least-once, so you get \"exactly once\" as an *effect*, by making the write idempotent [7]{1}. Helland defines an idempotent operation as one where repeating it has the same effect as doing it once, and argues that any system that retries messages needs it [7]. Here are practical ways to get it:"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Deterministic keys.** Derive the row key from the content or the domain (natural key, or a hash of stable fields), never from load time or a sequence assigned during the load. A retried load then produces the same keys and a MERGE or overwrite makes it a no-op."
+msgid "**Use deterministic keys.** Derive the row key from the content or the domain, as a natural key or a hash of stable fields, and never from the load time or a sequence assigned during the load. Then a retried load produces the same keys, and a MERGE or an overwrite turns it into a no-op."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Slice replacement.** Replace the whole slice atomically (section 4.1)."
+msgid "**Replace whole slices.** Replace the whole slice in one atomic step (section 4.1)."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Commit tokens.** Record the (job id, slice id or version) inside the same atomic commit as the data, and skip a commit whose token is already present. Delta Lake's `txnAppId`/`txnVersion` options do exactly this: a write with a version at or below the last recorded one for that app id is ignored [16]."
+msgid "**Use commit tokens.** Record the job id together with the slice id or version, inside the same atomic commit as the data, and skip any commit whose token is already there. Delta Lake's `txnAppId` and `txnVersion` options do exactly this: a write whose version is at or below the last one recorded for that app id is ignored [16]."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -450,7 +450,7 @@ msgid "3.5 Determinism of transformations"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "A backfill is only comparable to the original run if the transformation is deterministic: same inputs and same logic version produce byte-identical (or at least row-identical) outputs. Sources of non-determinism to remove: wall-clock reads (`now()`), unseeded randomness, iteration over unordered containers, `LIMIT` without `ORDER BY`, floating-point aggregation order, \"latest\" lookups resolved at run time rather than as of the slice's event time, and dependence on the run date rather than the slice date. Determinism is what makes parallel-run diffs (section 4.8) meaningful: any diff is then caused by logic or input, not noise. (First principles; no single source.)"
+msgid "You can only compare a backfill with the original run if the transformation is deterministic, so that the same inputs and the same logic version give byte-identical outputs, or at least row-identical ones. That means removing every source of non-determinism: reads of the wall clock (`now()`), unseeded randomness, iteration over unordered containers, `LIMIT` without `ORDER BY`, the order of floating-point aggregation, \"latest\" lookups resolved when the job runs rather than as of the slice's event time, and any dependence on the run date instead of the slice date. Determinism is what makes parallel-run diffs (section 4.8) meaningful, because any difference is then caused by the logic or the input, not by noise. (This follows from first principles; there's no single source.)"
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -462,7 +462,7 @@ msgid "Snodgrass distinguishes *valid time* (when a fact holds in reality) from 
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "*Why backfills need it.* A backfill that corrects history is a *transaction time* event about *valid time* facts. Without both axes you cannot answer \"what did we report for March, as of the April board meeting?\", and a restatement erases the evidence of what was previously published. Lakehouse table formats give you transaction time for free at table granularity (time travel to a snapshot) but not per row; per-row `recorded_at` / `superseded_at` columns are needed when consumers must see corrections explicitly."
+msgid "Backfills need this because a backfill that corrects history is a *transaction time* event about *valid time* facts. Without both axes, you can't answer \"what did we report for March, as of the April board meeting?\", and a restatement wipes out the evidence of what was published before. Lakehouse table formats give you transaction time for free for a whole table, through time travel to a snapshot, but not for each row. When consumers need to see corrections explicitly, you need per-row `recorded_at` and `superseded_at` columns."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -470,7 +470,11 @@ msgid "3.7 Slowly changing dimensions"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "Kimball's SCD types [12]: type 1 overwrites the attribute (history lost); type 2 adds a row with effective dates (history kept); type 3 adds a \"previous value\" column; types 0, 4, 5, 6 and 7 are variants and hybrids (DT #152). For backfills the rule is: **a type 2 dimension must be backfilled in event-time order**, because each new version closes the previous one. Loading out of order either produces overlapping validity ranges or requires a rebuild of the key's whole history. A safe alternative is to rebuild the full type 2 history for affected keys from the immutable change log in one pass (Beauchemin's \"dimension snapshots\" [6] give the same result without ordering constraints)."
+msgid "Kimball describes several types of slowly changing dimension [12]. Type 1 overwrites the attribute, so history is lost. Type 2 adds a row with effective dates, so history is kept. Type 3 adds a \"previous value\" column, and types 0, 4, 5, 6 and 7 are variants and hybrids (DT #152)."
+msgstr ""
+
+#: docs/guides/backfill.md
+msgid "For backfills, the rule is that **a type 2 dimension must be backfilled in event-time order**, because each new version closes the one before it. If you load out of order, you either get overlapping validity ranges or have to rebuild the key's whole history. A safe alternative is to rebuild the full type 2 history for the affected keys from the immutable change log in a single pass. Beauchemin's \"dimension snapshots\" [6] give the same result without any constraint on order."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -478,7 +482,7 @@ msgid "3.8 Recompute versus incremental maintenance"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "The view-maintenance literature frames the choice: a derived table can be fully recomputed, or maintained incrementally from deltas of its inputs [13]. Incremental maintenance is cheaper per change but is only correct for certain classes of view (for example, aggregates that are self-maintainable under inserts, but not always under deletes or updates), and it accumulates any past error. Full recompute is always correct relative to its inputs and logic but costs proportional to history size."
+msgid "The literature on view maintenance sets out the choice. You can recompute a derived table in full, or maintain it incrementally from the changes to its inputs [13]. Incremental maintenance costs less for each change, but it's only correct for certain kinds of view. Aggregates, for example, can maintain themselves under inserts, but not always under deletes or updates. Incremental maintenance also carries forward any past error. A full recompute is always correct with respect to its inputs and logic, but its cost grows with the size of the history."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -486,7 +490,7 @@ msgid "22"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "*Rule.* Normal operation may be incremental; **a logic change (S2) requires recompute** of every slice the change affects, because incremental maintenance applies the new logic only to new deltas. Many orchestration tools (dbt `--full-refresh`, microbatch with an explicit range) are interfaces to this choice [21]{1}."
+msgid "So normal operation can be incremental, but **a logic change (S2) needs a recompute** of every slice the change affects, because incremental maintenance only applies the new logic to new changes. Many orchestration tools give you this choice directly, for example dbt's `--full-refresh`, or microbatch with an explicit range [21]{1}."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -494,7 +498,7 @@ msgid "4. Pattern catalogue: analytical platform"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "Each pattern uses the same fields: **Problem**, **Forces**, **Solution**, **Consequences**, **Verification**, **Sources**, and **Maps to** (a) open-source stack, (b) Databricks."
+msgid "Each pattern is described under the same headings: **Problem**, **Forces**, **Solution**, **Consequences**, **Verification**, **Sources**, and **Maps to**, which covers (a) an open-source stack and (b) Databricks."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -502,23 +506,23 @@ msgid "4.1 Slice replacement (partition overwrite)"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Re-running a time slice of a derived table (S2, S3) must not double-count or leave stale rows."
+msgid "**Problem.** When you re-run a time slice of a derived table (S2, S3), it mustn't double-count or leave stale rows behind."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Appends are cheap but not idempotent. Row-level deletes before insert are two operations and can half-fail. Readers must never see the slice empty or doubled."
+msgid "**Forces.** Appending is cheap, but it isn't idempotent. Deleting rows and then inserting is two operations, so it can fail halfway. And readers must never see the slice empty, or see it twice."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Treat the slice (partition or predicate range) as the unit of work. Compute the full slice, then atomically replace exactly that slice in one commit: `INSERT OVERWRITE` with dynamic partition overwrite, or an overwrite with an explicit predicate (`replaceWhere`). The predicate must be the same one the computation used to select inputs."
+msgid "**Solution.** Treat the slice, a partition or a predicate range, as the unit of work. Compute the whole slice, then replace exactly that slice in a single atomic commit. You can do that with `INSERT OVERWRITE` and dynamic partition overwrite, or with an overwrite that has an explicit predicate (`replaceWhere`). The predicate must be the same one the computation used to select its inputs."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Re-runs are idempotent and order-independent across slices. The slice must be computable from inputs alone (pure task, 3.3). It does not suit tables without a natural slice. Danger: in Spark's default **static** overwrite mode, an `INSERT OVERWRITE` without a `PARTITION` clause replaces **all** partitions; Iceberg's docs show it dropping every row in the table while writing one day [17]. Use dynamic mode or an explicit predicate, always. Iceberg recommends `MERGE INTO` over dynamic overwrite because overwritten scope can change if partitioning evolves [17]."
+msgid "**Consequences.** Re-runs are idempotent, and slices can run in any order. The slice has to be computable from its inputs alone (a pure task, 3.3), so this pattern doesn't suit tables without a natural slice. Watch out for one danger. In Spark's default **static** overwrite mode, an `INSERT OVERWRITE` without a `PARTITION` clause replaces **all** partitions, and Iceberg's documentation shows it deleting every row in the table while writing a single day [17]. So always use dynamic mode or an explicit predicate. Iceberg recommends `MERGE INTO` over dynamic overwrite, because the scope that gets overwritten can change if the partitioning evolves [17]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Row count and checksum of the slice before and after; assert that rows outside the predicate are unchanged (compare snapshot diffs: the commit must touch only files of that slice); run the backfill twice and assert identical outputs."
+msgid "**Verification.** Compare the slice's row count and checksum before and after. Check that rows outside the predicate haven't changed, by comparing snapshot diffs: the commit should only touch files belonging to that slice. Then run the backfill twice and check that the outputs are identical."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -538,23 +542,23 @@ msgid "4.2 Keyed upsert with recency guard"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Loading or correcting entities identified by a key (learners, institutions, sheets), where the backfill may carry older versions than what is already there."
+msgid "**Problem.** You're loading or correcting entities that are identified by a key, such as learners, institutions or sheets, and the backfill may carry older versions than the ones already there."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** MERGE is idempotent only if keys are deterministic. A backfill running alongside live ingestion can overwrite a fresher row with a stale one. Duplicate keys in the source make MERGE fail or be non-deterministic."
+msgid "**Forces.** MERGE is only idempotent if the keys are deterministic. A backfill running alongside live ingestion can overwrite a fresher row with a stale one. And if the source has duplicate keys, MERGE either fails or behaves non-deterministically."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** `MERGE` on the **natural key**. Add a **recency guard** to the update clause: update only if the incoming version is newer by a monotonic version field (source LSN, source commit sequence, record version), e.g. `WHEN MATCHED AND s.src_version > t.src_version THEN UPDATE`. Deduplicate the source per key first (keep the highest version) so at most one source row matches each target row. For deletes, carry tombstones with a version rather than inferring deletion from absence."
+msgid "**Solution.** `MERGE` on the **natural key**, and add a **recency guard** to the update clause, so a row is only updated if the incoming version is newer according to a monotonic version field. That field might be the source LSN, the source's commit sequence or a record version. For example: `WHEN MATCHED AND s.src_version > t.src_version THEN UPDATE`. Remove duplicates from the source first, keeping the highest version of each key, so that at most one source row matches each target row. For deletes, carry tombstones with a version, rather than inferring a deletion from a missing row."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Safe to run concurrently with live ingestion and safe to repeat. Requires a trustworthy version field; wall-clock `updated_at` is a weak substitute (see 4.3). MERGE rewrites files containing matched rows, so large backfills via MERGE can be slower than slice replacement."
+msgid "**Consequences.** It's safe to run alongside live ingestion, and safe to repeat. It does need a version field you can trust; a wall-clock `updated_at` is a weak substitute (see 4.3). MERGE rewrites every file that contains a matched row, so a large backfill through MERGE can be slower than slice replacement."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** For a sample of keys, assert the target holds the max-version row from all sources. Re-run and assert zero changed rows. Count of keys in target = count of distinct keys in sources minus tombstoned."
+msgid "**Verification.** For a sample of keys, check that the target holds the highest-version row across all sources. Re-run the backfill and check that no rows changed. The number of keys in the target should equal the number of distinct keys in the sources, minus those with tombstones."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -562,7 +566,7 @@ msgid "17"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Sources.** [7]{1}; Iceberg notes MERGE requires at most one source row per target row [17]."
+msgid "**Sources.** [7]{1}. Iceberg notes that MERGE needs at most one source row for each target row [17]."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -574,23 +578,23 @@ msgid "4.3 High-water-mark incremental extract (with overlap)"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Pull only new or changed rows from a source table."
+msgid "**Problem.** You want to pull only the new or changed rows from a source table."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Cheap and simple; needs only an `updated_at` or monotonically increasing id. But commit order is not timestamp order."
+msgid "**Forces.** This is cheap and simple, and it only needs an `updated_at` column or an id that always increases. But the order in which rows are committed isn't the same as the order of their timestamps."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Record the high-water mark (HWM) after each successful load. Next run reads `updated_at >= HWM - overlap`, deduplicates on key and version, and upserts (4.2). Advance the HWM only after the write commits, and only to `min(max_seen, now - safety_lag)`. Prefer a commit-ordered cursor where the source has one (log sequence number, Postgres `xmin`-based cursors, a sequence assigned at commit by an outbox)."
+msgid "**Solution.** Record the high-water mark (HWM) after each successful load. The next run reads `updated_at >= HWM - overlap`, removes duplicates by key and version, and upserts the result (4.2). Only advance the HWM after the write has committed, and then only to `min(max_seen, now - safety_lag)`. If the source has a cursor in commit order, such as a log sequence number, a Postgres cursor based on `xmin`, or a sequence that an outbox assigns at commit, use that instead."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Without overlap, rows are lost: in Postgres, `now()` returns the *start time of the transaction* [18], so a long transaction that starts at 10:00 and commits at 10:05 writes `updated_at = 10:00`; if the extractor ran at 10:02 and advanced its HWM to 10:02, the row is never seen. Clock skew across application servers has the same effect [9]. Hard deletes are invisible to HWM extraction. Overlap creates duplicates, so the sink must be idempotent (4.2)."
+msgid "**Consequences.** Without the overlap, you lose rows. In Postgres, `now()` returns the *start time of the transaction* [18]. So a long transaction that starts at 10:00 and commits at 10:05 writes `updated_at = 10:00`. If the extractor ran at 10:02 and moved its HWM to 10:02, it never sees that row. Clock skew between application servers has the same effect [9]. Extraction by HWM can't see hard deletes at all. And the overlap creates duplicates, so whatever receives the data must be idempotent (4.2)."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Periodic full-key reconciliation between source and sink (4.8): count and key-set comparison per day. Alert if the HWM stops moving or moves backward."
+msgid "**Verification.** Regularly reconcile every key between the source and the sink (4.8), comparing counts and key sets for each day. Alert if the HWM stops moving, or moves backwards."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -598,11 +602,11 @@ msgid "18"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Sources.** [9]{1}; first principles."
+msgid "**Sources.** [9]{1}, and first principles."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Airflow/Dagster task with a stored cursor; dbt incremental models with `is_incremental()` filter on `>=` and a lookback. (b) Same in Lakeflow Jobs; prefer Lakeflow Connect CDC for databases where available."
+msgid "**Maps to.** (a) An Airflow or Dagster task with a stored cursor, or dbt incremental models that filter with `is_incremental()` on `>=` and a lookback. (b) The same in Lakeflow Jobs, although for databases you should prefer Lakeflow Connect CDC where it's available."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -610,11 +614,11 @@ msgid "4.4 Snapshot and log stitching (onboarding a live source)"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Onboard a live OLTP source with years of history (S4): you need a full copy plus every change after it, with no gap and no lost update at the seam, and without locking the source."
+msgid "**Problem.** You're bringing in a live OLTP source with years of history (S4). You need a full copy plus every change made after it, with no gap and no lost update where the two meet, and you can't lock the source."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** A consistent full snapshot of a big table takes hours. Locking tables for that time is not acceptable. Starting CDC \"after\" the snapshot leaves a gap; starting it \"before\" creates overlaps that must be resolved per key. Snapshot must be resumable."
+msgid "**Forces.** A consistent full snapshot of a big table takes hours, and locking the tables for that long isn't acceptable. If you start CDC after the snapshot, you leave a gap. If you start it before, you get overlaps that have to be resolved key by key. And the snapshot has to be able to resume after an interruption."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -622,15 +626,15 @@ msgid "19"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** DBLog (Netflix) [14]: keep the change-log stream running continuously. Snapshot the table in **chunks** ordered by primary key. For each chunk, write a *low watermark* event into the log (via a small watermark table in the source), select the chunk, write a *high watermark*. When the log reader reaches the high watermark, it drops from the chunk any row whose key appeared in log events between low and high, because the log event is newer, and emits the rest of the chunk before continuing. No locks, the log never stalls, and chunks can be paused and resumed. Debezium's incremental snapshots implement the same algorithm, triggered by inserting an `execute-snapshot` signal (optionally with an `additional-conditions` filter) into a signalling table; chunk size defaults to 1,024 rows and progress is stored in connector offsets so the snapshot resumes after a crash [15]{1}."
+msgid "**Solution.** Use DBLog, from Netflix [14]. Keep the change-log stream running the whole time, and take the snapshot in **chunks**, ordered by primary key. For each chunk, write a *low watermark* event into the log (through a small watermark table in the source), select the chunk, and then write a *high watermark*. When the log reader reaches the high watermark, it drops any row from the chunk whose key appeared in log events between the low and high watermarks, because the log event is newer. Then it emits the rest of the chunk and carries on. There are no locks, the log never stalls, and you can pause and resume chunks. Debezium's incremental snapshots implement the same algorithm. You trigger one by inserting an `execute-snapshot` signal, optionally with an `additional-conditions` filter, into a signalling table. The chunk size defaults to 1,024 rows, and progress is stored in the connector's offsets, so the snapshot resumes after a crash [15]{1}."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Requires primary keys. Consumers see a mix of `read` and `update` events for the same key in non-obvious order, so downstream must be an idempotent keyed upsert (4.2) [15]. Adds a watermark/signal table to the source schema. Can also re-snapshot a subset (a table, a key range) to repair a gap, which makes it a gap-fill tool (S3) as well as an onboarding tool."
+msgid "**Consequences.** The tables need primary keys. Consumers see a mix of `read` and `update` events for the same key, in an order that isn't obvious, so the downstream step must be an idempotent keyed upsert (4.2) [15]. You also add a watermark or signal table to the source schema. On the other hand, you can re-snapshot just part of the data, such as one table or one key range, to repair a gap. That makes this a gap-fill tool (S3) as well as an onboarding tool."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** After snapshot completion, reconcile row count and a key hash per table (or per key range) between source (read from a replica at a known LSN) and sink (4.8). Check that the replication slot lag returned to baseline."
+msgid "**Verification.** Once the snapshot is complete, reconcile the row count and a hash of the keys for each table, or each key range, between the source and the sink (4.8). Read the source from a replica at a known LSN. Then check that the replication slot's lag has returned to its usual level."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -642,7 +646,7 @@ msgid "**Sources.** [14]{1}[19]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Debezium on Kafka/Kafka Connect or Debezium Server → Iceberg/Delta via MERGE; Postgres logical replication slots. (b) Lakeflow Connect for supported databases (it manages the initial snapshot and CDC); otherwise Debezium into a landing zone and declarative-pipeline CDC upsert **[Lakeflow Connect internals not verified]**."
+msgid "**Maps to.** (a) Debezium on Kafka and Kafka Connect, or Debezium Server, feeding Iceberg or Delta through MERGE, with Postgres logical replication slots. (b) Lakeflow Connect for the databases it supports, since it manages the initial snapshot and CDC. Otherwise, Debezium into a landing zone, followed by a CDC upsert in a declarative pipeline **[Lakeflow Connect internals not verified]**."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -650,23 +654,23 @@ msgid "4.5 Transactional outbox"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** An operational service must publish its changes (and, for onboarding, its history) to the platform reliably."
+msgid "**Problem.** An operational service has to publish its changes to the platform reliably, and, when it's being onboarded, its history too."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Writing to the database and to a broker are two non-atomic operations (\"dual write\"); either can fail after the other succeeds. Distributed transactions are rarely available or desirable."
+msgid "**Forces.** Writing to the database and writing to a broker are two separate operations that aren't atomic together (a \"dual write\"), so either can fail after the other has succeeded. Distributed transactions are rarely available, and rarely a good idea."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Write the business change and an event row to an `outbox` table **in the same database transaction**. A relay (poller or log-based CDC on the outbox table) publishes outbox rows in commit order [20]. For history, the service (or a one-off job) writes synthetic \"snapshot\" events for existing entities into the same outbox, keyed and versioned like live events, so history and live use one path."
+msgid "**Solution.** Write the business change, and an event row in an `outbox` table, **in the same database transaction**. A relay, either a poller or log-based CDC on the outbox table, publishes the outbox rows in commit order [20]. For history, the service or a one-off job writes synthetic \"snapshot\" events for existing entities into the same outbox, keyed and versioned just like live events. That way, history and live changes travel the same path."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** At-least-once: the relay can publish a row twice after a crash, so consumers must be idempotent [20]. Ordering is preserved per aggregate. The outbox needs pruning. Developers can forget to write the event."
+msgid "**Consequences.** Delivery is at-least-once: after a crash the relay can publish a row twice, so consumers must be idempotent [20]. Order is preserved within each aggregate. The outbox needs pruning, and developers can forget to write the event."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Consumers record the last processed event id per aggregate; reconcile counts of outbox rows versus consumed events per day."
+msgid "**Verification.** Have consumers record the last event id they processed for each aggregate, and reconcile the number of outbox rows with the number of events consumed each day."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -674,11 +678,11 @@ msgid "14"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Sources.** [20]{1} (DBLog's motivation section rejects dual writes for the same reason)."
+msgid "**Sources.** [20]{1}. DBLog's motivation section rejects dual writes for the same reason."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Postgres outbox table + Debezium outbox event router. (b) Lakebase table as outbox + CDC/sync to Delta **[Lakebase-to-Delta sync mechanics not re-verified here]**."
+msgid "**Maps to.** (a) A Postgres outbox table with Debezium's outbox event router. (b) A Lakebase table as the outbox, with CDC or sync to Delta **[Lakebase-to-Delta sync mechanics not re-verified here]**."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -686,23 +690,23 @@ msgid "4.6 Shadow recompute and swap (blue/green tables)"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Recompute a whole table with new logic (S2) without consumers seeing a half-updated mix of old and new results, and with a way back."
+msgid "**Problem.** You need to recompute a whole table with new logic (S2), without consumers seeing a half-updated mix of old and new results, and with a way back."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** In-place rewrites expose partial states and destroy the old answer. Recompute takes time; live data keeps arriving during it."
+msgid "**Forces.** Rewriting in place exposes partial states and destroys the old answer. A recompute takes time, and live data keeps arriving while it runs."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Kreps' Kappa reprocessing generalised [3]: run the new logic from the beginning of retained input into a **new** table (or a branch, 4.7), let it catch up with live input, compare it with the old output (4.8), then switch consumers by an atomic pointer change (a view redefinition, a catalog alias, a branch fast-forward, or a table rename). Keep the old table for a defined fallback window, then drop it."
+msgid "**Solution.** This is Kreps's Kappa reprocessing, generalised [3]. Run the new logic from the start of the retained input into a **new** table (or a branch, 4.7), and let it catch up with the live input. Compare it with the old output (4.8), and then switch consumers over with an atomic pointer change, such as redefining a view, changing a catalog alias, fast-forwarding a branch or renaming a table. Keep the old table for a defined fallback window, then drop it."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Double storage and compute during the overlap. Readers see either all-old or all-new. Requires that raw inputs are retained (3.2). Consumers that cached results need a restatement notice (4.11)."
+msgid "**Consequences.** Storage and compute double while the two overlap. Readers see either all the old results or all the new ones, never a mix. The raw inputs must have been kept (3.2), and consumers that cached results need a restatement notice (4.11)."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Parallel-run diff (4.8): every difference between old and new must be explained by the logic change. A diff of zero on the slices the change should not affect is a strong regression test."
+msgid "**Verification.** Run a parallel-run diff (4.8). Every difference between the old and new outputs must be explained by the logic change. A diff of zero on the slices the change shouldn't affect makes a strong regression test."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -714,7 +718,7 @@ msgid "**Sources.** [3]{1}[4]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) New Iceberg table or branch, swap via view or catalog rename; dbt with a versioned model (`v2`) and a view that points at the active version. (b) Delta table per version, consumers read through a Unity Catalog view; swap by `CREATE OR REPLACE VIEW`."
+msgid "**Maps to.** (a) A new Iceberg table or branch, swapped in through a view or a catalog rename, or dbt with a versioned model (`v2`) and a view pointing at the active version. (b) A Delta table for each version, with consumers reading through a Unity Catalog view, swapped with `CREATE OR REPLACE VIEW`."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -722,23 +726,23 @@ msgid "4.7 Write-audit-publish (WAP) on a branch"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** A backfill writes a lot of data; any defect becomes visible to consumers the moment it commits."
+msgid "**Problem.** A backfill writes a lot of data, and any defect becomes visible to consumers the moment it commits."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Quality checks need the data written somewhere first. Copying data to staging and back doubles I/O. Publication should be atomic."
+msgid "**Forces.** Quality checks need the data to be written somewhere first. Copying data to a staging area and back doubles the I/O. And publication should be atomic."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** **Write** to an isolated version of the table (a branch, a staging table, or a hidden snapshot); **audit** it with data-quality checks and reconciliation; **publish** by an atomic metadata operation. The pattern was popularised by Netflix (DataWorks Summit 2017, \"Whoops, the numbers are wrong! Scaling data quality @ Netflix\") **[unverified]**. In Iceberg: set `write.wap.enabled=true`, create an audit branch, set `spark.wap.branch`, write, validate, then `CALL system.fast_forward('db.t', 'main', 'audit-branch')` [21a]. Nessie extends branches to **multi-table** commits, so a backfill that touches a dimension and its fact tables publishes atomically across all of them [23]."
+msgid "**Solution.** **Write** to an isolated version of the table, such as a branch, a staging table or a hidden snapshot. **Audit** it with data-quality checks and reconciliation. Then **publish** it with an atomic metadata operation. Netflix popularised the pattern (DataWorks Summit 2017, \"Whoops, the numbers are wrong! Scaling data quality @ Netflix\") **[unverified]**. In Iceberg, you set `write.wap.enabled=true`, create an audit branch, set `spark.wap.branch`, write and validate, and then run `CALL system.fast_forward('db.t', 'main', 'audit-branch')` [21a]. Nessie extends branches to commits across **several tables**, so a backfill that touches a dimension and its fact tables publishes atomically across all of them [23]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Publication is a pointer move, so rollback is too. Branches have retention; the audit branch must not expire before publish. Single-table branches do not give cross-table atomicity; consumers may see the new dimension with the old facts unless you publish together or use a multi-table catalog."
+msgid "**Consequences.** Publishing is a pointer move, so rolling back is too. Branches have a retention period, and the audit branch mustn't expire before you publish. A branch of a single table doesn't give you atomicity across tables, so consumers may see the new dimension with the old facts, unless you publish them together or use a catalog that handles several tables."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** The audit step is the verification: schema checks, null/uniqueness constraints, reconciliation totals, distribution drift against the previous version. Deequ-style declarative constraints run as aggregation queries are one systematic form [24]."
+msgid "**Verification.** The audit step is the verification. It covers schema checks, null and uniqueness constraints, reconciliation totals, and drift in distributions compared with the previous version. Declarative constraints in the style of Deequ, run as aggregation queries, are one systematic way to do it [24]."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -746,11 +750,11 @@ msgid "23"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Sources.** [21a]{1}[24]; Netflix talk **[unverified]**."
+msgid "**Sources.** [21a]{1}[24], and the Netflix talk **[unverified]**."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Iceberg branches + `fast_forward`; Nessie for multi-table; lakeFS is an alternative for file-level branching. (b) Delta has no table branches: use a **shallow clone** as the write target, audit it, then publish with `replaceWhere`/MERGE or a view swap. Note shallow clones reference source files and break if the source is `VACUUM`ed [25]. Delta time travel gives rollback after publish."
+msgid "**Maps to.** (a) Iceberg branches with `fast_forward`, and Nessie for several tables. lakeFS is an alternative if you want branching at the file level. (b) Delta doesn't have table branches, so use a **shallow clone** as the write target, audit it, and then publish with `replaceWhere`, MERGE or a view swap. Bear in mind that a shallow clone refers to the source's files, so it breaks if the source is `VACUUM`ed [25]. Delta time travel lets you roll back after publishing."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -758,27 +762,27 @@ msgid "4.8 Reconciliation and parallel-run diff"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Proving a backfill is complete and correct."
+msgid "**Problem.** You need to prove that a backfill is complete and correct."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Full row-by-row comparison across systems is expensive. Legacy and new systems encode things differently (types, time zones, codes). Job success says nothing about data."
+msgid "**Forces.** Comparing every row across systems is expensive. Legacy and new systems encode things differently, such as types, time zones and codes. And a job that succeeded tells you nothing about the data."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Three tiers, cheapest first:"
+msgid "**Solution.** Reconcile in three tiers, starting with the cheapest:"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Counts** per slice (date, school, source file) in source and target."
+msgid "**Counts** for each slice (by date, school or source file), in both the source and the target."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Control totals**: sums of additive measures, min/max of keys and timestamps, count of distinct keys, per slice."
+msgid "**Control totals** for each slice: sums of additive measures, the minimum and maximum of keys and timestamps, and the number of distinct keys."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Hashes**: per-row hash of the canonicalised business columns, then an order-independent aggregate (e.g. sum or XOR of row hashes, or a Merkle tree over key ranges) per slice; drill into mismatching slices only."
+msgid "**Hashes**: hash each row's canonicalised business columns, then combine them in a way that doesn't depend on order, such as a sum or XOR of the row hashes, or a Merkle tree over key ranges. Do this for each slice, and only dig into the slices that don't match."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -786,15 +790,15 @@ msgid "27"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "For logic changes, run old and new logic in parallel on the same inputs and **diff** outputs per key; classify each difference as expected (caused by the change) or a defect. GitHub's Scientist library applies the same idea to code paths in production; Stripe used it while migrating hundreds of millions of subscription records [26]{1}."
+msgid "For logic changes, run the old and new logic in parallel on the same inputs, and **diff** the outputs key by key. Then classify each difference as either expected, because the change caused it, or a defect. GitHub's Scientist library applies the same idea to code paths in production, and Stripe used it while migrating hundreds of millions of subscription records [26]{1}."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Canonicalisation must be agreed (trim, case, time zone, decimal scale), or every row mismatches. Hash tiers miss nothing they cover but say nothing about columns excluded from the hash. Reconciliation must read the source at a known consistent point (a replica at an LSN, a frozen extract), or it races live writes."
+msgid "**Consequences.** You have to agree how values are canonicalised (trimming, case, time zone and decimal scale), or every row will mismatch. The hash tiers miss nothing in the columns they cover, but they tell you nothing about columns left out of the hash. Reconciliation has to read the source at a known, consistent point, such as a replica at an LSN or a frozen extract. Otherwise it races against live writes."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** The reconciliation report is itself an artefact: stored with the backfill run id, logic version and the source position it was computed against."
+msgid "**Verification.** The reconciliation report is an artefact in its own right. Store it with the backfill's run id, its logic version and the source position it was computed against."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -802,11 +806,11 @@ msgid "26"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Sources.** [24]{1}[27]; Fowler/Thoughtworks on parallel running [28]."
+msgid "**Sources.** [24]{1}[27], and Fowler and Thoughtworks on parallel running [28]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) SQL queries or a diffing tool over both sides; Great Expectations / Deequ / dbt tests for constraints. (b) Same via Databricks SQL; Lakehouse Federation lets one query read the legacy database and Delta side by side **[federation coverage of a given legacy DB not verified]**."
+msgid "**Maps to.** (a) SQL queries or a diffing tool over both sides, and Great Expectations, Deequ or dbt tests for constraints. (b) The same through Databricks SQL. Lakehouse Federation lets a single query read the legacy database and Delta side by side **[federation coverage of a given legacy DB not verified]**."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -814,23 +818,23 @@ msgid "4.9 Throttled, chunked extraction (protect the source)"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Reading years of history from a production database or a rate-limited API without hurting live users."
+msgid "**Problem.** You need to read years of history from a production database, or from an API with rate limits, without hurting live users."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Big scans evict cache, saturate I/O, and on MVCC databases a long-running read transaction holds back vacuum and can bloat tables. APIs enforce rate limits. A failed eight-hour extract that restarts from zero is wasteful."
+msgid "**Forces.** Big scans push useful data out of the cache and saturate I/O. On MVCC databases, a long-running read transaction also holds back vacuum and can bloat tables. APIs enforce rate limits. And an eight-hour extract that fails and starts again from zero wastes a lot of time."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Read from a **replica**, a **snapshot/backup restore**, or a **branch** (5.2) instead of the primary. Split the work into **chunks** by primary-key range (not `OFFSET`), each a short transaction; persist the last completed chunk so the job resumes. **Throttle** on feedback signals: replication lag, source CPU/latency, API `429`/`Retry-After`, and back off exponentially. Make throttle parameters adjustable while running. gh-ost is the reference design: pausable, throttles on replica lag and custom checks, with chunk size and max lag changeable at runtime [29]. Stripe avoided production queries entirely by backfilling from offline Hadoop snapshots [27]."
+msgid "**Solution.** Read from a **replica**, a **restored snapshot or backup**, or a **branch** (5.2), rather than the primary. Split the work into **chunks** by primary-key range (not `OFFSET`), each in a short transaction, and save the last completed chunk so the job can resume. **Throttle** on feedback signals, such as replication lag, the source's CPU and latency, and an API's `429` or `Retry-After` responses, and back off exponentially. Make the throttle settings adjustable while the job runs. gh-ost is the reference design here: you can pause it, it throttles on replica lag and on custom checks, and you can change the chunk size and maximum lag while it runs [29]. Stripe avoided production queries altogether by backfilling from offline Hadoop snapshots [27]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Slower wall-clock time, by design. Chunked reads are not a single consistent snapshot; combine with log stitching (4.4) or read from a frozen copy when you need consistency."
+msgid "**Consequences.** It takes longer, and that's deliberate. Chunked reads aren't one consistent snapshot, so when you need consistency, combine them with log stitching (4.4) or read from a frozen copy."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Monitor source latency and replica lag during the run; the backfill should be invisible on production dashboards. Reconcile per chunk."
+msgid "**Verification.** Watch the source's latency and the replica lag during the run; the backfill shouldn't be visible on production dashboards. Reconcile chunk by chunk."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -842,7 +846,7 @@ msgid "**Sources.** [27]{1}[14]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Airflow/Dagster with pools or concurrency limits; reads from a Postgres read replica. (b) Lakeflow Jobs with limited concurrency; read from a Lakebase child branch or read replica, not the production branch's primary compute."
+msgid "**Maps to.** (a) Airflow or Dagster with pools or concurrency limits, reading from a Postgres read replica. (b) Lakeflow Jobs with limited concurrency, reading from a Lakebase child branch or read replica rather than the production branch's primary compute."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -850,19 +854,19 @@ msgid "4.10 Dependency-aware orchestrated backfill"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** A backfill spans many slices and many dependent tables; it must run in the right order, at bounded concurrency, and resume after partial failure."
+msgid "**Problem.** A backfill covers many slices and many tables that depend on each other. It has to run in the right order, with limited concurrency, and resume after a partial failure."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Downstream slices depend on upstream slices. Unbounded parallelism starves production schedules. Some slices are independent and can run in any order; some (SCD2, running totals) cannot."
+msgid "**Forces.** Downstream slices depend on upstream ones. Unlimited parallelism starves production schedules. Some slices are independent and can run in any order, but others, such as SCD2 and running totals, can't."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Let the orchestrator own the backfill as a first-class object:"
+msgid "**Solution.** Let the orchestrator manage the backfill as an object in its own right:"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Airflow 3**: backfills are created through CLI, API or UI and run by the scheduler; a `reprocess_behavior` of `none`, `failed` or `completed` decides whether existing runs are re-run; a backfill-level `max_active_runs` bounds concurrency independently of the DAG's own limit; `--run-backwards` processes newest first; dry-run lists the intervals [30]."
+msgid "**Airflow 3.** You create backfills through the CLI, the API or the UI, and the scheduler runs them. A `reprocess_behavior` of `none`, `failed` or `completed` decides whether existing runs are run again. A `max_active_runs` setting on the backfill limits its concurrency separately from the DAG's own limit, `--run-backwards` processes the newest intervals first, and a dry run lists the intervals [30]."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -870,23 +874,23 @@ msgid "32"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Dagster**: partitioned assets with a `BackfillPolicy`: `single_run()` processes a partition range in one run (efficient for Spark/warehouse engines; code must read `partition_key_range`), while `multi_run(max_partitions_per_run=n)` bounds each run; multi-asset backfills follow the asset graph when partitioning is compatible [31]{1}."
+msgid "**Dagster.** Partitioned assets take a `BackfillPolicy`. With `single_run()`, one run processes a range of partitions, which suits Spark and warehouse engines, although your code must then read `partition_key_range`. With `multi_run(max_partitions_per_run=n)`, each run is limited in size. Backfills across several assets follow the asset graph when their partitioning is compatible [31]{1}."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**dbt** (≥1.9): `microbatch` incremental strategy with `event_time`, `batch_size`, `begin`, `lookback`; targeted backfills by `--event-time-start/--event-time-end`; `dbt retry` re-runs only failed batches; batches are independent and may run concurrently; times are UTC [22]. `--full-refresh` rebuilds an incremental model from scratch [21]."
+msgid "**dbt (1.9 or later).** The `microbatch` incremental strategy takes `event_time`, `batch_size`, `begin` and `lookback`. You target a backfill with `--event-time-start` and `--event-time-end`, and `dbt retry` re-runs only the batches that failed. Batches are independent and may run at the same time, and times are in UTC [22]. `--full-refresh` rebuilds an incremental model from scratch [21]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "Order: **reference data and dimensions before facts**; within a table, **oldest-first** when a slice depends on the previous slice's state, **newest-first** when slices are independent and recent data is most valuable (users get useful results sooner, and a stopped backfill leaves the oldest, least-used data missing rather than the newest)."
+msgid "As for order, load **reference data and dimensions before facts**. Within a table, go **oldest first** when a slice depends on the state left by the one before it. Go **newest first** when slices are independent and recent data matters most: users get useful results sooner, and if the backfill stops, the data that's missing is the oldest and least-used rather than the newest."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** The orchestrator's unit (a run per logical date) must match the data's unit (a slice); otherwise the backfill is not idempotent. Backfill concurrency must be budgeted against production schedules."
+msgid "**Consequences.** The orchestrator's unit of work (one run per logical date) has to match the data's unit (a slice); otherwise the backfill isn't idempotent. You also have to budget the backfill's concurrency against production schedules."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Dry-run lists exactly the intended slices. After the run, the orchestrator's state (all slices succeeded) agrees with the data's state (reconciliation per slice)."
+msgid "**Verification.** A dry run should list exactly the slices you intended. After the run, the orchestrator's state (every slice succeeded) should agree with the data's state (each slice reconciles)."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -898,7 +902,7 @@ msgid "**Sources.** [21]{1}[30]{2}[32]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Airflow 3 backfill / Dagster partitions / dbt microbatch. (b) Lakeflow Jobs **backfill runs** trigger one job run per interval over a range, optionally in parallel, overriding job parameters; the job must use those parameters to select its slice [33]; dbt tasks in Lakeflow Jobs for microbatch."
+msgid "**Maps to.** (a) Airflow 3 backfills, Dagster partitions or dbt microbatch. (b) Lakeflow Jobs **backfill runs**, which trigger one job run for each interval in a range, optionally in parallel, overriding the job's parameters. The job must use those parameters to select its slice [33]. For microbatch, use dbt tasks in Lakeflow Jobs."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -906,23 +910,39 @@ msgid "4.11 Late data and restatement"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Records keep arriving for periods already reported (S3), or a correction changes a published number."
+msgid "**Problem.** Records keep arriving for periods you've already reported on (S3), or a correction changes a number you've published."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Consumers want stable numbers. Completeness is a heuristic (3.1). Regulators or boards may need to know what was reported when."
+msgid "**Forces.** Consumers want stable numbers, but completeness is only a heuristic (3.1). Regulators or boards may need to know what was reported, and when."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** (1) Reprocess a **lookback** window on every run (dbt `lookback`, Airflow interval overlap), so lateness within the window is absorbed automatically [22]. (2) Beyond the window, late data triggers an explicit **restatement**: a backfill of the affected slices through the normal path (4.1/4.10), recorded as an event. (3) Keep **transaction time** on published outputs (table snapshots at minimum; row-level `recorded_at` or bitemporal columns where consumers need to see corrections) [10]{1}. (4) Publish a restatement log: which slices, why, old and new totals, logic version."
+msgid "**Solution.**"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Numbers change after publication, visibly and with a reason. Lookback costs compute every run."
+msgid "Reprocess a **lookback** window on every run, using dbt's `lookback` or overlapping Airflow intervals, so that data arriving late within the window is absorbed automatically [22]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** For each restated slice, the restatement log shows old and new control totals and links to the run id; time travel to the pre-restatement snapshot reproduces the old number."
+msgid "Beyond the window, late data triggers an explicit **restatement**. That means a backfill of the affected slices through the normal path (4.1, 4.10), recorded as an event."
+msgstr ""
+
+#: docs/guides/backfill.md
+msgid "Keep **transaction time** on published outputs. At minimum that means table snapshots; where consumers need to see corrections, add row-level `recorded_at` or bitemporal columns [10]{1}."
+msgstr ""
+
+#: docs/guides/backfill.md
+msgid "Publish a restatement log that says which slices changed and why, their old and new totals, and the logic version."
+msgstr ""
+
+#: docs/guides/backfill.md
+msgid "**Consequences.** Numbers change after they're published, but visibly and with a reason. The lookback costs compute on every run."
+msgstr ""
+
+#: docs/guides/backfill.md
+msgid "**Verification.** For each restated slice, the restatement log shows the old and new control totals and links to the run id. Time travel to the snapshot before the restatement reproduces the old number."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -934,7 +954,7 @@ msgid "**Sources.** [1]{1}[11]{2}."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) dbt microbatch `lookback`; Iceberg tags to pin \"as-reported\" snapshots. (b) Delta time travel and table history; dbt microbatch; a restatement log table."
+msgid "**Maps to.** (a) dbt microbatch's `lookback`, and Iceberg tags to pin the snapshots as they were reported. (b) Delta time travel and table history, dbt microbatch, and a table for the restatement log."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -942,31 +962,31 @@ msgid "4.12 Logic version stamping"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** After a backfill, outputs produced by different code coexist; nobody can tell which rows came from which logic."
+msgid "**Problem.** After a backfill, outputs produced by different code sit side by side, and nobody can tell which rows came from which logic."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Partial backfills are normal. Debugging and audit require attribution."
+msgid "**Forces.** Partial backfills are normal, and both debugging and audit need to know where each row came from."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Stamp every output row (or at least every slice) with the **logic version** (pipeline version string or code commit) and the **run id**. Treat a change that alters outputs as a version bump (semantic versioning or equivalent), and make the backfill scope \"all slices whose stamped version is older than the target version\". Store run metadata (inputs' versions/snapshot ids, logic version, parameters) in a run table."
+msgid "**Solution.** Stamp every output row, or at least every slice, with the **logic version** (a pipeline version string or a code commit) and the **run id**. Treat any change that alters outputs as a new version, using semantic versioning or something like it. Then the scope of the backfill is \"every slice whose stamped version is older than the target version\". Keep the run's metadata, meaning its inputs' versions or snapshot ids, its logic version and its parameters, in a table of runs."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** A cheap query answers \"is the backfill complete?\": `SELECT count(*) WHERE logic_version <> :target`. Restated results become attributable. Costs one or two columns."
+msgid "**Consequences.** A cheap query tells you whether the backfill is complete: `SELECT count(*) WHERE logic_version <> :target`. You can tell where each restated result came from. It costs one or two columns."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Invariant check after every backfill: no slice in the target range carries a stale version."
+msgid "**Verification.** After every backfill, check that no slice in the target range carries an out-of-date version."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Sources.** First principles; aligns with lineage practice (OpenLineage run facets) **[not cited to a specific spec section]**."
+msgid "**Sources.** First principles. It also fits lineage practice, such as OpenLineage run facets **[not cited to a specific spec section]**."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) A column set by the job from its build version; dbt `invocation_id` and a project var. (b) Same; Unity Catalog lineage gives table/column lineage but not per-row logic version, so the column is still needed."
+msgid "**Maps to.** (a) A column the job sets from its build version, or dbt's `invocation_id` and a project variable. (b) The same. Unity Catalog lineage gives you lineage for tables and columns, but not a logic version for each row, so you still need the column."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -974,31 +994,31 @@ msgid "4.13 Schema evolution during a backfill"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** The schema of source or target changes while a long backfill is running, or history contains old schema versions."
+msgid "**Problem.** The schema of the source or the target changes while a long backfill is running, or the history contains old versions of the schema."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Old records lack new fields; renamed fields break positional loaders; type widening is safe, narrowing is not."
+msgid "**Forces.** Old records don't have the new fields. Renaming a field breaks loaders that work by position. Widening a type is safe, but narrowing one isn't."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Freeze the target schema for the duration of a backfill, or apply only additive changes (new nullable columns, type widening) that both old and new code tolerate (expand/contract, 5.1). Map each historical source schema version explicitly to the target schema with a versioned mapping; do not rely on positional or \"by name, best effort\" merges. Configure incremental tools to fail on unexpected schema change rather than silently drop columns (dbt `on_schema_change: fail`) **[unverified]**."
+msgid "**Solution.** Freeze the target schema for the whole backfill, or make only additive changes that both the old and new code can cope with, such as new nullable columns or wider types (expand and contract, 5.1). Map each historical version of the source schema to the target schema explicitly, with a versioned mapping, rather than relying on merges by position or \"by name, as best we can\". Set incremental tools to fail on an unexpected schema change rather than quietly dropping columns (dbt's `on_schema_change: fail`) **[unverified]**."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** A schema change mid-backfill becomes a planned step, not a surprise. Table formats that support column ids (Iceberg, Delta column mapping) make renames safe."
+msgid "**Consequences.** A schema change in the middle of a backfill becomes a planned step rather than a surprise. Table formats that support column ids, such as Iceberg and Delta's column mapping, make renames safe."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Schema snapshot taken at backfill start equals the one at the end, or differs only by recorded additive changes."
+msgid "**Verification.** The schema you snapshot at the start of the backfill should equal the one at the end, or differ only by additive changes you've recorded."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Sources.** [34]; first principles."
+msgid "**Sources.** [34], and first principles."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Iceberg schema evolution by column id; dbt `on_schema_change`. (b) Delta schema evolution (`mergeSchema`), column mapping mode for renames."
+msgid "**Maps to.** (a) Iceberg schema evolution by column id, and dbt's `on_schema_change`. (b) Delta schema evolution (`mergeSchema`), and column mapping mode for renames."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1010,43 +1030,43 @@ msgid "5.1 Expand, backfill in batches, contract"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Add or change a column on a large, busy table and fill it for existing rows without downtime."
+msgid "**Problem.** You need to add or change a column on a large, busy table, and fill it in for the existing rows, without downtime."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Most `ALTER TABLE` forms take an `ACCESS EXCLUSIVE` lock [35]. A single `UPDATE` over millions of rows is one long transaction: it holds row locks, creates a dead tuple per row, and holds back vacuum. Application versions old and new run side by side during deploys."
+msgid "**Forces.** Most forms of `ALTER TABLE` take an `ACCESS EXCLUSIVE` lock [35]. A single `UPDATE` over millions of rows is one long transaction: it holds row locks, leaves a dead tuple for every row, and holds back vacuum. And during a deploy, the old and new versions of the application run side by side."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Parallel change (expand / migrate / contract) [36]:"
+msgid "**Solution.** Use parallel change, also called expand, migrate and contract [36]:"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Expand.** Add the new column as nullable, or with a *non-volatile* default, which in modern Postgres does not rewrite the table [35]. Set a short `lock_timeout` on the DDL so a blocked `ALTER` fails fast instead of queueing all traffic behind it. Deploy code that writes both old and new forms."
+msgid "**Expand.** Add the new column as nullable, or with a *non-volatile* default, which modern Postgres adds without rewriting the table [35]. Set a short `lock_timeout` on the DDL, so that a blocked `ALTER` fails quickly instead of making all the traffic queue behind it. Then deploy code that writes both the old and the new form."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Backfill in batches.** Update by primary-key ranges of a few thousand rows, each in its own short transaction, sleeping between batches and throttling on replication lag (4.9). Make each batch idempotent (`WHERE new_col IS NULL`). Record progress."
+msgid "**Backfill in batches.** Update by ranges of primary key, a few thousand rows at a time, each in its own short transaction. Pause between batches, and throttle on replication lag (4.9). Make each batch idempotent (`WHERE new_col IS NULL`), and record your progress."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Constrain without long locks.** Add constraints `NOT VALID`, then `VALIDATE CONSTRAINT`, which takes only `SHARE UPDATE EXCLUSIVE` [35]. Build indexes `CONCURRENTLY`."
+msgid "**Add constraints without long locks.** Add each constraint as `NOT VALID`, then run `VALIDATE CONSTRAINT`, which only takes a `SHARE UPDATE EXCLUSIVE` lock [35]. Build indexes `CONCURRENTLY`."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Migrate reads**, then **contract**: stop writing the old form, drop it once nothing reads it."
+msgid "**Move the reads over**, then **contract**: stop writing the old form, and drop it once nothing reads it."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "Tools automate this. **pgroll** serves old and new schema versions at once through views, backfills new columns in batches, keeps old and new columns in sync with triggers during the migration, and supports start / complete / rollback [37]. **gh-ost** (MySQL) copies into a ghost table while tailing the binlog, throttles, and supports `--test-on-replica` [29]. Stripe's four-step dual-write migration is the application-level version [27]."
+msgid "Tools can automate this. **pgroll** serves the old and new versions of the schema at the same time through views, backfills new columns in batches, uses triggers to keep the old and new columns in step during the migration, and lets you start, complete or roll back [37]. **gh-ost**, for MySQL, copies into a ghost table while following the binlog, throttles itself, and supports `--test-on-replica` [29]. Stripe's four-step dual-write migration is the same idea at the level of the application [27]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Several deploys instead of one. A window in which both forms must be kept consistent. Triggers (pgroll) add write overhead."
+msgid "**Consequences.** You deploy several times instead of once, and there's a period when both forms have to be kept consistent. The triggers pgroll uses add overhead to writes."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** `SELECT count(*) WHERE new_col IS NULL` reaches zero; spot-check equivalence of old and new forms; monitor lock waits and replication lag during the run."
+msgid "**Verification.** `SELECT count(*) WHERE new_col IS NULL` should reach zero. Spot-check that the old and new forms agree, and watch lock waits and replication lag during the run."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1058,7 +1078,7 @@ msgid "**Sources.** [27]{1}[35]{2}[37]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Postgres + pgroll, or hand-written batches from Airflow / Dagster / a migration tool. (b) Lakebase is Postgres: the same applies; run migrations through CI against a branch first (5.2)."
+msgid "**Maps to.** (a) Postgres with pgroll, or batches you write yourself and run from Airflow, Dagster or a migration tool. (b) Lakebase is Postgres, so the same applies. Run migrations through CI against a branch first (5.2)."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1066,11 +1086,11 @@ msgid "5.2 Rehearse on a copy-on-write branch"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** An operational backfill or migration must be tested against production-shaped data, at production size, before it touches production."
+msgid "**Problem.** You need to test an operational backfill or migration against data shaped like production, at production's size, before it touches production."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Forces.** Full copies of big databases are slow and expensive; stale copies hide the very edge cases that break migrations; testing on production is risky."
+msgid "**Forces.** Full copies of big databases are slow and expensive. Stale copies hide exactly the edge cases that break migrations. And testing on production is risky."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1078,11 +1098,11 @@ msgid "39"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Create a **copy-on-write branch** of the production database (at the current point or a past point in time), run the migration and backfill there, measure duration, lock waits and output, then run the same script against production. Neon and Databricks Lakebase branches share storage pages with the parent and only store changes; creation time does not depend on database size and does not load the parent [38]{1}."
+msgid "**Solution.** Create a **copy-on-write branch** of the production database, either as it is now or as it was at some point in the past. Run the migration and backfill there, and measure how long it takes, the lock waits and the output. Then run the same script against production. Neon and Databricks Lakebase branches share storage pages with their parent and only store what changes, so creating one takes the same time whatever the database's size, and it doesn't put load on the parent [38]{1}."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Rehearsal becomes routine. Branch compute differs from production compute, so timings are indicative, not exact. Branches contain production data, so access to them needs the same controls as production."
+msgid "**Consequences.** Rehearsing becomes routine. A branch's compute differs from production's, so its timings are a guide, not an exact prediction. Branches contain production data, so access to them needs the same controls as production."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1094,7 +1114,7 @@ msgid "**Sources.** [38]{1}."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Neon branches; for vanilla Postgres, restore a snapshot or use a ZFS/LVM clone. (b) Lakebase branches; the same pattern for Delta is a shallow clone (4.7)."
+msgid "**Maps to.** (a) Neon branches, or, for plain Postgres, a restored snapshot or a ZFS or LVM clone. (b) Lakebase branches. For Delta, the same pattern uses a shallow clone (4.7)."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1102,19 +1122,19 @@ msgid "5.3 Logical replication for initial sync"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Seed a new Postgres (or move to a new cluster) with an existing database's data, then keep it in sync until cutover."
+msgid "**Problem.** You need to fill a new Postgres database with an existing database's data, or move to a new cluster, and then keep the two in step until you cut over."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Create a publication on the source and a subscription on the target. By default the subscription **copies existing table data** and then streams changes; temporary table-synchronization slots are created for the initial copy and dropped when it completes [40]. Cut over when lag is near zero: stop writes on the source, wait for lag to reach zero, switch writers, keep the old side as fallback."
+msgid "**Solution.** Create a publication on the source and a subscription on the target. By default, the subscription **copies the existing table data** and then streams the changes. Temporary table-synchronisation slots are created for the initial copy and dropped once it's finished [40]. Cut over when the lag is close to zero: stop writes on the source, wait for the lag to reach zero, switch the writers over, and keep the old side as a fallback."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Schema (DDL) is not replicated; apply it on both sides. Sequences need resetting at cutover. Initial copy of large tables loads the source; replication slots hold WAL if the subscriber falls behind and can fill the source's disk."
+msgid "**Consequences.** The schema (DDL) isn't replicated, so apply it on both sides. Sequences need resetting at cutover. The initial copy of large tables puts load on the source. And if the subscriber falls behind, the replication slots hold on to WAL, which can fill the source's disk."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Per-table row counts and hash reconciliation at a quiesced point before cutover (4.8)."
+msgid "**Verification.** Before cutover, reconcile row counts and hashes for each table at a point when writes have stopped (4.8)."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1122,7 +1142,7 @@ msgid "**Sources.** [40]."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Maps to.** (a) Postgres native logical replication. (b) Lakebase supports Postgres logical replication for inbound sync **[not verified for the current Lakebase release]**."
+msgid "**Maps to.** (a) Postgres's built-in logical replication. (b) Lakebase supports Postgres logical replication for syncing data in **[not verified for the current Lakebase release]**."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1134,7 +1154,7 @@ msgid "6.1 Strangler fig"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Replace a legacy system that holds years of history without a risky big-bang cutover."
+msgid "**Problem.** You need to replace a legacy system that holds years of history, without a risky cutover in one go."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1142,11 +1162,11 @@ msgid "28"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Build the new system beside the old one and move behaviour and data across in increments, keeping transitional architecture (adapters, event interception) that lets both coexist; retire the old parts as they stop being used [41]{1}. For data: migrate one domain, one region or one cohort at a time; each increment uses 6.2–6.4."
+msgid "**Solution.** Build the new system alongside the old one, and move behaviour and data across a piece at a time. Keep some transitional architecture, such as adapters and event interception, so the two can run side by side, and retire the old parts as they stop being used [41]{1}. For data, migrate one domain, one region or one cohort at a time, using 6.2 to 6.4 for each piece."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Temporary code that will be deleted; a longer period with two systems. Each increment is small enough to roll back."
+msgid "**Consequences.** You write temporary code that you'll later delete, and you run two systems for longer. But each piece is small enough to roll back."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1158,31 +1178,31 @@ msgid "6.2 Initial load plus CDC cutover (or frozen source)"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Move history and keep up with ongoing changes until cutover."
+msgid "**Problem.** You need to move the history across and keep up with ongoing changes until you cut over."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** Two variants:"
+msgid "**Solution.** There are two variants:"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Live source.** Snapshot-and-log stitching (4.4) or logical replication (5.3): bulk-load history, stream changes, reconcile, cut over when lag is near zero."
+msgid "**Live source.** Use snapshot and log stitching (4.4) or logical replication (5.3). Bulk-load the history, stream the changes, reconcile, and cut over when the lag is close to zero."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Frozen source.** When the legacy system has no usable change log, agree a **freeze point**: the legacy system becomes read-only (or a point-in-time extract is taken), history up to the freeze is loaded, reconciled and signed off, then writers switch to the new system. Any write after the freeze goes only to the new system."
+msgid "**Frozen source.** If the legacy system has no usable change log, agree a **freeze point**. The legacy system becomes read-only, or you take an extract at a point in time. You load the history up to the freeze, reconcile it and get it signed off, and then the writers switch to the new system. Any write after the freeze goes only to the new system."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Frozen-source cutovers need a write outage or a business process pause, but are simplest to verify: there is one fixed source state to reconcile against. Live cutovers avoid the outage but must reconcile a moving target at a known log position."
+msgid "**Consequences.** A cutover from a frozen source needs an outage for writes, or a pause in the business process, but it's the easiest to verify, because there's one fixed state of the source to reconcile against. A live cutover avoids the outage, but you have to reconcile a moving target at a known position in the log."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** Reconciliation (4.8) at the freeze point or at a recorded log position; sign-off recorded with the report."
+msgid "**Verification.** Reconcile (4.8) at the freeze point, or at a recorded position in the log, and record the sign-off with the report."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Sources.** [14]{1}[40]; first principles."
+msgid "**Sources.** [14]{1}[40], and first principles."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1190,15 +1210,15 @@ msgid "6.3 Parallel run and fallback window"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Building confidence that the new system produces the same (or intentionally different) results as the legacy one."
+msgid "**Problem.** You need confidence that the new system gives the same results as the legacy one, or deliberately different ones."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.** For a defined period, run both systems on the same inputs and compare outputs (4.8). Fowler/Thoughtworks describe parallel running as the way to let the business confirm key numbers match before relying on the new system [28]. Keep the legacy system available, read-only or shadow-updated, for a **fallback window** after cutover, with a tested procedure to switch back. Define in advance the exit criteria (e.g. N consecutive cycles with zero unexplained diffs) and the end date of the fallback window."
+msgid "**Solution.** For a set period, run both systems on the same inputs and compare their outputs (4.8). Fowler and Thoughtworks describe parallel running as the way to let the business confirm that the key numbers match before it relies on the new system [28]. After cutover, keep the legacy system available, either read-only or updated in the background, for a **fallback window**, with a tested procedure for switching back. Decide in advance what lets you stop, such as a number of consecutive cycles with no unexplained differences, and the date the fallback window ends."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** Running two systems costs effort; without an end date, parallel runs never end."
+msgid "**Consequences.** Running two systems takes effort, and without an end date, a parallel run never ends."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1210,35 +1230,31 @@ msgid "6.4 Quarantine, provenance and PII minimisation"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Problem.** Legacy data is messy, and the backfill must not silently drop bad rows, lose where data came from, or copy more personal data than needed."
+msgid "**Problem.** Legacy data is messy. The backfill mustn't quietly drop bad rows, lose track of where data came from, or copy more personal data than it needs."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Solution.**"
+msgid "**Quarantine rows rather than dropping them.** Rows that fail validation go to a quarantine table, with the raw record, the rule they failed and the run id, so the counts reconcile as `loaded + quarantined = extracted`. Then triage the quarantined rows: fix the mapping, fix them at the source, or accept them with a recorded reason."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Quarantine, do not drop.** Rows that fail validation go to a quarantine table with the raw record, the failing rule, and the run id. Counts reconcile as `loaded + quarantined = extracted`. Triage quarantined rows: fix the mapping, fix at source, or accept with a recorded reason."
+msgid "**Record provenance on every row.** Put `source_system`, `source_key`, `source_extract_id` (or the file hash) and `loaded_by_run` on every row you load. Then you can trace any value to where it came from, and tell loaded history apart from data created in the new system."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Provenance per row.** Carry `source_system`, `source_key`, `source_extract_id` (or file hash) and `loaded_by_run` on every loaded row, so any value can be traced to its origin, and loaded history is distinguishable from natively created data."
+msgid "**Keep personal data to a minimum.** Decide, column by column, whether the new system needs it. Drop it, pseudonymise it (with a keyed hash and a managed secret) or generalise it before the data lands, not afterwards, because data in a landing zone or a quarantine table is still data you hold. Apply the same retention rules to quarantine and backup copies."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**PII minimisation.** Decide per column whether it is needed in the new system. Drop, pseudonymise (keyed hash with a managed secret) or generalise before the data lands, not after; data in a landing zone or quarantine table is still data held. Apply the same retention rules to quarantine and backup copies."
+msgid "**Consequences.** There are more tables to manage, but every row is accounted for, and every value can be traced."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Consequences.** More tables to manage; but every row is accounted for and every value is traceable."
+msgid "**Verification.** For each slice, `extracted = loaded + quarantined`. No row in the target is missing its provenance columns, and an inventory of columns shows how each personal-data field is treated."
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "**Verification.** `extracted = loaded + quarantined` per slice; no row in target lacks provenance columns; a column inventory shows each PII field's treatment."
-msgstr ""
-
-#: docs/guides/backfill.md
-msgid "**Sources.** First principles; quarantine is the standard dead-letter / \"expectations\" approach (e.g. Lakeflow declarative pipeline expectations, Deequ) [24]."
+msgid "**Sources.** First principles. Quarantine is the standard dead-letter or \"expectations\" approach, as in Lakeflow declarative pipeline expectations or Deequ [24]."
 msgstr ""
 
 #: docs/guides/backfill.md
@@ -1506,7 +1522,7 @@ msgid "8. Invariants every backfill must satisfy"
 msgstr ""
 
 #: docs/guides/backfill.md
-msgid "Each invariant is stated as a check that can be automated. `B` is a backfill run; `R` its target range of slices or keys. The contract clauses rest on them as follows."
+msgid "Each invariant below is written as a check you can automate. `B` is a backfill run, and `R` is its target range of slices or keys. This table shows which invariants prove each clause of the contract."
 msgstr ""
 
 #: docs/guides/backfill.md

@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md
-msgid "Turn adding a product or a data source into one reviewed file, from which everything it needs is generated."
+msgid "Adding a product or a data source comes down to one reviewed file, and everything it needs is generated from that file."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md
-msgid "Hand-made identities and grants drift and are never removed. One declaration per tenant gives one place to review access and one place to revoke it ([P5]{1})."
+msgid "Identities and grants made by hand drift, and nobody removes them. With one declaration for each tenant, there's one place to review its access and one place to revoke it ([P5]{1})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md
@@ -40,15 +40,15 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md
-msgid "`tenants/<name>.yaml` in the platform repository: owner role, domain, ingestion method, highest classification, catalogs written and read, operational database, trusted repository."
+msgid "A `tenants/<name>.yaml` file in the platform repository, giving the owner role, domain, ingestion method, highest classification, the catalogs written and read, the operational database and the trusted repository."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md
-msgid "Generated: identities, federated credentials, grants, schemas, required reviewers."
+msgid "What is generated from it: identities, federated credentials, grants, schemas and required reviewers."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md
-msgid "Published outputs per product and environment, consumed by the product's pipeline."
+msgid "Outputs published for each product and environment, which the product's pipeline uses."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md
@@ -56,7 +56,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md
-msgid "The boundary between platform and product: the platform owns anything that crosses a permission boundary; the product owns what is inside its grant."
+msgid "This is where the platform and a product divide. The platform owns anything that crosses a permission boundary, and the product owns whatever is inside its grant."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-onboarding.md

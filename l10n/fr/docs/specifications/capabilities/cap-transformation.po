@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-transformation.md
-msgid "Compute every reported number in one versioned, tested place."
+msgid "Every reported number is computed in one place, which is versioned and tested."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-transformation.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-transformation.md
-msgid "Conformance once means every consumer shares one identifier and one definition ([P11]{1})."
+msgid "When data is conformed once, every consumer shares the same identifiers and the same definitions ([P11]{1})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-transformation.md
@@ -44,7 +44,7 @@ msgid "Versioned models in bronze, silver and gold."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-transformation.md
-msgid "Tests run in CI."
+msgid "Tests that run in CI."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-transformation.md

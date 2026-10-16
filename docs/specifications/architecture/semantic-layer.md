@@ -2,15 +2,15 @@
 
 The semantic layer is where every measure and indicator is defined, once,
 in version control. Dashboards, natural-language query, agents, published
-statistics and international returns all read from it, so an enrolment
-ratio means the same thing on every screen, in every file and for every
+statistics and international returns all read from it. So an enrolment
+ratio means the same thing on every screen, in every file and in every
 release ([P11](../principles.md#p11-reporting-goes-through-a-governed-transformation-layer),
 [CAP-SEMANTICS](../capabilities/cap-semantics.md)).
 
-It matters more for an EMIS than for most platforms. Official indicators
-are compared across years, areas and countries; a definition that drifts
-between two tools produces two "official" figures, and only one of them
-can be right.
+This matters more for an EMIS than for most platforms. People compare
+official indicators across years, areas and countries. If a definition
+drifts between two tools, you end up with two "official" figures, and only
+one of them can be right.
 
 ## How it works
 
@@ -61,45 +61,49 @@ flowchart LR
 
 ### Why it is drawn this way
 
-- **Definitions sit on top of gold counts.** Gold stores additive counts;
-  every ratio is computed by the semantic layer from them, so any level of
-  aggregation gives the right answer ([CAP-TRANSFORMATION.5](../capabilities/cap-transformation.md)).
-- **Everything a consumer reads is generated.** Engine-native metric
-  objects and saved-query tables are produced from the definitions by
-  CI, never written by hand ([CAP-SEMANTICS.8](../capabilities/cap-semantics.md)).
-- **A parity test closes the loop.** Every serving path must return the
-  same numbers for every saved query, which is what "defined once" means in
+- The definitions sit on top of the counts in gold. Gold stores counts
+  that can be added up, and the semantic layer computes every ratio from
+  them, so you get the right answer at any level of aggregation
+  ([CAP-TRANSFORMATION.5](../capabilities/cap-transformation.md)).
+- Everything a consumer reads is generated. CI produces the
+  engine-native metric objects and the saved-query tables from the
+  definitions, and nobody writes them by hand
+  ([CAP-SEMANTICS.8](../capabilities/cap-semantics.md)).
+- A parity test closes the loop. Every serving path must return the same
+  numbers for every saved query, and that's what "defined once" means in
   practice ([CAP-SEMANTICS.9](../capabilities/cap-semantics.md)).
-- **Published statistics come from saved-query tables,** stamped with the
-  definition version and reference date, never from a live query.
+- Published statistics come from saved-query tables, stamped with the
+  definition's version and the reference date, never from a live query.
 
 ## Rules that keep one definition portable
 
-1. **Model indicators as ratios of additive counts on one gold table.** An
-   indicator's numerator and denominator are counts at the same grain
-   (reference date, area, sex, age, level and so on). An external
-   denominator, such as a population estimate, is joined in gold with its
-   version, so every engine computes the ratio the same way.
-2. **Use a portable subset of metric types:** simple counts and sums,
-   ratios, and derived expressions without time offsets. Anything else
-   (cumulative windows, offsets, conversion funnels) needs a recorded,
-   tested mapping for each serving engine
+1. Model each indicator as a ratio of counts that add up, on one gold
+   table. The numerator and the denominator are counts at the same grain,
+   meaning the same reference date, area, sex, age, level and so on. If
+   the denominator comes from outside, such as a population estimate, join
+   it into gold along with its version. That way every engine computes the
+   ratio the same way.
+2. Stick to a portable subset of metric types. That means simple counts
+   and sums, ratios, and derived expressions without time offsets.
+   Anything else, such as cumulative windows, offsets or conversion
+   funnels, needs a recorded and tested mapping for each serving engine
    ([CAP-SEMANTICS.7](../capabilities/cap-semantics.md)).
-3. **Keep indicator metadata with the definition** and check it in CI:
-   code, the edition of the international definition followed, unit,
-   reference-date rule, allowed disaggregations, coverage rule, owner and
-   version ([CAP-SEMANTICS.3](../capabilities/cap-semantics.md)).
-4. **Version the definitions with the models** that produce their counts,
-   in the same project and the same review
+3. Keep each indicator's metadata with its definition, and check it in
+   CI. The metadata gives the code, the edition of the international
+   definition it follows, the unit, the reference-date rule, the
+   disaggregations allowed, the coverage rule, the owner and the version
+   ([CAP-SEMANTICS.3](../capabilities/cap-semantics.md)).
+4. Version the definitions together with the models that produce their
+   counts, in the same project and in the same review
    ([CAP-SEMANTICS.6](../capabilities/cap-semantics.md)).
 
 ## In the reference implementations
 
 Both reference implementations use the **dbt semantic layer**
-([ADR-0011](../../adr/0011-dbt-semantic-layer.md)): semantic models and
-metrics written in dbt's YAML specification (the latest spec, dbt 1.12 and
-later), validated and compiled by **MetricFlow**, which is Apache-2.0
-licensed.
+([ADR-0011](../../adr/0011-dbt-semantic-layer.md)). You write semantic
+models and metrics in dbt's YAML specification (the latest one, for dbt
+1.12 and later), and **MetricFlow**, which is licensed under Apache-2.0,
+validates and compiles them.
 
 | | Open source | Databricks |
 | --- | --- | --- |
@@ -111,21 +115,22 @@ licensed.
 | Machine consumers | A thin service over MetricFlow and Trino | Genie and SQL over metric views |
 
 dbt's hosted platform adds live semantic APIs, scheduled exports, caching
-and ready-made BI integrations. Neither implementation depends on it:
-known questions are served from generated tables, and ad-hoc questions go
-through the engine-native objects or a MetricFlow-backed service. An open
-format for exchanging semantic definitions,
-[Apache Ossie](../standards.md#open-data-and-exchange), is tracked; once
-dbt and the consuming engines support the same released version, the
-generators can be replaced by it.
+and ready-made BI integrations, but neither implementation depends on it.
+Questions we know in advance are answered from generated tables, and ad-hoc
+questions go through the engine-native objects or a service built on
+MetricFlow. We're also tracking
+[Apache Ossie](../standards.md#open-data-and-exchange), an open format for
+exchanging semantic definitions. Once dbt and the engines that consume the
+definitions support the same released version of it, it can replace the
+generators.
 
 ### An indicator, as defined
 
-An illustrative definition of the gross enrolment ratio
+Here's an illustration of how the gross enrolment ratio
 ([indicators](../domain/indicators.md#worked-example-gross-enrolment-ratio))
-in dbt's latest YAML specification. Field names follow the dbt
-documentation as of October 2026; check the current specification before
-copying.
+looks in dbt's latest YAML specification. The field names follow the dbt
+documentation as it stood in October 2026, so check the current
+specification before you copy it.
 
 ```yaml
 models:

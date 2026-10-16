@@ -8,15 +8,17 @@ Layer L3 · domain: data · depends on: [CAP-TRANSFORMATION](cap-transformation.
 
 ## Purpose
 
-Keep bad data from consumers and keep it visible.
+Bad data is kept away from consumers, and kept visible.
 
 ## Why
 
-Data that fails its checks is worse than no data ([P10](../principles.md#p10-low-confidence-goes-to-a-person-never-guessed)). Counting refusals apart from failures tells a bad source from a broken system.
+Data that fails its checks is worse than no data at all ([P10](../principles.md#p10-low-confidence-goes-to-a-person-never-guessed)). Counting refusals separately from failures lets you tell a bad source from a broken system.
 
 ## Interfaces
 
-- Checks per tier; a quarantine with reasons; source contracts.
+- Checks for each tier.
+- A quarantine that records the reason for each item.
+- Contracts with sources.
 
 ## Contract
 

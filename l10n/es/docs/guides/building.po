@@ -12,7 +12,7 @@ msgid "Building an implementation"
 msgstr ""
 
 #: docs/guides/building.md
-msgid "How to turn the blueprint into a running platform on a stack of your choice. The steps are the same for a person and for an agent. Each step ends on a completion criterion; move on only when it holds."
+msgid "This guide takes you from the blueprint to a running platform, on whatever stack you choose. The steps are the same whether you're a person or an agent. Each step ends with a test of whether it's done, and you should only move on once that test passes."
 msgstr ""
 
 #: docs/guides/building.md
@@ -20,23 +20,23 @@ msgid "1. Choose the stack and write the binding"
 msgstr ""
 
 #: docs/guides/building.md
-msgid "Copy the reference binding closest to your stack from [`implementations/`]{1}, or start from [`schema/binding.schema.json`]{2}. For each capability, name the components and their SPDX licences. For each clause, set a status:"
+msgid "Copy the reference binding that's closest to your stack from [`implementations/`]{1}, or start from [`schema/binding.schema.json`]{2}. For each capability, name the components and their SPDX licences. Then give each clause a status:"
 msgstr ""
 
 #: docs/guides/building.md
-msgid "`planned`: you intend to meet it; say `how` if it is not obvious."
+msgid "`planned` means you intend to meet it. If how you'll do so isn't obvious, say so in `how`."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "`deviation`: you will not meet it; write the `consequence` and the control that stands in for it."
+msgid "`deviation` means you won't meet it. Write down the `consequence`, and the control that stands in for it."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "`not-applicable`: its precondition does not hold; write why."
+msgid "`not-applicable` means the clause's precondition doesn't hold. Write down why."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "**Done when** `just binding <your-binding.yaml>` reports no problems and every deviation names a compensating control."
+msgid "**You're done when** `just binding <your-binding.yaml>` reports no problems and every deviation names a compensating control."
 msgstr ""
 
 #: docs/guides/building.md
@@ -44,11 +44,11 @@ msgid "2. Lay out the repositories"
 msgstr ""
 
 #: docs/guides/building.md
-msgid "Create one repository per layer, following [CAP-REPOSITORIES]{1}: bootstrap, platform, modules, and one per product. Each has a pinned toolchain and a task runner, and its CI definitions only call tasks. If the repositories will live on more than one CI host, put each host's CI definition beside the others now."
+msgid "Create one repository for each layer, as [CAP-REPOSITORIES]{1} describes. That means one each for bootstrap, platform and modules, and one for each product. Each repository has a pinned toolchain and a task runner, and its CI definitions do nothing but call tasks. If your repositories will live on more than one CI host, add each host's CI definition alongside the others now."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "**Done when** each repository's check task passes on a clean clone, on a workstation and in CI."
+msgid "**You're done when** each repository's check task passes on a clean clone, both on a workstation and in CI."
 msgstr ""
 
 #: docs/guides/building.md
@@ -56,7 +56,7 @@ msgid "3. Build in dependency order"
 msgstr ""
 
 #: docs/guides/building.md
-msgid "Build capabilities in the order below, which is generated from the dependencies in the catalogue. A capability can be built once everything it depends on is built. Work within the bootstrap layer comes first because every later apply needs its state store and identities."
+msgid "Build the capabilities in the order below, which is generated from the dependencies in the catalogue. You can build a capability once everything it depends on is built. The bootstrap layer comes first, because every later apply needs its state store and identities."
 msgstr ""
 
 #: docs/guides/building.md
@@ -68,15 +68,15 @@ msgid "Build it through the CI pipeline, never by hand ([P1]{1})."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "Run each clause's verification as written in its contract."
+msgid "Run each clause's verification, exactly as its contract describes."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "Record the evidence (a test, a query and its output, a CI run) in the binding and change the clause's status to `met`."
+msgid "Record the evidence in the binding, whether that's a test, a query and its output, or a CI run, and change the clause's status to `met`."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "**Done when** every `MUST` clause of the capability is `met`, or is a recorded deviation."
+msgid "**You're done when** every `MUST` clause of the capability is `met`, or is a recorded deviation."
 msgstr ""
 
 #: docs/guides/building.md
@@ -556,11 +556,11 @@ msgid "4. Run the example products"
 msgstr ""
 
 #: docs/guides/building.md
-msgid "Deploy the [example products]{1} and run their conformance steps. Document review exercises the pipeline, review and release capabilities; the annual census exercises master data, collection, indicators and publication. Between them they reach most of the platform."
+msgid "Deploy the [example products]{1} and run their conformance steps. Document review exercises the pipeline, review and release capabilities, and the annual census exercises master data, collection, indicators and publication. Between them, they reach most of the platform."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "**Done when** the conformance steps of both products pass and their evidence is in the binding."
+msgid "**You're done when** the conformance steps of both products pass and their evidence is in the binding."
 msgstr ""
 
 #: docs/guides/building.md
@@ -568,19 +568,23 @@ msgid "5. Keep it conforming"
 msgstr ""
 
 #: docs/guides/building.md
-msgid "Scheduled fitness functions keep checking what was proved once ([CAP-GUARDRAILS.2]{1})."
+msgid "Proving a clause once isn't enough, so keep checking:"
 msgstr ""
 
 #: docs/guides/building.md
-msgid "When the blueprint's version changes, read its changelog, update the binding's `blueprint.version`, and set the status of every new or changed clause."
+msgid "Scheduled fitness functions keep re-checking what you've already proved ([CAP-GUARDRAILS.2]{1})."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "Re-check component licences at each upgrade."
+msgid "When the blueprint's version changes, read its changelog, update the binding's `blueprint.version`, and set a status for every new or changed clause."
 msgstr ""
 
 #: docs/guides/building.md
-msgid "**Done when** the binding validates against the current catalogue and no fitness function is failing."
+msgid "Re-check your components' licences at each upgrade."
+msgstr ""
+
+#: docs/guides/building.md
+msgid "**You're done when** the binding validates against the current catalogue and no fitness function is failing."
 msgstr ""
 
 #: docs/guides/building.md
@@ -588,5 +592,5 @@ msgid "Changing the blueprint itself"
 msgstr ""
 
 #: docs/guides/building.md
-msgid "An implementation that finds a clause wrong, untestable or missing proposes a change to the blueprint through an [ADR]{1}. It never edits the contract to fit itself."
+msgid "If you find that a clause is wrong, can't be tested, or is missing, propose a change to the blueprint through a [LIP]{1}, which is recorded as an [ADR]{2} once accepted. Don't edit the contract to fit your implementation."
 msgstr ""

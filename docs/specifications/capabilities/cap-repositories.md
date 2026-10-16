@@ -8,22 +8,22 @@ Layer L0 · domain: delivery
 
 ## Purpose
 
-Separate the code that defines who may change the platform from the code that changes it, so each repository can be trusted for exactly what it holds.
+The code that defines who may change the platform is kept apart from the code that changes it, so you can trust each repository for exactly what it holds.
 
 ## Why
 
-With workload identity federation a credential trusts a repository, so the repository is the unit of trust ([P2](../principles.md#p2-repositories-are-split-by-trust-state-is-split-by-blast-radius)). A monorepo would let anyone who can edit a pipeline reach every identity. Pinned recipes keep the result the same on any machine and any CI host ([P19](../principles.md#p19-every-task-is-a-pinned-host-independent-recipe)).
+With workload identity federation, a credential trusts a repository, so the repository is the unit of trust ([P2](../principles.md#p2-repositories-are-split-by-trust-state-is-split-by-blast-radius)). In a single monorepo, anyone who could edit a pipeline could reach every identity. Pinned recipes give the same result on any machine and on any CI host ([P19](../principles.md#p19-every-task-is-a-pinned-host-independent-recipe)).
 
 ## Interfaces
 
-- Bootstrap repository: state store and CI identities, applied by dispatch.
-- Platform repository: shared stacks and the tenant registry, applied on merge.
-- Modules repository: tagged releases consumed by the others.
-- Product repositories: code, jobs and their deployment unit, one per product.
+- A bootstrap repository, holding the state store and the CI identities, applied on dispatch.
+- A platform repository, holding the shared stacks and the tenant registry, applied on merge.
+- A modules repository, whose tagged releases the others use.
+- Product repositories, one for each product, holding its code, jobs and deployment unit.
 
 ## Notes
 
-Two remotes are normal: a repository can be mirrored on a second host and carry that host's CI definition beside the first. Only the wrapper differs; every step is a recipe.
+It's normal to have two remotes. A repository can be mirrored on a second host and carry that host's CI definition alongside the first one. Only the wrapper differs, because every step is a recipe.
 
 ## Contract
 

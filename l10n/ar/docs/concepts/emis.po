@@ -12,11 +12,13 @@ msgid "What is an EMIS"
 msgstr "ما هو نظام معلومات إدارة التعليم"
 
 #: docs/concepts/emis.md
-msgid "An education management information system (EMIS) is how an education authority knows what is happening in its education system: how many learners there are and where, whether they attend and learn, who teaches them, and what it all costs."
+#, fuzzy
+msgid "An education management information system (EMIS) is how an education authority knows what's happening in its education system. It tells the authority how many learners there are and where they are, whether they attend and whether they learn, who teaches them, and what it all costs."
 msgstr "نظام معلومات إدارة التعليم (EMIS) هو الوسيلة التي تعرف بها السلطة التعليمية ما يجري في نظامها التعليمي: كم عدد المتعلمين وأين هم، وهل يحضرون ويتعلمون، ومن يعلّمهم، وكم يكلّف ذلك كله."
 
 #: docs/concepts/emis.md
-msgid "UNESCO defines it as:"
+#, fuzzy
+msgid "UNESCO defines an EMIS as:"
 msgstr "تعرّفه اليونسكو بأنه:"
 
 #: docs/concepts/emis.md
@@ -28,7 +30,8 @@ msgid "— UNESCO, [*Education for All by 2015: Will we make it?*]{1}, EFA Globa
 msgstr "— UNESCO، [*Education for All by 2015: Will we make it?*]{1}، التقرير العالمي لرصد التعليم للجميع 2008، ص. 101 (ترجمة غير رسمية)"
 
 #: docs/concepts/emis.md
-msgid "The same definition goes on to say that an EMIS is \"a system of people, technology, models, methods, processes, procedures, rules and regulations\". That matters: an EMIS is not one piece of software. It is the arrangement by which data about education is collected, trusted and used."
+#, fuzzy
+msgid "The same definition goes on to say that an EMIS is \"a system of people, technology, models, methods, processes, procedures, rules and regulations\". That matters, because it means an EMIS isn't one piece of software. It's the whole arrangement through which an authority collects data about education, comes to trust it, and uses it."
 msgstr "ويضيف التعريف نفسه أن النظام «منظومة من الأشخاص والتقنيات والنماذج والأساليب والعمليات والإجراءات والقواعد واللوائح». وهذا مهم: فنظام معلومات إدارة التعليم ليس برنامجًا حاسوبيًا واحدًا، بل هو الترتيب الذي تُجمع به بيانات التعليم وتُوثَّق وتُستخدم."
 
 #: docs/concepts/emis.md
@@ -56,7 +59,8 @@ msgid "District and regional officers"
 msgstr "موظفو المديريات والمناطق"
 
 #: docs/concepts/emis.md
-msgid "Which institutions need support, and whether returns are complete"
+#, fuzzy
+msgid "Which institutions need support, and whether their returns are complete"
 msgstr "أي المؤسسات تحتاج إلى دعم، وهل اكتملت البيانات المقدَّمة"
 
 #: docs/concepts/emis.md
@@ -64,7 +68,8 @@ msgid "Institution leaders and teachers"
 msgstr "قادة المؤسسات والمعلمون"
 
 #: docs/concepts/emis.md
-msgid "Their own learners: enrolment, attendance, results, support needs"
+#, fuzzy
+msgid "The enrolment, attendance, results and support needs of their own learners"
 msgstr "متعلموهم: التسجيل والحضور والنتائج واحتياجات الدعم"
 
 #: docs/concepts/emis.md
@@ -72,7 +77,8 @@ msgid "Learners and guardians"
 msgstr "المتعلمون وأولياء الأمور"
 
 #: docs/concepts/emis.md
-msgid "Their own records, and correct ones"
+#, fuzzy
+msgid "Their own records, and for those records to be correct"
 msgstr "سجلاتهم الخاصة، وأن تكون صحيحة"
 
 #: docs/concepts/emis.md
@@ -96,19 +102,23 @@ msgid "Two kinds of work"
 msgstr "نوعان من العمل"
 
 #: docs/concepts/emis.md
-msgid "An EMIS does two different jobs, and much of this blueprint follows from keeping them apart."
+#, fuzzy
+msgid "An EMIS does two different jobs, and much of this blueprint comes from keeping them apart."
 msgstr "يؤدي النظام وظيفتين مختلفتين، وينبع جزء كبير من هذا المخطط من الفصل بينهما."
 
 #: docs/concepts/emis.md
-msgid "**Recording.** Day to day, it keeps records about individual people and institutions: this learner is enrolled here, attended today, sat this examination. These records change all the time and must be correct for each person."
+#, fuzzy
+msgid "The first job is **recording**. Day to day, an EMIS keeps records about individual people and institutions: for example, that a learner is enrolled here, attended today and sat this examination. These records change all the time, and they have to be correct for each person."
 msgstr "**التسجيل.** يحتفظ النظام يومًا بيوم بسجلات عن الأفراد والمؤسسات: هذا المتعلم مسجّل هنا، وحضر اليوم، وأدى هذا الامتحان. تتغير هذه السجلات باستمرار ويجب أن تكون صحيحة لكل شخص."
 
 #: docs/concepts/emis.md
-msgid "**Counting.** Periodically, it produces official figures: enrolment by grade and district on census day, the pupil–teacher ratio, the completion rate. These are counted *as at a reference date*, published, and then not changed silently, because policy and funding depend on them."
+#, fuzzy
+msgid "The second job is **counting**. From time to time, an EMIS produces official figures, such as enrolment by grade and district on census day, the pupil–teacher ratio, or the completion rate. We count these *as at a reference date* and publish them, and after that nobody changes them quietly, because policy and funding depend on them."
 msgstr "**العدّ.** ينتج النظام دوريًا أرقامًا رسمية: أعداد المسجلين حسب الصف والمديرية في يوم التعداد، ونسبة التلاميذ إلى المعلمين، ومعدل الإتمام. تُعدّ هذه الأرقام *في تاريخ مرجعي*، وتُنشر، ثم لا تُغيَّر بصمت، لأن السياسات والتمويل يعتمدان عليها."
 
 #: docs/concepts/emis.md
-msgid "A good EMIS lets the second be derived from the first, so the figures can be traced back to the records they count."
+#, fuzzy
+msgid "A good EMIS derives the counts from the records, so that you can trace any figure back to the records it counts."
 msgstr "يتيح النظام الجيد اشتقاق الثاني من الأول، بحيث يمكن تتبّع الأرقام حتى السجلات التي تعدّها."
 
 #: docs/concepts/emis.md
@@ -116,7 +126,8 @@ msgid "What this blueprint covers"
 msgstr "ما يغطيه هذا المخطط المرجعي"
 
 #: docs/concepts/emis.md
-msgid "This blueprint describes the **data platform** behind an EMIS: where the data lives, how it moves, how it is governed, who may see it, and how figures are defined and published. It does not prescribe the applications people type into, such as a school management system or a census form. Those are *products* that run on the platform."
+#, fuzzy
+msgid "This blueprint describes three things: the **domain** an EMIS records, the **rules** for handling its data, and the governed **data platform** that holds it. That covers where the data lives, how it moves, how it's governed, who may see it, and how figures are defined and published. It doesn't prescribe the applications that people type into, such as a school management system or a census form. Those are *products*, and they run on the platform."
 msgstr "يصف هذا المخطط **منصة البيانات** التي يقوم عليها النظام: أين توجد البيانات، وكيف تنتقل، وكيف تُحوكم، ومن يمكنه رؤيتها، وكيف تُعرَّف الأرقام وتُنشر. ولا يفرض التطبيقات التي يُدخل فيها الناس البيانات، مثل نظام إدارة مدرسية أو استمارة تعداد. تلك *منتجات* تعمل على المنصة."
 
 #: docs/concepts/emis.md

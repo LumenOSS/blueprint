@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ingestion.md
-msgid "Bring data in by the cheapest method that works, without losing or duplicating any of it."
+msgid "Data comes into the platform by the cheapest method that works, and none of it is lost or duplicated on the way."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ingestion.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ingestion.md
-msgid "Federation avoids a copy; change capture is worth its cost only for some sources ([P16]{1}). Landing as a queue keeps the source of record safe and failures visible ([P8]{2})."
+msgid "Federation avoids making a copy at all, and change capture is only worth its cost for some sources ([P16]{1}). Treating the landing area as a queue keeps the source of record safe and makes failures visible ([P8]{2})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ingestion.md
@@ -40,7 +40,7 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ingestion.md
-msgid "A landing area with archive and quarantine."
+msgid "A landing area, with an archive and a quarantine."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ingestion.md
@@ -56,7 +56,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ingestion.md
-msgid "An archive sweep copies, verifies size, then unlinks, and leaves alone anything it cannot account for."
+msgid "An archive sweep copies each file, checks its size, and only then removes the original. It leaves alone anything it can't account for."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-ingestion.md

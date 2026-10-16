@@ -1,18 +1,20 @@
 # Specifications
 
-The reference: what the blueprint requires, stated precisely enough to
-build against and to test. Read these when you need to know exactly what
-is required; the [core concepts](../concepts/README.md) explain why.
+This is the reference part of the blueprint. It says what the blueprint
+requires, precisely enough for you to build against it and test what you've
+built. Turn to it when you need to know exactly what's required. If you want
+to know why, the [core concepts](../concepts/README.md) explain.
 
 | Specification | What it states |
 | --- | --- |
-| [Principles](principles.md) | The ideas every requirement rests on; when anything else seems to disagree, these state the intent |
-| [Capabilities](capabilities/README.md) | Every capability of the platform and its contract: numbered clauses, each with how conformance is shown |
-| [Domain](domain/README.md) | What an EMIS holds: domains, resources, modelling rules, bounded contexts and indicators |
-| [Architecture](architecture/README.md) | How the parts fit together, at three levels of detail, and the semantic layer |
-| [Standards](standards.md) | The international standards relied on, with current editions and publisher links |
-| [Implementations](implementations/README.md) | The reference bindings, and the status of every clause in each |
-| [Glossary](glossary.md) | Terms about the blueprint and the platform |
+| [Principles](principles.md) | The ideas every requirement rests on. If anything else seems to disagree with them, the principles state the intent. |
+| [Capabilities](capabilities/README.md) | Everything the platform must be able to do, each with a contract of numbered clauses that say how you show you meet them |
+| [Domain](domain/README.md) | What an EMIS holds: its domains, resources and modelling rules, its bounded contexts and its indicators |
+| [Architecture](architecture/README.md) | How the parts fit together, at three levels of detail, and how the semantic layer works |
+| [Standards](standards.md) | The international standards the blueprint relies on, with their current editions and links to their publishers |
+| [Implementations](implementations/README.md) | The reference bindings, and where each one stands on every clause |
+| [Glossary](glossary.md) | The terms the blueprint uses for itself and for the platform |
 
-The catalogue in `blueprint/catalogue.yaml` is the source of the
-capabilities; their contract tables are generated from it.
+The capabilities come from one file, the catalogue in
+`blueprint/catalogue.yaml`. Their contract tables are generated from it, so
+that's the place to change them.

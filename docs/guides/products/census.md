@@ -1,9 +1,9 @@
 # Example product: annual census
 
-Every institution reports, once a year, a set of counts and facts as at a
-single reference date: enrolment by grade and sex, staff and their
-qualifications, facilities and services, and the like. The census is the
-backbone of an education system's official statistics. As a product it
+Once a year, every institution reports a set of counts and facts as at a
+single reference date. That includes enrolment by grade and sex, staff and
+their qualifications, and facilities and services. The census is the
+backbone of an education system's official statistics. As a product, it
 exercises the registries, periodic collection, data quality, indicators,
 disclosure control and open publication.
 
@@ -44,67 +44,83 @@ flowchart LR
 
 - **The registry decides who must respond.** Completeness is measured
   against the institutions that exist, not against the returns that
-  arrived ([CAP-COLLECTION.1](../../specifications/capabilities/cap-collection.md)).
-- **The head of the institution attests** the return, so accountability
-  for the figures sits where they are known.
+  happened to arrive
+  ([CAP-COLLECTION.1](../../specifications/capabilities/cap-collection.md)).
+- **The head of the institution attests the return.** That puts
+  accountability for the figures with the person who knows them.
 - **Review can send a return back.** A query reopens the return with the
-  reviewer's reason; every transition is an event
+  reviewer's reason, and every change of state is recorded as an event
   ([CAP-COLLECTION.3](../../specifications/capabilities/cap-collection.md)).
-- **Nothing is computed until the area is complete,** and then only from a
-  locked snapshot ([CAP-COLLECTION.4](../../specifications/capabilities/cap-collection.md),
+- **Nothing is computed until the area is complete,** and even then only
+  from a locked snapshot
+  ([CAP-COLLECTION.4](../../specifications/capabilities/cap-collection.md),
   [CAP-COLLECTION.5](../../specifications/capabilities/cap-collection.md)).
 
 ## The instrument
 
-An instrument is a versioned file that declares:
+An **instrument** is a versioned file that declares these things:
 
-- the reference date and the collection window;
-- the expected respondents, as a query over the institution registry;
-- each item, with its code list, unit and whether it is required;
-- validation rules, each with its quality dimension and severity
-  ([CAP-QUALITY.4](../../specifications/capabilities/cap-quality.md)): blocking rules stop
-  submission, warnings need a reason;
-- cross-item checks, such as staff counts against postings in the
-  registry, or enrolment against the previous year's enrolment in the
-  grade below.
+- the reference date and the collection window
+- the expected respondents, as a query over the institution registry
+- each item, with its code list, its unit and whether it's required
+- the validation rules, each with its quality dimension and severity
+  ([CAP-QUALITY.4](../../specifications/capabilities/cap-quality.md))
+- cross-item checks, such as comparing staff counts with the postings in
+  the registry, or enrolment with last year's enrolment in the grade below
 
-A committed instrument never changes; next year's census is a new version.
+A blocking rule stops the return from being submitted, while a warning
+only needs a reason. Once an instrument is committed it never changes, so
+next year's census uses a new version.
 
 ## The return
 
-- **Prefilled** from the registries and last year's accepted return, so
-  respondents confirm and correct rather than retype.
-- **Offline-capable:** the form can be completed without a connection and
-  synchronised later; submitting twice converges on one return.
-- **States:** not started, in progress, submitted, attested, queried,
-  accepted, locked.
-- **Imputation** for a missing return, if the methodology allows it, is
-  flagged on every imputed cell and reported with the figure.
+A return arrives **prefilled** from the registries and last year's
+accepted return, so respondents confirm and correct figures rather than
+typing them again. It also **works offline**: someone can complete the
+form without a connection and synchronise it later, and if they submit
+twice, the two submissions end up as one return.
+
+A return moves through these states: not started, in progress, submitted,
+attested, queried, accepted and locked.
+
+If a return is missing and the methodology allows **imputation**, every
+imputed cell is flagged, and the flag is reported with the figure.
 
 ## Outputs
 
-- Gold counts as at the reference date, from which the semantic layer
+The census produces:
+
+- gold counts as at the reference date, from which the semantic layer
   derives the participation, teacher and facilities indicators
-  ([indicators](../../specifications/domain/indicators.md)).
-- Completeness and timeliness per institution and area, as reported
-  measures.
-- Open tables with permanent identifiers, after disclosure control
-  ([CAP-PUBLICATION](../../specifications/capabilities/cap-publication.md)).
-- A revision after a late correction is a new snapshot version, with the
-  reason and both versions readable.
+  ([indicators](../../specifications/domain/indicators.md))
+- completeness and timeliness for each institution and area, reported as
+  measures
+- open tables with permanent identifiers, after disclosure control
+  ([CAP-PUBLICATION](../../specifications/capabilities/cap-publication.md))
+
+When a late correction arrives, the revision is a new snapshot version.
+It records the reason, and both versions stay readable.
 
 ## Running it as a conformance workload
 
-1. Open a census for a fixture registry; the expected respondents equal
-   the registry's active institutions as at the reference date.
-2. Submit a return with a blocking error; submission is refused with a
-   machine-readable error ([CAP-COLLECTION.2](../../specifications/capabilities/cap-collection.md)).
-3. Submit the same return twice from an offline client; one return results.
-4. Leave one institution's return missing; its area reads BLOCKED, and the
-   other areas release ([CAP-COLLECTION.4](../../specifications/capabilities/cap-collection.md)).
-5. Publish an area with a small cell; the cell and its complement are
-   suppressed, and the suppressed value cannot be recomputed from totals
+Run these steps on your implementation, and check that each gives the
+result described.
+
+1. Open a census for a fixture registry. The expected respondents should
+   be exactly the registry's active institutions as at the reference date.
+2. Submit a return with a blocking error. The submission should be
+   refused with a machine-readable error
+   ([CAP-COLLECTION.2](../../specifications/capabilities/cap-collection.md)).
+3. Submit the same return twice from an offline client. You should end up
+   with one return.
+4. Leave one institution's return missing. Its area should read BLOCKED,
+   while the other areas release
+   ([CAP-COLLECTION.4](../../specifications/capabilities/cap-collection.md)).
+5. Publish an area that has a small cell. The cell and its complement
+   should be suppressed, and you shouldn't be able to recompute the
+   suppressed value from the totals
    ([CAP-PUBLICATION.2](../../specifications/capabilities/cap-publication.md)).
-6. Correct an accepted return; a new snapshot version is created, the
-   published table gains a new version, and the old one stays retrievable
+6. Correct an accepted return. A new snapshot version should be created,
+   the published table should gain a new version, and the old version
+   should still be retrievable
    ([CAP-PUBLICATION.3](../../specifications/capabilities/cap-publication.md)).

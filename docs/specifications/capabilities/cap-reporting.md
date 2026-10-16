@@ -8,15 +8,15 @@ Layer L3 · domain: data · depends on: [CAP-SEMANTICS](cap-semantics.md).
 
 ## Purpose
 
-Show governed numbers to people, each seeing only what they may see.
+Governed numbers are shown to people, and each person sees only what they're allowed to see.
 
 ## Why
 
-Dashboards are code so they move between environments without hand edits; environment literals in a dashboard make it report another environment's numbers.
+Dashboards are kept as code, so they move between environments without anyone editing them by hand. If a dashboard contains literal environment names, it ends up reporting another environment's numbers.
 
 ## Interfaces
 
-- Dashboards as code, rendered per environment.
+- Dashboards as code, rendered for each environment.
 - Natural-language query over the semantic layer.
 
 ## Contract

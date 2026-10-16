@@ -8,21 +8,21 @@ Layer L1 · domain: governance · depends on: [CAP-CLASSIFICATION](cap-classific
 
 ## Purpose
 
-Keep each record as long as it is needed and no longer, and let people see and correct what is held about them.
+Each record is kept as long as it's needed and no longer, and people can see and correct what's held about them.
 
 ## Why
 
-Personal data about children has a lifetime set by law and purpose, not by storage cost. An append-only, branched, backed-up platform keeps copies everywhere unless disposal is designed in. Scheduled disposal is also the one sanctioned exception to [P12](../principles.md#p12-provenance-before-any-drop): real data is never dropped on a guess, and it is removed when its retention ends.
+How long personal data about children is kept is set by law and by purpose, not by the cost of storage. A platform that is append-only, branched and backed up keeps copies everywhere unless disposal is designed in from the start. Scheduled disposal is also the one approved exception to [P12](../principles.md#p12-provenance-before-any-drop): real data is never dropped on a guess, but it is removed when its retention period ends.
 
 ## Interfaces
 
-- A retention schedule in code, by record class.
+- A retention schedule in code, for each record class.
 - A read-only archive for records whose retention trigger has occurred.
-- Subject-access, rectification and individual-disclosure requests, each logged.
+- Requests for subject access, rectification and individual disclosure, each of them logged.
 
 ## Notes
 
-Where history cannot be rewritten (immutable snapshots, backups), encrypt each subject's or partition's data with its own key, and destroy the key at disposal. Set table-history retention, branch lifetimes and backup windows so that none outlives the disposal deadline.
+Where history can't be rewritten, as with immutable snapshots and backups, encrypt each subject's or partition's data with its own key, and destroy the key at disposal. Set table-history retention, branch lifetimes and backup windows so that none of them lasts beyond the disposal deadline.
 
 ## Contract
 

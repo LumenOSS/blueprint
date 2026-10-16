@@ -1,19 +1,19 @@
 # Implementations
 
-An implementation binds each capability to components and shows, clause by
-clause, how it meets the contract. Two reference implementations are
-planned, each in its own repository:
+An implementation picks the components that provide each capability, and
+shows, clause by clause, how it meets the contract. We're planning two
+reference implementations, each in its own repository:
 
 | Implementation | Runtime | Binding |
 | --- | --- | --- |
 | Open source | Any Kubernetes cluster, through OpenTofu and Helm; kind or k3d on a laptop | [`oss.yaml`](oss.yaml) |
 | Databricks | Azure Databricks and Azure, through OpenTofu and Declarative Automation Bundles | [`databricks.yaml`](databricks.yaml) |
 
-The files here are the reference bindings each implementation starts from.
-Every clause is `planned` until the implementation shows evidence and moves
-it to `met`. A clause that cannot be met is a `deviation` with its
-consequence, so a gap is always written down. Check a binding with
-`just binding <file>`.
+The files here are the reference bindings that each implementation starts
+from. Every clause stays `planned` until the implementation shows evidence
+and moves it to `met`. If a clause can't be met, it becomes a `deviation`,
+with its consequence written next to it, so a gap is never hidden. To check
+a binding, run `just binding <file>`.
 
 ## Components by capability
 
@@ -65,21 +65,24 @@ consequence, so a gap is always written down. Check a binding with
 
 ## How components are chosen
 
-A component is acceptable when it meets its capability's contract and the
-principles; beyond that the choice belongs to the implementation. Two
-principles weigh most: data stays in open formats and portable
+Any component will do if it meets its capability's contract and the
+principles. Beyond that, the choice is up to the implementation. Two
+principles weigh most. Data has to stay in open formats, so it remains
+portable
 ([P16](../principles.md#p16-open-formats-storage-separate-from-compute-federate-before-copying)),
-and it stays where the education authority controls it
+and it has to stay where the education authority controls it
 ([P21](../principles.md#p21-the-education-authority-runs-its-own-platform)).
-For the health of an open-source component, use a public assessment rather
-than judgement alone; see [standards](../standards.md#open-source-health-and-digital-public-goods).
+When you judge the health of an open-source component, use a public
+assessment rather than your own impression alone. The
+[standards](../standards.md#open-source-health-and-digital-public-goods)
+page lists them.
 
 ## How the open-source build differs
 
 Most capabilities have an open-source equivalent. Where the open-source
-stack cannot provide a property Databricks provides, the binding says so
-and the blueprint names the control that stands in for it. Checked on
-2026-10-15:
+stack can't provide something Databricks does, the binding says so, and the
+blueprint names the control that takes its place. This comparison was
+checked on 2026-10-15:
 
 | Property | Databricks | Open source | Control in the open-source binding |
 | --- | --- | --- | --- |
@@ -92,7 +95,8 @@ and the blueprint names the control that stands in for it. Checked on
 | Push provisioning of groups | SCIM or automatic identity management | Keycloak passes groups in sign-in tokens | Short token lifetimes and session revocation on leaving |
 | Attested private endpoints | Private Link and network connectivity configurations | NetworkPolicy and flow logs | Connectivity tests in CI; flow logs kept as audit |
 
-Open-source licences moved a lot in 2025 and 2026. MinIO's community
+Open-source licences changed a lot in 2025 and 2026. MinIO's community
 edition is archived, Soda Core moved to ELv2, and HashiCorp Vault and
-Redpanda are source-available. Every component in a binding carries its
-SPDX licence, and the licence is checked again at each upgrade.
+Redpanda are now source-available. That's why every component in a binding
+records its SPDX licence, and the licence is checked again at each
+upgrade.

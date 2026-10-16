@@ -8,22 +8,22 @@ Layer L1 · domain: data · depends on: [CAP-IDENTITY](cap-identity.md).
 
 ## Purpose
 
-Give each product a transactional Postgres store that can be branched for development and testing.
+Each product gets a transactional Postgres database that can be branched for development and testing.
 
 ## Why
 
-Branching gives every change a full copy of production at no copy cost ([P6](../principles.md#p6-branch-never-copy), [P7](../principles.md#p7-isolation-without-a-second-environment)). Two gatekeepers, catalog policies and database policies, must agree, so each is paired with the other.
+Branching gives every change a full copy of production without the cost of copying it ([P6](../principles.md#p6-branch-never-copy), [P7](../principles.md#p7-isolation-without-a-second-environment)). There are two gatekeepers, the catalog's policies and the database's policies, and they have to agree, so each is set up together with the other.
 
 ## Interfaces
 
-- Postgres wire protocol and SQL.
-- Branches with a time to live; a protected production branch.
-- Per-identity roles and row-level security.
-- A migration ledger and an application-side schema gate.
+- The Postgres wire protocol and SQL.
+- Branches that expire after a set time, and a protected production branch.
+- A role for each identity, and row-level security.
+- A migration ledger, and a schema check inside the application.
 
 ## Notes
 
-A database role that row-level security does not admit reads zero rows, silently. When the catalog reads an operational database, test that its identity is admitted before relying on it.
+If row-level security doesn't admit a database role, that role reads zero rows, without any error. When the catalog reads an operational database, test that its identity is admitted before you rely on it.
 
 ## Contract
 

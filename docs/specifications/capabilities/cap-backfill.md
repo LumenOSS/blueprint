@@ -8,15 +8,17 @@ Layer L3 · domain: movement · depends on: [CAP-ORCHESTRATION](cap-orchestratio
 
 ## Purpose
 
-Load history, reprocess after a logic change, and fill gaps without duplicates, data loss or harm to production.
+You can load history, reprocess data after a change of logic, and fill gaps, without creating duplicates, losing data or harming production.
 
 ## Why
 
-Backfills run rarely, under pressure, over more data than anything else; they are where idempotence, determinism and reconciliation are tested hardest ([P8](../principles.md#p8-every-write-is-idempotent), [P9](../principles.md#p9-determinism)). See the [backfill patterns](../../guides/backfill.md).
+Backfills run rarely, often under pressure, and over more data than any other job. That makes them the hardest test of idempotence, determinism and reconciliation ([P8](../principles.md#p8-every-write-is-idempotent), [P9](../principles.md#p9-determinism)). The [backfill patterns](../../guides/backfill.md) describe how to run them.
 
 ## Interfaces
 
-- Range-declared jobs; write-audit-publish; a reconciliation report per partition.
+- Jobs that declare the range they cover.
+- A write-audit-publish sequence.
+- A reconciliation report for each partition.
 
 ## Contract
 

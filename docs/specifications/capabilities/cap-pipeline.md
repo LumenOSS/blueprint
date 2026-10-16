@@ -8,20 +8,20 @@ Layer L3 · domain: product · depends on: [CAP-ORCHESTRATION](cap-orchestration
 
 ## Purpose
 
-Build processing stages that can be retried, overlapped and re-run without being wrong.
+Processing stages can be retried, run in overlap and re-run without giving wrong results.
 
 ## Why
 
-Delivery is at-least-once; content addressing makes overlap wasteful instead of wrong ([P8](../principles.md#p8-every-write-is-idempotent), [P9](../principles.md#p9-determinism)). Keeping the database out of every stage but one lets the rest retry through a database outage.
+Delivery is at least once, so the same item may arrive twice. Because items are addressed by their content, overlapping runs waste some work but don't produce wrong results ([P8](../principles.md#p8-every-write-is-idempotent), [P9](../principles.md#p9-determinism)). Only one stage touches the database, so the others can keep retrying through a database outage.
 
 ## Interfaces
 
-- Storage folders as hand-off points; one job per stage.
-- A provenance record per item.
+- Storage folders as the hand-off points between stages, and one job for each stage.
+- A provenance record for each item.
 
 ## Notes
 
-A stage that keeps an index in memory must run with concurrency one, or concurrent runs miss matches across each other silently.
+A stage that keeps an index in memory has to run one at a time. Otherwise concurrent runs miss each other's matches, without any warning.
 
 ## Contract
 

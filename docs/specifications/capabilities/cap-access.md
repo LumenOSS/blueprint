@@ -8,20 +8,20 @@ Layer L1 · domain: governance · depends on: [CAP-IDENTITY](cap-identity.md), [
 
 ## Purpose
 
-Decide access from three independent inputs: role, scope and sensitivity.
+Access is decided from three separate inputs: a person's role, their scope, and the sensitivity of the data.
 
 ## Why
 
-No single change can widen access across all three ([P14](../principles.md#p14-access-is-role--scope--sensitivity)). Exemptions are named because each is a path to raw data ([P5](../principles.md#p5-least-privilege-enumerated)).
+Because the three inputs are separate, no single change can widen someone's access on all of them at once ([P14](../principles.md#p14-access-is-role--scope--sensitivity)). Exemptions are listed by name, because each one is a way to reach raw data ([P5](../principles.md#p5-least-privilege-enumerated)).
 
 ## Interfaces
 
-- Groups for reach; an entitlement table for rows; classification tags for columns.
-- One row-filter function per class of table; masks per classification.
+- Groups decide reach, an entitlement table decides rows, and classification tags decide columns.
+- There is one row-filter function for each class of table, and one mask for each classification.
 
 ## Notes
 
-Anyone exempt from a policy, any holder of a manage right, and the catalog administrator effectively see raw data. Keep those lists short and reviewed.
+Three kinds of identity can in practice see raw data: anyone exempt from a policy, anyone who holds a manage right, and the catalog administrator. Keep those lists short, and review them.
 
 ## Contract
 

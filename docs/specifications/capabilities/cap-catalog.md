@@ -8,21 +8,21 @@ Layer L1 · domain: data · depends on: [CAP-TABLES](cap-tables.md), [CAP-IDENTI
 
 ## Purpose
 
-Be the single place that knows every dataset and decides who may read which rows and columns of it.
+The catalog is the one place that knows about every dataset, and it decides who may read which rows and columns.
 
 ## Why
 
-Policies enforced in one engine and not another are not policies. Group-only grants keep access reviewable ([P5](../principles.md#p5-least-privilege-enumerated)); domain catalogs keep ownership clear and data in one place ([P6](../principles.md#p6-branch-never-copy)).
+A policy that one engine enforces and another ignores isn't really a policy. Granting access only to groups keeps it reviewable ([P5](../principles.md#p5-least-privilege-enumerated)), and having one catalog per domain keeps ownership clear and each dataset in one place ([P6](../principles.md#p6-branch-never-copy)).
 
 ## Interfaces
 
-- Namespaces: `<domain>_<env>` catalogs; `<product>_<layer>` schemas inside the domain.
+- Namespaces, with `<domain>_<env>` catalogs and `<product>_<layer>` schemas inside each domain.
 - Grants, governed tags, row filters and column masks.
-- Credential vending to engines.
+- Credentials vended to engines.
 
 ## Notes
 
-Where engines differ in what they enforce, route protected tables only through engines that enforce the policies, and deny the rest.
+Engines differ in what they enforce. Route protected tables only through the engines that enforce the policies, and deny access to the rest.
 
 ## Contract
 

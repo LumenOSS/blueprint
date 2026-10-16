@@ -1,33 +1,37 @@
 # Standards
 
-The external standards the blueprint relies on, each linked to its
-publisher's own page, with the edition relied on and its verdict:
+This page lists the external standards the blueprint relies on. Each one
+links to its publisher's own page and gives the edition we rely on, along
+with one of three verdicts:
 
-- **adopt:** named in a contract clause;
-- **reference:** a recommended method or background;
-- **track:** watched, not yet relied on.
+- **adopt** means a contract clause names it.
+- **reference** means it's a recommended method, or useful background.
+- **track** means we're watching it but don't rely on it yet.
 
-The register is [`blueprint/standards.yaml`](../../blueprint/standards.yaml);
-this page and the "Standards" section of each capability page are generated
-from it. Every entry was last checked on the date in the register. Entries
-checked as `catalogue` were confirmed from the publisher's catalogue
-listing because the publisher's page blocks automated reading; confirm them
-on the page before relying on the exact edition.
+The list lives in one file, the register at
+[`blueprint/standards.yaml`](../../blueprint/standards.yaml). This page, and
+the "Standards" section on each capability page, are generated from it.
+Each entry was last checked on the date the register gives. Some entries are
+marked `catalogue`. For those, the publisher's page blocks automated
+reading, so we confirmed the edition from the publisher's catalogue listing
+instead. Check the page itself before you rely on the exact edition.
 
 ## How standards are cited
 
 - **Cite a dated edition with an "or later" rule** where newer editions
-  stay compatible (for example "OpenAPI 3.1 or later"), so a patch release
-  does not invalidate a clause.
-- **Separate the standard from its code list.** Country, currency and
-  language codes change between editions through their maintenance
-  agencies; each code list is loaded on a schedule, versioned, and recorded
-  with its source and retrieval date
+  stay compatible, for example "OpenAPI 3.1 or later". That way a patch
+  release doesn't invalidate a clause.
+- **Keep the standard apart from its code list.** Country, currency and
+  language codes change between editions, through the agencies that
+  maintain them. So each code list is loaded on a schedule, versioned, and
+  recorded with where it came from and when it was retrieved
   ([CAP-REFERENCE](capabilities/cap-reference.md)).
-- **Prefer free, testable profiles in clauses** (RFC 3339 rather than the
-  whole of ISO 8601), and cite the broader standard as background.
+- **In clauses, prefer free profiles you can test.** Name RFC 3339, for
+  example, rather than the whole of ISO 8601, and cite the broader standard
+  as background.
 - **Re-check the register at least once a year.** A new edition is a
-  reviewed change to the register and, where it changes a clause, an ADR.
+  reviewed change to the register. If it changes a clause, it also needs an
+  ADR.
 
 ## Register
 

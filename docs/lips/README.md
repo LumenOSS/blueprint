@@ -1,10 +1,10 @@
 # LumenOSS Improvement Proposals
 
-A LumenOSS Improvement Proposal (LIP) is how anyone proposes a change to
-the blueprint, and how the change is debated and decided in the open.
-[LIP-1](lip-0001.md) defines the process; the [template](template.md) is
-the starting point for a new one. Accepted LIPs are recorded as
-[decision records](../adr/README.md).
+A LumenOSS Improvement Proposal (LIP) is how anyone can propose a change to
+the blueprint, and how that change gets discussed and decided in the open.
+[LIP-1](lip-0001.md) explains the process, and you start a new proposal
+from the [template](template.md). When a LIP is accepted, the decision is
+also written down as a [decision record](../adr/README.md).
 
 ## Index
 

@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-semantics.md
-msgid "Define each measure once so it means the same on every dashboard and in every answer."
+msgid "Each measure is defined once, so it means the same thing on every dashboard and in every answer."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-semantics.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-semantics.md
-msgid "A pass rate computed in two places will eventually differ ([P11]{1})."
+msgid "If a pass rate is computed in two places, sooner or later the two results will differ ([P11]{1})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-semantics.md
@@ -40,11 +40,11 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-semantics.md
-msgid "Measure and dimension definitions per domain, in version control."
+msgid "Definitions of measures and dimensions for each domain, kept in version control."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-semantics.md
-msgid "See [the semantic layer]{1} for how one definition is served to every consumer, and the portable-subset rules."
+msgid "[The semantic layer]{1} explains how one definition is served to every consumer, and the rules for the portable subset."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-semantics.md

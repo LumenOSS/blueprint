@@ -1,6 +1,7 @@
 # Curriculum
 
-What is taught: programmes, grades, subjects and the classes they are taught in.
+This context covers what is taught: the programmes, the grades within
+them, the subjects, and the classes they're taught in.
 
 ## Language
 

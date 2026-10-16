@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-interoperability.md
-msgid "Exchange data with the other systems an education authority depends on, without losing track of what went where."
+msgid "The platform exchanges data with the other systems an education authority depends on, and keeps track of what went where."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-interoperability.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-interoperability.md
-msgid "An EMIS is one system among several, and errors cluster at the joins. Declaring every feed, validating at the edge and reconciling both directions turns those joins into checked contracts instead of informal transfers ([P16]{1})."
+msgid "An EMIS is one system among several, and errors tend to cluster where systems meet. If every feed is declared, validated at the edge and reconciled in both directions, those meeting points become checked contracts rather than informal transfers ([P16]{1})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-interoperability.md
@@ -48,7 +48,7 @@ msgid "Versioned interfaces with machine-readable contracts."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-interoperability.md
-msgid "Edge validation with reject reports; per-period reconciliation."
+msgid "Validation at the edge with reject reports, and reconciliation for each period."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-interoperability.md
@@ -56,7 +56,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-interoperability.md
-msgid "Any two systems that should agree can be reconciled with the release-gate pattern: a period reads BLOCKED until the counts on both sides balance."
+msgid "You can reconcile any two systems that should agree by using the release-gate pattern, where a period reads BLOCKED until the counts on both sides balance."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-interoperability.md

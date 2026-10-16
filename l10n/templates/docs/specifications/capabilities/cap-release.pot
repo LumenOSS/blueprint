@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-release.md
-msgid "Release results only when every expected subject is accounted for."
+msgid "Results are released only when every expected subject is accounted for."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-release.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-release.md
-msgid "A release is the point of no return; reconciliation against an external register is the last check before it."
+msgid "Once results are released, they can't be taken back. Reconciling them against an external register is the last check before that point."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-release.md
@@ -38,11 +38,11 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-release.md
-msgid "A gate that reads BLOCKED or CLEAR per release unit."
+msgid "A gate that reads BLOCKED or CLEAR for each release unit."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-release.md
-msgid "Register snapshots per sitting."
+msgid "A snapshot of the register for each sitting."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-release.md

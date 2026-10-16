@@ -8,21 +8,21 @@ Layer L3 · domain: product · depends on: [CAP-MASTERDATA](cap-masterdata.md), 
 
 ## Purpose
 
-Collect periodic returns, such as an annual census, from every institution, and turn them into official figures that can be trusted and revised openly.
+The platform collects periodic returns from every institution, such as an annual census, and turns them into official figures that people can trust and that are revised in the open.
 
 ## Why
 
-Most system-level indicators are stocks at a reference date. They are only comparable across institutions and years if every institution reports against the same date, the same instrument and the same rules, and if the figures are frozen before they are used ([P18](../principles.md#p18-append-only-records-expand-then-contract-change)).
+Most system-level indicators count something as it stood on a reference date. You can only compare them across institutions and years if every institution reports for the same date, on the same instrument and under the same rules, and if the figures are frozen before anyone uses them ([P18](../principles.md#p18-append-only-records-expand-then-contract-change)).
 
 ## Interfaces
 
-- Versioned instruments; returns with states and attestation.
-- A completeness gate per area.
-- Locked snapshots at the reference date.
+- Versioned instruments, and returns that move through states and are attested.
+- A completeness gate for each area.
+- Snapshots locked at the reference date.
 
 ## Notes
 
-Connectivity varies widely between institutions; plan for capture that works offline and synchronises later. The [census product](../../guides/products/census.md) is the worked example.
+Connectivity varies a great deal between institutions, so plan for data capture that works offline and synchronises later. The [census product](../../guides/products/census.md) is the worked example.
 
 ## Contract
 

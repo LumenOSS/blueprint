@@ -10,7 +10,7 @@ msgid "Assessment"
 msgstr ""
 
 #: docs/specifications/domain/contexts/assessment/CONTEXT.md
-msgid "Tests and examinations, who sat them, and their results."
+msgid "This context covers tests and examinations: who sat them, and the results they got."
 msgstr ""
 
 #: docs/specifications/domain/contexts/assessment/CONTEXT.md

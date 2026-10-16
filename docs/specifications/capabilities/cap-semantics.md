@@ -8,18 +8,19 @@ Layer L1 · domain: data · depends on: [CAP-TRANSFORMATION](cap-transformation.
 
 ## Purpose
 
-Define each measure once so it means the same on every dashboard and in every answer.
+Each measure is defined once, so it means the same thing on every dashboard and in every answer.
 
 ## Why
 
-A pass rate computed in two places will eventually differ ([P11](../principles.md#p11-reporting-goes-through-a-governed-transformation-layer)).
+If a pass rate is computed in two places, sooner or later the two results will differ ([P11](../principles.md#p11-reporting-goes-through-a-governed-transformation-layer)).
 
 ## Interfaces
 
-- Measure and dimension definitions per domain, in version control.
+- Definitions of measures and dimensions for each domain, kept in version control.
 
-See [the semantic layer](../architecture/semantic-layer.md) for how one
-definition is served to every consumer, and the portable-subset rules.
+[The semantic layer](../architecture/semantic-layer.md) explains how one
+definition is served to every consumer, and the rules for the portable
+subset.
 
 ## Contract
 

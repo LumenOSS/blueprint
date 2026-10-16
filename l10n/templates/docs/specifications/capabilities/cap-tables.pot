@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-tables.md
-msgid "Hold tabular data in an open, transactional format that more than one engine can read."
+msgid "Tabular data is held in an open, transactional format that more than one engine can read."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-tables.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-tables.md
-msgid "Open formats keep the data readable without the current vendor, and the exit test proves it ([P16]{1}). Retention holds make a fallback window possible."
+msgid "Open formats keep the data readable even without the current vendor, and the exit test proves it ([P16]{1}). Holding table history for a set time is what makes a fallback window possible."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-tables.md
@@ -42,7 +42,7 @@ msgid "An open table format with atomic commits, schema evolution and time trave
 msgstr ""
 
 #: docs/specifications/capabilities/cap-tables.md
-msgid "Per-table retention settings declared in code."
+msgid "Retention settings for each table, declared in code."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-tables.md
@@ -50,7 +50,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-tables.md
-msgid "Each statement against a transactional table is a commit with its own metadata cost; write in batches."
+msgid "Each statement against a transactional table is a commit, with its own metadata cost, so write in batches."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-tables.md

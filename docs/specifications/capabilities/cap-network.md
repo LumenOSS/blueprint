@@ -8,21 +8,21 @@ Layer L1 · domain: delivery
 
 ## Purpose
 
-Keep data services off the public network and expose only applications, behind sign-in.
+Data services stay off the public network, and only applications are exposed, behind sign-in.
 
 ## Why
 
-Identity is the door; the private network is the floor. Either alone leaves a path open.
+Identity controls who gets in, and the private network limits where anyone can go once inside. Either one on its own leaves a path open.
 
 ## Interfaces
 
-- Private endpoints or in-cluster services for storage, catalog data paths, databases and secrets.
-- A gateway with identity-provider sign-in in front of every application.
-- Default-deny policies between workloads; one egress point.
+- Private endpoints or in-cluster services for storage, the catalog's data paths, databases and secrets.
+- A gateway with sign-in through the identity provider in front of every application.
+- Policies that deny traffic between workloads by default, and a single point of egress.
 
 ## Notes
 
-Record who owns private DNS and any hub network before building, because both are often outside the platform team's control.
+Before you build, record who owns private DNS and any hub network, because both are often outside the platform team's control.
 
 ## Contract
 

@@ -12,11 +12,11 @@ msgid "Capabilities"
 msgstr ""
 
 #: docs/specifications/capabilities/README.md
-msgid "Each capability is something the platform must be able to do, with a contract of numbered clauses. `MUST`, `SHOULD` and `MAY` are used as in [BCP 14]{1} (RFC 2119 and RFC 8174): only the upper-case words are requirements. Every clause says how conformance is shown, so an implementation can prove it rather than claim it."
+msgid "Each capability is something the platform must be able to do, and each has a contract made of numbered clauses. The words `MUST`, `SHOULD` and `MAY` are used as in [BCP 14]{1} (RFC 2119 and RFC 8174), and only the upper-case forms are requirements. Every clause also says how conformance is shown, so an implementation can prove that it meets the clause rather than just claim it."
 msgstr ""
 
 #: docs/specifications/capabilities/README.md
-msgid "The clause text lives in [`blueprint/catalogue.yaml`]{1}; the tables on each page are generated from it with `just render`."
+msgid "The clause text lives in [`blueprint/catalogue.yaml`]{1}, and the tables on each page are generated from it by `just render`."
 msgstr ""
 
 #: docs/specifications/capabilities/README.md
@@ -24,27 +24,31 @@ msgid "How to read a page"
 msgstr ""
 
 #: docs/specifications/capabilities/README.md
-msgid "**Purpose** says what the capability is for."
+msgid "Each capability page has the same sections:"
 msgstr ""
 
 #: docs/specifications/capabilities/README.md
-msgid "**Why** gives the reasoning and links the [principles]{1} it rests on."
+msgid "Purpose says what the capability is for."
 msgstr ""
 
 #: docs/specifications/capabilities/README.md
-msgid "**Interfaces** names what other capabilities and people use."
+msgid "Why explains the reasoning, and links to the [principles]{1} it rests on."
 msgstr ""
 
 #: docs/specifications/capabilities/README.md
-msgid "**Notes** record traps found by running the architecture."
+msgid "Interfaces names what other capabilities and people use."
 msgstr ""
 
 #: docs/specifications/capabilities/README.md
-msgid "**Contract** is the generated clause table."
+msgid "Notes records the traps we found by running the architecture."
 msgstr ""
 
 #: docs/specifications/capabilities/README.md
-msgid "**Implementations** lists the components each reference implementation binds to the capability."
+msgid "Contract is the generated table of clauses."
+msgstr ""
+
+#: docs/specifications/capabilities/README.md
+msgid "Implementations lists the components that each reference implementation binds to the capability."
 msgstr ""
 
 #: docs/specifications/capabilities/README.md

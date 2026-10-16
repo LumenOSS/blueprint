@@ -8,21 +8,21 @@ Layer L1 · domain: movement · depends on: [CAP-OPERATIONALDB](cap-operationald
 
 ## Purpose
 
-Move to a new platform, account or region without losing data, and retire the old one safely.
+You can move to a new platform, account or region without losing data, and then retire the old one safely.
 
 ## Why
 
-Copying loses table history; re-binding storage keeps it. A database move is only as good as its verification. A fallback window and two-role sign-off make a cutover reversible until it is proven ([P13](../principles.md#p13-roles-not-names)).
+Copying tables loses their history, but re-binding the storage keeps it. A database move is only as good as the check that verifies it. A fallback window and sign-off by two roles keep a cutover reversible until it has been proven ([P13](../principles.md#p13-roles-not-names)).
 
 ## Interfaces
 
-- A migration plan listing each dataset as re-bound or rebuilt.
-- A rehearsed database move with a verification report.
-- A retirement tool that refuses untagged objects.
+- A migration plan that lists each dataset as either re-bound or rebuilt.
+- A rehearsed database move, with a verification report.
+- A retirement tool that refuses to remove objects without tags.
 
 ## Notes
 
-Database branches do not survive a dump and restore; recreate them. A deployment unit that declares managed storage takes that storage with it when destroyed.
+Database branches don't survive a dump and restore, so you have to recreate them. If a deployment unit declares managed storage, destroying the unit destroys that storage too.
 
 ## Contract
 

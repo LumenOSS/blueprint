@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
-msgid "Give each product a transactional Postgres store that can be branched for development and testing."
+msgid "Each product gets a transactional Postgres database that can be branched for development and testing."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
-msgid "Branching gives every change a full copy of production at no copy cost ([P6]{1}, [P7]{2}). Two gatekeepers, catalog policies and database policies, must agree, so each is paired with the other."
+msgid "Branching gives every change a full copy of production without the cost of copying it ([P6]{1}, [P7]{2}). There are two gatekeepers, the catalog's policies and the database's policies, and they have to agree, so each is set up together with the other."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
@@ -38,19 +38,19 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
-msgid "Postgres wire protocol and SQL."
+msgid "The Postgres wire protocol and SQL."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
-msgid "Branches with a time to live; a protected production branch."
+msgid "Branches that expire after a set time, and a protected production branch."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
-msgid "Per-identity roles and row-level security."
+msgid "A role for each identity, and row-level security."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
-msgid "A migration ledger and an application-side schema gate."
+msgid "A migration ledger, and a schema check inside the application."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
@@ -58,7 +58,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md
-msgid "A database role that row-level security does not admit reads zero rows, silently. When the catalog reads an operational database, test that its identity is admitted before relying on it."
+msgid "If row-level security doesn't admit a database role, that role reads zero rows, without any error. When the catalog reads an operational database, test that its identity is admitted before you rely on it."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-operationaldb.md

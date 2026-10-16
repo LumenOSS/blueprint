@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-guardrails.md
-msgid "Stop non-conforming changes at plan time and catch drift from the architecture on a schedule."
+msgid "Changes that don't conform are stopped when they're planned, and drift away from the architecture is caught by regular checks."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-guardrails.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-guardrails.md
-msgid "A property that is not checked decays. Fitness functions turn the principles into alarms ([P16]{1}, [P12]{2})."
+msgid "A property that nobody checks decays over time. Fitness functions turn the principles into alarms that go off when something drifts ([P16]{1}, [P12]{2})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-guardrails.md
@@ -40,11 +40,11 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-guardrails.md
-msgid "Policy-as-code evaluated in the plan stage."
+msgid "Policy as code, evaluated in the plan stage."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-guardrails.md
-msgid "Scheduled checks: tags present, restore by hash, cost per task, no non-CI writer of state."
+msgid "Scheduled checks, for example that tags are present, that a restore matches by hash, the cost of each task, and that nothing but CI writes state."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-guardrails.md

@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
-msgid "Separate the code that defines who may change the platform from the code that changes it, so each repository can be trusted for exactly what it holds."
+msgid "The code that defines who may change the platform is kept apart from the code that changes it, so you can trust each repository for exactly what it holds."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
-msgid "With workload identity federation a credential trusts a repository, so the repository is the unit of trust ([P2]{1}). A monorepo would let anyone who can edit a pipeline reach every identity. Pinned recipes keep the result the same on any machine and any CI host ([P19]{2})."
+msgid "With workload identity federation, a credential trusts a repository, so the repository is the unit of trust ([P2]{1}). In a single monorepo, anyone who could edit a pipeline could reach every identity. Pinned recipes give the same result on any machine and on any CI host ([P19]{2})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
@@ -40,19 +40,19 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
-msgid "Bootstrap repository: state store and CI identities, applied by dispatch."
+msgid "A bootstrap repository, holding the state store and the CI identities, applied on dispatch."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
-msgid "Platform repository: shared stacks and the tenant registry, applied on merge."
+msgid "A platform repository, holding the shared stacks and the tenant registry, applied on merge."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
-msgid "Modules repository: tagged releases consumed by the others."
+msgid "A modules repository, whose tagged releases the others use."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
-msgid "Product repositories: code, jobs and their deployment unit, one per product."
+msgid "Product repositories, one for each product, holding its code, jobs and deployment unit."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
@@ -60,7 +60,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md
-msgid "Two remotes are normal: a repository can be mirrored on a second host and carry that host's CI definition beside the first. Only the wrapper differs; every step is a recipe."
+msgid "It's normal to have two remotes. A repository can be mirrored on a second host and carry that host's CI definition alongside the first one. Only the wrapper differs, because every step is a recipe."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-repositories.md

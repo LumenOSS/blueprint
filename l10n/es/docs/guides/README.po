@@ -12,7 +12,7 @@ msgid "Guides"
 msgstr ""
 
 #: docs/guides/README.md
-msgid "How to do things with the blueprint, step by step. Each guide assumes you know the [core concepts]{1} and points to the [specifications]{2} it applies."
+msgid "These guides help you get things done with the blueprint, step by step. Each one assumes you already know the [core concepts]{1}, and each points you to the [specifications]{2} it applies."
 msgstr ""
 
 #: docs/guides/README.md

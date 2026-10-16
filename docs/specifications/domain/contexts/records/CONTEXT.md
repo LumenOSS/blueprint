@@ -1,6 +1,7 @@
 # Records
 
-How long records are kept, how they are corrected, and how a person's own records reach them.
+This context covers how long records are kept, how they're corrected,
+and how people get to see their own records.
 
 ## Language
 

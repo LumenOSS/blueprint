@@ -8,15 +8,17 @@ Layer L3 · domain: product · depends on: [CAP-OPERATIONALDB](cap-operationaldb
 
 ## Purpose
 
-Route uncertain results to people and keep their decisions safe from machines and from each other.
+Uncertain results go to people, and their decisions are protected from machines and from each other.
 
 ## Why
 
-A low-confidence guess is worse than no answer ([P10](../principles.md#p10-low-confidence-goes-to-a-person-never-guessed)). Mutual exclusion belongs in the database, where one statement can claim an item.
+A low-confidence guess is worse than no answer ([P10](../principles.md#p10-low-confidence-goes-to-a-person-never-guessed)). The database is where mutual exclusion belongs, because there a single statement can claim an item.
 
 ## Interfaces
 
-- A review queue; leases as database keys; typed attribution of decisions.
+- A review queue.
+- Leases held as database keys.
+- A record of who or what made each decision, by type.
 
 ## Contract
 

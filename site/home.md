@@ -5,7 +5,7 @@ cards: each "###" heading is a card, the comment under it names its icon,
 and the link in its last paragraph is its button. The first paragraph is
 the lead, and the links after it are the buttons under it. -->
 
-A blueprint for an education management information system: the domain it records, the rules for handling its data, and the governed platform that holds it. The architecture stays fixed; the implementation is yours to choose.
+A blueprint for an education management information system. It describes the domain the system records, the rules for handling its data, and the governed platform that holds it. The architecture stays the same, and you choose how to implement it.
 
 [Get started](../docs/getting-started.md) · [View on GitHub](https://github.com/LumenOSS/blueprint)
 
@@ -15,7 +15,7 @@ A blueprint for an education management information system: the domain it record
 
 <!-- icon: circle-info -->
 
-The system an education authority uses to know how many learners there are, where, and how they are doing, and the part this blueprint covers.
+An education authority uses an EMIS to know how many learners it has, where they are and how they're doing. Find out what that involves, and which part of it this blueprint covers.
 
 [Read the definition](../docs/concepts/emis.md)
 
@@ -23,7 +23,7 @@ The system an education authority uses to know how many learners there are, wher
 
 <!-- icon: graduation-cap -->
 
-What a domain model is, why it is used here, and the main things an EMIS records, in one diagram.
+Learn what a domain model is and why we use one, then see the main things an EMIS records in a single diagram.
 
 [Meet the model](../docs/concepts/domain.md)
 
@@ -31,7 +31,7 @@ What a domain model is, why it is used here, and the main things an EMIS records
 
 <!-- icon: lock -->
 
-Sensitive data, masking, access by role and attribute, sharing, and lineage: five ideas to keep in mind.
+Five ideas to keep in mind as you read on: sensitive data, masking, access by role and by attribute, sharing, and lineage.
 
 [Read the primer](../docs/concepts/data.md)
 
@@ -39,7 +39,7 @@ Sensitive data, masking, access by role and attribute, sharing, and lineage: fiv
 
 <!-- icon: tag -->
 
-Sensitivity tiers, layers, clauses and roles: what you need to read the specifications.
+The sensitivity tiers, layers, clauses and roles you'll need to know before you read the specifications.
 
 [Learn the terms](../docs/concepts/terminology.md)
 
@@ -49,7 +49,7 @@ Sensitivity tiers, layers, clauses and roles: what you need to read the specific
 
 <!-- icon: lightbulb -->
 
-The ideas every decision rests on, each with its reason, from CI as the only deployer to collecting data only for a declared purpose.
+The ideas that every decision rests on, each with its reason. They range from CI being the only deployer to collecting data only for a declared purpose.
 
 [Read the principles](../docs/specifications/principles.md)
 
@@ -57,7 +57,7 @@ The ideas every decision rests on, each with its reason, from CI as the only dep
 
 <!-- icon: worktree -->
 
-C4 diagrams from system context to components, each followed by why it is drawn that way.
+C4 diagrams that go from the system's context down to its components, each followed by an explanation of why it's drawn that way.
 
 [See the diagrams](../docs/specifications/architecture/README.md)
 
@@ -65,7 +65,7 @@ C4 diagrams from system context to components, each followed by why it is drawn 
 
 <!-- icon: list-check -->
 
-Forty-one capabilities, each a contract of testable clauses that name no vendor.
+Forty-one capabilities. Each one is a contract made of clauses that you can test and that name no vendor.
 
 [Browse the contracts](../docs/specifications/capabilities/README.md)
 
@@ -73,7 +73,7 @@ Forty-one capabilities, each a contract of testable clauses that name no vendor.
 
 <!-- icon: list -->
 
-Institutions, learners, staff and their relationships, modelled so that every indicator can be counted at a reference date.
+How we model institutions, learners, staff and the relationships between them, so that you can count every indicator at a reference date.
 
 [Explore the domain](../docs/specifications/domain/README.md)
 
@@ -81,7 +81,7 @@ Institutions, learners, staff and their relationships, modelled so that every in
 
 <!-- icon: scale-balanced -->
 
-Every indicator defined once and served to every dashboard, agent and publication, with dbt in both reference implementations.
+We define each indicator once and serve it to every dashboard, agent and publication. Both reference implementations use dbt for this.
 
 [How indicators are defined](../docs/specifications/architecture/semantic-layer.md)
 
@@ -89,7 +89,7 @@ Every indicator defined once and served to every dashboard, agent and publicatio
 
 <!-- icon: shield -->
 
-The international standards relied on, each linked to its publisher with the edition and the date it was checked.
+The international standards the blueprint relies on. Each one links to its publisher, with the edition we use and the date we last checked it.
 
 [See the register](../docs/specifications/standards.md)
 
@@ -99,7 +99,7 @@ The international standards relied on, each linked to its publisher with the edi
 
 <!-- icon: code -->
 
-The steps in dependency order, each with a clear point at which it is done.
+The steps to build an implementation, in the order their dependencies require. Each step tells you clearly when it's done.
 
 [Follow the steps](../docs/guides/building.md)
 
@@ -107,7 +107,7 @@ The steps in dependency order, each with a clear point at which it is done.
 
 <!-- icon: fork -->
 
-Open source on Kubernetes, or Databricks on Azure, and exactly where the two differ.
+Build it from open-source components on Kubernetes, or on Databricks in Azure, and see exactly where the two differ.
 
 [Compare the stacks](../docs/specifications/implementations/README.md)
 
@@ -115,8 +115,8 @@ Open source on Kubernetes, or Databricks on Azure, and exactly where the two dif
 
 <!-- icon: file-lines -->
 
-Document review and an annual census, each running through every layer of the platform.
+Document review and an annual census, two products that each run through every layer of the platform.
 
 [See them work](../docs/guides/products/README.md)
 
-Open source under the Apache License 2.0.
+The blueprint is open source, under the Apache License 2.0.

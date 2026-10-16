@@ -22,7 +22,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md
-msgid "Keep the record of what infrastructure exists safe, locked and recoverable, and readable only by the layer that owns it."
+msgid "The record of what infrastructure exists is kept safe, locked and recoverable, and only the layer that owns it can read it."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md
@@ -30,7 +30,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md
-msgid "Lost or overwritten state turns the next apply into a recreation. Reading another stack's state exposes its whole snapshot, so stacks find each other by deterministic name instead ([P2]{1})."
+msgid "If state is lost or overwritten, the next apply tries to create everything again. Reading another stack's state exposes its whole snapshot, so stacks find each other by deterministic names instead ([P2]{1})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md
@@ -38,15 +38,15 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md
-msgid "Backend: an object store with locking, versioning and identity-based access."
+msgid "A backend, which is an object store with locking, versioning and access by identity."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md
-msgid "One key per stack and environment; product state in a location product identities alone can reach."
+msgid "One key for each stack and environment, with product state kept in a location that only product identities can reach."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md
-msgid "A bootstrap recipe that creates the store from nothing and proves it with a write, read, compare, delete probe."
+msgid "A bootstrap recipe that creates the store from nothing and proves it works by writing, reading, comparing and deleting a probe."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md
@@ -54,7 +54,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md
-msgid "Keep state apart from lake storage: object versioning protects state but can break table maintenance on a lake store. The two need different protections, so they live in different accounts or buckets."
+msgid "Keep state apart from lake storage. Object versioning protects state, but it can break table maintenance on a lake store. The two need different protection, so they live in different accounts or buckets."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-state.md

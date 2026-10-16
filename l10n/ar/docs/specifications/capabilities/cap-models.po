@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-models.md
-msgid "Use predictive models, such as early-warning flags, without letting them decide about people."
+msgid "Predictive models, such as early-warning flags, can be used without letting them make decisions about people."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-models.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-models.md
-msgid "A model that flags a child is a statement about that child; it must be reproducible, explainable, checked for unequal error across groups, and always weighed by a person ([P9]{1}, [P10]{2})."
+msgid "A model that flags a child is making a statement about that child. So the result has to be reproducible and explainable, it has to be checked for errors that fall unequally across groups, and a person always has to weigh it ([P9]{1}, [P10]{2})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-models.md
@@ -40,11 +40,11 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-models.md
-msgid "A model registry; deterministic batch scoring."
+msgid "A model registry, and deterministic batch scoring."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-models.md
-msgid "Flags delivered into the review queue with their signals."
+msgid "Flags delivered into the review queue together with the signals behind them."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-models.md
@@ -52,7 +52,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-models.md
-msgid "Prefer interpretable models; an early-warning signal that a teacher cannot understand will not be acted on well."
+msgid "Prefer models people can interpret. A teacher is unlikely to act well on an early-warning signal they can't understand."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-models.md

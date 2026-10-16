@@ -10,7 +10,7 @@ msgid "Workforce"
 msgstr ""
 
 #: docs/specifications/domain/contexts/workforce/CONTEXT.md
-msgid "The establishment of posts and the staff posted to them."
+msgid "This context covers the establishment of posts and the staff posted to them."
 msgstr ""
 
 #: docs/specifications/domain/contexts/workforce/CONTEXT.md

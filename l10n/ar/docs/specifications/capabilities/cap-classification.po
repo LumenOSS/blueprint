@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-classification.md
-msgid "Label every table by sensitivity and provenance from the moment it lands."
+msgid "Every table is labelled with its sensitivity and its provenance from the moment it lands."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-classification.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-classification.md
-msgid "Tags added at gold come too late to protect bronze. Provenance tags make drops provable ([P12]{1})."
+msgid "Tags added at gold come too late to protect the data in bronze. Provenance tags are what let you prove a table is safe to drop ([P12]{1})."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-classification.md
@@ -44,7 +44,7 @@ msgid "Governed `classification` (T0–T4) and `provenance` (real, simulated, de
 msgstr ""
 
 #: docs/specifications/capabilities/cap-classification.md
-msgid "A default policy for unclassified data; a separate catalog for T4."
+msgid "A default policy for data that hasn't been classified yet, and a separate catalog for T4."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-classification.md

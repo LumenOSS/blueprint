@@ -8,16 +8,16 @@ Layer L3 · domain: data · depends on: [CAP-NETWORK](cap-network.md), [CAP-DELI
 
 ## Purpose
 
-Host product interfaces that are private by default and say which environment they are in.
+Product interfaces are hosted so that they're private by default and can say which environment they're running in.
 
 ## Why
 
-A half-switched environment is not partially safe: an application can write to one environment while every label says another. Asking the application which world it believes it is in catches that.
+An environment that has only been half switched isn't half safe. An application can write to one environment while every label on it says another. If you ask the application which environment it believes it's in, you catch that.
 
 ## Interfaces
 
-- A health endpoint reporting target, catalog and schema, database branch and schema version, build version.
-- A versioned interface with a pinned snapshot.
+- A health endpoint that reports the target, the catalog and schema, the database branch and schema version, and the build version.
+- A versioned interface, with a pinned snapshot of it.
 
 ## Contract
 

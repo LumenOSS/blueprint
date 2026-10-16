@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-identity.md
-msgid "Make the organisation's identity provider the one source of people and groups."
+msgid "The organisation's identity provider is the one source of people and groups."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-identity.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-identity.md
-msgid "Local users and groups drift from the organisation. Renamed groups do not propagate reliably, so names are frozen."
+msgid "Users and groups created locally drift away from the organisation's real ones. Group renames don't propagate reliably, so group names are fixed once they're created."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-identity.md
@@ -40,7 +40,7 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-identity.md
-msgid "Automatic user and group provisioning (for example SCIM) into every service."
+msgid "Automatic provisioning of users and groups into every service, for example with SCIM."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-identity.md
@@ -56,7 +56,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-identity.md
-msgid "Membership refresh can lag by minutes in browsers and longer in jobs. Indirect administrator paths exist on most clouds; list them."
+msgid "A change of membership can take minutes to show up in a browser, and longer in jobs. Most clouds also have indirect ways to become an administrator, so list them."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-identity.md

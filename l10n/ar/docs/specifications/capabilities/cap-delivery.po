@@ -24,7 +24,7 @@ msgid "Purpose"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md
-msgid "Make every change to a shared environment reviewed, visible as a plan, and applied by one writer."
+msgid "Every change to a shared environment is reviewed, shown as a plan, and applied by a single writer."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md
@@ -32,7 +32,7 @@ msgid "Why"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md
-msgid "One writer gives one audit trail and real locking ([P1]{1}). Deletion through code keeps the record of what was removed and why. Migrating the database before deploying the code that needs it avoids a release that cannot run."
+msgid "With one writer there is one audit trail, and locking actually works ([P1]{1}). Deleting things through code keeps a record of what was removed and why. Migrating the database before you deploy the code that needs it avoids a release that can't run."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md
@@ -40,15 +40,15 @@ msgid "Interfaces"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md
-msgid "Change review showing the plan artefact."
+msgid "A change review that shows the plan artefact."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md
-msgid "Apply stage consuming that artefact after merge, or by dispatch for trust anchors."
+msgid "An apply stage that uses that artefact after merge, or that runs on dispatch for trust anchors."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md
-msgid "Version tags as the only release trigger."
+msgid "Version tags, which are the only thing that triggers a release."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md
@@ -56,7 +56,7 @@ msgid "Notes"
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md
-msgid "When CI lacks a right, give CI's identity the right in one documented bootstrap step. A workstation apply is a second writer, not a shortcut."
+msgid "When CI lacks a right it needs, give the right to CI's identity in one documented bootstrap step. Applying from a workstation isn't a shortcut; it makes a second writer."
 msgstr ""
 
 #: docs/specifications/capabilities/cap-delivery.md

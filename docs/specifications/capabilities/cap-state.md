@@ -8,21 +8,21 @@ Layer L0 · domain: delivery · depends on: [CAP-MODULES](cap-modules.md).
 
 ## Purpose
 
-Keep the record of what infrastructure exists safe, locked and recoverable, and readable only by the layer that owns it.
+The record of what infrastructure exists is kept safe, locked and recoverable, and only the layer that owns it can read it.
 
 ## Why
 
-Lost or overwritten state turns the next apply into a recreation. Reading another stack's state exposes its whole snapshot, so stacks find each other by deterministic name instead ([P2](../principles.md#p2-repositories-are-split-by-trust-state-is-split-by-blast-radius)).
+If state is lost or overwritten, the next apply tries to create everything again. Reading another stack's state exposes its whole snapshot, so stacks find each other by deterministic names instead ([P2](../principles.md#p2-repositories-are-split-by-trust-state-is-split-by-blast-radius)).
 
 ## Interfaces
 
-- Backend: an object store with locking, versioning and identity-based access.
-- One key per stack and environment; product state in a location product identities alone can reach.
-- A bootstrap recipe that creates the store from nothing and proves it with a write, read, compare, delete probe.
+- A backend, which is an object store with locking, versioning and access by identity.
+- One key for each stack and environment, with product state kept in a location that only product identities can reach.
+- A bootstrap recipe that creates the store from nothing and proves it works by writing, reading, comparing and deleting a probe.
 
 ## Notes
 
-Keep state apart from lake storage: object versioning protects state but can break table maintenance on a lake store. The two need different protections, so they live in different accounts or buckets.
+Keep state apart from lake storage. Object versioning protects state, but it can break table maintenance on a lake store. The two need different protection, so they live in different accounts or buckets.
 
 ## Contract
 

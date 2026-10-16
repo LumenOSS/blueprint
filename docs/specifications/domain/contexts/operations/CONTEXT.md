@@ -1,6 +1,8 @@
 # Operations
 
-The supporting work of running institutions: money, assets, entitlement schemes and safety. Often provided by generic systems and integrated rather than built.
+This context covers the supporting work of running institutions: money,
+assets, entitlement schemes and safety. Existing generic systems often
+provide it, so it's usually integrated rather than built.
 
 ## Language
 

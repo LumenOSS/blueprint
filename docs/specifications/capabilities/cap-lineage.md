@@ -8,19 +8,19 @@ Layer L1 · domain: data · depends on: [CAP-CATALOG](cap-catalog.md).
 
 ## Purpose
 
-Record which inputs produced each output.
+The platform records which inputs produced each output.
 
 ## Why
 
-Lineage answers what a change will affect and where a number came from.
+Lineage tells you what a change will affect, and where a number came from.
 
 ## Interfaces
 
-- Lineage events emitted by jobs and transformations, collected by the catalog or a lineage service.
+- Lineage events emitted by jobs and transformations, and collected by the catalog or by a lineage service.
 
 ## Notes
 
-Lineage exists only where an integration emits it. List the jobs without it.
+You only get lineage where an integration emits it, so keep a list of the jobs that don't.
 
 ## Contract
 

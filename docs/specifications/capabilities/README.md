@@ -1,25 +1,27 @@
 # Capabilities
 
-Each capability is something the platform must be able to do, with a
-contract of numbered clauses. `MUST`, `SHOULD` and `MAY` are used as in
-[BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 and RFC 8174):
-only the upper-case words are requirements. Every clause says how
-conformance is shown, so an implementation can prove it rather than claim
-it.
+Each capability is something the platform must be able to do, and each
+has a contract made of numbered clauses. The words `MUST`, `SHOULD` and
+`MAY` are used as in [BCP 14](https://www.rfc-editor.org/info/bcp14)
+(RFC 2119 and RFC 8174), and only the upper-case forms are requirements.
+Every clause also says how conformance is shown, so an implementation can
+prove that it meets the clause rather than just claim it.
 
-The clause text lives in [`blueprint/catalogue.yaml`](../../../blueprint/catalogue.yaml);
-the tables on each page are generated from it with `just render`.
+The clause text lives in [`blueprint/catalogue.yaml`](../../../blueprint/catalogue.yaml),
+and the tables on each page are generated from it by `just render`.
 
 ## How to read a page
 
-- **Purpose** says what the capability is for.
-- **Why** gives the reasoning and links the [principles](../principles.md)
+Each capability page has the same sections:
+
+- Purpose says what the capability is for.
+- Why explains the reasoning, and links to the [principles](../principles.md)
   it rests on.
-- **Interfaces** names what other capabilities and people use.
-- **Notes** record traps found by running the architecture.
-- **Contract** is the generated clause table.
-- **Implementations** lists the components each reference implementation
-  binds to the capability.
+- Interfaces names what other capabilities and people use.
+- Notes records the traps we found by running the architecture.
+- Contract is the generated table of clauses.
+- Implementations lists the components that each reference
+  implementation binds to the capability.
 
 ## Index
 

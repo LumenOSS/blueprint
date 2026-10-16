@@ -8,21 +8,21 @@ Layer L3 · domain: data · depends on: [CAP-COMPUTE](cap-compute.md), [CAP-DELI
 
 ## Purpose
 
-Run declared jobs on schedules and arrivals, with bounded runs that drain backlogs on their own.
+Declared jobs run on schedules and when data arrives, and each run is bounded, so backlogs drain on their own.
 
 ## Why
 
-Unbounded runs either finish early or are killed mid-flight, and neither predicts the next. A budget plus a finishing step that re-queues remaining work keeps throughput without manual triggers.
+A run with no limit either finishes early or is killed partway through, and neither tells you what the next run will do. Giving each run a budget, plus a final step that re-queues whatever is left, keeps work flowing without anyone triggering it by hand.
 
 ## Interfaces
 
 - Job declarations in the product repository.
-- Schedule, file-arrival and upstream-completion triggers.
-- Range re-runs with a concurrency limit.
+- Triggers on a schedule, on file arrival and on completion of upstream work.
+- Re-runs over a range, with a limit on concurrency.
 
 ## Notes
 
-Size the per-run cap from a measured median item time, not a configured one, and treat a missing cap as uncapped rather than stopped.
+Set the cap for each run from the median time per item you've actually measured, not a configured guess. If the cap is missing, treat the run as uncapped, not as stopped.
 
 ## Contract
 

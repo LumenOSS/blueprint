@@ -8,21 +8,21 @@ Layer L1 · domain: delivery · depends on: [CAP-CIIDENTITY](cap-ciidentity.md),
 
 ## Purpose
 
-Make every change to a shared environment reviewed, visible as a plan, and applied by one writer.
+Every change to a shared environment is reviewed, shown as a plan, and applied by a single writer.
 
 ## Why
 
-One writer gives one audit trail and real locking ([P1](../principles.md#p1-ci-is-the-only-deployer)). Deletion through code keeps the record of what was removed and why. Migrating the database before deploying the code that needs it avoids a release that cannot run.
+With one writer there is one audit trail, and locking actually works ([P1](../principles.md#p1-ci-is-the-only-deployer)). Deleting things through code keeps a record of what was removed and why. Migrating the database before you deploy the code that needs it avoids a release that can't run.
 
 ## Interfaces
 
-- Change review showing the plan artefact.
-- Apply stage consuming that artefact after merge, or by dispatch for trust anchors.
-- Version tags as the only release trigger.
+- A change review that shows the plan artefact.
+- An apply stage that uses that artefact after merge, or that runs on dispatch for trust anchors.
+- Version tags, which are the only thing that triggers a release.
 
 ## Notes
 
-When CI lacks a right, give CI's identity the right in one documented bootstrap step. A workstation apply is a second writer, not a shortcut.
+When CI lacks a right it needs, give the right to CI's identity in one documented bootstrap step. Applying from a workstation isn't a shortcut; it makes a second writer.
 
 ## Contract
 
