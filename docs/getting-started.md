@@ -85,6 +85,19 @@ You decide who may see what, and what leaves the platform.
    [CAP-REFERENCE](capabilities/cap-reference.md): checks, corrections,
    code lists and the data dictionary.
 
+### Contributors
+
+You want to change the blueprint.
+
+1. [LIP-1](lips/lip-0001.md): how a change is proposed, reviewed and
+   decided.
+2. [Decision records](adr/README.md): what has been decided so far, so a
+   proposal builds on it rather than repeating it.
+3. [Capabilities](capabilities/README.md) and the
+   [domain language](../CONTEXT.md): the text a proposal changes, and the
+   words it uses.
+4. The [LIP template](lips/template.md).
+
 ### Agents
 
 Start with [AGENTS.md](../AGENTS.md), then

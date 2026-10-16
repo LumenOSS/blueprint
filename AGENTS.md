@@ -18,9 +18,11 @@ for each clause; implementations live in their own repositories. Start at
   idea that cannot be tested is a principle, not a clause.
 - **IDs are stable.** Clauses run 1..n and are never renumbered, removed
   or reused; a retired clause stays, with `retired:` saying why.
-- **The architecture changes only through an ADR** (`docs/adr/`). An
-  implementation that cannot meet a clause records a `deviation` in its
-  binding; it does not edit the contract.
+- **The architecture changes only through a LIP** (`docs/lips/`, process
+  in LIP-1); an accepted LIP is recorded as an ADR (`docs/adr/`). Small
+  corrections that change no meaning need neither. An implementation that
+  cannot meet a clause records a `deviation` in its binding; it does not
+  edit the contract.
 - **Diagrams are C4 levels 1–3 in Mermaid**, drawn as `flowchart` with step
   edges and subgraph lanes, each followed by "Why it is drawn this way".
   Render with `nix develop .#diagrams --command just diagrams` and look at

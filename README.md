@@ -20,6 +20,17 @@ evidence yet.
 **New here?** Start with [getting started](docs/getting-started.md): it
 gives a reading order for everyone and a track for each role.
 
+## How the blueprint changes
+
+Anyone can propose a change as a **LumenOSS Improvement Proposal (LIP)**:
+a numbered document that moves in the open from Draft through Review and a
+14-day Last Call to a decision, in the manner of the IETF's RFCs, Python's
+PEPs, Bitcoin's BIPs, Ethereum's EIPs and Cardano's CIPs. Every proposal
+states its effect on learners' data. Accepted LIPs are recorded as
+decision records and released in a catalogue version. Read
+[LIP-1](docs/lips/lip-0001.md) for the process and start from the
+[template](docs/lips/template.md).
+
 ## Map
 
 | Read | For |
@@ -37,7 +48,8 @@ gives a reading order for everyone and a track for each role.
 | [Backfill patterns](docs/patterns/backfill.md) | Loading history and reprocessing, from published sources |
 | [Lessons](docs/patterns/lessons.md) | Failures that shaped the design, as rules |
 | [Standards](docs/standards.md) | The international standards relied on, with current editions and publisher links |
-| [Decision records](docs/adr/README.md) | How and why the architecture changes |
+| [Improvement proposals](docs/lips/README.md) | How to propose a change, and every LIP so far |
+| [Decision records](docs/adr/README.md) | What was decided, and why |
 | [Domain language](CONTEXT.md) | The EMIS terms used throughout, with the words to avoid |
 | [Glossary](docs/glossary.md) | Terms about the blueprint and the platform |
 

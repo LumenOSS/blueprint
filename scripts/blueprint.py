@@ -25,6 +25,9 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 CATALOGUE = ROOT / "blueprint" / "catalogue.yaml"
 STANDARDS = ROOT / "blueprint" / "standards.yaml"
 STANDARDS_PAGE = ROOT / "docs" / "standards.md"
+LIPS = ROOT / "docs" / "lips"
+ADRS = ROOT / "docs" / "adr"
+LIP_FILE = re.compile(r"^lip-(\d{4})\.md$")
 CAPABILITY_DOCS = ROOT / "docs" / "capabilities"
 IMPLEMENTATION_DOCS = ROOT / "docs" / "implementations"
 BUILDING_GUIDE = ROOT / "docs" / "building.md"
@@ -462,6 +465,67 @@ def page_standards(cap: Capability, reg: Register | None) -> str:
     return "\n".join(out)
 
 
+def load_lips() -> tuple[list[dict[str, Any]], list[str]]:
+    """Parses every LIP's front matter and checks it against its schema."""
+    lips: list[dict[str, Any]] = []
+    problems: list[str] = []
+    for path in sorted(LIPS.glob("lip-*.md")):
+        name = path.name
+        match = LIP_FILE.match(name)
+        if not match:
+            problems.append(f"{name}: LIP files are named lip-NNNN.md")
+            continue
+        text = path.read_text(encoding="utf-8")
+        if not text.startswith("---\n"):
+            problems.append(f"{name}: missing front matter")
+            continue
+        header = cast(
+            "dict[str, Any]",
+            yaml.load(text.split("---\n", 2)[1], Loader=_TextDateLoader),
+        )
+        problems += [
+            f"{name}: {e}" for e in schema_errors(header, "lip.schema.json")
+        ]
+        if header.get("lip") != int(match.group(1)):
+            problems.append(f"{name}: lip number does not match the file name")
+        lips.append(header)
+    return lips, problems
+
+
+def check_lips(lips: list[dict[str, Any]]) -> list[str]:
+    """LIPs refer only to LIPs and decision records that exist."""
+    numbers = {lip["lip"] for lip in lips}
+    adrs = {int(p.name[:4]) for p in ADRS.glob("[0-9][0-9][0-9][0-9]-*.md")}
+    problems: list[str] = []
+    for lip in lips:
+        refs = [*lip.get("requires", []), *lip.get("replaces", [])]
+        if "superseded-by" in lip:
+            refs.append(lip["superseded-by"])
+        problems += [
+            f"LIP-{lip['lip']}: refers to missing LIP-{r}"
+            for r in refs
+            if r not in numbers
+        ]
+        if "adr" in lip and lip["adr"] not in adrs:
+            problems.append(f"LIP-{lip['lip']}: refers to missing ADR")
+    return problems
+
+
+def lip_index(lips: list[dict[str, Any]]) -> str:
+    """Renders the LIP index table."""
+    rows = ["| LIP | Title | Type | Status |", separator(4)]
+    for lip in sorted(lips, key=lambda x: x["lip"]):
+        number = f"LIP-{lip['lip']}"
+        link = f"[{number}](lip-{lip['lip']:04d}.md)"
+        kind = lip["type"]
+        if "category" in lip:
+            kind += f" ({lip['category']})"
+        rows.append(
+            f"| {link} | {cell(lip['title'])} | {kind} | {lip['status']} |"
+        )
+    return "\n".join(rows)
+
+
 # Rendering ------------------------------------------------------------------
 
 
@@ -649,6 +713,8 @@ def render(cat: Catalogue, *, write: bool) -> list[pathlib.Path]:
             update(page, "implementations", page_implementations(cap, files))
     if reg is not None:
         update(STANDARDS_PAGE, "register", register_tables(reg))
+    lips, _ = load_lips()
+    update(LIPS / "README.md", "lips", lip_index(lips))
     update(CAPABILITY_DOCS / "README.md", "index", capability_index(cat))
     update(BUILDING_GUIDE, "order", build_order_table(cat))
     if files:
@@ -698,6 +764,8 @@ def main() -> int:
     problems += reg_problems
     if reg is not None:
         problems += check_register(reg, cat)
+    lips, lip_problems = load_lips()
+    problems += lip_problems + check_lips(lips)
     for path in sorted(IMPLEMENTATION_DOCS.glob("*.yaml")):
         problems += binding_problems(path, cat)[0]
     problems += [

@@ -4,7 +4,7 @@
 
 title = "Data platform blueprint"
 baseURL = "https://lumenoss.github.io/data-platform-blueprint/"
-languageCode = "en"
+locale = "en"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
 summaryLength = 0
@@ -115,6 +115,10 @@ summaryLength = 0
   name = "Standards"
   pageRef = "/standards"
   weight = 60
+[[menus.main]]
+  name = "Proposals"
+  pageRef = "/lips"
+  weight = 65
 [[menus.main]]
   name = "Decisions"
   pageRef = "/adr"

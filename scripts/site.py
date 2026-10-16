@@ -125,12 +125,32 @@ def front_matter(fields: dict[str, object]) -> str:
     return "---\n" + "\n".join(lines) + "\n---\n\n"
 
 
+def split_header(text: str) -> tuple[dict[str, str], str]:
+    """Splits simple YAML front matter (key: value lines) from the body.
+
+    LIP headers are flat, so a line parser is enough and keeps the site
+    build free of Python packages.
+    """
+    if not text.startswith("---\n"):
+        return {}, text
+    header, body = text[4:].split("\n---\n", 1)
+    fields: dict[str, str] = {}
+    for line in header.splitlines():
+        key, _, value = line.partition(":")
+        fields[key.strip()] = value.strip().strip('"')
+    return fields, body.lstrip("\n")
+
+
 def convert(
     source: pathlib.Path, order: dict[str, tuple[int, str, str]]
 ) -> str:
     """Returns the Hugo content for one Markdown source file."""
-    text = source.read_text(encoding="utf-8")
+    header, text = split_header(source.read_text(encoding="utf-8"))
     title = source.stem
+    if "lip" in header:
+        title = f"LIP-{header['lip']}: {header['title']}"
+        if source.name == "template.md":
+            title = "LIP template"
     match = TITLE.match(text)
     if match:
         title = match.group(1).strip()
@@ -150,6 +170,9 @@ def convert(
         weight, domain, layer = order[source.name]
         fields["weight"] = weight
         fields["tags"] = [domain, layer]
+    if "lip" in header and source.name != "template.md":
+        fields["weight"] = int(header["lip"])
+        fields["tags"] = [header.get("status", ""), header.get("type", "")]
     adr = ADR_NUMBER.match(source.name)
     if source.parent.name == "adr" and adr:
         fields["weight"] = int(adr.group(1))

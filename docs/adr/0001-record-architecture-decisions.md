@@ -1,6 +1,7 @@
 # ADR-0001: Record architecture decisions
 
-**Status:** accepted. **Date:** 2026-10-15.
+**Status:** accepted; amended by [ADR-0012](0012-improvement-proposals.md).
+**Date:** 2026-10-15.
 
 ## Context
 

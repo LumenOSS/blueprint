@@ -1,9 +1,10 @@
 # Architecture decision records
 
-The architecture changes only through a decision record here. Each record
-says what was decided, why, and what follows from it. Records are
-append-only: a decision is changed by a new record that supersedes the old
-one, and the old one stays.
+Each record says what was decided, why, and what follows from it. Changes
+are proposed and debated as [LumenOSS Improvement Proposals](../lips/README.md);
+when one is accepted, its outcome is recorded here and cites the LIP.
+Records are append-only: a decision is changed by a new record that
+supersedes the old one, and the old one stays.
 
 | ADR | Decision | Status |
 | --- | --- | --- |
@@ -18,5 +19,6 @@ one, and the old one stays.
 | [0009](0009-publication-and-scheduled-disposal.md) | Separate open publication from sharing, and allow scheduled disposal | Accepted |
 | [0010](0010-one-person-registry.md) | Record each person once; roles are relationships | Accepted |
 | [0011](0011-dbt-semantic-layer.md) | Use the dbt semantic layer in both reference implementations | Accepted |
+| [0012](0012-improvement-proposals.md) | Propose changes as LumenOSS Improvement Proposals | Accepted |
 
 New records copy [`template.md`](template.md) and take the next number.

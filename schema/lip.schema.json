@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/LumenOSS/data-platform-blueprint/schema/lip.schema.json",
+  "title": "LumenOSS Improvement Proposal header",
+  "description": "The front matter of a LIP (see LIP-1).",
+  "type": "object",
+  "required": ["lip", "title", "status", "type", "authors", "created"],
+  "additionalProperties": false,
+  "properties": {
+    "lip": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string", "maxLength": 80 },
+    "status": {
+      "enum": [
+        "Draft",
+        "Review",
+        "Last Call",
+        "Accepted",
+        "Active",
+        "Living",
+        "Stagnant",
+        "Withdrawn",
+        "Rejected",
+        "Superseded"
+      ]
+    },
+    "type": { "enum": ["Standards", "Process", "Informational"] },
+    "category": {
+      "description": "Standards LIPs only: what the change touches.",
+      "enum": ["Contract", "Domain", "Interface"]
+    },
+    "authors": {
+      "description": "Code-host handles, or a role.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "created": { "type": "string", "format": "date" },
+    "discussion": { "type": "string", "format": "uri" },
+    "last-call-ends": { "type": "string", "format": "date" },
+    "requires": { "type": "array", "items": { "type": "integer" } },
+    "replaces": { "type": "array", "items": { "type": "integer" } },
+    "superseded-by": { "type": "integer" },
+    "catalogue": {
+      "description": "Standards LIPs: the catalogue version that carries the change.",
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "adr": {
+      "description": "The decision record written when the LIP was accepted.",
+      "type": "integer"
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "type": { "const": "Standards" } } },
+      "then": { "required": ["category"] }
+    },
+    {
+      "if": { "properties": { "status": { "const": "Last Call" } } },
+      "then": { "required": ["last-call-ends"] }
+    },
+    {
+      "if": { "properties": { "status": { "enum": ["Accepted", "Active"] } } },
+      "then": { "required": ["adr"] }
+    },
+    {
+      "if": { "properties": { "status": { "const": "Superseded" } } },
+      "then": { "required": ["superseded-by"] }
+    }
+  ]
+}
