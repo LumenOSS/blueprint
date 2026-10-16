@@ -1,8 +1,10 @@
 # CAP-MIGRATION Migration and decommission
 
+<!-- BEGIN GENERATED: header (just render) -->
 Moving between platforms or accounts without loss, with a fallback window and two-role sign-off.
 
 Layer L1 · domain: movement · depends on: [CAP-OPERATIONALDB](cap-operationaldb.md), [CAP-CLASSIFICATION](cap-classification.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

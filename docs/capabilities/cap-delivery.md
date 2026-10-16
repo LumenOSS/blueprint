@@ -1,8 +1,10 @@
 # CAP-DELIVERY Change delivery
 
+<!-- BEGIN GENERATED: header (just render) -->
 Every change is reviewed with its plan and applied by CI only, after merge.
 
 Layer L1 · domain: delivery · depends on: [CAP-CIIDENTITY](cap-ciidentity.md), [CAP-STATE](cap-state.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

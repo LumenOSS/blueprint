@@ -1,8 +1,10 @@
 # CAP-SECRETS Secrets and keys
 
+<!-- BEGIN GENERATED: header (just render) -->
 Secrets and keys live in a managed store and are fetched by identity at runtime.
 
 Layer L1 · domain: delivery
+<!-- END GENERATED: header -->
 
 ## Purpose
 

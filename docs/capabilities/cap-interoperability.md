@@ -1,8 +1,10 @@
 # CAP-INTEROPERABILITY Exchange with other systems
 
+<!-- BEGIN GENERATED: header (just render) -->
 Every feed to or from another system is declared, validated at the edge and reconciled.
 
 Layer L1 · domain: data · depends on: [CAP-ONBOARDING](cap-onboarding.md), [CAP-CATALOG](cap-catalog.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

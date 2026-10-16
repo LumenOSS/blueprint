@@ -1,8 +1,10 @@
 # CAP-RECORDS Records lifecycle and data-subject rights
 
+<!-- BEGIN GENERATED: header (just render) -->
 Every record has a retention class; archiving, disposal, subject access, rectification and individual disclosure follow declared, audited paths.
 
 Layer L1 · domain: governance · depends on: [CAP-CLASSIFICATION](cap-classification.md), [CAP-MASTERDATA](cap-masterdata.md), [CAP-AUDIT](cap-audit.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

@@ -1,8 +1,10 @@
 # CAP-OPERATIONALDB Operational database with branching
 
+<!-- BEGIN GENERATED: header (just render) -->
 Each product's transactional Postgres store, with copy-on-write branches of production.
 
 Layer L1 · domain: data · depends on: [CAP-IDENTITY](cap-identity.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

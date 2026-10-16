@@ -1,8 +1,10 @@
 # CAP-MASTERDATA Master data and identifiers
 
+<!-- BEGIN GENERATED: header (just render) -->
 One authoritative registry per core resource, with permanent opaque identifiers and governed duplicate resolution.
 
 Layer L1 · domain: data · depends on: [CAP-CATALOG](cap-catalog.md), [CAP-OPERATIONALDB](cap-operationaldb.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

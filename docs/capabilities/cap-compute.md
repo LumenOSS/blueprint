@@ -1,8 +1,10 @@
 # CAP-COMPUTE Compute
 
+<!-- BEGIN GENERATED: header (just render) -->
 Batch, streaming and interactive SQL compute that scales to zero and reads only through the catalog.
 
 Layer L1 · domain: data · depends on: [CAP-CATALOG](cap-catalog.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

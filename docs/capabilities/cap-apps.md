@@ -1,8 +1,10 @@
 # CAP-APPS Application hosting
 
+<!-- BEGIN GENERATED: header (just render) -->
 Product interfaces deployed by CI, behind sign-in, that say which environment they are in.
 
 Layer L3 · domain: data · depends on: [CAP-NETWORK](cap-network.md), [CAP-DELIVERY](cap-delivery.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

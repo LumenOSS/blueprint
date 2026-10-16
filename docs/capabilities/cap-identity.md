@@ -1,8 +1,10 @@
 # CAP-IDENTITY Identity and groups
 
+<!-- BEGIN GENERATED: header (just render) -->
 One identity provider for people and groups, synchronised automatically, with break-glass access held apart.
 
 Layer L1 · domain: governance
+<!-- END GENERATED: header -->
 
 ## Purpose
 

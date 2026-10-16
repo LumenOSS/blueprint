@@ -1,8 +1,10 @@
 # CAP-ORCHESTRATION Orchestration
 
+<!-- BEGIN GENERATED: header (just render) -->
 Declared jobs with bounded runs, safe retries and range re-runs.
 
 Layer L3 · domain: data · depends on: [CAP-COMPUTE](cap-compute.md), [CAP-DELIVERY](cap-delivery.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

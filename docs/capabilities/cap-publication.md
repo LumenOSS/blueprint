@@ -1,8 +1,10 @@
 # CAP-PUBLICATION Open statistical publication
 
+<!-- BEGIN GENERATED: header (just render) -->
 Aggregate statistics published openly with disclosure control, permanent identifiers and open metadata.
 
 Layer L1 · domain: governance · depends on: [CAP-SEMANTICS](cap-semantics.md), [CAP-CLASSIFICATION](cap-classification.md), [CAP-REFERENCE](cap-reference.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

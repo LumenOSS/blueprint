@@ -1,8 +1,10 @@
 # CAP-RELEASE Reconciliation and release
 
+<!-- BEGIN GENERATED: header (just render) -->
 Results are released per unit only when the unit reconciles against its register.
 
 Layer L3 · domain: product · depends on: [CAP-REVIEW](cap-review.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

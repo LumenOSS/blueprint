@@ -1,8 +1,10 @@
 # CAP-ACCESS Access model
 
+<!-- BEGIN GENERATED: header (just render) -->
 Role decides reach, entitlements decide rows, classification decides columns.
 
 Layer L1 · domain: governance · depends on: [CAP-IDENTITY](cap-identity.md), [CAP-CATALOG](cap-catalog.md), [CAP-CLASSIFICATION](cap-classification.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

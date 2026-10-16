@@ -1,8 +1,10 @@
 # CAP-REFERENCE Reference data and data dictionary
 
+<!-- BEGIN GENERATED: header (just render) -->
 Governed code lists, a versioned data dictionary and common formats, so every value means the same thing everywhere.
 
 Layer L1 · domain: governance · depends on: [CAP-CATALOG](cap-catalog.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

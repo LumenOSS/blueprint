@@ -1,8 +1,10 @@
 # CAP-COLLECTION Periodic data collection
 
+<!-- BEGIN GENERATED: header (just render) -->
 Returns collected from institutions on a cycle, validated at entry, attested, gated on completeness and frozen at a reference date.
 
 Layer L3 · domain: product · depends on: [CAP-MASTERDATA](cap-masterdata.md), [CAP-QUALITY](cap-quality.md), [CAP-REFERENCE](cap-reference.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

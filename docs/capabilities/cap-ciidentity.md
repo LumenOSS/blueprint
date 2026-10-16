@@ -1,8 +1,10 @@
 # CAP-CIIDENTITY CI workload identity
 
+<!-- BEGIN GENERATED: header (just render) -->
 CI authenticates by federation with short-lived tokens; the root of trust is created once by a person.
 
 Layer L0 · domain: delivery
+<!-- END GENERATED: header -->
 
 ## Purpose
 

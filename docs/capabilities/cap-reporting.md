@@ -1,8 +1,10 @@
 # CAP-REPORTING Reporting
 
+<!-- BEGIN GENERATED: header (just render) -->
 Dashboards and natural-language query over the semantic layer, deployed as code.
 
 Layer L3 · domain: data · depends on: [CAP-SEMANTICS](cap-semantics.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

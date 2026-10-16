@@ -1,8 +1,10 @@
 # CAP-GUARDRAILS Guardrails and fitness functions
 
+<!-- BEGIN GENERATED: header (just render) -->
 Policy as code on every plan, and scheduled checks that the architecture's properties still hold.
 
 Layer L1 · domain: delivery · depends on: [CAP-DELIVERY](cap-delivery.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

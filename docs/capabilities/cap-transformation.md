@@ -1,8 +1,10 @@
 # CAP-TRANSFORMATION Transformation layer
 
-Versioned, tested models from bronze to silver to gold; the only place metrics are computed.
+<!-- BEGIN GENERATED: header (just render) -->
+Versioned, tested models from bronze to silver to gold; the only place measures are computed.
 
 Layer L3 · domain: data · depends on: [CAP-COMPUTE](cap-compute.md), [CAP-CATALOG](cap-catalog.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

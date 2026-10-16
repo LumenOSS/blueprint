@@ -1,8 +1,10 @@
 # CAP-CATALOG Catalog and governance plane
 
+<!-- BEGIN GENERATED: header (just render) -->
 One catalog of record for tables, files and functions, enforcing grants, tags and policies.
 
 Layer L1 · domain: data · depends on: [CAP-TABLES](cap-tables.md), [CAP-IDENTITY](cap-identity.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

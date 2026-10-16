@@ -435,6 +435,16 @@ def register_tables(reg: Register) -> str:
     return "\n".join(out).rstrip()
 
 
+def page_header(cap: Capability) -> str:
+    """Renders the summary and placement lines under a capability's title."""
+    line = f"Layer {cap['layer']} · domain: {cap['domain']}"
+    deps = cap.get("depends_on", [])
+    if deps:
+        links = ", ".join(f"[{d}]({d.lower()}.md)" for d in deps)
+        line += f" · depends on: {links}."
+    return f"{cell(cap['summary'])}\n\n{line}"
+
+
 def page_standards(cap: Capability, reg: Register | None) -> str:
     """Renders, for one capability page, the standards it relies on."""
     if reg is None:
@@ -626,6 +636,7 @@ def render(cat: Catalogue, *, write: bool) -> list[pathlib.Path]:
     for cap in cat["capabilities"]:
         page = page_path(cap["id"])
         if page.exists():
+            update(page, "header", page_header(cap))
             update(page, "contract", contract_table(cap))
             update(page, "standards", page_standards(cap, reg))
             update(page, "implementations", page_implementations(cap, files))

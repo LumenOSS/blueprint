@@ -1,8 +1,10 @@
 # CAP-REVIEW Human review
 
+<!-- BEGIN GENERATED: header (just render) -->
 Low-confidence results go to people, whose decisions are leased, durable and never overwritten by machines.
 
 Layer L3 · domain: product · depends on: [CAP-OPERATIONALDB](cap-operationaldb.md), [CAP-AUDIT](cap-audit.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

@@ -1,8 +1,10 @@
 # CAP-STORAGE Object storage
 
+<!-- BEGIN GENERATED: header (just render) -->
 Durable object storage for tables and files, isolated per domain catalog.
 
 Layer L1 · domain: data
+<!-- END GENERATED: header -->
 
 ## Purpose
 

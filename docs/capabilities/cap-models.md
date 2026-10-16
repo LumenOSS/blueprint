@@ -1,8 +1,10 @@
 # CAP-MODELS Governed analytical models
 
+<!-- BEGIN GENERATED: header (just render) -->
 Predictive models, such as early-warning flags, that advise people, are reproducible, and are checked for unequal error before release.
 
 Layer L3 · domain: product · depends on: [CAP-TRANSFORMATION](cap-transformation.md), [CAP-REVIEW](cap-review.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

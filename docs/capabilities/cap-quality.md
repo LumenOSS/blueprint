@@ -1,8 +1,10 @@
 # CAP-QUALITY Data quality
 
+<!-- BEGIN GENERATED: header (just render) -->
 Checks at every tier; failing data is quarantined, never used.
 
 Layer L3 · domain: data · depends on: [CAP-TRANSFORMATION](cap-transformation.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

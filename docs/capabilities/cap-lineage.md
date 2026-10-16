@@ -1,8 +1,10 @@
 # CAP-LINEAGE Lineage
 
+<!-- BEGIN GENERATED: header (just render) -->
 Which inputs produced which outputs, captured as work runs.
 
 Layer L1 · domain: data · depends on: [CAP-CATALOG](cap-catalog.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

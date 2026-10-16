@@ -1,8 +1,10 @@
 # CAP-CLASSIFICATION Classification and provenance
 
+<!-- BEGIN GENERATED: header (just render) -->
 Every table and column is classified by sensitivity and tagged with provenance from the moment it lands.
 
 Layer L1 · domain: governance · depends on: [CAP-CATALOG](cap-catalog.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

@@ -1,8 +1,10 @@
 # CAP-MODULES Versioned modules
 
+<!-- BEGIN GENERATED: header (just render) -->
 Shared building blocks consumed by immutable version, including deterministic naming.
 
 Layer L2 · domain: delivery
+<!-- END GENERATED: header -->
 
 ## Purpose
 

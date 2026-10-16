@@ -1,8 +1,10 @@
 # CAP-SEMANTICS Semantic layer
 
-Every measure defined once, versioned, and read by every consumer.
+<!-- BEGIN GENERATED: header (just render) -->
+Every measure defined once, beside the models that produce its counts, and served to every consumer from that one definition.
 
 Layer L1 · domain: data · depends on: [CAP-TRANSFORMATION](cap-transformation.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

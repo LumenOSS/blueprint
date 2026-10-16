@@ -1,8 +1,10 @@
 # CAP-NETWORK Network isolation
 
+<!-- BEGIN GENERATED: header (just render) -->
 Data services are private; only applications are exposed, behind sign-in.
 
 Layer L1 · domain: delivery
+<!-- END GENERATED: header -->
 
 ## Purpose
 

@@ -1,8 +1,10 @@
 # CAP-TABLES Open table format
 
+<!-- BEGIN GENERATED: header (just render) -->
 Transactional tables in an open format, readable by more than one engine.
 
 Layer L1 · domain: data · depends on: [CAP-STORAGE](cap-storage.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

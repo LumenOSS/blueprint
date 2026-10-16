@@ -1,8 +1,10 @@
 # CAP-SHARING Publication and sharing
 
+<!-- BEGIN GENERATED: header (just render) -->
 External parties receive de-identified tables from a publication catalog over an open protocol, each share approved and registered.
 
 Layer L1 · domain: governance · depends on: [CAP-CATALOG](cap-catalog.md), [CAP-CLASSIFICATION](cap-classification.md), [CAP-TRANSFORMATION](cap-transformation.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

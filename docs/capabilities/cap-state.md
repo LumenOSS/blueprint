@@ -1,8 +1,10 @@
 # CAP-STATE Infrastructure state
 
+<!-- BEGIN GENERATED: header (just render) -->
 Remote, locked, versioned and encrypted state for every stack, readable only by the identities that own it.
 
 Layer L0 · domain: delivery · depends on: [CAP-MODULES](cap-modules.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

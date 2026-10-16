@@ -1,8 +1,10 @@
 # CAP-BACKFILL Backfill and reprocessing
 
+<!-- BEGIN GENERATED: header (just render) -->
 Loading history, reprocessing and filling gaps are idempotent, bounded, rehearsed and reconciled.
 
 Layer L3 · domain: movement · depends on: [CAP-ORCHESTRATION](cap-orchestration.md), [CAP-ENVIRONMENTS](cap-environments.md), [CAP-QUALITY](cap-quality.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

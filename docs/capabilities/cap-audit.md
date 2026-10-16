@@ -1,8 +1,10 @@
 # CAP-AUDIT Audit
 
+<!-- BEGIN GENERATED: header (just render) -->
 Every access and administrative action recorded, retained beyond the platform default, readable by auditors only.
 
 Layer L1 · domain: governance · depends on: [CAP-IDENTITY](cap-identity.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

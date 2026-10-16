@@ -1,8 +1,10 @@
 # CAP-PIPELINE Retryable pipeline
 
+<!-- BEGIN GENERATED: header (just render) -->
 Content-addressed, deterministic stages that hand off through storage and can retry while the database is down.
 
 Layer L3 · domain: product · depends on: [CAP-ORCHESTRATION](cap-orchestration.md), [CAP-STORAGE](cap-storage.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

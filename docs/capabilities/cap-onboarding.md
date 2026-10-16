@@ -1,8 +1,10 @@
 # CAP-ONBOARDING Tenant onboarding registry
 
+<!-- BEGIN GENERATED: header (just render) -->
 One reviewed declaration per product or source generates its identities, grants, schemas and reviewers.
 
 Layer L1 · domain: delivery · depends on: [CAP-DELIVERY](cap-delivery.md), [CAP-CATALOG](cap-catalog.md), [CAP-CIIDENTITY](cap-ciidentity.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

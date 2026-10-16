@@ -1,8 +1,10 @@
 # CAP-INGESTION Ingestion
 
+<!-- BEGIN GENERATED: header (just render) -->
 Files, in-place federation and change data capture behind one onboarding step.
 
 Layer L1 · domain: data · depends on: [CAP-ONBOARDING](cap-onboarding.md), [CAP-CATALOG](cap-catalog.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

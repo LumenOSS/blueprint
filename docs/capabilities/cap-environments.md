@@ -1,8 +1,10 @@
 # CAP-ENVIRONMENTS Environments by branching
 
+<!-- BEGIN GENERATED: header (just render) -->
 An environment is a template plus values; development is isolated inside production by branching.
 
 Layer L1 · domain: movement · depends on: [CAP-OPERATIONALDB](cap-operationaldb.md), [CAP-CATALOG](cap-catalog.md).
+<!-- END GENERATED: header -->
 
 ## Purpose
 

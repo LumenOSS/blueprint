@@ -1,8 +1,10 @@
 # CAP-OBSERVABILITY Operational telemetry
 
+<!-- BEGIN GENERATED: header (just render) -->
 Per-item metrics, freshness and cost, reaching gold so cost can be told apart from work.
 
 Layer L1 · domain: data
+<!-- END GENERATED: header -->
 
 ## Purpose
 

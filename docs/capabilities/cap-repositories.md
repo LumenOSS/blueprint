@@ -1,8 +1,10 @@
 # CAP-REPOSITORIES Repositories by trust
 
+<!-- BEGIN GENERATED: header (just render) -->
 Each layer is its own repository and the unit of trust for its CI identities.
 
 Layer L0 · domain: delivery
+<!-- END GENERATED: header -->
 
 ## Purpose
 
