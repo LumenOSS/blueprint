@@ -56,6 +56,14 @@ msgid "Avoid the failures that shaped the design"
 msgstr ""
 
 #: docs/guides/README.md
+msgid "[Reviewing]{1}"
+msgstr ""
+
+#: docs/guides/README.md
+msgid "Follow the review towards 1.0.0, and give a verdict on a page, a clause or a decision"
+msgstr ""
+
+#: docs/guides/README.md
 msgid "[Translating]{1}"
 msgstr ""
 

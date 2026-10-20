@@ -109,6 +109,12 @@
   pageRef = "/guides/lessons"
   weight = 44
 [[main]]
+  identifier = "reviewing"
+  name = "Reviewing"
+  parent = "guides"
+  pageRef = "/guides/reviewing"
+  weight = 45
+[[main]]
   identifier = "proposals"
   name = "Proposals"
   pageRef = "/lips"

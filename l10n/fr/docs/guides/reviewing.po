@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: lumenoss-blueprint\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Review-Status: unreviewed\n"
+
+#: docs/guides/reviewing.md
+msgid "Reviewing the blueprint"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Most of the blueprint was drafted quickly, and the maintainers accepted it directly, as [LIP-1]{1} allows before 1.0.0. Before anyone builds on it, every part needs a careful reading and a recorded verdict. This guide tells you how that review is organised, what each milestone settles, and how to give a verdict."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Milestones"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The review is tracked in the repository's [milestones]{1}. Each one has a due date, which is a target. We move it when the work needs more time, and we say so here when we do."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The foundations come first because everything else is read against them. The contracts and the domain design can be reviewed side by side. The architecture waits for both, because its diagrams draw the capabilities and the contexts. The guides come last, because they tell you how to apply everything above them."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Milestone"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Due"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "It closes when"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "M1 Foundations reviewed"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "2026-10-30"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The core concepts, the principles, the standards register, the entry pages and the process records have a verdict"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "M2 Contracts approved"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "2026-11-06"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Every clause of every capability is approved, changed or dropped"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "M3 Domain design approved"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "2026-11-13"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The domain model, the context map, every context, the aggregates and events, the indicators and the glossary are agreed"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "M4 Architecture approved"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "2026-11-20"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The C4 diagrams, the semantic layer, both reference bindings and the architecture records are agreed"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "M5 Guides reviewed"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "2026-11-27"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Every guide matches the approved specifications, and the translations are brought back up to date"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "M6 Ready to build"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "2026-12-04"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The buildout is planned in phases, the implementation repositories are laid out, and the 1.0.0 promise is written"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "What each milestone covers"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "What is reviewed"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The [core concepts]{1}, the [principles]{2}, the [standards]{3}, the [README]{4}, [getting started]{5} and [contributing]{6}, and the records for the process itself: [ADR-0001]{7}, [ADR-0012]{8} and [LIP-1]{9}"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The [capabilities]{1}, one issue for each of the five domains, with a checklist of its capabilities"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The [domain model]{1}, the [context map]{2} and each context's `CONTEXT.md`, the [domain design]{3}, the [indicators]{4}, the [glossary]{5}, and ADR-0008, ADR-0010 and ADR-0013"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The [architecture]{1} diagrams, the [semantic layer]{2}, the [implementations]{3}, and ADR-0002 to ADR-0007, ADR-0009, ADR-0011 and ADR-0014"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "[Building]{1}, the [example products]{2}, [backfill]{3}, [lessons]{4} and [translating]{5}, and the French, Spanish and Arabic translations"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "The buildout phases, the layout of the implementation repositories, how conformance evidence is shown, and what 1.0.0 promises"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Give a verdict"
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Each area under review has an issue in its milestone, with a checklist of the things to read. Anyone can comment with evidence or a view. The Data Lead and the Technical Lead give the verdict."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Open the issue and read each item on its checklist."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Comment with a verdict for each item you have a view on."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "For a page, a principle or a clause, the verdict is **approve**, **change** (give the new wording) or **drop** (give the reason)."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "For a decision record, the verdict is **confirm** or **supersede** (say what should replace it). Records are never edited, so a superseded decision gets a new record."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Make the change the verdict asks for, on the path [CONTRIBUTING]{1} gives it. A change of wording that keeps the meaning is an ordinary reviewed change. A changed or dropped clause, a new domain term, or a superseded decision needs a LIP, which the maintainers may accept straight from Draft until 1.0.0."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "Tick the item once its change has landed, and close the issue when every item is ticked."
+msgstr ""
+
+#: docs/guides/reviewing.md
+msgid "If the review turns up something no issue covers, open a new issue in the milestone it affects."
+msgstr ""
